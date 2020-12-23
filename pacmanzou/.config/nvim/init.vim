@@ -626,16 +626,16 @@ let g:coc_global_extensions = [
             \ 'coc-css',
             \ 'coc-vetur',
             \ 'coc-yaml',
+            \ 'coc-markdownlint',
             \ 'coc-vimlsp',
             \ 'coc-snippets',
             \ 'coc-diagnostic',
-            \ 'coc-markdownlint',
             \ 'coc-lists',
+            \ 'coc-yank',
             \ 'coc-git',
             \ 'coc-explorer',
-            \ 'coc-yank',
-            \ 'coc-leetcode',
-            \ 'coc-translator'
+            \ 'coc-translator',
+            \ 'coc-leetcode'
             \ ]
 
 " show documentation
