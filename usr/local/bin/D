@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Copyright (C) 2020 pacmanzou <pacmanzou@qq.com>
+#
+# Description: alias D mv
+#
+
+trash="$HOME/.trash/"
+
+if [[ ! -d "${trash}" ]]; then
+    mkdir "${trash}"
+fi
+
+if [[ "${1}" == "-c" ]]; then
+    sudo rm -rf "${trash}"
+    mkdir "${trash}"
+    echo "clean trash successfully"
+    exit 0
+elif [[ "${1}" == "-h" ]]; then
+    echo "usage:"
+    echo "  -c   clear trash"
+    exit 0
+fi
+
+mv -i "${@}" "${trash}"
+exit 0

@@ -1,0 +1,149 @@
+#!/usr/bin/env bash
+#
+# Copyright (C) 2020 pacmanzou <pacmanzou@qq.com>
+#
+# Description: dmenu_desktop
+#
+
+if [[ "$1" == "-h" ]]; then
+    echo "usage:"
+    echo "  -u   update desktop list"
+    exit 0
+fi
+
+# default_browser
+CHROME_BIN="chromium --disable-gpu --disable-software-rasterizer"
+
+# url
+PREFIXES=(
+    "gg https://www.google.com/search?q= https://www.google.com/"
+    "bd https://www.baidu.com/s?wd= https://www.baidu.com/"
+    "gh https://github.com/search?q= https://github.com/"
+    "ge https://search.gitee.com/?q= https://gitee.com/"
+    "lc https://leetcode-cn.com/problemset/all/?search= https://leetcode-cn.com/"
+)
+
+# Locate the cache file.
+cache_home=${XDG_CACHE_HOME:-"$HOME/.cache"}
+if [ -d "$cache_home" ]; then
+    cache=$cache_home/dmenu_desktop
+else
+    cache=$HOME/.dmenu_desktop
+fi
+
+data_dirs=${XDG_DATA_HOME:-"$HOME/.local/share"}:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}
+
+# Test whether the list of .desktop files has changed (the files themselves are not tested).
+_needs_update() {
+    old_IFS=$IFS
+    IFS=:
+    for dir in $data_dirs; do
+        dir=$dir/applications
+        if [ -d "$dir" ] && [ "$dir" -nt "$cache" ]; then
+            IFS=$old_IFS
+            return 0
+        fi
+    done
+    IFS=$old_IFS
+    return 1
+}
+
+# Find all relevant .desktop files and transform them into a single-line format.
+_collect() {
+    parse='/^\[/ {de=0} /^\[Desktop Entry\]/ {de=1}
+(de && /^[^#].*=/) {
+    match($0, /[ \t]*=[ \t]*/)
+    kv[substr($0, 1, RSTART-1)] = substr($0, RSTART+RLENGTH)
+}
+END {
+    OFS = ";\t"
+    if (kv["Type"] == "Application" && kv["NoDisplay"] != "true") {
+        name = kv["Name"]
+        gsub(/\\[nrst]/, " ", name)
+        gsub(/\\\\/, "\\", name)
+        exec = kv["Exec"]
+        gsub(/%[a-zA-Z]/, "", exec)
+        gsub(/%%/, "%", exec)
+        if (kv["Terminal"] == "true")
+            exec = "${RUN_TERMINAL_APP:-false} " exec
+        print name, kv["Path"], exec
+    }
+}'
+    old_IFS=$IFS
+    IFS=:
+    for dir in $data_dirs; do
+        dir=$dir/applications
+        [ -d "$dir" ] && find -L "$dir" -type f -name "*.desktop" -exec awk "$parse" \{\} \;
+    done
+    IFS=$old_IFS
+    unset parse
+}
+
+# Update the cache if necessary, or if -u was given.
+if [ "$1" = -u ] || _needs_update; then
+    _collect | sort -u -t \; -k 1,1 >"$cache"
+    echo "update cache successfully"
+    [ "$1" = -u ] && exit
+fi
+
+_search() {
+    # Run the application named on stdin.
+    # The cache file must exist and is not updated.
+    if [ ! -f "$cache" ]; then
+        echo "Application cache not found. Run \"$0 -u\" first." >&2
+        exit 1
+    fi
+    read -r name || exit 1
+    export name
+    match=$(awk -F ';\t' \
+        'function unescape(str) {
+            gsub(/\\s/, " ", str)
+            gsub(/\\n/, "\n", str)
+            gsub(/\\t/, "\t", str)
+            gsub(/\\r/, "\r", str)
+            gsub(/\\\\/, "\\", str)
+            return str
+        }
+        $1 == ENVIRON["name"] {OFS=FS; print unescape($2), unescape($3); exit}' \
+        "$cache")
+    unset name
+    [ -n "$match" ] || exit 1
+    path=${match%%;	*} # NB: literal tab
+    cmd=${match#*;	}   # dito
+    if [ -n "$path" ]; then
+        cd "$path" || exit 1
+    fi
+    eval "$cmd"
+    exit
+}
+
+_dmenu() {
+    dmenu -i -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -fn '' -p 'search engine'
+}
+
+# prefix launcher
+_prefix_launcher() {
+    for i in "${PREFIXES[@]}"; do
+        read -r -a PREFIX <<<"${i[@]}"
+        if [ "${PREFIX[0]}" == "${1:0:2}" ]; then
+            if [ ${#1} -eq "2" ]; then
+                $CHROME_BIN "${PREFIX[2]}"
+            else
+                QUERY=$(echo "$1" | sed -r 's/^..[[:space:]]+(.*)$/\1/')
+                if [ "$QUERY" != "$1" ]; then
+                    $CHROME_BIN "${PREFIX[1]}$QUERY"
+                fi
+            fi
+            exit
+        fi
+    done
+}
+
+query=$(awk -F ';\t' '{print $1}' "$cache" | dmenu -i -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -fn '' -p 'run')
+
+if [[ -n "${query}" ]]; then
+    echo "${query}" | _search
+    _prefix_launcher "${query}"
+fi
+
+exit

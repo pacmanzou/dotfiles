@@ -1,0 +1,24 @@
+confirmonquit: false
+git:
+  autofetch: true
+  merging:
+    manualcommit: false
+  skiphookprefix: WIP
+gui:
+  commitlength:
+    show: true
+  mouseevents: false
+  scrollheight: 2
+  scrollpastbottom: true
+  theme:
+    activebordercolor:
+    - green
+    - bold
+    inactivebordercolor:
+    - default
+    lighttheme: false
+    optionstextcolor:
+    - blue
+reporting: "off"
+splashupdatesindex: 0
+startuppopupversion: 1

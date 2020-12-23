@@ -1,0 +1,41 @@
+snippet html "HTML basic structure with the lang attribute" b
+<!DOCTYPE html>
+<html lang="${1:es}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<title>${2:}</title>
+	</head>
+	<body>
+		${0:body}
+	</body>
+</html>
+endsnippet
+
+snippet script "HTML <script>" w
+<script charset="utf-8" type="text/javascript">
+	${0:${VISUAL}}
+</script>
+endsnippet
+
+snippet scriptsrc "HTML <script src...>" w
+<script src="$1" charset="utf-8" type="text/javascript" ></script>
+endsnippet
+
+snippet linput
+<label>${1}: <input type="${2:text}" /></label>
+endsnippet
+
+snippet style "HTML <style>" w
+<style type="text/css" media="screen">
+	${0:${VISUAL}}
+</style>
+endsnippet
+
+
+snippet function
+function () {
+${0}
+}
+endsnippet
+# vim:ft=snippets:
