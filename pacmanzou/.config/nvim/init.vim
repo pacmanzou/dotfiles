@@ -657,8 +657,6 @@ nnoremap gh <cmd>call <sid>show_documentation()<Cr>
 let g:coc_snippet_next = '<C-j>'
 let g:coc_snippet_prev = '<C-k>'
 
-imap <C-j> <nop>
-
 vmap <C-j> <Plug>(coc-snippets-select)
 
 " file explorer
@@ -958,15 +956,19 @@ augroup hugefile
 augroup END
 
 
-" Super_L:
-function Super_L() abort
-    inoremap <C-l> <nop>
+" Super_JL:
+function Super_JL() abort
+    imap <C-l> <nop>
+    imap <C-j> <nop>
     if &filetype == "go"
-        inoremap <C-l> :=
+        imap <C-j> fmt.Println()<Left>
+        imap <C-l> :=
     elseif &filetype == "python"
-        inoremap <C-l> ->
+        imap <C-j> print()<Left>
+        imap <C-l> ->
     elseif &filetype == "sh"
-        inoremap <C-l> "${}"<Left><Left>
+        imap <C-j> echo ""<Left>
+        imap <C-l> "${}"<Left><Left>
         " elseif &filetype == "javascript"
         "     inoremap <C-l> 
         " elseif &filetype == "cpp"
@@ -976,7 +978,7 @@ function Super_L() abort
     endif
 endfunction
 
-autocmd BufEnter * call Super_L()
+autocmd BufEnter * call Super_JL()
 
 
 " OtherCommands:
