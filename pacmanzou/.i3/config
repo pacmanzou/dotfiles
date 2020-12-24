@@ -33,7 +33,7 @@ floating_modifier $mod
 font xft:URWGothic-Book 11
 
 bindsym $mod+Ctrl+q kill
-bindsym $mod+q exec --no-startup-id  killall TIM.exe wpsoffice
+bindsym $mod+q exec --no-startup-id  killall wpsoffice
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 bindsym $mod+Ctrl+Return exec --no-startup-id st -e zsh
 bindsym $mod+r exec --no-startup-id flameshot gui
@@ -121,19 +121,20 @@ bindsym $mod+Ctrl+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Ctrl+9 move container to workspace $ws9; workspace $ws9
 
 # Open specific applications in floating mode
-for_window [class="GParted"] floating enable border none
-for_window [title="i3_help"] floating enable sticky enable border none
+for_window [class="GParted"] floating enable
+for_window [title="i3_help"] floating enable sticky enable
 for_window [class="Lightdm-settings"] floating enable
-for_window [class="Lxappearance"] floating enable sticky enable border none
-for_window [class="Manjaro Settings Manager"] floating enable border none
+for_window [class="Lxappearance"] floating enable sticky enable
+for_window [class="Manjaro Settings Manager"] floating enable
 for_window [class="Pamac-manager"] floating enable
-for_window [class="Gcolor"] floating enable border none
-for_window [class="baidunetdisk"] floating enable border none
-for_window [class="Yad"] floating enable border none
-for_window [class="fcitx5"] floating enable border none
-for_window [class="copyq"] floating enable border none
-for_window [class="st"] floating enable border none
-for_window [class="Nitrogen"] floating enable border none
+for_window [class="Gcolor"] floating enable
+for_window [class="baidunetdisk"] floating enable
+for_window [class="Yad"] floating enable
+for_window [class="Fcitx"] floating enable
+for_window [class="copyq"] floating enable
+for_window [class="st"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [class="QQ.exe"] floating enable border none
 
 # Resize window (you can also use the mouse for that)
 bindsym $mod+z mode "resize"
