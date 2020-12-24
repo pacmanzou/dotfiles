@@ -488,9 +488,10 @@ vmap <silent>x <Plug>(Exchange)
 
 " Skylight:
 let g:skylight_jump_command = 'split'
-let g:skylight_position = 'auto'
-let g:skylight_width = 0.9
-let g:skylight_height = 0.5
+let g:skylight_position     = 'auto'
+let g:skylight_width        = 0.8
+let g:skylight_height       = 0.5
+let g:skylight_borderchars  = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
 
 nnoremap gj <cmd>Skylight! file<Cr>
 nnoremap gp <cmd>Skylight file<Cr>
