@@ -336,7 +336,7 @@ endfunction
 
 
 " Crystalline:
-" coc diagnostic
+" coc
 function! StatusDiagnostic() abort
     let info = get(b:, 'coc_diagnostic_info', {})
     if empty(info) | return '' | endif
@@ -350,15 +350,19 @@ function! StatusDiagnostic() abort
     return join(msgs)
 endfunction
 
-" coc git
-function! Gitstatusg() abort
-    let statusg = get(g:, 'coc_git_status', '')
-    return  statusg
+function! GitstatusG() abort
+    let status = get(g:, 'coc_git_status', '')
+    return  status
 endfunction
 
-function! Gitstatusb() abort
-    let statusb = get(b:, 'coc_git_status', '')
-    return  statusb
+function! GitstatusB() abort
+    let status = get(b:, 'coc_git_status', '')
+    return  status
+endfunction
+
+function! CurrentFunction() abort
+    let status = get(b:, 'coc_current_function', '')
+    return  status
 endfunction
 
 " statusline
@@ -369,7 +373,7 @@ function! StatusLine(current, width)
     else
         let l:s .= '%#CrystallineInactive#'
     endif
-    let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{NearestMethodOrFunction()}]%h%w%m%r'
+    let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r'
     if a:current
         let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c,%L  %{StatusDiagnostic()}'
     endif
@@ -379,7 +383,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{Gitstatusb()} %{Gitstatusg()}  [%{&ft}][%{&fenc!=#""?&fenc:&enc}][%{&ff}]'
+        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}][%{&fenc!=#""?&fenc:&enc}][%{&ff}]'
     else
         let l:s .= ''
     endif
@@ -918,17 +922,12 @@ au BufReadPost * if line("'\"")>1 && line("'\"") <= line("$") && &filetype != 'g
 
 
 " Hugefile:
-" hugefile let coc and vista_statusline dead
+" hugefile let coc dead
 " file maxsize
 let g:trigger_size         = 0.5 * 1024 * 1024
 
 " coc startup delay
 let g:coc_start_at_startup = 0
-
-" vista statusline
-function! NearestMethodOrFunction() abort
-    return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
 
 " cocstart
 function! CocTimerStart(timer)
@@ -937,18 +936,10 @@ endfunction
 
 augroup hugefile
     autocmd!
-    autocmd BufReadPre *
-                \ let size = getfsize(expand('<afile>')) |
-                \ if (size > g:trigger_size) || (size == -2) |
-                \ else |
-                \   call vista#RunForNearestMethodOrFunction() |
-                \ endif |
-                \ unlet size
-
     autocmd VimEnter *
                 \ let size = getfsize(expand('<afile>')) |
                 \ if (size > g:trigger_size) || (size == -2) |
-                \   echohl WarningMsg | echomsg 'WARNING: altering options for this huge file!' | echohl None |
+                \   echohl WarningMsg | echomsg 'WARNING: Coc is dead for this huge file!' | echohl None |
                 \ else |
                 \   call timer_start(100,'CocTimerStart',{'repeat':1}) |
                 \ endif |
