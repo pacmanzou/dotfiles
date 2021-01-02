@@ -479,7 +479,7 @@ let g:neoformat_basic_format_retab = 1
 let g:neoformat_basic_format_trim = 0
 
 " saved silent autoformat
-autocmd BufWritePre *.go,*.python,*.sh,*.json,*.sql,
+autocmd BufWritePre *.go,*.python,*.sh,
             \*.js,*.html,*.css,*.markdown,*.c,*.cpp silent Neoformat
 
 
