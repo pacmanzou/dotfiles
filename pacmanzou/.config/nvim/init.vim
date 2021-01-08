@@ -291,6 +291,7 @@ function! My_highlight_show() abort
     hi    WarningMsg     guifg=#FE8019   guibg=#000000
     hi    ErrorMsg       gui=bold        guifg=#ff4934   guibg=#000000
     hi    CocErrorSign   guifg=#ff4934
+    hi    FloatermBorder guifg=#ebdbb2   guibg=#00000000
     hi    IncSearch      gui=bold        guifg=#ebdbb2   guibg=#353535
     hi    StatusLine     gui=reverse     guifg=#000000   guibg=#ebdbb2
     hi    StatusLineNC   gui=reverse     guifg=#000000   guibg=#ebdbb2
