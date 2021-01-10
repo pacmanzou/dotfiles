@@ -7,7 +7,7 @@ conky.config = {
 	double_buffer = true,
 	font = 'anti Vera Sans:size=9',
 	draw_shades = false,
-	gap_x = 11,
+	gap_x = 12,
 	gap_y = 11,
 	minimum_width = 200,
 	no_buffers = true,
