@@ -137,6 +137,7 @@ imap <C-v> <nop>
 imap <C-q> <nop>
 imap <C-z> <nop>
 imap <C-g> <nop>
+imap <C-Space> <nop>
 
 " cmd
 cmap <C-d> <Delete>
@@ -953,7 +954,8 @@ function Super_JL() abort
     imap <C-l> <nop>
     imap <C-j> <nop>
     if &filetype == "go"
-        imap <C-j> fmt.Println()<Left>
+        imap <C-j>l fmt.Println()<Left>
+        imap <C-j>f fmt.Printf("")<Left><Left>
         imap <C-l> :=
     elseif &filetype == "python"
         imap <C-j> print()<Left>
