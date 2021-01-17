@@ -50,7 +50,6 @@
         "?": "help"
     },
     "git.splitWindowCommand": "below sp",
-    "git.signOffset": 99,
     "git.addedSign.hlGroup": "GitAdd",
     "git.addGBlameToVirtualText": true,
     "git.enableGlobalStatus": true,

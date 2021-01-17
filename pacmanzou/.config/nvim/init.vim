@@ -209,6 +209,8 @@ Plug 'RRethy/vim-hexokinase',        { 'do': 'make hexokinase'}
 " better operation
 Plug 'pacmanzou/surround.vim'
 Plug 'pacmanzou/capslock.vim'
+Plug 'kana/vim-smartchr'
+Plug 'kana/vim-niceblock'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
@@ -414,6 +416,27 @@ let g:Hexokinase_highlighters = ['background']
 
 
 " BetterOperation:
+" SmartChr:
+autocmd FileType * inoremap <buffer><expr> !
+            \ smartchr#loop('!=', '!')
+autocmd FileType go inoremap <buffer><expr> ;
+            \ smartchr#loop(';', ':=')
+autocmd FileType go inoremap <buffer><expr> .
+            \ smartchr#loop('.', '->', '...')
+autocmd FileType go inoremap <buffer><expr> ,
+            \ smartchr#loop(',', '<-')
+autocmd FileType python inoremap <buffer><expr> .
+            \ smartchr#loop('.', '->')
+autocmd FileType sh inoremap <buffer><expr> $
+            \ smartchr#loop('$', '"${}"')
+
+
+" NiceBlock:
+xmap I <Plug>(niceblock-I)
+xmap gI <Plug>(niceblock-gI)
+xmap A <Plug>(niceblock-A)
+
+
 " Tabular:
 vmap ga :Tabularize /
 
@@ -949,30 +972,20 @@ augroup hugefile
 augroup END
 
 
-" Super_JL:
-function Super_JL() abort
+" Super_L:
+function Super_L() abort
     imap <C-l> <nop>
-    imap <C-j> <nop>
     if &filetype == "go"
-        imap <C-j>l fmt.Println()<Left>
-        imap <C-j>f fmt.Printf("")<Left><Left>
-        imap <C-l> :=
+        imap <C-l>l fmt.Println()<Left>
+        imap <C-l>f fmt.Printf("")<Left><Left>
     elseif &filetype == "python"
-        imap <C-j> print()<Left>
-        imap <C-l> ->
+        imap <C-l> print()<Left>
     elseif &filetype == "sh"
-        imap <C-j> echo ""<Left>
-        imap <C-l> "${}"<Left><Left>
-        " elseif &filetype == "javascript"
-        "     inoremap <C-l> 
-        " elseif &filetype == "cpp"
-        "     inoremap <C-l> 
-        " elseif &filetype == "c"
-        "     inoremap <C-l> 
+        imap <C-l> echo ""<Left>
     endif
 endfunction
 
-autocmd BufEnter * call Super_JL()
+autocmd BufEnter * call Super_L()
 
 
 " OtherCommands:
