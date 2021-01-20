@@ -104,7 +104,7 @@ save_online() {
 }
 
 display() {
-    query=$(_dmenu -l 14 -p "saved" <"$HOME"/.word)
+    query=$(tac "$HOME"/.word | _dmenu -l 14 -p "saved")
 
     copy
 }
