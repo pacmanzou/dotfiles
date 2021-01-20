@@ -853,7 +853,7 @@ let g:mkdp_page_title                        = '${name}'
 " MarkdownSpell:
 autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
 
-noremap <Space>p <cmd>set spell!<Cr>
+nnoremap <Space>p <cmd>set spell!<Cr>
 
 
 " MarkdownPasteImage:
@@ -880,7 +880,7 @@ func! Md_paste_image()
     execute "normal! ve\<C-g>"
 endfunc
 
-autocmd FileType markdown nnoremap <Space>i <cmd>call Md_paste_image()<Cr>
+autocmd FileType markdown nnoremap <buffer><Space>i <cmd>call Md_paste_image()<Cr>
 
 
 " Misc:
@@ -977,12 +977,11 @@ augroup END
 function Super_L() abort
     imap <C-l> <nop>
     if &filetype == "go"
-        imap <C-l>l fmt.Println()<Left>
-        imap <C-l>f fmt.Printf("")<Left><Left>
+        imap <buffer><C-l> fmt.Println()<Left>
     elseif &filetype == "python"
-        imap <C-l> print()<Left>
+        imap <buffer><C-l> print()<Left>
     elseif &filetype == "sh"
-        imap <C-l> echo ""<Left>
+        imap <buffer><C-l> echo ""<Left>
     endif
 endfunction
 
