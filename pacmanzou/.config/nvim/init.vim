@@ -497,8 +497,8 @@ let g:neoformat_enabled_c = ['astyle']
 let g:neoformat_enabled_cpp = ['astyle']
 
 " when a filetype is not found
-let g:neoformat_basic_format_align = 1
-let g:neoformat_basic_format_retab = 1
+let g:neoformat_basic_format_align = 0
+let g:neoformat_basic_format_retab = 0
 
 " del $ space
 let g:neoformat_basic_format_trim = 0
@@ -686,6 +686,7 @@ nnoremap gh <cmd>call <sid>show_documentation()<Cr>
 let g:coc_snippet_next = '<C-j>'
 let g:coc_snippet_prev = '<C-k>'
 
+imap <C-j> <Plug>(coc-snippets-expand)
 vmap <C-j> <Plug>(coc-snippets-select)
 
 " file explorer
