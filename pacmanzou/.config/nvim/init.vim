@@ -283,54 +283,31 @@ let g:gruvbox_filetype_hi_groups = 0
 let g:gruvbox_plugin_hi_groups   = 0
 
 " my highlight
-function! My_highlight_show() abort
-    hi!   link           SignColumn      LineNr
-    hi    WarningMsg     guifg=#FE8019   guibg=#000000
-    hi    ErrorMsg       gui=bold        guifg=#ff4934   guibg=#000000
-    hi    Error          gui=bold        guifg=#fb4934   guibg=#000000
-    hi    CocErrorSign   guifg=#ff4934   guibg=#202124
-    hi    FloatermBorder guifg=#ebdbb2   guibg=#00000000
-    hi    IncSearch      gui=bold        guifg=#ebdbb2   guibg=#353535
-    hi    StatusLine     gui=reverse     guifg=#000000   guibg=#ebdbb2
-    hi    StatusLineNC   gui=reverse     guifg=#000000   guibg=#ebdbb2
-    hi    Search         gui=bold        guifg=#ebdbb2   guibg=#353535
-    hi    Pmenu          guifg=#ebdbb2   guibg=#202124
-    hi    CursorLine     guibg=#353535   guifg=#ebdbb2
-    hi    PmenuSel       gui=reverse     guibg=#ebdbb2   guifg=#353535
-    hi    PmenuThumb     guibg=#353535
-    hi    PmenuSbar      guibg=#202124
-    hi    DiffAdd        guifg=#b8bb26   guibg=#000000
-    hi    DiffChange     guifg=#8ec07c   guibg=#000000
-    hi    DiffDelete     guifg=#fb4934   guibg=#000000
-    hi    DiffText       guifg=#fabd2f   guibg=#000000
-    hi    Folded         gui=italic      guifg=#ebdbb2   guibg=#353535
-    hi    FoldColumn     guifg=#ebdbb2   guibg=#000000
-    hi    SpellBad       gui=undercurl   guifg=#fb4934   guisp=#fb4934
-    hi    SpellCap       gui=undercurl   guifg=#83a598   guisp=#83a598
-    hi    SpellRare      gui=undercurl   guifg=#d3869b   guisp=#d3869b
-    hi    SpellLocal     gui=undercurl   guifg=#8ec07c   guisp=#8ec07c
-    hi    paint0         guibg=#A3BE8C   guifg=#2E3440
-    hi    paint1         guibg=#EBCB8B   guifg=#2E3440
-    hi    paint2         guibg=#A1B6BF   guifg=#2E3440
-    hi    paint3         guibg=#BFA484   guifg=#2E3440
-    hi    paint4         guibg=#BF7A86   guifg=#2E3440
-    hi    paint5         guibg=#BB9BF2   guifg=#2E3440
-    hi    paint6         guibg=#676073   guifg=#2E3440
-    hi    paint7         guibg=#2D401C   guifg=#ffffff
-    hi    paint8         guibg=#6868BD   guifg=#2E3440
-    hi    paint9         guibg=#C2B330   guifg=#2E3440
-endfunction
-
-autocmd BufReadPre,BufEnter * call My_highlight_show()
-
-function! Show_highlight_toggle()
-    if &background=='dark'
-        set background=light
-    else
-        set background=dark
-    endif
-    call My_highlight_show()
-endfunction
+hi!   link           SignColumn      LineNr
+hi    WarningMsg     guifg=#FE8019   guibg=#000000
+hi    ErrorMsg       gui=bold        guifg=#ff4934   guibg=#000000
+hi    Error          gui=bold        guifg=#fb4934   guibg=#000000
+hi    CocErrorSign   guifg=#ff4934   guibg=#202124
+hi    FloatermBorder guifg=#ebdbb2   guibg=#00000000
+hi    IncSearch      gui=bold        guifg=#ebdbb2   guibg=#353535
+hi    StatusLine     gui=reverse     guifg=#000000   guibg=#ebdbb2
+hi    StatusLineNC   gui=reverse     guifg=#000000   guibg=#ebdbb2
+hi    Search         gui=bold        guifg=#ebdbb2   guibg=#353535
+hi    Pmenu          guifg=#ebdbb2   guibg=#202124
+hi    CursorLine     guibg=#353535   guifg=#ebdbb2
+hi    PmenuSel       gui=reverse     guibg=#ebdbb2   guifg=#353535
+hi    PmenuThumb     guibg=#353535
+hi    PmenuSbar      guibg=#202124
+hi    DiffAdd        guifg=#b8bb26   guibg=#000000
+hi    DiffChange     guifg=#8ec07c   guibg=#000000
+hi    DiffDelete     guifg=#fb4934   guibg=#000000
+hi    DiffText       guifg=#fabd2f   guibg=#000000
+hi    Folded         gui=italic      guifg=#ebdbb2   guibg=#353535
+hi    FoldColumn     guifg=#ebdbb2   guibg=#000000
+hi    SpellBad       gui=undercurl   guifg=#fb4934   guisp=#fb4934
+hi    SpellCap       gui=undercurl   guifg=#83a598   guisp=#83a598
+hi    SpellRare      gui=undercurl   guifg=#d3869b   guisp=#d3869b
+hi    SpellLocal     gui=undercurl   guifg=#8ec07c   guisp=#8ec07c
 
 
 " Crystalline:
@@ -725,7 +702,7 @@ vmap <silent><Space>t <Plug>(coc-translator-ev)
 
 " float window scroll
 nnoremap <nowait><expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "<cmd>Neoformat<Cr>"
-nnoremap <nowait><expr><C-b> coc#float#has_scroll() ? coc#float#scroll(0) : Show_highlight_toggle()
+nnoremap <nowait><expr><C-b> coc#float#scroll(0)
 
 " scroll or move right
 inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1)\<Cr>" : "\<Right>"
