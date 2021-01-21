@@ -57,4 +57,23 @@ if err != nil {
 }
 endsnippet
 
+snippet sleep "time.Sleep" b
+time.Sleep(${1:1} * time.${0:Second})
+endsnippet
+
+snippet itoa "int -> string" b
+strconv.Itoa(${0:${VISUAL}})
+endsnippet
+
+snippet atoi "string -> int" b
+strconv.Atoi(${0:${VISUAL}})
+endsnippet
+
+snippet isnum "function IsNum" b
+func IsNum(s string) bool {
+	_, err := strconv.ParseFloat(s, 64)
+	return err == nil
+}
+endsnippet
+
 # vim:ft=snippets:

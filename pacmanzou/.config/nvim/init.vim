@@ -163,7 +163,6 @@ cmap <C-g> <nop>
 map X <nop>
 map S <nop>
 map <C-z> <nop>
-map <C-y> <nop>
 map <Space> <nop>
 
 vmap <C-f> <nop>
@@ -372,7 +371,7 @@ function! StatusLine(current, width)
     else
         let l:s .= '%#CrystallineInactive#'
     endif
-    let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} {%{CurrentFunction()}}%h%w%m%r'
+    let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} %{CurrentFunction()}{}%h%w%m%r'
     if a:current
         let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c,%L  %{StatusDiagnostic()}'
     endif
@@ -415,7 +414,7 @@ let g:Hexokinase_highlighters = ['background']
 augroup All SmartChr
     autocmd!
     autocmd FileType * inoremap <buffer><expr> !
-                \ smartchr#loop('!=', '!')
+                \ smartchr#loop('!', '!=')
 augroup END
 
 augroup Golang SmartChr
@@ -759,17 +758,19 @@ omap ic <Plug>(coc-classobj-i)
 omap ac <Plug>(coc-classobj-a)
 
 " coclist and coccommand
+nnoremap <Space>l <cmd>CocList<Cr>
 nnoremap <Space>d <cmd>CocList diagnostics<Cr>
 nnoremap <Space>y <cmd>CocList yank<Cr>
 nnoremap <Space>f <cmd>CocList --regex files<Cr>
 nnoremap <Space>b <cmd>CocList buffers<Cr>
 nnoremap <Space>w <cmd>CocList lines<Cr>
 nnoremap <Space>g <cmd>CocList grep<Cr>
-nnoremap <Space>l <cmd>CocList<Cr>
-nnoremap <Space><C-m> <cmd>CocList --regex mru -A<Cr>
 nnoremap <Space>m <cmd>CocList marks<Cr>
+nnoremap <Space><C-m> <cmd>CocList --regex mru -A<Cr>
 
 nnoremap <Space>c <cmd>CocCommand<Cr>
+nnoremap <C-y> <cmd>CocCommand editor.action.organizeImport<Cr>
+
 nnoremap <leader>a <cmd>CocCommand git.chunkStage<Cr>
 nnoremap <leader>u <cmd>CocCommand git.chunkUndo<Cr>
 nnoremap <leader>p <cmd>CocCommand git.chunkInfo<Cr>
