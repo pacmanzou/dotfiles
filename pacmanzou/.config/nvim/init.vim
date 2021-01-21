@@ -137,6 +137,7 @@ imap <C-v> <nop>
 imap <C-q> <nop>
 imap <C-z> <nop>
 imap <C-g> <nop>
+imap <C-l> <nop>
 imap <C-Space> <nop>
 
 " cmd
@@ -174,6 +175,7 @@ tnoremap <C-g> <nop>
 noremap + <C-a>
 noremap - <C-x>
 
+vnoremap <C-o> <Esc>o
 vnoremap g+ g<C-a>
 vnoremap g- g<C-x>
 
@@ -284,12 +286,6 @@ let g:gruvbox_plugin_hi_groups   = 0
 
 " my highlight
 function! My_highlight_show() abort
-    " let pmenu transparent
-    " set shada='20,<50,s10
-    " set wildoptions+=pum
-    " set pumblend=10
-
-    " highlight
     hi!   link           SignColumn      LineNr
     hi    WarningMsg     guifg=#FE8019   guibg=#000000
     hi    ErrorMsg       gui=bold        guifg=#ff4934   guibg=#000000
@@ -334,7 +330,6 @@ function! Show_highlight_toggle()
     else
         set background=dark
     endif
-
     call My_highlight_show()
 endfunction
 
@@ -417,18 +412,33 @@ let g:Hexokinase_highlighters = ['background']
 
 " BetterOperation:
 " SmartChr:
-autocmd FileType * inoremap <buffer><expr> !
-            \ smartchr#loop('!=', '!')
-autocmd FileType go inoremap <buffer><expr> ;
-            \ smartchr#loop(';', ':=')
-autocmd FileType go inoremap <buffer><expr> .
-            \ smartchr#loop('.', '->', '...')
-autocmd FileType go inoremap <buffer><expr> ,
-            \ smartchr#loop(',', '<-')
-autocmd FileType python inoremap <buffer><expr> .
-            \ smartchr#loop('.', '->')
-autocmd FileType sh inoremap <buffer><expr> $
-            \ smartchr#loop('$', '"${}"')
+augroup All SmartChr
+    autocmd!
+    autocmd FileType * inoremap <buffer><expr> !
+                \ smartchr#loop('!=', '!')
+augroup END
+
+augroup Golang SmartChr
+    autocmd!
+    autocmd FileType go inoremap <buffer><expr> ;
+                \ smartchr#loop(';', ':=')
+    autocmd FileType go inoremap <buffer><expr> .
+                \ smartchr#loop('.', '->', '...')
+    autocmd FileType go inoremap <buffer><expr> ,
+                \ smartchr#loop(',', '<-')
+augroup END
+
+augroup Python SmartChr
+    autocmd!
+    autocmd FileType python inoremap <buffer><expr> .
+                \ smartchr#loop('.', '->')
+augroup END
+
+augroup Sh SmartChr
+    autocmd!
+    autocmd FileType sh inoremap <buffer><expr> $
+                \ smartchr#loop('$', '"${}"')
+augroup END
 
 
 " NiceBlock:
@@ -497,8 +507,8 @@ let g:neoformat_enabled_c = ['astyle']
 let g:neoformat_enabled_cpp = ['astyle']
 
 " when a filetype is not found
-let g:neoformat_basic_format_align = 0
-let g:neoformat_basic_format_retab = 0
+let g:neoformat_basic_format_align = 1
+let g:neoformat_basic_format_retab = 1
 
 " del $ space
 let g:neoformat_basic_format_trim = 0
@@ -923,24 +933,19 @@ nnoremap <silent><C-d> :call init#down(&scroll,6,1)<Cr>
 
 
 " Comment:
-autocmd FileType python,sh set commentstring=#\ %s
-autocmd FileType c,cpp set commentstring=//\ %s
-autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
-autocmd FileType sql setlocal commentstring=--\ %s
+augroup Comment for different filetype
+    autocmd!
+    autocmd FileType python,sh set commentstring=#\ %s
+    autocmd FileType c,cpp set commentstring=//\ %s
+    autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
+    autocmd FileType sql setlocal commentstring=--\ %s
+augroup END
 
 
 " Hlsearch:
 autocmd BufReadPre * set nohlsearch
 
-function Hlsearch_toggle() abort
-    if &hlsearch == 1
-        set nohlsearch
-    else
-        set hlsearch
-    endif
-endfunction
-
-nnoremap <Space>h <cmd>call Hlsearch_toggle()<Cr>
+nnoremap <nowait><expr><Space>h &hlsearch ? "<cmd>set nohlsearch<Cr>" : "<cmd>set hlsearch<Cr>"
 
 
 " SaveCursor:
@@ -960,32 +965,25 @@ function! CocTimerStart(timer)
     exec "CocStart"
 endfunction
 
-augroup hugefile
-    autocmd!
-    autocmd VimEnter *
-                \ let size = getfsize(expand('<afile>')) |
-                \ if (size > g:trigger_size) || (size == -2) |
-                \   echohl WarningMsg | echomsg 'WARNING: Coc is dead for this huge file!' | echohl None |
-                \ else |
-                \   call timer_start(100,'CocTimerStart',{'repeat':1}) |
-                \ endif |
-                \ unlet size
-augroup END
+autocmd VimEnter *
+            \ let size = getfsize(expand('<afile>')) |
+            \ if (size > g:trigger_size) || (size == -2) |
+            \   echohl WarningMsg |
+            \ echomsg 'WARNING: Coc is dead for this huge file!' |
+            \ echohl None |
+            \ else |
+            \   call timer_start(100,'CocTimerStart',{'repeat':1}) |
+            \ endif |
+            \ unlet size
 
 
 " Super_L:
-function Super_L() abort
-    imap <C-l> <nop>
-    if &filetype == "go"
-        imap <buffer><C-l> fmt.Println()<Left>
-    elseif &filetype == "python"
-        imap <buffer><C-l> print()<Left>
-    elseif &filetype == "sh"
-        imap <buffer><C-l> echo ""<Left>
-    endif
-endfunction
-
-autocmd BufEnter * call Super_L()
+augroup Super_L
+    autocmd!
+    autocmd FileType go inoremap <buffer><C-l> fmt.Println()<Left>
+    autocmd FileType python inoremap <buffer><C-l> print()<Left>
+    autocmd FileType sh inoremap <buffer><C-l> echo ""<Left>
+augroup END
 
 
 " OtherCommands:
