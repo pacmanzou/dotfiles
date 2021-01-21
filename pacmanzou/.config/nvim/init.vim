@@ -627,6 +627,8 @@ autocmd TermOpen term://* startinsert
 " float run
 let g:floaterm_repl_runner = "~/.config/nvim/runner.sh"
 
+nmap <silent><Space>R gV:FloatermRepl<Cr>
+
 vnoremap <silent><Space>r :FloatermRepl<Cr>
 
 
@@ -709,7 +711,7 @@ nmap crn <Plug>(coc-rename)
 inoremap <silent><expr><C-r> coc#refresh()
 
 " refactor function
-nmap <silent><Space>R <Plug>(coc-refactor)
+nmap <silent>crN <Plug>(coc-refactor)
 
 " float window jump and hide
 nmap <silent><C-o> <Plug>(coc-float-jump)

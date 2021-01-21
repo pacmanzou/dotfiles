@@ -5,19 +5,23 @@ shift
 shift
 params=$*
 case $filetype in
-javascript)
-    node "$filepath" "$params"
-    ;;
-
-sh)
-    bash "$filepath" "$params"
+go)
+    go run "$filepath" "$params"
     ;;
 
 python)
     python3 "$filepath" "$params"
     ;;
 
+sh)
+    bash "$filepath" "$params"
+    ;;
+
+javascript)
+    node "$filepath" "$params"
+    ;;
+
 *)
-    echo -n "unknown"
+    echo -n "unknown this filetype"
     ;;
 esac
