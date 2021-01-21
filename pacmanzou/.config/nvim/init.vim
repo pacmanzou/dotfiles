@@ -288,7 +288,8 @@ function! My_highlight_show() abort
     hi!   link           SignColumn      LineNr
     hi    WarningMsg     guifg=#FE8019   guibg=#000000
     hi    ErrorMsg       gui=bold        guifg=#ff4934   guibg=#000000
-    hi    CocErrorSign   guifg=#ff4934
+    hi    Error          gui=bold        guifg=#fb4934   guibg=#000000
+    hi    CocErrorSign   guifg=#ff4934   guibg=#202124
     hi    FloatermBorder guifg=#ebdbb2   guibg=#00000000
     hi    IncSearch      gui=bold        guifg=#ebdbb2   guibg=#353535
     hi    StatusLine     gui=reverse     guifg=#000000   guibg=#ebdbb2
