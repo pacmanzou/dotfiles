@@ -423,7 +423,7 @@ augroup Golang SmartChr
     autocmd FileType go inoremap <buffer><expr> ;
                 \ smartchr#loop(';', ':=')
     autocmd FileType go inoremap <buffer><expr> .
-                \ smartchr#loop('.', '->', '...')
+                \ smartchr#loop('.', '...')
     autocmd FileType go inoremap <buffer><expr> ,
                 \ smartchr#loop(',', '<-')
 augroup END
@@ -437,7 +437,7 @@ augroup END
 augroup Sh SmartChr
     autocmd!
     autocmd FileType sh inoremap <buffer><expr> $
-                \ smartchr#loop('$', '"${}"')
+                \ smartchr#loop('$', '"${}"<Left><Left>')
 augroup END
 
 
