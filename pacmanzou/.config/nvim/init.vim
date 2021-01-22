@@ -223,6 +223,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'mg979/vim-visual-multi'
 Plug 'lpinilla/vim-codepainter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'junegunn/vim-after-object'
 
 " file manager
 Plug 'kevinhwang91/rnvimr'
@@ -499,6 +500,10 @@ nmap <silent>cx <Plug>(Exchange)
 nmap <silent>cxc <Plug>(ExchangeClear)
 
 vmap <silent>x <Plug>(Exchange)
+
+
+" AfterObject:
+autocmd VimEnter * call after_object#enable('=', ':', '>', '<', '-', ' ')
 
 
 " FileManager:
