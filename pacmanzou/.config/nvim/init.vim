@@ -639,6 +639,7 @@ let g:coc_global_extensions = [
             \ 'coc-markdownlint',
             \ 'coc-vimlsp',
             \ 'coc-snippets',
+            \ 'coc-just-complete',
             \ 'coc-diagnostic',
             \ 'coc-lists',
             \ 'coc-yank',
