@@ -133,8 +133,8 @@ imap <C-s> <Esc>lce
 imap <C-o> <Esc>o
 imap <C-f> <Right>
 imap <C-b> <Left>
+imap <C-q> <Esc>a
 imap <C-v> <nop>
-imap <C-q> <nop>
 imap <C-z> <nop>
 imap <C-g> <nop>
 imap <C-l> <nop>
