@@ -533,9 +533,12 @@ let g:vista_sidebar_position     = 'vertical botright'
 let g:vista_sidebar_width        = 35
 let g:vista_icon_indent          = ["╰─▸ ", "├─▸ "]
 let g:vista#renderer#enable_icon = 0
-let g:vista_default_executive    = 'ctags'
+let g:vista_default_executive    = 'coc'
 
-nnoremap <silent>T :Vista!!<Cr>
+nnoremap T <cmd>Vista!!<Cr>
+nnoremap <Space>T <cmd>Vista finder<Cr>
+
+autocmd FileType vista,vista_kind nnoremap <buffer><silent>/ :<C-u>call vista#finder#fzf#Run()<Cr>
 
 
 " UndoManager:
