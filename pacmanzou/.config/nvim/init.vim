@@ -359,7 +359,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}][%{&fenc!=#""?&fenc:&enc}][%{&ff}]'
+        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}][%{&fenc!=#""?&fenc:&enc}][%{&ff}] '
     else
         let l:s .= ''
     endif
@@ -453,9 +453,9 @@ let g:VM_Mono_hl            = 'IncSearch'
 let g:VM_Extend_hl          = 'IncSearch'
 let g:VM_Insert_hl          = 'IncSearch'
 
-nmap <Space>n <Plug>(VM-Find-Under)
+nmap <Space>v <Plug>(VM-Find-Under)
 
-xmap <Space>n <Plug>(VM-Find-Subword-Under)
+xmap <Space>v <Plug>(VM-Find-Subword-Under)
 
 
 " CloseTag:
