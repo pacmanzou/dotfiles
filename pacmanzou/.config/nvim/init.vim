@@ -676,7 +676,8 @@ nmap t <cmd>CocCommand explorer --sources=file+<Cr>
 " variable rename
 nmap crn <Plug>(coc-rename)
 
-" refresh in insert mode
+" refresh in insert mode or normal mode
+nnoremap <Space><C-r> <cmd>CocRestart<Cr>
 inoremap <silent><expr><C-r> coc#refresh()
 
 " refactor function
