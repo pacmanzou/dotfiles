@@ -734,7 +734,7 @@ nnoremap <Space>d <cmd>CocList diagnostics<Cr>
 nnoremap <Space>y <cmd>CocList yank<Cr>
 nnoremap <Space>f <cmd>CocList --regex files<Cr>
 nnoremap <Space>b <cmd>CocList buffers<Cr>
-nnoremap <Space>w <cmd>CocList lines<Cr>
+nnoremap <Space>w <cmd>CocList words<Cr>
 nnoremap <Space>g <cmd>CocList grep<Cr>
 nnoremap <Space>m <cmd>CocList marks<Cr>
 nnoremap <Space><C-m> <cmd>CocList --regex mru -A<Cr>
