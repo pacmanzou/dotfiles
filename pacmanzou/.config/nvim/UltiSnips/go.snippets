@@ -76,4 +76,20 @@ func IsNum(s string) bool {
 }
 endsnippet
 
+snippet sort "the custom sort" b
+type ${1:sortRunes} []${2:rune}
+
+func (s $1) Less(i, j int) bool {
+	return s[i] < s[j]
+}
+
+func (s $1) Swap(i, j int) {
+	s[i], s[j] = s[j], s[i]
+}
+
+func (s $1) Len() int {
+	return len(s)
+}
+endsnippet
+
 # vim:ft=snippets:
