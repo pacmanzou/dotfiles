@@ -467,7 +467,6 @@ vnoremap <silent>p :<C-u>call codepainter#paintText(visualmode())<Cr>
 
 nnoremap <Space>e <cmd>PainterEraseLine<Cr>
 nnoremap <Space>E <cmd>PainterEraseAll<Cr>
-nnoremap <Space>P <cmd>PainterLoadMarks<Cr>
 
 
 " Neoformat:
@@ -837,7 +836,7 @@ let g:mkdp_page_title                        = '${name}'
 " MarkdownSpell:
 autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
 
-nnoremap <Space>p <cmd>set spell!<Cr>
+nnoremap <C-g>s <cmd>set spell!<Cr>
 
 
 " MarkdownPasteImage:
@@ -919,7 +918,7 @@ augroup END
 " Hlsearch:
 autocmd BufReadPre * set nohlsearch
 
-nnoremap <nowait><expr><Space>h &hlsearch ? "<cmd>set nohlsearch<Cr>" : "<cmd>set hlsearch<Cr>"
+nnoremap <nowait><expr><C-g>h &hlsearch ? "<cmd>set nohlsearch<Cr>" : "<cmd>set hlsearch<Cr>"
 
 
 " SaveCursor:
