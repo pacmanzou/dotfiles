@@ -748,7 +748,6 @@ nnoremap <leader>p <cmd>CocCommand git.chunkInfo<Cr>
 nnoremap <leader>y <cmd>CocCommand git.copyUrl<Cr>
 nnoremap <leader>s <cmd>CocCommand git.showCommit<Cr>
 nnoremap <leader>f <cmd>CocCommand git.foldUnchanged<Cr>
-nnoremap <leader>r <cmd>CocCommand git.refresh<Cr>
 nnoremap <leader>b <cmd>CocCommand git.browserOpen<Cr>
 
 " organizeImport
