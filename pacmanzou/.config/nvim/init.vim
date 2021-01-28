@@ -351,7 +351,7 @@ function! StatusLine(current, width)
     endif
     let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} %{CurrentFunction()}{}%h%w%m%r'
     if a:current
-        let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c,%L  %{StatusDiagnostic()}'
+        let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c  %{StatusDiagnostic()}'
     endif
     let l:s .= '%='
     if a:current
@@ -359,7 +359,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}][%{&fenc!=#""?&fenc:&enc}][%{&ff}] '
+        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%L/%{&ft}|%{&fenc!=#""?&fenc:&enc}|%{&ff}] '
     else
         let l:s .= ''
     endif
@@ -544,19 +544,19 @@ autocmd FileType vista,vista_kind nnoremap <buffer><silent>/ :<C-u>call vista#fi
 " Undo Backup Swap:
 set nobackup
 set swapfile
-set dir=~/.cache/tmp/swap/
+set dir=~/.cache/vim/swap/
 
-if empty(glob('~/.cache/tmp/swap'))
-    silent !mkdir -p ~/.cache/tmp/swap
+if empty(glob('~/.cache/vim/swap'))
+    silent !mkdir -p ~/.cache/vim/swap
 endif
 
-if empty(glob('~/.cache/tmp/undo'))
-    silent !mkdir -p ~/.cache/tmp/undo/
+if empty(glob('~/.cache/vim/undo'))
+    silent !mkdir -p ~/.cache/vim/undo/
 endif
 
 if has('persistent_undo')
     set undofile
-    set undodir=~/.cache/tmp/undo/
+    set undodir=~/.cache/vim/undo/
 endif
 
 
