@@ -1,3 +1,29 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
 snippet struct "Struct declaration" b
 type ${1:StructName} struct {
 	${0:${VISUAL}}
@@ -10,8 +36,8 @@ type ${1:InterfaceName} interface {
 }
 endsnippet
 
-snippet fori "for int loop" b
-for ${2:i} := 0; $2 < ${1:count}; $2++ {
+snippet for "for int loop" b
+for ${1:i} := 0; $1 < ${2:count}; $1++ {
 	${0:${VISUAL}}
 }
 endsnippet
@@ -30,6 +56,18 @@ case ${4:value2}:
 	${5}
 default:
 	${0}
+}
+endsnippet
+
+snippet if "if condition" w
+if ${1:condition} {
+	$2
+}${0:${VISUAL}}
+endsnippet
+
+snippet else "else" w
+else {
+	$1
 }
 endsnippet
 
@@ -91,5 +129,3 @@ func (s $1) Len() int {
 	return len(s)
 }
 endsnippet
-
-# vim:ft=snippets:

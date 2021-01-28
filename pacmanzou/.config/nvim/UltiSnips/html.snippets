@@ -1,3 +1,29 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
 snippet html "HTML basic structure with the lang attribute" b
 <!DOCTYPE html>
 <html lang="${1:es}">
@@ -22,10 +48,6 @@ snippet scriptsrc "HTML <script src...>" w
 <script src="$1" charset="utf-8" type="text/javascript" ></script>
 endsnippet
 
-snippet linput
-<label>${1}: <input type="${2:text}" /></label>
-endsnippet
-
 snippet style "HTML <style>" w
 <style type="text/css" media="screen">
 	${0:${VISUAL}}
@@ -33,9 +55,8 @@ snippet style "HTML <style>" w
 endsnippet
 
 
-snippet function
+snippet func
 function () {
 ${0}
 }
 endsnippet
-# vim:ft=snippets:

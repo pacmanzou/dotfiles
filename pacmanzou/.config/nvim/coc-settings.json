@@ -94,7 +94,8 @@
     "languageserver": {
         "golang": {
             "command": "gopls",
-            "rootPatterns": ["go.mod", ".vim", ".git"],
+            "rootPatterns": ["go.mod"],
+            "trace.server": "verbose",
             "filetypes": ["go"]
         },
         "bash": {
@@ -124,9 +125,10 @@
     "snippets.priority": -1,
     "snippets.snipmate.enable": false,
     "snippets.ultisnips.directories": [
-        "UltiSnips"
+        "~/.config/nvim/UltiSnips/"
     ],
     "snippets.ultisnips.enable": true,
     "snippets.ultisnips.usePythonx": true,
+    "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips/",
     "yank.enableCompletion": false
 }
