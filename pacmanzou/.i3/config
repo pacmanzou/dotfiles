@@ -129,7 +129,6 @@ for_window [class="Manjaro Settings Manager"] floating enable
 for_window [class="Pamac-manager"] floating enable
 for_window [class="Gcolor"] floating enable
 for_window [class="baidunetdisk"] floating enable
-for_window [class="Yad"] floating enable
 for_window [class="Fcitx"] floating enable
 for_window [class="copyq"] floating enable
 for_window [class="st"] floating enable
