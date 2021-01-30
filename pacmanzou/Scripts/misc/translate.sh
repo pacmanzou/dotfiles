@@ -5,7 +5,7 @@
 
 declare -a list_array
 
-list_array=(Online Saved DelLast All A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
+list_array=(Online Saved Del All A B C D E F G H I J K L M N O P Q R S T U V W X Y Z)
 
 dict_path="$HOME/Scripts/misc/dictionary.txt"
 
@@ -31,7 +31,7 @@ string_get() {
     case "${query}" in
     Online) translate_online ;;
     Saved) display ;;
-    DelLast) delete_last ;;
+    Del) delete ;;
     All) select_string="$(sed -n '1,$p' "${dict_path}")" ;;
     A) select_string="$(sed -n '/^A /,/^B /p' "${dict_path}" | sed '$d')" ;;
     B) select_string="$(sed -n '/^B /,/^C /p' "${dict_path}" | sed '$d')" ;;
@@ -68,6 +68,9 @@ copy() {
     copy_string=$(echo "${query}" | awk '{print $1}')
 
     echo -n "${copy_string}" | xsel -ib
+    if [[ -n "${copy_string}" ]]; then
+        exit
+    fi
 }
 
 save_local() {
@@ -83,9 +86,11 @@ save_local() {
     fi
 }
 
-delete_last() {
-    sed -i '$d' "${file}"
-    notify-send "delete successfully"
+delete() {
+    query=$(tac "$HOME"/.word | _dmenu -l 14 -p "saved")
+    del_string=$(echo "${query}" | awk '{print $1}')
+
+    sed -i '/'"${del_string}"'/d' "${file}"
 }
 
 save_online() {
