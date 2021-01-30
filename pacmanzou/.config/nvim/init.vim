@@ -133,7 +133,7 @@ imap <C-s> <Esc>lce
 imap <C-o> <Esc>o
 imap <C-f> <Right>
 imap <C-b> <Left>
-imap <C-q> <Esc>a
+imap <C-q> <nop>
 imap <C-v> <nop>
 imap <C-z> <nop>
 imap <C-g> <nop>
@@ -351,7 +351,7 @@ function! StatusLine(current, width)
     endif
     let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} %{CurrentFunction()}{}%h%w%m%r'
     if a:current
-        let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c  %{StatusDiagnostic()}'
+        let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c,%P  %{StatusDiagnostic()}'
     endif
     let l:s .= '%='
     if a:current
@@ -359,7 +359,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%L/%{&ft}|%{&fenc!=#""?&fenc:&enc}|%{&ff}] '
+        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}:%L|%{&fenc!=#""?&fenc:&enc}|%{&ff}] '
     else
         let l:s .= ''
     endif
@@ -712,10 +712,6 @@ vmap <silent><Space>t <Plug>(coc-translator-ev)
 " float window scroll
 nnoremap <nowait><expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "<cmd>Neoformat<Cr>"
 nnoremap <nowait><expr><C-b> coc#float#scroll(0)
-
-" scroll or move right
-inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(1)\<Cr>" : "\<Right>"
-inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<C-r>=coc#float#scroll(0)\<Cr>" : "\<Left>"
 
 " function and class
 xmap if <Plug>(coc-funcobj-i)
