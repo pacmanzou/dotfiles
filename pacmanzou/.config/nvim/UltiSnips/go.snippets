@@ -24,13 +24,13 @@
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
-snippet struct "Struct declaration" b
+snippet /^struct/ "Struct declaration" r
 type ${1:StructName} struct {
 	${0:${VISUAL}}
 }
 endsnippet
 
-snippet interface "Interface declaration" b
+snippet /^interface/ "Interface declaration" r
 type ${1:InterfaceName} interface {
 	${0:${VISUAL}}
 }
@@ -83,7 +83,7 @@ func (${1:receiver} ${2:type}) ${3:name}(${4:params})${5/(.+)/ /}${5:type} {
 }
 endsnippet
 
-snippet func "Function" b
+snippet func "Function" w
 func ${1:name}(${2:params})${3/(.+)/ /}${3:type} {
 	${0:${VISUAL}}
 }
@@ -111,9 +111,11 @@ snippet /^sort/ "method of sort.Interface" r
 func (s $1) Len() int {
 	return len(s)
 }
+
 func (s $1) Less(i, j int) bool {
 	return s[i] ${2:<} s[j]
 }
+
 func (s $1) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
@@ -125,6 +127,7 @@ func (s *$1) Pop() interface{} {
 	*s = (*s)[:len(*s)-1]
 	return x
 }
+
 func (s *$1) Push(x interface{}) {
 	*s = append(*s, x.(int))
 }
