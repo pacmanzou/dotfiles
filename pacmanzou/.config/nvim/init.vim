@@ -760,7 +760,6 @@ autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 " Go:
 let g:go_echo_go_info                        = 0
 let g:go_doc_popup_window                    = 1
-let g:go_def_mapping_enabled                 = 0
 let g:go_template_autocreate                 = 0
 let g:go_textobj_enabled                     = 0
 let g:go_auto_type_info                      = 1
