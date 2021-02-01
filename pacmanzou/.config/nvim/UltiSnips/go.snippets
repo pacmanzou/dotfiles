@@ -99,33 +99,33 @@ snippet sleep "time.Sleep" b
 time.Sleep(${1:1} * time.${0:Second})
 endsnippet
 
-snippet itoa "int -> string" b
+snippet itoa "int -> string" w
 strconv.Itoa(${0:${VISUAL}})
 endsnippet
 
-snippet atoi "string -> int" b
+snippet atoi "string -> int" w
 strconv.Atoi(${0:${VISUAL}})
 endsnippet
 
-snippet isnum "function IsNum" b
-func IsNum(s string) bool {
-	_, err := strconv.ParseFloat(s, 64)
-	return err == nil
+snippet /^sort/ "method of sort.Interface" r
+func (s $1) Len() int {
+	return len(s)
 }
-endsnippet
-
-snippet sort "the custom sort" b
-type ${1:sortRunes} []${2:rune}
-
 func (s $1) Less(i, j int) bool {
-	return s[i] < s[j]
+	return s[i] ${2:<} s[j]
 }
-
 func (s $1) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
+endsnippet
 
-func (s $1) Len() int {
-	return len(s)
+snippet /^heap/ "method of heap.Interface" r
+func (s *$1) Pop() interface{} {
+	x := (*s)[len(*s)-1]
+	*s = (*s)[:len(*s)-1]
+	return x
+}
+func (s *$1) Push(x interface{}) {
+	*s = append(*s, x.(int))
 }
 endsnippet
