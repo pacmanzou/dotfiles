@@ -62,6 +62,7 @@
     "git.changeRemovedSign.text": "≃",
     "git.addedSign.text": "+",
     "git.removedSign.text": "-",
+    "go.trace.server": "verbose",
     "javascript.referencesCodeLens.enable": true,
     "javascript.showUnused": true,
     "javascript.suggest.names": true,
@@ -90,25 +91,6 @@
         "<C-t>": "action:tabe",
         "<C-s>": "action:split",
         "<C-v>": "action:vsplit"
-    },
-    "languageserver": {
-        "golang": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod"],
-            "trace.server": "verbose",
-            "filetypes": ["go"]
-        },
-        "bash": {
-            "command": "bash-language-server",
-            "args": ["start"],
-            "filetypes": ["sh"],
-            "ignoredRootPaths": []
-        },
-        "dockerfile": {
-            "command": "docker-langserver",
-            "filetypes": ["dockerfile"],
-            "args": ["--stdio"]
-        }
     },
     "python.formatting.provider": "black",
     "refactor.openCommand": "sp",
