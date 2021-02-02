@@ -195,11 +195,6 @@ let g:plug_window = '-tabnew'
 
 call plug#begin('~/.config/nvim/plugged')
 
-" test
-" Plug 'datwaft/bubbly.nvim'
-" Plug 'romgrk/barbar.nvim'
-" Plug 'kyazdani42/nvim-web-devicons'
-
 " colorscheme && statusline
 Plug 'pacmanzou/gruvbox8.vim'
 Plug 'rbong/vim-crystalline'
@@ -629,23 +624,25 @@ autocmd FileType html nnoremap <silent><Space>r <cmd>AsyncTask xdg-open<Cr>
 " Coc:
 let g:coc_global_extensions = [
             \ 'coc-go',
-            \ 'coc-pyright',
             \ 'coc-clangd',
+            \ 'coc-pyright',
             \ 'coc-json',
+            \ 'coc-sh',
             \ 'coc-tsserver',
             \ 'coc-html',
             \ 'coc-css',
             \ 'coc-vetur',
             \ 'coc-yaml',
+            \ 'coc-docker',
             \ 'coc-markdownlint',
             \ 'coc-vimlsp',
             \ 'coc-snippets',
             \ 'coc-just-complete',
             \ 'coc-diagnostic',
             \ 'coc-lists',
-            \ 'coc-yank',
             \ 'coc-git',
             \ 'coc-explorer',
+            \ 'coc-yank',
             \ 'coc-translator',
             \ 'coc-leetcode'
             \ ]
