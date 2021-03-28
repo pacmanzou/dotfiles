@@ -132,3 +132,7 @@ func (s *$1) Push(x interface{}) {
 	*s = append(*s, x.(int))
 }
 endsnippet
+
+snippet mid "binary search mid" w
+mid := int(uint(left+right) >> 1)
+endsnippet
