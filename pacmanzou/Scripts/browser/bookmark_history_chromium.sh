@@ -68,8 +68,7 @@ BOOKMARK_URLS=$(${PYTHON_BIN} bookmark.py --url "$BOOKMARK_FILE")
 
 SELECT_NAMES=$(echo "$BOOKMARK_NAMES" | eval "${DMENU_MARKS}")
 OLDIFS=$IFS
-IFS='
-'
+IFS=''
 
 for SELECT_NAME in $SELECT_NAMES; do
     IFS=$OLDIFS

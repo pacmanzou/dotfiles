@@ -398,6 +398,8 @@ augroup Golang SmartChr
                 \ smartchr#loop('.', '...')
     autocmd FileType go inoremap <buffer><expr> ,
                 \ smartchr#loop(',', '<-')
+    autocmd FileType go inoremap <buffer><expr> ]]
+                \ smartchr#loop('[][]')
 augroup END
 
 augroup Python SmartChr
