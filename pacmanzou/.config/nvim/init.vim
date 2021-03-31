@@ -731,7 +731,7 @@ nnoremap <Space>b <cmd>CocList buffers<Cr>
 nnoremap <Space>w <cmd>CocList words<Cr>
 nnoremap <Space>g <cmd>CocList grep<Cr>
 nnoremap <Space>m <cmd>CocList marks<Cr>
-nnoremap <Space><C-m> <cmd>CocList --regex mru -A<Cr>
+nnoremap <Space>h <cmd>CocList --regex mru -A<Cr>
 
 nnoremap <Space>c <cmd>CocCommand<Cr>
 nnoremap <C-y> <cmd>CocCommand editor.action.organizeImport<Cr>
