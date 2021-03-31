@@ -50,11 +50,9 @@ bindsym $mod+Ctrl+w exec --no-startup-id bash ~/Scripts/misc/wifi.sh
 bindsym $mod+e exec --no-startup-id bash ~/Scripts/sys/power.sh
 bindsym $mod+t exec --no-startup-id bash ~/Scripts/misc/translate.sh
 bindsym $mod+x exec --no-startup-id bash ~/Scripts/sys/touchpad.sh
-bindsym $mod+Ctrl+m exec --no-startup-id bash ~/Scripts/browser/bookmark_history_chromium.sh --history
-bindsym $mod+m exec --no-startup-id bash ~/Scripts/browser/bookmark_history_chromium.sh
 bindsym $mod+Ctrl+e exec --no-startup-id mbsync pacmanzou; exec --no-startup-id notify-send 'email mbsync'
 bindsym $mod+c exec --no-startup-id bash ~/Scripts/sys/cpupower.sh
-bindsym $mod+a exec --no-startup-id bash ~/Scripts/misc/todo.sh
+bindsym $mod+m exec --no-startup-id bash ~/Scripts/misc/multiple_task.sh
 bindsym $mod+Shift+m exec --no-startup-id exec amixer -q set Master toggle
 bindsym $mod+Shift+i exec --no-startup-id exec amixer -q set Master 5%+ unmute
 bindsym $mod+Shift+d exec --no-startup-id exec amixer -q set Master 5%- unmute
