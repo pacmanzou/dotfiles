@@ -10,6 +10,7 @@ export BROWSER=chromium
 # alias c='(cd $(fd --type d --hidden --exclude .git  | fzf))'
 alias n='(nvim $(fd --type f --hidden --exclude .git  | fzf))'
 alias r='ranger'
+alias gd='git clone'
 alias la='ls -la'
 alias ll='ls -l'
 alias syy='sudo pacman -Syy'
