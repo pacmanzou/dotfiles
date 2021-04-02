@@ -1,9 +1,8 @@
-# Host addresses
-127.0.0.1  localhost
-127.0.1.1  manjaro
-::1        localhost ip6-localhost ip6-loopback
-ff02::1    ip6-allnodes
-ff02::2    ip6-allrouters
+# Static table lookup for hostnames.
+# See hosts(5) for details.
 
-199.232.69.194  github.global.ssl.fastly.Net
-140.82.112.4  github.com
+203.208.39.99 github.com
+151.101.229.194 github.global.ssl.fastly.Net
+203.208.39.99 gist.github.com
+185.199.110.153 assets-cdn.github.com
+185.199.110.133 raw.githubusercontent.com
