@@ -1,15 +1,6 @@
 [user]
-    email = 3339132700@qq.com
-    name = pacmanzou
-[core]
-    editor = nvim
-    fileMode = false
-    quotepath = false
-    autocrlf = false
-    safecrlf = true
-[color]
-    ui = auto
-[diff]
-    tool = vimdiff
-[difftool]
-    prompt = false
+	email = pacmanzou@qq.com
+	name = pacmanzou
+[url "https://github.com.cnpmjs.org"]
+; [url "https://hub.fastgit.org"]
+	insteadOf = https://github.com
