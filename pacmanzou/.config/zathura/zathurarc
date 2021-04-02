@@ -30,7 +30,6 @@ map [index] q toggle_index
 map a toggle_page_mode 2
 map r rotate
 map t toggle_index
-map <C-b> recolor
 map <C-r> reload
 map <C--> zoom out
 map <C-=> zoom in
@@ -85,9 +84,3 @@ set default-fg                  "#ebdbb2" # base1
 set render-loading              true
 set render-loading-fg           "#000000" # base02
 set render-loading-bg           "#000000" # base02
-
-# Recolor book content's color
-set recolor                     true
-set recolor-lightcolor          "#000000" # base02
-set recolor-darkcolor           "#ebdbb2" # base1
-set recolor-keephue             true      # keep original color

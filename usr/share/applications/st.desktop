@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Name=st
-Comment=
-Exec=/usr/local/bin/st
-Icon=
-Terminal=false
-Categories=Application;Programme;

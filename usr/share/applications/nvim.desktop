@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Name=nvim
-Comment=
-Exec=st -e nvim
-Icon=
-Terminal=false
-Categories=Application;Programme;
