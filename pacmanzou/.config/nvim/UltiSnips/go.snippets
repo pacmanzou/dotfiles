@@ -36,8 +36,19 @@ type ${1:InterfaceName} interface {
 }
 endsnippet
 
-snippet for "for int loop" b
-for ${1:i} := 0; $1 < ${2:count}; $1++ {
+snippet fori "for int loop" b
+for ${1:i} := ${2:0}; $1 < ${3:length}; $1++ {
+	${0:${VISUAL}}
+}
+endsnippet
+
+snippet for "for loop" b
+for ${1:${condition}} {
+	${0:${VISUAL}}
+}
+endsnippet
+snippet for- "for int loop" b
+for ${1:i} := ${2:length}; $1 >= ${3:0}; $1-- {
 	${0:${VISUAL}}
 }
 endsnippet
