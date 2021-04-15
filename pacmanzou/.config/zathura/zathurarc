@@ -33,8 +33,8 @@ map t toggle_index
 map <C-r> reload
 map <C--> zoom out
 map <C-=> zoom in
-map <C-n> jumplist backward
-map <C-p> jumplist forward
+map <C-p> jumplist backward
+map <C-n> jumplist forward
 
 set selection-clipboard clipboard
 set guioptions ''
