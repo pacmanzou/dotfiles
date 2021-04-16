@@ -1,8 +1,5 @@
 # Static table lookup for hostnames.
 # See hosts(5) for details.
 
-203.208.39.99 github.com
-151.101.229.194 github.global.ssl.fastly.Net
-203.208.39.99 gist.github.com
-185.199.110.153 assets-cdn.github.com
-185.199.110.133 raw.githubusercontent.com
+199.232.69.194 github.global.ssl.Fastly.net
+140.82.112.3 github.com
