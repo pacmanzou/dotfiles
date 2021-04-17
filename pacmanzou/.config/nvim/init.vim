@@ -33,7 +33,7 @@ set completeopt=longest,noinsert,menuone,noselect,preview
 set expandtab
 set fdm=indent
 set fileencodings=utf-8,gbk,ucs-bom,cp936
-set fillchars=stlnc:-,vert:\|
+set fillchars=stlnc:-
 set foldcolumn=0
 set foldenable
 set foldlevel=99
