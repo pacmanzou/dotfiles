@@ -78,7 +78,7 @@ bindsym $mod+m exec --no-startup-id bash ~/Scripts/browser/chromium_marks.sh
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
-bindsym $mod+space exec --no-startup-id dmenu_desktop
+bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -p 'run' -fn 'source code''
 bindsym $mod+Shift+w exec --no-startup-id bash ~/Scripts/misc/wifi.sh
 bindsym $mod+Shift+e exec --no-startup-id mbsync pacmanzou; exec --no-startup-id notify-send 'Mbsync Email'
 bindsym $mod+Shift+i exec --no-startup-id exec amixer -q set Master 5%+ unmute
