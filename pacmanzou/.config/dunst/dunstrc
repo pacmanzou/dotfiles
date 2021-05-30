@@ -164,11 +164,11 @@
     # Xev might be helpful to find names for keys.
     
     # Close notification.
-    close = mod1+ctrl+n
+    # close = mod1+ctrl+n
     
     # Close all notifications.
     # close_all = ctrl+shift+space
-    # close_all = mod1+ctrl+d
+    close_all = mod1+shift+n
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left

@@ -79,9 +79,9 @@ save_local() {
         first_arg_local=$(echo "${query}" | awk '{print $1}')
         if [[ $(grep -c "${first_arg_local}" "${file}") == 0 ]]; then
             echo "${query}" >>"${file}"
-            notify-send "save successfully"
+            notify-send "Save successfully"
         else
-            notify-send "saved"
+            notify-send "Saved"
         fi
     fi
 }

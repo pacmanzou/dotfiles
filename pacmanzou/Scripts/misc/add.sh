@@ -17,7 +17,7 @@ add_task() {
     echo -e "$(date +"%m-%d")   " "$cmd" >>"$file"
 }
 
-cmd=$(_dmenu -p "task" <"$file")
+cmd=$(_dmenu -p "add" <"$file")
 
 while [ -n "$cmd" ]; do
     if grep -q "^$cmd\$" "$file"; then
@@ -26,5 +26,5 @@ while [ -n "$cmd" ]; do
     else
         add_task
     fi
-    cmd=$(_dmenu -p "task" "$@" <"$file")
+    cmd=$(_dmenu -p "add" "$@" <"$file")
 done

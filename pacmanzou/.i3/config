@@ -5,8 +5,8 @@
 set $mod Mod1
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
-default_floating_border pixel 1
+default_border none
+default_floating_border none
 
 # focus follows mouse
 focus_follows_mouse no
@@ -17,7 +17,7 @@ hide_edge_borders none
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
-  client.focused          #000000 #ebdbb2 #000000 #000000
+  # client.focused          #000000 #ebdbb2 #000000 #000000
   # client.focused_inactive #000000 #000000 #000000 #000000
   # client.unfocused        #000000 #000000 #000000 #000000
   # client.urgent           #CB4B16 #000000 #000000 #000000
@@ -59,8 +59,8 @@ bindsym $mod+t exec --no-startup-id bash ~/Scripts/misc/translate.sh
 bindsym $mod+i exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
-# unmap      a
-bindsym $mod+s split v; exec --no-startup-id notify-send 'split'
+bindsym $mod+a exec --no-startup-id bash ~/Scripts/misc/add.sh
+bindsym $mod+s split v; exec --no-startup-id notify-send 'Split'
 bindsym $mod+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+f fullscreen toggle
 # unmap      g
@@ -69,22 +69,22 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
-bindsym $mod+x exec --no-startup-id bash ~/Scripts/sys/touchpad.sh
+# unmap      x
 bindsym $mod+c exec --no-startup-id bash ~/Scripts/sys/cpupower.sh
-bindsym $mod+v split h; exec --no-startup-id notify-send 'vsplit'
-bindsym $mod+b exec --no-startup-id bash ~/Scripts/misc/document.sh
-# dunst history n
-bindsym $mod+m exec --no-startup-id bash ~/Scripts/misc/multiple_task.sh
+bindsym $mod+v split h; exec --no-startup-id notify-send 'Vsplit'
+bindsym $mod+b exec --no-startup-id bash ~/Scripts/sys/touchpad.sh
+# dunst history notifications      n
+bindsym $mod+m exec --no-startup-id bash ~/Scripts/browser/chromium_marks.sh
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 bindsym $mod+space exec --no-startup-id dmenu_desktop
 bindsym $mod+Shift+w exec --no-startup-id bash ~/Scripts/misc/wifi.sh
-bindsym $mod+Shift+e exec --no-startup-id mbsync pacmanzou; exec --no-startup-id notify-send 'email mbsync'
+bindsym $mod+Shift+e exec --no-startup-id mbsync pacmanzou; exec --no-startup-id notify-send 'Mbsync Email'
 bindsym $mod+Shift+i exec --no-startup-id exec amixer -q set Master 5%+ unmute
 bindsym $mod+Shift+d exec --no-startup-id exec amixer -q set Master 5%- unmute
-bindsym $mod+Shift+f exec --no-startup-id bash ~/Scripts/misc/fcitx_restart.sh; exec --no-startup-id notify-send 'fcitx restart'
-bindsym $mod+Shift+b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'bluetoothctl power on'
+bindsym $mod+Shift+f exec --no-startup-id bash ~/Scripts/misc/fcitx_restart.sh; exec --no-startup-id notify-send 'Restart fcitx'
+bindsym $mod+Shift+b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on'
 bindsym $mod+Shift+m exec --no-startup-id exec amixer -q set Master toggle
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Shift+Return exec --no-startup-id st -e zsh
