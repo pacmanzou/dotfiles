@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=3.1
+Type=Application
+Terminal=false
+Name=Vnote
+Comment=markdown
+Exec=vnote
+Icon=vnote
+Categories=Development
