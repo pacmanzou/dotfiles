@@ -90,7 +90,6 @@ prompt_suse_setup "$@"
 
 # alias
 alias r='ranger'
-alias gd='git clone'
 alias syy='sudo pacman -Syy'
 alias syu='sudo pacman -Syu'
 alias syyu='sudo pacman -Syyu'
