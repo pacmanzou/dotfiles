@@ -121,7 +121,7 @@ mouse:
   double_click: { threshold: 300 }
   triple_click: { threshold: 300 }
   hide_when_typing: true
-  url:
+  hints:
     modifiers: None
 selection:
   semantic_escape_chars: ",│`|:\"' ()[]{}<>"
