@@ -952,3 +952,34 @@ command! -nargs=1 Rename
             \ saveas <args> |
             \ edit <args> |
             \ call delete(expand(tpname))
+
+" clean buffers
+command! -nargs=? -complete=buffer -bang BufClean
+    \ :call BufClean('<bang>')
+
+function! BufClean(bang)
+	let last_buf = bufnr('$')
+
+	let del_cnt = 0
+	let bufn = 1
+
+	while bufn <= last_buf
+		if buflisted(bufn) && bufwinnr(bufn) == -1
+			if a:bang == '' && getbufvar(bufn, '&modified')
+				echohl ErrorMsg
+				echohl 'No write since last change for buffer(add ! to override)'
+				echohl None
+			else
+				silent exe 'bdel' . a:bang . ' ' . bufn
+				if ! buflisted(bufn)
+					let del_cnt = del_cnt + 1
+				endif
+			endif
+		endif
+		let bufn = bufn + 1
+	endwhile
+
+	if del_cnt > 0
+		echomsg 'clean done, ' del_cnt 'buffer(s) deleted'
+	endif
+endfunction
