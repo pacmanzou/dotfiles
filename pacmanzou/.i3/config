@@ -49,7 +49,7 @@ bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
 
-bindsym $mod+q exec --no-startup-id  killall wpsoffice
+# bindsym $mod+q exec --no-startup-id  killall wpsoffice
 bindsym $mod+w workspace back_and_forth
 bindsym $mod+e exec --no-startup-id bash ~/Scripts/sys/power.sh
 bindsym $mod+r exec --no-startup-id flameshot gui
