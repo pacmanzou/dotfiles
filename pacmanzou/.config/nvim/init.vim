@@ -58,6 +58,8 @@ set matchpairs+=‘:’
 set noshowmatch
 set noshowmode
 set nospell
+set nu
+set relativenumber
 set notimeout
 set novisualbell
 set nowritebackup
@@ -346,7 +348,7 @@ function! StatusLine(current, width)
     endif
     let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r'
     if a:current
-        let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c,%P  %{StatusDiagnostic()}'
+        let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c,%L  %{StatusDiagnostic()}'
     endif
     let l:s .= '%='
     if a:current

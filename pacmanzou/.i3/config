@@ -77,17 +77,15 @@ bindsym $mod+b exec --no-startup-id bash ~/Scripts/sys/touchpad.sh
 bindsym $mod+m exec --no-startup-id bash ~/Scripts/browser/chromium_marks.sh
 
 bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -p 'run' -fn 'source code''
 bindsym $mod+Shift+w exec --no-startup-id bash ~/Scripts/misc/wifi.sh
-bindsym $mod+Shift+e exec --no-startup-id mbsync pacmanzou; exec --no-startup-id notify-send 'Mbsync Email'
+# bindsym $mod+Shift+e exec --no-startup-id mbsync pacmanzou; exec --no-startup-id notify-send 'Mbsync Email'
 bindsym $mod+Shift+i exec --no-startup-id exec amixer -q set Master 5%+ unmute
 bindsym $mod+Shift+d exec --no-startup-id exec amixer -q set Master 5%- unmute
 bindsym $mod+Shift+f exec --no-startup-id bash ~/Scripts/misc/fcitx_restart.sh; exec --no-startup-id notify-send 'Restart fcitx'
 bindsym $mod+Shift+b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on'
-bindsym $mod+Shift+m exec --no-startup-id exec amixer -q set Master toggle
-bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Shift+Return exec --no-startup-id st -e zsh
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
@@ -173,5 +171,5 @@ bar {
 }
 
 gaps inner 13
-gaps outer -1
+gaps outer -2
 smart_borders on
