@@ -630,6 +630,7 @@ let g:coc_global_extensions = [
             \ 'coc-pyright',
             \ 'coc-json',
             \ 'coc-sh',
+            \ 'coc-sqlfluff',
             \ 'coc-tsserver',
             \ 'coc-html',
             \ 'coc-css',
