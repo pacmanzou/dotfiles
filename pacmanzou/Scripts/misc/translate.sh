@@ -87,7 +87,7 @@ save_local() {
 }
 
 delete() {
-    query=$(tac "$HOME"/.word | _dmenu -l 14 -p "saved")
+    query=$(tac "$HOME"/.word | _dmenu -l 14 -p "delete")
     del_string=$(echo "${query}" | awk '{print $1}')
 
     sed -i '/'"${del_string}"'/d' "${file}"
@@ -115,7 +115,7 @@ display() {
 }
 
 translate_online() {
-    query=$(_dmenu -l 0 -p "translate")
+    query=$(_dmenu -l 0 -p "online")
 
     if [[ -n "$query" ]]; then
         mean=$(ydcv -c never "$query")
@@ -124,7 +124,7 @@ translate_online() {
 }
 
 translate_local() {
-    query=$(echo "${select_string}" | _dmenu -l 14 -p 'word')
+    query=$(echo "${select_string}" | _dmenu -l 14 -p 'search')
     save_local
 }
 

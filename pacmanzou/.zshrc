@@ -58,7 +58,6 @@ bindkey '^V' edit-command-line
 bindkey '^U' backward-kill-line
 bindkey '^K' kill-line
 bindkey '^S' kill-word
-bindkey '^Q' fzf-cd-widget
 
 # highlight and autosuggestions
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -74,9 +73,7 @@ source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
 if command -v fd > /dev/null; then
-  export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-  export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
-  export FZF_CTRL_T_COMMAND='fd --type f --type d --hidden --follow --exclude .git'
+  export FZF_CTRL_T_COMMAND='fd --type f --type d --follow --exclude .git'
 fi
 
 # my_prompt

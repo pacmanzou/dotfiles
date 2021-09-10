@@ -5,7 +5,7 @@
 
 cd "$(dirname "$0")" || exit
 
-DMENU_MARKS="dmenu -i -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -p 'marks' -fn ''"
+DMENU_MARKS="dmenu -i -b -l 14 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -p 'bookmarks' -fn ''"
 PYTHON_BIN="python3"
 BOOKMARK_FILE="$HOME/.config/chromium/Default/Bookmarks"
 CHROME_BIN="chromium --disable-gpu --disable-software-rasterizer"

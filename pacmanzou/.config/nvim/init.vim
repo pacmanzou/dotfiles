@@ -180,6 +180,7 @@ vnoremap <C-o> <Esc>o
 vnoremap g+ g<C-a>
 vnoremap g- g<C-x>
 
+nnoremap <C-q> <cmd>wq<Cr>
 nnoremap Q @q
 nnoremap / mr/\v
 nnoremap Y y$
@@ -208,28 +209,21 @@ Plug 'RRethy/vim-hexokinase',        { 'do': 'make hexokinase'}
 Plug 'pacmanzou/surround.vim'
 Plug 'pacmanzou/capslock.vim'
 Plug 'kana/vim-smartchr'
-Plug 'kana/vim-niceblock'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'brooth/far.vim'
 Plug 'sbdchd/neoformat'
-Plug 'godlygeek/tabular'
 Plug 'alvan/vim-closetag'
 Plug 'tommcdo/vim-exchange'
 Plug 'mg979/vim-visual-multi'
 Plug 'lpinilla/vim-codepainter'
 Plug 'jiangmiao/auto-pairs'
-Plug 'junegunn/vim-after-object'
 
 " file manager
 Plug 'kevinhwang91/rnvimr'
 
 " tags manager
 Plug 'liuchengxu/vista.vim'
-
-" undo manager
-Plug 'mbbill/undotree'
 
 " database manager
 Plug 'tpope/vim-dadbod',                     { 'on': 'DBUI'}
@@ -240,7 +234,6 @@ Plug 'kristijanhusak/vim-dadbod-completion', { 'on': 'DBUI'}
 Plug 'voldikss/vim-floaterm'
 
 " run code
-Plug 'windwp/vim-floaterm-repl'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/asynctasks.vim'
 
@@ -417,25 +410,10 @@ augroup Sh SmartChr
 augroup END
 
 
-" NiceBlock:
-xmap I <Plug>(niceblock-I)
-xmap gI <Plug>(niceblock-gI)
-xmap A <Plug>(niceblock-A)
-
-
-" Tabular:
-vmap ga :Tabularize /
-
-
-" Abolish:
-" 's' comes with nvim
-nnoremap <Space>s :%s/\v//g<Left><Left><Left>
-nnoremap <Space>S :%S///g<Left><Left><Left>
-
-vnoremap <Space>s :s/\v//g<Left><Left><Left>
-vnoremap <Space>S :S///g<Left><Left><Left>
-
-nmap cr  <Plug>(abolish-coerce-word)
+" Substitute:
+" far
+nnoremap <Space>s :Far<Space>
+vnoremap <Space>s :Far<Space>
 
 
 " VisualMulti:
@@ -500,10 +478,6 @@ nmap <silent>cxc <Plug>(ExchangeClear)
 vmap <silent>x <Plug>(Exchange)
 
 
-" AfterObject:
-autocmd VimEnter * call after_object#enable('=', ':', '>', '<', '-', ' ')
-
-
 " FileManager:
 " Rnvimr:
 let g:rnvimr_presets               = [{'width': 0.99, 'height': 0.93}]
@@ -539,7 +513,6 @@ nnoremap <Space>T <cmd>Vista finder<Cr>
 autocmd FileType vista,vista_kind nnoremap <buffer><silent>/ :<C-u>call vista#finder#fzf#Run()<Cr>
 
 
-" UndoManager:
 " Undo Backup Swap:
 set nobackup
 set swapfile
@@ -557,17 +530,6 @@ if has('persistent_undo')
     set undofile
     set undodir=~/.cache/vim/undo/
 endif
-
-
-" Undotree:
-let g:undotree_DiffAutoOpen       = 1
-let g:undotree_SetFocusWhenToggle = 1
-let g:undotree_ShortIndicators    = 1
-let g:undotree_WindowLayout       = 2
-let g:undotree_DiffpanelHeight    = 10
-let g:undotree_SplitWidth         = 35
-
-nnoremap <Space>u <cmd>UndotreeToggle<Cr>
 
 
 " Dadbod:
@@ -588,15 +550,6 @@ tnoremap <C-g><Return> <cmd>FloatermToggle<Cr>
 nnoremap <C-g><Return> <cmd>FloatermToggle<Cr>
 
 autocmd TermOpen term://* startinsert
-
-
-" FloatermRepl:
-" float run
-let g:floaterm_repl_runner = "~/.config/nvim/runner.sh"
-
-nmap <silent><Space>R gV:FloatermRepl<Cr>
-
-vnoremap <silent><Space>r :FloatermRepl<Cr>
 
 
 " AsyncrunAndAsyncTask:
@@ -675,18 +628,17 @@ vmap <C-j> <Plug>(coc-snippets-select)
 nmap t <cmd>CocCommand explorer --sources=file+<Cr>
 
 " variable rename
-nmap crn <Plug>(coc-rename)
+nmap cr <Plug>(coc-rename)
 
 " refresh in insert mode or normal mode
 nnoremap <Space><C-r> <cmd>CocRestart<Cr>
 inoremap <silent><expr><C-r> coc#refresh()
 
 " refactor function
-nmap <silent>crN <Plug>(coc-refactor)
+nmap <silent>cR <Plug>(coc-refactor)
 
-" float window jump and hide
+" float window jump
 nmap <silent><C-o> <Plug>(coc-float-jump)
-nmap <silent><C-q> <Plug>(coc-float-hide)
 
 " apply codeAction
 xmap <silent><Space>a <Plug>(coc-codeaction-selected)
@@ -828,33 +780,6 @@ autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
 nnoremap <C-g>s <cmd>set spell!<Cr>
 
 
-" MarkdownPasteImage:
-func! Md_paste_image()
-    let cliptext = getreg('+')
-    if !filereadable(cliptext)
-        echo "[illeagal path]"
-        return
-    endif
-    let outdir = expand('%:p:h') . '/' . 'img'
-    if !isdirectory(outdir)
-        call mkdir(outdir)
-    endif
-    let l:tmpname = input('Image name: ')
-    if empty(l:tmpname)
-        let l:tmpname = 'imge_' . strftime("%Y-%m-%d-%H-%M-%S")
-    endif
-    let relpath =  './img/' . l:tmpname . '.' . split(cliptext, '\.')[-1]
-    call system('cp "' . cliptext . '" "' . relpath . '"')
-    execute "normal! i![I"
-    let ipos = getcurpos()
-    execute "normal! amage](" . relpath . ")"
-    call setpos('.', ipos)
-    execute "normal! ve\<C-g>"
-endfunc
-
-autocmd FileType markdown nnoremap <buffer><Space>i <cmd>call Md_paste_image()<Cr>
-
-
 " Misc:
 " Smooth_scroll:
 " scroll the screen up
@@ -915,7 +840,6 @@ au BufReadPost * if line("'\"")>1 && line("'\"") <= line("$") && &filetype != 'g
 
 
 " Hugefile:
-" hugefile let coc dead
 " file maxsize
 let g:trigger_size         = 0.5 * 1024 * 1024
 
@@ -948,15 +872,35 @@ augroup Super_L
 augroup END
 
 
-" OtherCommands:
-" rename filename
+" Visual_IA:
+function! Force_blockwise(next_key)
+  return s:setup_keyseq_table[a:next_key][mode()]
+endfunction
+
+let s:setup_keyseq_table = {
+\   'I': {'v': "\<C-v>I", 'V': "\<C-v>^o^I", "\<C-v>": 'I'},
+\   'A': {'v': "\<C-v>A", 'V': "\<C-v>0o$A", "\<C-v>": 'A'},
+\ }
+
+vnoremap <expr> <Plug>(niceblock-I)  Force_blockwise('I')
+vnoremap <expr> <Plug>(niceblock-A)  Force_blockwise('A')
+
+if !exists('g:niceblock_no_default_key_mappings') ||
+\  !g:niceblock_no_default_key_mappings
+  silent! xmap <unique> I  <Plug>(niceblock-I)
+  silent! xmap <unique> A  <Plug>(niceblock-A)
+endif
+
+
+" Rename:
 command! -nargs=1 Rename
             \ let tpname = expand('%:t') |
             \ saveas <args> |
             \ edit <args> |
             \ call delete(expand(tpname))
 
-" clean buffers
+
+" Cleanbuffers:
 command! -nargs=? -complete=buffer -bang BufClean
     \ :call BufClean('<bang>')
 
