@@ -49,6 +49,7 @@ bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
 
+bindsym $mod+w workspace back_and_forth
 bindsym $mod+r exec --no-startup-id flameshot gui
 bindsym $mod+t exec --no-startup-id bash ~/Scripts/misc/translate.sh
 bindsym $mod+i exec --no-startup-id brightnessctl set 5%+
@@ -63,26 +64,18 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
 bindsym $mod+v split h; exec --no-startup-id notify-send 'Vsplit'
-bindsym $mod+b exec --no-startup-id bash ~/Scripts/browser/chromium_bookmarks.sh
 bindsym $mod+Shift+i exec --no-startup-id amixer -q set Master 5%+ unmute
 bindsym $mod+Shift+d exec --no-startup-id amixer -q set Master 5%- unmute
-
-bindsym $mod+w workspace back_and_forth
 bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
-bindsym $mod+space exec --no-startup-id i3-dmenu-desktop --dmenu='dmenu -i -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -p 'run' -fn 'source code''
-
-bindsym $mod+g exec /home/zou/.i3/quickswitch.py -m
-
-# bindsym $mod+g  exec alacritty -t 'alacritty-scratchpad' -e nvim scratchpad
 
 bindsym $mod+m mode "$mode_misc"
-set $mode_misc (c)pupower, (w)ifi, (t)ouchpad, (b)luetooth, (f)citx
+set $mode_misc (c)pupower   (w)ifi   (t)ouchpad   (b)luetooth   (f)citx
 mode "$mode_misc"{
     bindsym c exec --no-startup-id bash ~/Scripts/sys/cpupower.sh, mode "default"
-    bindsym w exec --no-startup-id bash ~/Scripts/misc/wifi.sh, mode "default" 
+    bindsym w exec --no-startup-id bash ~/Scripts/misc/wifi.sh, mode "default"
     bindsym t exec --no-startup-id bash ~/Scripts/sys/touchpad.sh, mode "default"
     bindsym b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on', mode "default"
     bindsym f exec --no-startup-id bash ~/Scripts/misc/fcitx_restart.sh; exec --no-startup-id notify-send 'Restart fcitx', mode "default"
@@ -92,7 +85,7 @@ mode "$mode_misc"{
 }
 
 bindsym $mod+e mode "$mode_system"
-set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
+set $mode_system (l)ock   (e)xit   switch_(u)ser   (s)uspend   (h)ibernate   (r)eboot   (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"

@@ -156,7 +156,7 @@
     # Limit icons size.
     max_icon_size=128
 
-[shortcuts]
+# [shortcuts]
 
     # Shortcuts are specified as [modifier+][modifier+]...key
     # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
@@ -168,12 +168,12 @@
     
     # Close all notifications.
     # close_all = ctrl+shift+space
-    close_all = mod1+shift+n
+    # close_all = mod1+shift+n
 
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1".
-    history = mod1+n
+    # history = mod1+n
     
     # Context menu.
     # context = ctrl+mod1+c
