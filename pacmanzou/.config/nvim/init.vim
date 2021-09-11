@@ -280,13 +280,13 @@ hi    ErrorMsg       gui=bold        guifg=#ff4934   guibg=#000000
 hi    Error          gui=bold        guifg=#fb4934   guibg=#000000
 hi    CocErrorSign   guifg=#ff4934   guibg=#202124
 hi    FloatermBorder guifg=#ebdbb2   guibg=#00000000
-hi    IncSearch      gui=bold        guifg=#ebdbb2   guibg=#353535
+hi    IncSearch      gui=bold        guifg=#ffffff   guibg=#353535
 hi    StatusLine     gui=reverse     guifg=#000000   guibg=#ebdbb2
 hi    StatusLineNC   gui=reverse     guifg=#000000   guibg=#ebdbb2
-hi    Search         gui=bold        guifg=#ebdbb2   guibg=#353535
+hi    Search         gui=bold        guifg=#ffffff   guibg=#353535
 hi    Pmenu          guifg=#ebdbb2   guibg=#202124
 hi    CursorLine     guibg=#353535   guifg=#ebdbb2
-hi    PmenuSel       gui=reverse     guibg=#ebdbb2   guifg=#353535
+hi    PmenuSel       gui=reverse     guibg=#ffffff   guifg=#353535
 hi    PmenuThumb     guibg=#353535
 hi    PmenuSbar      guibg=#202124
 hi    DiffAdd        guifg=#b8bb26   guibg=#000000
