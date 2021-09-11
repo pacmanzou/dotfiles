@@ -36,7 +36,7 @@ exec_always --no-startup-id setcursor
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id conky -c ~/dotfiles/misc/conky_i3wm
-exec --no-startup-id fcitx
+exec --no-startup-id fcitx5
 exec --no-startup-id copyq
 exec --no-startup-id utools
 
@@ -155,7 +155,7 @@ for_window [class="Manjaro Settings Manager"] floating enable, move position cen
 for_window [class="Pamac-manager"] floating enable, move position center
 for_window [class="Gcolor"] floating enable, move position center
 for_window [class="baidunetdisk"] floating enable, move position center
-for_window [class="Fcitx"] floating enable, move position center
+for_window [class="Fcitx5"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Nitrogen"] floating enable, move position center
 for_window [class="Thunar"] floating enable, move position center
