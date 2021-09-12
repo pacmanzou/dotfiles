@@ -3,9 +3,6 @@ unmap <C-m>
 unmap <C-j>
 unmap <C-k>
 unmap <C-q>
-unmap f
-unmap H
-unmap L
 unmap <Space>
 unmap <S-Space>
 unmap d
