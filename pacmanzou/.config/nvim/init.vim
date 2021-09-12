@@ -167,6 +167,8 @@ map S <nop>
 map <C-z> <nop>
 map <Space> <nop>
 
+vmap n <nop>
+vmap N <nop>
 vmap <C-f> <nop>
 vmap <C-b> <nop>
 
@@ -628,14 +630,14 @@ vmap <C-j> <Plug>(coc-snippets-select)
 nmap t <cmd>CocCommand explorer --sources=file+<Cr>
 
 " variable rename
-nmap cr <Plug>(coc-rename)
+nmap cn <Plug>(coc-rename)
 
 " refresh in insert mode or normal mode
 nnoremap <Space><C-r> <cmd>CocRestart<Cr>
 inoremap <silent><expr><C-r> coc#refresh()
 
 " refactor function
-nmap <silent>cR <Plug>(coc-refactor)
+nmap <silent>cr <Plug>(coc-refactor)
 
 " float window jump
 nmap <silent><C-o> <Plug>(coc-float-jump)
