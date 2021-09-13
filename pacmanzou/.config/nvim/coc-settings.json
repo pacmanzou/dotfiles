@@ -104,7 +104,6 @@
     "suggest.floatEnable": true,
     "suggest.detailField": "preview",
     "suggest.maxCompleteItemCount": 20,
-    "suggest.maxPreviewWidth": 80,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.autoTrigger": "always",
     "suggest.detailMaxLength": 30,

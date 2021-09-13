@@ -55,6 +55,7 @@ set matchpairs+=（:）
 set matchpairs+=【:】
 set matchpairs+=“:”
 set matchpairs+=‘:’
+set mouse=a
 set noshowmatch
 set noshowmode
 set nospell
@@ -94,15 +95,15 @@ noremap <silent><C-j> <C-w>j
 noremap <silent><C-k> <C-w>k
 
 " windows size
-nnoremap zk <cmd>res +5<Cr>
-nnoremap zj <cmd>res -5<Cr>
-nnoremap zl <cmd>vertical resize-5<Cr>
-nnoremap zh <cmd>vertical resize+5<Cr>
+nnoremap zi <cmd>res +10<Cr>
+nnoremap zd <cmd>res -10<Cr>
 
 " windows exchange
-nnoremap <silent><C-s> <C-w>K
-nnoremap <silent><C-v> <C-w>H
-nnoremap <silent><C-t> <C-w>T
+nnoremap <silent><C-w>t <C-w>T
+nnoremap <silent><C-w>h <C-w>H
+nnoremap <silent><C-w>j <C-w>J
+nnoremap <silent><C-w>k <C-w>K
+nnoremap <silent><C-w>l <C-w>L
 
 " cursor move
 noremap <C-e> $
@@ -165,6 +166,9 @@ cmap <C-g> <nop>
 map X <nop>
 map S <nop>
 map <C-z> <nop>
+map <C-s> <nop>
+map <C-v> <nop>
+map <C-t> <nop>
 map <Space> <nop>
 
 vmap n <nop>
