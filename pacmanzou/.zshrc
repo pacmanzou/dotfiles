@@ -2,7 +2,7 @@
 
 # environment variable
 export PATH=$PATH:/usr/bin
-export PATH=$PATH:$HOME/.gem/ruby/2.7.0/bin
+export PATH=$PATH:$HOME/.local/share/gem/ruby/3.0.0/bin
 export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin

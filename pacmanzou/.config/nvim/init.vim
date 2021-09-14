@@ -259,7 +259,7 @@ Plug 'pangloss/vim-javascript',      { 'for': ['javascript', 'vim-plug']}
 " markdown
 Plug 'plasticboy/vim-markdown',      { 'for': ['markdown', 'vim-plug']}
 Plug 'iamcco/markdown-preview.nvim',     {
-            \ 'do': ':call mkdp#util#install()',
+            \ 'do': 'cd app && yarn install',
             \ 'for': ['markdown', 'vim-plug'],
             \ 'on':'MarkdownPreview'
             \ }
@@ -284,17 +284,17 @@ hi!   link           SignColumn      LineNr
 hi    WarningMsg     guifg=#FE8019   guibg=#000000
 hi    ErrorMsg       gui=bold        guifg=#ff4934   guibg=#000000
 hi    Error          gui=bold        guifg=#fb4934   guibg=#000000
-hi    CocErrorSign   guifg=#ff4934   guibg=#202124
+hi    CocErrorSign   guifg=#ff4934   guibg=#222222
 hi    FloatermBorder guifg=#ebdbb2   guibg=#00000000
 hi    IncSearch      gui=bold        guifg=#ffffff   guibg=#353535
 hi    StatusLine     gui=reverse     guifg=#000000   guibg=#ebdbb2
 hi    StatusLineNC   gui=reverse     guifg=#000000   guibg=#ebdbb2
 hi    Search         gui=bold        guifg=#ffffff   guibg=#353535
-hi    Pmenu          guifg=#ebdbb2   guibg=#202124
+hi    Pmenu          guifg=#ebdbb2   guibg=#222222
 hi    CursorLine     guibg=#353535   guifg=#ebdbb2
 hi    PmenuSel       gui=reverse     guibg=#ffffff   guifg=#353535
 hi    PmenuThumb     guibg=#353535
-hi    PmenuSbar      guibg=#202124
+hi    PmenuSbar      guibg=#222222
 hi    DiffAdd        guifg=#b8bb26   guibg=#000000
 hi    DiffChange     guifg=#8ec07c   guibg=#000000
 hi    DiffDelete     guifg=#fb4934   guibg=#000000
@@ -603,8 +603,8 @@ let g:coc_global_extensions = [
             \ 'coc-diagnostic',
             \ 'coc-lists',
             \ 'coc-git',
-            \ 'coc-explorer',
             \ 'coc-yank',
+            \ 'coc-explorer',
             \ 'coc-translator',
             \ 'coc-leetcode'
             \ ]

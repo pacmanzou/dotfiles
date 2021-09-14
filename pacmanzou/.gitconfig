@@ -1,6 +1,6 @@
 [user]
 	email = pacmanzou@qq.com
 	name = pacmanzou
-[url "https://github.com.cnpmjs.org"]
-; [url "https://hub.fastgit.org"]
+;[url "https://github.com.cnpmjs.org"]
+[url "https://hub.fastgit.org"]
 	insteadOf = https://github.com
