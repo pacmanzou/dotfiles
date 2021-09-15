@@ -605,7 +605,6 @@ let g:coc_global_extensions = [
             \ 'coc-git',
             \ 'coc-yank',
             \ 'coc-explorer',
-            \ 'coc-translator',
             \ 'coc-leetcode'
             \ ]
 
@@ -662,11 +661,6 @@ nmap <silent>[d <Plug>(coc-diagnostic-prev)
 " git chunk jump
 nmap <silent><leader>j <Plug>(coc-git-nextchunk)
 nmap <silent><leader>k <Plug>(coc-git-prevchunk)
-
-" translate
-nmap <silent><Space>t <Plug>(coc-translator-e)
-
-vmap <silent><Space>t <Plug>(coc-translator-ev)
 
 " float window scroll
 nnoremap <nowait><expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "<cmd>Neoformat<Cr>"
