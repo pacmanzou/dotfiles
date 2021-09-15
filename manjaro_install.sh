@@ -28,18 +28,11 @@ echo update system done#########################################################
 echo
 
 echo ln file####################################################################################################################################
-folder="$HOME/.config"
-if [[ -d "${folder}" ]]; then
-    mv "$HOME"/.config "$HOME"/.config_backup
-    mkdir "$HOME"/.config/
-fi
-ln -s /home/zou/dotfiles/pacmanzou/.config/* /home/zou/.config/
-
 folder="$HOME/.i3"
 if [[ -d "${folder}" ]]; then
-    mv "$HOME"/.i3 "$HOME"/.i3_backup
+    mv "$HOME"/.i3/ "$HOME"/.i3_backup/
 fi
-ln -s /home/zou/dotfiles/pacmanzou/.i3 /home/zou/
+ln -s /home/zou/dotfiles/pacmanzou/.i3/ /home/zou/
 
 file="$HOME/.zshrc"
 if [[ -f "${file}" ]]; then
@@ -47,9 +40,13 @@ if [[ -f "${file}" ]]; then
 fi
 ln -s /home/zou/dotfiles/pacmanzou/.zshrc /home/zou/
 
+mv /home/zou/.config/ /home/zou/.config_backup/
+mkdir /home/zou/.config/
+
+ln -s /home/zou/dotfiles/pacmanzou/.config/* /home/zou/.config/
 ln -s /home/zou/dotfiles/pacmanzou/.gitconfig /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/.pip /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/Scripts /home/zou/
+ln -s /home/zou/dotfiles/pacmanzou/.pip/ /home/zou/
+ln -s /home/zou/dotfiles/pacmanzou/Scripts/ /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.i3status.conf /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.pam_environment /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.tmux.conf /home/zou/
@@ -89,9 +86,15 @@ sudo pacman -S zsh \
     alacritty \
     lightdm-settings \
     sxiv \
+    vnote-git \
+    etcher \
+    virtualbox \
+    libreoffice-fresh \
+    libreoffice-fresh-zh-cn \
     obs-studio \
     fd \
     lazygit \
+    lazydocker \
     ripgrep \
     fzf \
     youtube-dl \
