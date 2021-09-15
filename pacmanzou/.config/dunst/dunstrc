@@ -1,6 +1,6 @@
 [global]
     frame_width = 1
-    frame_color = "#353535"
+    frame_color = "#1d1d1d"
     
     font = Noto Sans 11
     
@@ -134,7 +134,7 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = #353535
+    separator_color = #1d1d1d
     
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
@@ -159,12 +159,12 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#353535"
+    background = "#1d1d1d"
     foreground = "#ebdbb2"
     timeout = 10
 
 [urgency_normal]
-    background = "#353535"
+    background = "#1d1d1d"
     foreground = "#ebdbb2"
     timeout = 10
 

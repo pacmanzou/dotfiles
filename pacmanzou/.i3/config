@@ -60,6 +60,7 @@ exec --no-startup-id conky -c ~/dotfiles/misc/conky_i3wm
 exec --no-startup-id fcitx5
 exec --no-startup-id copyq
 exec --no-startup-id utools
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 bindsym $mod+Ctrl+q kill
 bindsym $mod+Ctrl+r restart
@@ -209,9 +210,9 @@ bar {
         #workspace color    border background font
         inactive_workspace #000000 #000000 #ebdbb2
         active_workspace   #000000 #000000 #ebdbb2
-        focused_workspace  #353535 #353535 #ebdbb2
+        focused_workspace  #1d1d1d #353535 #ebdbb2
         urgent_workspace   #000000 #000000 #ebdbb2
-        binding_mode       #000000 #353535 #ebdbb2
+        binding_mode       #000000 #1d1d1d #ebdbb2
     }
 }
 
