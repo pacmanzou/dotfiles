@@ -35,8 +35,6 @@ if [[ -d "${folder}" ]]; then
 fi
 ln -s /home/zou/dotfiles/pacmanzou/.config/* /home/zou/.config/
 
-sudo cp -r ~/dotfiles/misc/copyq ~/.config/
-
 folder="$HOME/.i3"
 if [[ -d "${folder}" ]]; then
     mv "$HOME"/.i3 "$HOME"/.i3_backup
@@ -50,7 +48,6 @@ fi
 ln -s /home/zou/dotfiles/pacmanzou/.zshrc /home/zou/
 
 ln -s /home/zou/dotfiles/pacmanzou/.gitconfig /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/.cargo /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.pip /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/Scripts /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.i3status.conf /home/zou/
@@ -115,9 +112,10 @@ sudo npm install -g neovim
 yarn global add neovim
 echo download environment done####################################################################################################################################
 
-echor
+echo
 
 echo misc####################################################################################################################################
+sudo cp -r ~/dotfiles/misc/copyq ~/.config/
 npm install -g reveal-md
 echo misc done####################################################################################################################################
 
