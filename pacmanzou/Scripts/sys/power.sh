@@ -4,7 +4,7 @@
 # Time: 22:32:35 2020-11-06
 
 _dmenu() {
-    dmenu -i -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -fn '' "$@"
+    dmenu -i -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#1d1d1d' -fn '' "$@"
 }
 
 declare -a list_array
