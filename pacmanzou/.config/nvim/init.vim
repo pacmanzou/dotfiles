@@ -206,10 +206,11 @@ call plug#begin('~/.config/nvim/plugged')
 
 " colorscheme && statusline
 Plug 'pacmanzou/gruvbox8.vim'
-Plug 'rbong/vim-crystalline'
+Plug 'pacmanzou/crystalline.vim'
 Plug 'luochen1990/rainbow'
 Plug 'yggdroot/indentline'
 Plug 'RRethy/vim-hexokinase',        { 'do': 'make hexokinase'}
+Plug 'RRethy/vim-illuminate'
 
 " better operation
 Plug 'pacmanzou/surround.vim'
@@ -224,6 +225,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'mg979/vim-visual-multi'
 Plug 'lpinilla/vim-codepainter'
 Plug 'jiangmiao/auto-pairs'
+Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
 
 " file manager
 Plug 'kevinhwang91/rnvimr'
@@ -245,6 +247,7 @@ Plug 'skywind3000/asynctasks.vim'
 
 " completion engine
 Plug 'neoclide/coc.nvim',            { 'branch': 'release'}
+Plug 'wellle/tmux-complete.vim'
 
 " debug engine
 " Plug 'puremourning/vimspector'
@@ -258,6 +261,7 @@ Plug 'pangloss/vim-javascript',      { 'for': ['javascript', 'vim-plug']}
 
 " markdown
 Plug 'plasticboy/vim-markdown',      { 'for': ['markdown', 'vim-plug']}
+Plug 'mzlogin/vim-markdown-toc',     { 'for': ['markdown', 'vim-plug'] }
 Plug 'iamcco/markdown-preview.nvim',     {
             \ 'do': 'cd app && yarn install',
             \ 'for': ['markdown', 'vim-plug'],
@@ -381,6 +385,13 @@ let g:indentLine_bufTypeExclude  = ['help', 'terminal', 'nofile']
 
 " Hexokinase:
 let g:Hexokinase_highlighters = ['background']
+
+
+" Illuminate:
+augroup illuminate_augroup
+    autocmd!
+    autocmd VimEnter * hi illuminatedCurWord cterm=underline gui=underline
+augroup END
 
 
 " BetterOperation:
@@ -702,9 +713,6 @@ nnoremap <leader>b <cmd>CocCommand git.browserOpen<Cr>
 " organizeImport
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
 
-" highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
 " update signature help on jump placeholder
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
@@ -890,14 +898,6 @@ if !exists('g:niceblock_no_default_key_mappings') ||
   silent! xmap <unique> I  <Plug>(niceblock-I)
   silent! xmap <unique> A  <Plug>(niceblock-A)
 endif
-
-
-" Rename:
-command! -nargs=1 Rename
-            \ let tpname = expand('%:t') |
-            \ saveas <args> |
-            \ edit <args> |
-            \ call delete(expand(tpname))
 
 
 " Cleanbuffers:
