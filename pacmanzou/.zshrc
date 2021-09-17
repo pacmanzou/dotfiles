@@ -9,10 +9,6 @@ export PATH=$PATH:$HOME/go/bin
 export GOPROXY=https://goproxy.cn,direct
 # export GOPROXY=https://goproxy.io
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
-# export BROWSER="chromium"
-export BROWSER="vivaldi-stable"
-export EDITOR=nvim
-export VISUAL=nvim
 export BAT_THEME=TwoDark
 export BAT_STYLE=plain
 

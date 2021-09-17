@@ -1,13 +1,14 @@
 {
 	"name": "Vimium C",
-	"@time": "2021/5/30 上午12:21:29",
-	"time": 1622305289203,
+	"@time": "2021/9/17 下午7:13:05",
+	"time": 1631877185226,
 	"environment": {
-		"extension": "1.90.1",
+		"extension": "1.92.4",
 		"platform": "linux",
-		"chrome": 90
+		"chrome": 93
 	},
 	"keyMappings": [
+		"#! no-check",
 		"unmapAll",
 		"map j scrollDown",
 		"map k scrollUp",
@@ -18,7 +19,6 @@
 		"map <c-d> scrollPageDown",
 		"map <c-u> scrollPageUp",
 		"map <c-r> reload",
-		"map gs toggleViewSource",
 		"map yy copyCurrentUrl",
 		"map gi focusInput",
 		"map < goBack",
@@ -33,12 +33,12 @@
 		"map N performBackwardsFind",
 		"map H moveTabLeft",
 		"map L moveTabRight",
-		"map w visitPreviousTab",
 		"map u restoreTab",
 		"map S moveTabToNewWindow",
 		"map J joinTabs",
 		"map ? showHelp",
 		"map f LinkHints.activate",
 		""
-	]
+	],
+	"linkHintCharacters": "asdefghjkl"
 }
