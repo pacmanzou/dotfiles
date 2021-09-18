@@ -60,7 +60,6 @@ set noshowmatch
 set noshowmode
 set nospell
 set nu
-set relativenumber
 set notimeout
 set novisualbell
 set nowritebackup
@@ -69,7 +68,7 @@ set scrolloff=3
 set shiftwidth=4
 set shortmess+=c
 set showtabline=2
-set signcolumn=yes
+set signcolumn=number
 set smartcase
 set smartindent
 set smarttab
