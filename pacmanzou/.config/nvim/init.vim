@@ -187,6 +187,7 @@ vnoremap g+ g<C-a>
 vnoremap g- g<C-x>
 
 nnoremap <C-q> <cmd>wq<Cr>
+nnoremap ; :
 nnoremap Q @q
 nnoremap / mr/\v
 nnoremap Y y$

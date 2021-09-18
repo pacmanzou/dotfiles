@@ -81,6 +81,8 @@ sudo pacman -S zsh \
     brave-bin \
     unrar \
     zip  \
+    ydcv-rs-git  \
+    tldr  \
     unzip  \
     gcc \
     cmake \
