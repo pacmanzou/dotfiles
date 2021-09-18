@@ -164,6 +164,9 @@ cmap <C-g> <nop>
 " nop
 map X <nop>
 map S <nop>
+map zg <nop>
+map zw <nop>
+map z= <nop>
 map <C-z> <nop>
 map <C-s> <nop>
 map <C-v> <nop>
