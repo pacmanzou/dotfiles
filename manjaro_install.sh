@@ -78,7 +78,7 @@ sudo pacman -S zsh \
     npm \
     yarn \
     go \
-    chromium \
+    brave-bin \
     unrar \
     zip  \
     unzip  \
