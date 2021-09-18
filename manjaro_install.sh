@@ -63,55 +63,55 @@ echo
 
 echo install package####################################################################################################################################
 sudo pacman -S zsh \
+    alacritty \
+    brave-bin \
+    bleachbit \
+    bottom \
+    ctags \
+    copyq \
+    cmake \
+    dbeaver \
+    etcher \
+    fd \
     fcitx5 \
     fcitx5-rime \
     fcitx5-configtool \
-    ctags \
-    mpv \
-    copyq \
-    python-pip \
-    manjaro-settings-manager \
-    tmux \
-    yay \
-    nodejs-lts-fermium \
-    ruby \
-    npm \
-    yarn \
+    fzf \
     go \
-    brave-bin \
-    unrar \
-    zip  \
-    ydcv-rs-git  \
-    tldr  \
-    unzip  \
     gcc \
-    cmake \
-    unzip \
-    pandoc \
-    materiav2-gtk-theme \
-    neofetch \
-    ctags \
-    xclip \
-    alacritty \
+    gpart \
     lightdm-settings \
-    sxiv \
-    vnote-git \
-    etcher \
-    virtualbox \
     libreoffice-fresh \
     libreoffice-fresh-zh-cn \
-    obs-studio \
-    fd \
     lazygit \
     lazydocker \
+    mpv \
+    manjaro-settings-manager \
+    materiav2-gtk-theme \
+    music-dl \
+    neofetch \
+    nodejs-lts-fermium \
+    npm \
+    obs-studio \
+    python-pip \
+    pandoc \
+    ruby \
     ripgrep \
-    fzf \
+    sxiv \
+    tldr  \
+    tmux \
+    unrar \
+    unzip  \
+    unzip \
+    vnote-git \
+    virtualbox \
+    xclip \
     youtube-dl \
     you-get \
-    music-dl \
-    bleachbit \
-    gpart \
-    dbeaver \
+    yay \
+    yarn \
+    ydcv-rs-git  \
+    zip  \
     zathura \
     zathura-pdf-mupdf
 echo install package done####################################################################################################################################
