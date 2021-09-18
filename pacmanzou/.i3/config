@@ -73,7 +73,8 @@ bindsym $mod+Ctrl+l move right 50
 
 bindsym $mod+w workspace back_and_forth
 bindsym $mod+r exec --no-startup-id flameshot gui
-bindsym $mod+t exec --no-startup-id bash ~/Scripts/misc/translate.sh
+bindsym $mod+t exec --no-startup-id bash ~/Scripts/misc/translate_online.sh
+bindsym $mod+Shift+t exec --no-startup-id alacritty -t "alacritty-word" -e nvim ~/.word
 bindsym $mod+i exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
@@ -185,6 +186,7 @@ for_window [class="mpv"] floating enable, resize set 1280 960, move position cen
 for_window [class="Sxiv"] floating enable, resize set 960 720, move position center
 
 for_window [title="^alacritty-copy$"] floating enable, move position center
+for_window [title="^alacritty-word$"] floating enable, move position center
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
