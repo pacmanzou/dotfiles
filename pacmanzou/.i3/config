@@ -55,7 +55,7 @@ font xft:URWGothic-Book 11
 
 exec_always --no-startup-id fix_xcursor
 
-exec --no-startup-id nitrogen --restore; picom -b
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id conky -c ~/dotfiles/misc/conky_i3wm
 exec --no-startup-id fcitx5
 exec --no-startup-id copyq
