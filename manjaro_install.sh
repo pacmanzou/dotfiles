@@ -78,7 +78,7 @@ sudo pacman -S zsh \
     fzf \
     go \
     gcc \
-    gpart \
+    gparted \
     lightdm-settings \
     libreoffice-fresh \
     libreoffice-fresh-zh-cn \
