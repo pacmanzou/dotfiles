@@ -64,7 +64,6 @@ echo
 echo install package####################################################################################################################################
 sudo pacman -S zsh \
     alacritty \
-    brave-bin \
     bleachbit \
     bottom \
     ctags \
@@ -114,6 +113,10 @@ sudo pacman -S zsh \
     zip  \
     zathura \
     zathura-pdf-mupdf
+
+yay -S debtap \
+    ranger-git \
+    google-chrome
 echo install package done####################################################################################################################################
 
 echo

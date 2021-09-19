@@ -756,7 +756,7 @@ let g:vim_markdown_conceal_code_blocks       = 0
 let g:vim_markdown_math                      = 0
 
 " markdown-preview
-let g:mkdp_browser                           = 'vivaldi-stable'
+let g:mkdp_browser                           = 'chromium'
 let g:mkdp_auto_start                        = 0
 let g:mkdp_auto_close                        = 0
 let g:mkdp_refresh_slow                      = 0
