@@ -97,11 +97,9 @@ sudo pacman -S zsh \
     ruby \
     ripgrep \
     sxiv \
-    tldr  \
     tmux \
     unrar \
     unzip  \
-    unzip \
     vnote-git \
     virtualbox \
     xclip \
@@ -122,15 +120,16 @@ echo install package done#######################################################
 echo
 
 echo download environment####################################################################################################################################
-pip install pynvim
 sudo npm install -g neovim
+pip install pynvim
 yarn global add neovim
 echo download environment done####################################################################################################################################
 
 echo
 
 echo misc####################################################################################################################################
-npm install -g reveal-md
+npm install -g reveal-md \
+    tldr
 echo misc done####################################################################################################################################
 
 echo
