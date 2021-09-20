@@ -93,6 +93,7 @@ sudo pacman -S zsh \
     npm \
     obs-studio \
     python-pip \
+    python2-pip \
     pandoc \
     ruby \
     ripgrep \
@@ -121,8 +122,9 @@ echo
 
 echo download environment####################################################################################################################################
 sudo npm install -g neovim
-pip install pynvim
 yarn global add neovim
+pip install pynvim
+/usr/bin/python2 -m pip install pynvim
 echo download environment done####################################################################################################################################
 
 echo

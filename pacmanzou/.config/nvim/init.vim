@@ -188,7 +188,7 @@ vnoremap <C-o> <Esc>o
 vnoremap g+ g<C-a>
 vnoremap g- g<C-x>
 
-nnoremap <C-q> <cmd>wq<Cr>
+nnoremap <C-q> <cmd>q<Cr>
 nnoremap Q @q
 nnoremap / mr/\v
 nnoremap Y y$
@@ -390,10 +390,8 @@ let g:Hexokinase_highlighters = ['background']
 
 
 " Illuminate:
-augroup illuminate_augroup
-    autocmd!
-    autocmd VimEnter * hi illuminatedCurWord cterm=underline gui=underline
-augroup END
+let g:Illuminate_highlightUnderCursor = 0
+let g:Illuminate_delay = 100
 
 
 " BetterOperation:
@@ -825,8 +823,8 @@ function! s:get_ms_since(time)
     return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
 
-nnoremap <silent><C-u> :call init#up(&scroll,6,1)<Cr>
-nnoremap <silent><C-d> :call init#down(&scroll,6,1)<Cr>
+nnoremap <silent><C-u> :call init#up(&scroll,5,1)<Cr>
+nnoremap <silent><C-d> :call init#down(&scroll,5,1)<Cr>
 
 
 " Comment:
