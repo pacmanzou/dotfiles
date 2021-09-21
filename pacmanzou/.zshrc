@@ -7,6 +7,8 @@ export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin
 export GOPROXY=https://goproxy.cn,direct
+export BROWSER=/usr/bin/google-chrome-stable
+export EDITOR=/usr/bin/nvim
 # export GOPROXY=https://goproxy.io
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
 export BAT_THEME=TwoDark
@@ -96,6 +98,12 @@ alias cp='cp -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
 
+# misc
+if [ -z "$TMUX" ]; then
+    SESSION_NAME="LOCALHOST"
+    tmux new-session -s $SESSION_NAME
+fi
+
 if (( $+commands[exa] )); then
     alias ls='exa -gH --time-style=iso '
     alias la='ls -la '
@@ -104,10 +112,4 @@ else
     alias ls='ls --color=tty --time-style=iso'
     alias la='ls -la'
     alias ll='ls -l'
-fi
-
-# misc
-if [ -z "$TMUX" ]; then
-    SESSION_NAME="LOCALHOST"
-    tmux new-session -s $SESSION_NAME
 fi
