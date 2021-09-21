@@ -10,10 +10,14 @@ fi
 
 echo cp some####################################################################################################################################
 sudo cp -b ~/dotfiles/etc/pacman.conf /etc/
-sudo cp -b ~/dotfiles/misc/evdev /usr/share/X11/xkb/keycodes/
-sudo cp -b ~/dotfiles/usr/local/bin/D /usr/local/bin/
 sudo cp -b ~/dotfiles/etc/UPower/UPower.conf /etc/UPower/
 sudo cp -b ~/dotfiles/etc/systemd/logind.conf /etc/systemd/
+sudo cp -b ~/dotfiles/etc/systemd/logind.conf /etc/systemd/
+
+sudo cp -b ~/dotfiles/misc/evdev /usr/share/X11/xkb/keycodes/
+
+sudo cp -b ~/dotfiles/usr/local/bin/D /usr/local/bin/
+sudo cp -b ~/dotfiles/usr/local/bin/linkhandler /usr/local/bin/
 echo cp some done####################################################################################################################################
 
 echo
@@ -46,10 +50,10 @@ mkdir /home/zou/.config/
 ln -s /home/zou/dotfiles/pacmanzou/.config/* /home/zou/.config/
 ln -s /home/zou/dotfiles/pacmanzou/.gitconfig /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.pip/ /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/Scripts/ /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.i3status.conf /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.pam_environment /home/zou/
 ln -s /home/zou/dotfiles/pacmanzou/.tmux.conf /home/zou/
+ln -s /home/zou/dotfiles/pacmanzou/.urlview /home/zou/
 echo ln .config done####################################################################################################################################
 
 echo
@@ -115,6 +119,7 @@ sudo pacman -S zsh \
 
 yay -S debtap \
     ranger-git \
+    abook \
     google-chrome
 echo install package done####################################################################################################################################
 
@@ -145,5 +150,10 @@ echo 测试是否成功: ssh -T git@github.com
 
 echo
 
-echo 需要网页端安装:####################################################################################################################################
+echo 需要网页端安装####################################################################################################################################
 echo ApiPost, uTools
+
+echo
+
+echo misc####################################################################################################################################
+echo 配置neomutt

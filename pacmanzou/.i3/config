@@ -55,11 +55,12 @@ font xft:URWGothic-Book 11
 
 exec_always --no-startup-id fix_xcursor
 
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id conky -c ~/dotfiles/misc/conky_i3wm
+exec --no-startup-id conky -c ~/.i3/conky_i3wm
+exec --no-startup-id bash ~/.i3/mailsync.sh
 exec --no-startup-id fcitx5
 exec --no-startup-id copyq
 exec --no-startup-id utools
+exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 bindsym $mod+Ctrl+q kill
@@ -95,17 +96,16 @@ bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 bindsym $mod+m mode "$mode_misc"
 set $mode_misc (c)pupower   (w)ifi   (t)ouchpad   (b)luetooth   (f)citx
 mode "$mode_misc"{
-    bindsym c exec --no-startup-id bash ~/Scripts/sys/cpupower.sh, mode "default"
-    bindsym w exec --no-startup-id bash ~/Scripts/misc/wifi.sh, mode "default"
-    bindsym t exec --no-startup-id bash ~/Scripts/sys/touchpad.sh, mode "default"
+    bindsym c exec --no-startup-id bash ~/.i3/cpupower.sh, mode "default"
+    bindsym w exec --no-startup-id bash ~/.i3/wifi.sh, mode "default"
+    bindsym t exec --no-startup-id bash ~/.i3/touchpad.sh, mode "default"
     bindsym b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on', mode "default"
-    bindsym f exec --no-startup-id bash ~/Scripts/misc/fcitx_restart.sh; exec --no-startup-id notify-send 'Restart fcitx', mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-bindsym $mod+e mode "$mode_system"
+bindsym $mod+q mode "$mode_system"
 set $mode_system (l)ock   (e)xit   switch_(u)ser   (s)uspend   (h)ibernate   (r)eboot   (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"

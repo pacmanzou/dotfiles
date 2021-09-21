@@ -42,10 +42,11 @@ setopt share_history
 # key
 bindkey -e
 
-# unmap c-s
+# unmap c-s, c-z
 stty -ixon
+# set +m
 
-autoload -U edit-command-line fzf-cd-widget
+autoload -U edit-command-line
 
 zle -N edit-command-line
 zle -N fzf-cd-widget
