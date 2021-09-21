@@ -68,7 +68,7 @@ set scrolloff=3
 set shiftwidth=4
 set shortmess+=c
 set showtabline=2
-set signcolumn=number
+set signcolumn=yes
 set smartcase
 set smartindent
 set smarttab
@@ -107,14 +107,12 @@ nnoremap <silent><C-w>l <C-w>L
 " cursor move
 noremap <C-e> $
 noremap <C-a> ^
-noremap <C-n> <C-i>
-noremap <C-p> <C-o>
 noremap J 5<C-e>
 noremap K 5<C-y>
 
 " tab switch
-nnoremap <Tab> <cmd>tabnext<Cr>
-nnoremap <S-Tab> <cmd>tabprevious<Cr>
+nnoremap <C-n> <cmd>tabnext<Cr>
+nnoremap <C-p> <cmd>tabprevious<Cr>
 
 " visual
 noremap <silent>vv <C-v>
@@ -391,7 +389,7 @@ let g:Hexokinase_highlighters = ['background']
 
 " Illuminate:
 let g:Illuminate_highlightUnderCursor = 0
-let g:Illuminate_delay = 100
+let g:Illuminate_delay = 1000
 
 
 " BetterOperation:
@@ -653,9 +651,6 @@ inoremap <silent><expr><C-r> coc#refresh()
 " refactor function
 nmap <silent>cr <Plug>(coc-refactor)
 
-" float window jump
-nmap <silent><C-o> <Plug>(coc-float-jump)
-
 " apply codeAction
 xmap <silent><Space>a <Plug>(coc-codeaction-selected)
 
@@ -674,7 +669,7 @@ nmap <silent><leader>j <Plug>(coc-git-nextchunk)
 nmap <silent><leader>k <Plug>(coc-git-prevchunk)
 
 " float window scroll
-nnoremap <nowait><expr><C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "<cmd>Neoformat<Cr>"
+nnoremap <nowait><expr><C-f> coc#float#scroll(1)
 nnoremap <nowait><expr><C-b> coc#float#scroll(0)
 
 " function and class
