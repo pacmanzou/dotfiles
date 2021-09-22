@@ -202,7 +202,7 @@ filetype plugin indent on
 
 let g:plug_window = '-tabnew'
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('$HOME/.config/nvim/plugged')
 
 " colorscheme && statusline
 Plug 'pacmanzou/gruvbox8.vim'

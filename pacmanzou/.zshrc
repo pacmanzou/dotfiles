@@ -11,8 +11,7 @@ export BROWSER=/usr/bin/google-chrome-stable
 export EDITOR=/usr/bin/nvim
 # export GOPROXY=https://goproxy.io
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
-export BAT_THEME=TwoDark
-export BAT_STYLE=plain
+export SUDO_ASKPASS=${HOME}/.sudo_askpass.sh
 
 # less
 export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
@@ -44,15 +43,12 @@ setopt share_history
 # key
 bindkey -e
 
-# unmap c-s, c-z
+# unmap c-s
 stty -ixon
-# set +m
 
 autoload -U edit-command-line
 
 zle -N edit-command-line
-zle -N fzf-cd-widget
-
 
 bindkey '^V' edit-command-line
 bindkey '^U' backward-kill-line
@@ -86,7 +82,6 @@ prompt_suse_setup () {
 prompt_suse_setup "$@"
 
 # alias
-alias r='ranger'
 alias syy='sudo pacman -Syy'
 alias syu='sudo pacman -Syu'
 alias syyu='sudo pacman -Syyu'

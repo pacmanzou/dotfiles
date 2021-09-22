@@ -55,8 +55,8 @@ font xft:URWGothic-Book 11
 
 exec_always --no-startup-id fix_xcursor
 
-exec --no-startup-id conky -c ~/.i3/conky_i3wm
-exec --no-startup-id bash ~/.i3/mailsync.sh
+exec --no-startup-id conky -c $HOME/.i3/conky_i3wm
+exec --no-startup-id bash $HOME/.i3/mailsync.sh
 exec --no-startup-id fcitx5
 exec --no-startup-id copyq
 exec --no-startup-id utools
@@ -71,6 +71,7 @@ bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
+bindsym $mod+Ctrl+w move container to workspace back_and_forth
 
 bindsym $mod+w workspace back_and_forth
 bindsym $mod+r exec --no-startup-id flameshot gui
@@ -86,19 +87,21 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
 bindsym $mod+v split h; exec --no-startup-id notify-send 'Vsplit'
+bindsym $mod+Tab workspace next
+bindsym $mod+Return exec --no-startup-id alacritty -e zsh
+
+bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Shift+i exec --no-startup-id amixer -q set Master 5%+ unmute
 bindsym $mod+Shift+d exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
-bindsym $mod+Tab workspace next
-bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Return exec --no-startup-id alacritty -e zsh
+
 
 bindsym $mod+m mode "$mode_misc"
-set $mode_misc (c)pupower   (w)ifi   (t)ouchpad   (b)luetooth   (f)citx
+set $mode_misc (c)pupower   (w)ifi   (t)ouchpad   (b)luetooth
 mode "$mode_misc"{
-    bindsym c exec --no-startup-id bash ~/.i3/cpupower.sh, mode "default"
-    bindsym w exec --no-startup-id bash ~/.i3/wifi.sh, mode "default"
-    bindsym t exec --no-startup-id bash ~/.i3/touchpad.sh, mode "default"
+    bindsym c exec --no-startup-id bash $HOME/.i3/cpupower.sh, mode "default"
+    bindsym w exec --no-startup-id bash $HOME/.i3/wifi.sh, mode "default"
+    bindsym t exec --no-startup-id bash $HOME/.i3/touchpad.sh, mode "default"
     bindsym b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on', mode "default"
 
     bindsym Return mode "default"

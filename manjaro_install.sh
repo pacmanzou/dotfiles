@@ -9,15 +9,12 @@ if [[ -f "${file}" ]]; then
 fi
 
 echo cp some####################################################################################################################################
-sudo cp -b ~/dotfiles/etc/pacman.conf /etc/
-sudo cp -b ~/dotfiles/etc/UPower/UPower.conf /etc/UPower/
-sudo cp -b ~/dotfiles/etc/systemd/logind.conf /etc/systemd/
-sudo cp -b ~/dotfiles/etc/systemd/logind.conf /etc/systemd/
+sudo cp -b $HOME/dotfiles/etc/pacman.conf /etc/
+sudo cp -b $HOME/dotfiles/etc/UPower/UPower.conf /etc/UPower/
+sudo cp -b $HOME/dotfiles/etc/systemd/logind.conf /etc/systemd/
+sudo cp -b $HOME/dotfiles/etc/systemd/logind.conf /etc/systemd/
 
 sudo cp -b ~/dotfiles/misc/evdev /usr/share/X11/xkb/keycodes/
-
-sudo cp -b ~/dotfiles/usr/local/bin/D /usr/local/bin/
-sudo cp -b ~/dotfiles/usr/local/bin/linkhandler /usr/local/bin/
 echo cp some done####################################################################################################################################
 
 echo
@@ -31,36 +28,42 @@ echo update system done#########################################################
 
 echo
 
+echo ln usr/local/bin####################################################################################################################################
+sudo ln -s $HOME/dotfiles/usr/local/bin/* /usr/local/bin/
+echo ln usr/local/bin done####################################################################################################################################
+
+echo
+
 echo ln .config####################################################################################################################################
 folder="$HOME/.i3"
 if [[ -d "${folder}" ]]; then
     mv "$HOME"/.i3/ "$HOME"/.i3_backup/
 fi
-ln -s /home/zou/dotfiles/pacmanzou/.i3/ /home/zou/
+ln -s $HOME/dotfiles/pacmanzou/.i3/ $HOME/
 
 file="$HOME/.zshrc"
 if [[ -f "${file}" ]]; then
-    mv "$HOME"/.zshrc "$HOME"/.zshrc_backup
+    mv $HOME/.zshrc $HOME/.zshrc_backup
 fi
-ln -s /home/zou/dotfiles/pacmanzou/.zshrc /home/zou/
+ln -s $HOME/dotfiles/pacmanzou/.zshrc $HOME/
 
-mv /home/zou/.config/ /home/zou/.config_backup/
-mkdir /home/zou/.config/
+mv $HOME/.config/ $HOME/.config_backup/
+mkdir $HOME/.config/
 
-ln -s /home/zou/dotfiles/pacmanzou/.config/* /home/zou/.config/
-ln -s /home/zou/dotfiles/pacmanzou/.gitconfig /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/.pip/ /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/.i3status.conf /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/.pam_environment /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/.tmux.conf /home/zou/
-ln -s /home/zou/dotfiles/pacmanzou/.urlview /home/zou/
+ln -s $HOME/dotfiles/pacmanzou/.config/* $HOME/.config/
+ln -s $HOME/dotfiles/pacmanzou/.gitconfig $HOME/
+ln -s $HOME/dotfiles/pacmanzou/.pip/ $HOME/
+ln -s $HOME/dotfiles/pacmanzou/.i3status.conf $HOME/
+ln -s $HOME/dotfiles/pacmanzou/.pam_environment $HOME/
+ln -s $HOME/dotfiles/pacmanzou/.tmux.conf $HOME/
+ln -s $HOME/dotfiles/pacmanzou/.urlview $HOME/
 echo ln .config done####################################################################################################################################
 
 echo
 
 echo cp config####################################################################################################################################
-sudo cp -r ~/dotfiles/config/copyq/ ~/.config/
-sudo cp -r ~/dotfiles/config/VNote /~/.config/
+sudo cp -r $HOME/dotfiles/config/copyq/ $HOME/.config/
+sudo cp -r $HOME/dotfiles/config/VNote/ $HOME/.config/
 echo cp config done####################################################################################################################################
 
 echo
@@ -144,7 +147,7 @@ echo
 echo 手动配置部分####################################################################################################################################
 echo ssh\(git\)
 echo ssh-keygen -t rsa -C "pacmanzou@qq.com"
-echo ssh-add /home/zou/.ssh/id_rsa
+echo ssh-add $HOME/.ssh/id_rsa
 echo 将公钥复制到github网页端
 echo 测试是否成功: ssh -T git@github.com
 
@@ -157,3 +160,4 @@ echo
 
 echo misc####################################################################################################################################
 echo 配置neomutt
+echo 配置SUDO_ASKPASS
