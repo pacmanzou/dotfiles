@@ -68,7 +68,7 @@ set scrolloff=3
 set shiftwidth=4
 set shortmess+=c
 set showtabline=2
-set signcolumn=yes
+set signcolumn=number
 set smartcase
 set smartindent
 set smarttab
@@ -349,9 +349,9 @@ function! StatusLine(current, width)
     else
         let l:s .= '%#CrystallineInactive#'
     endif
-    let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r'
+        let l:s .= crystalline#right_sep('', 'Fill') . ' %l,%c,%L '
     if a:current
-        let l:s .= crystalline#right_sep('', 'Fill') . '  %l,%c,%L  %{StatusDiagnostic()}'
+        let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
     endif
     let l:s .= '%='
     if a:current
