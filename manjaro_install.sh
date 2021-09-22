@@ -94,6 +94,7 @@ sudo pacman -S zsh \
     music-dl \
     neofetch \
     nodejs-lts-fermium \
+    cht.sh \
     npm \
     obs-studio \
     python-pip \
@@ -135,8 +136,7 @@ echo download environment done##################################################
 echo
 
 echo misc####################################################################################################################################
-npm install -g reveal-md \
-    tldr
+npm install -g reveal-md
 echo misc done####################################################################################################################################
 
 echo
