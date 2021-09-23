@@ -87,111 +87,196 @@ set wrapscan
 
 
 " Map:
-" windows focus
-noremap <silent><C-l> <C-w>l
-noremap <silent><C-h> <C-w>h
-noremap <silent><C-j> <C-w>j
-noremap <silent><C-k> <C-w>k
-
-" windows size
-nnoremap zi <cmd>res +10<Cr>
-nnoremap zd <cmd>res -10<Cr>
-
-" windows exchange
-nnoremap <silent><C-w>t <C-w>T
-nnoremap <silent><C-w>h <C-w>H
-nnoremap <silent><C-w>j <C-w>J
-nnoremap <silent><C-w>k <C-w>K
-nnoremap <silent><C-w>l <C-w>L
-
-" cursor move
-noremap <C-e> $
-noremap <C-a> ^
-noremap J 5<C-e>
-noremap K 5<C-y>
-
-" tab switch
-nnoremap <C-n> <cmd>tabnext<Cr>
-nnoremap <C-p> <cmd>tabprevious<Cr>
-
-" visual
-noremap <silent>vv <C-v>
-noremap <silent>gV ggvG$
-
-" copy
-nnoremap yn <cmd>let @+=expand('%')<Cr>
-nnoremap yp <cmd>let @+=expand('%:p')<Cr>
-nnoremap yd <cmd>let @+=getcwd()<Cr>
-
-" imap
-imap <C-h> <Backspace>
-imap <C-d> <Delete>
-imap <C-k> <Esc>lC
-imap <C-a> <Esc>I
-imap <C-e> <End>
-imap <C-s> <Esc>lce
-imap <C-o> <Esc>o
-imap <C-f> <Right>
-imap <C-b> <Left>
-imap <C-q> <nop>
-imap <C-v> <nop>
-imap <C-z> <nop>
-imap <C-g> <nop>
-imap <C-l> <nop>
-imap <C-Space> <nop>
-
-" cmd
-cmap <C-d> <Delete>
-cmap <C-f> <Right>
-cmap <C-b> <Left>
-cmap <C-a> <Home>
-cmap <C-e> <End>
-cmap <C-t> <nop>
-cmap <C-l> <nop>
-cmap <C-k> <nop>
-cmap <C-s> <nop>
-cmap <C-z> <nop>
-cmap <C-x> <nop>
-cmap <C-v> <nop>
-cmap <C-y> <nop>
-cmap <C-o> <nop>
-cmap <C-r> <nop>
-cmap <C-q> <nop>
-cmap <C-g> <nop>
-
 " nop
-map X <nop>
-map S <nop>
-map zg <nop>
-map zw <nop>
+map Z <nop>
+map z<cr> <nop>
+map z+ <nop>
+map z- <nop>
+map z. <nop>
 map z= <nop>
-map <C-z> <nop>
-map <C-s> <nop>
-map <C-v> <nop>
-map <C-t> <nop>
-map <Space> <nop>
+map zA <nop>
+map zC <nop>
+map zD <nop>
+map zE <nop>
+map zF <nop>
+map zG <nop>
+map zH <nop>
+map zL <nop>
+map zM <nop>
+map zN <nop>
+map zO <nop>
+map zR <nop>
+map zW <nop>
+map zX <nop>
+map z^ <nop>
+map za <nop>
+map zb <nop>
+map zc <nop>
+map zd <nop>
+map ze <nop>
+map zf <nop>
+map zg <nop>
+map zh <nop>
+map zi <nop>
+map zj <nop>
+map zk <nop>
+map zl <nop>
+map zm <nop>
+map zn <nop>
+map zo <nop>
+map zp <nop>
+map zP <nop>
+map zr <nop>
+map zs <nop>
+map zt <nop>
+map zv <nop>
+map zw <nop>
+map zx <nop>
+map zy <nop>
+map zu <nop>
+
+map <c-w>+ <nop>
+map <c-w>- <nop>
+map <c-w>< <nop>
+map <c-w>= <nop>
+map <c-w>> <nop>
+map <c-w>H <nop>
+map <c-w>J <nop>
+map <c-w>K <nop>
+map <c-w>L <nop>
+map <c-w>P <nop>
+map <c-w>R <nop>
+map <c-w>S <nop>
+map <c-w>T <nop>
+map <c-w>W <nop>
+map <c-w>] <nop>
+map <c-w>^ <nop>
+map <c-w>_ <nop>
+map <c-w>b <nop>
+map <c-w>c <nop>
+map <c-w>d <nop>
+map <c-w>F <nop>
+map <c-w>g <nop>
+map <c-w>h <nop>
+map <c-w>i <nop>
+map <c-w>j <nop>
+map <c-w>k <nop>
+map <c-w>l <nop>
+map <c-w>n <nop>
+map <c-w>p <nop>
+map <c-w>r <nop>
+map <c-w>s <nop>
+map <c-w>t <nop>
+map <c-w>v <nop>
+map <c-w>w <nop>
+map <c-w>x <nop>
+map <c-w>z <nop>
+map <c-w>\| <nop>
+map <c-w>} <nop>
+
+map <c-q> <nop>
+map <c-t> <nop>
+map <c-s> <nop>
+map <c-z> <nop>
+map <c-v> <nop>
+map <c-m> <nop>
+map <space> <nop>
 
 vmap n <nop>
 vmap N <nop>
 vmap <C-f> <nop>
 vmap <C-b> <nop>
 
-tnoremap <C-g> <nop>
+tmap <C-g> <nop>
+
+" imap
+imap <c-q> <nop>
+imap <c-e> <end>
+imap <c-r> <nop>
+imap <c-o> <esc>o
+imap <c-a> <esc>I
+imap <c-s> <esc>lce
+imap <c-d> <delete>
+imap <c-f> <right>
+imap <c-g> <nop>
+imap <c-h> <backspace>
+imap <c-j> <nop>
+imap <c-k> <esc>lC
+imap <c-l> <nop>
+imap <c-z> <nop>
+imap <c-v> <nop>
+imap <c-b> <left>
+imap <c-Space> <nop>
+
+" cmd
+cmap <c-q> <nop>
+cmap <c-e> <end>
+cmap <c-r> <nop>
+cmap <c-t> <nop>
+cmap <c-y> <nop>
+cmap <c-o> <nop>
+cmap <c-a> <home>
+cmap <c-s> <nop>
+cmap <c-d> <delete>
+cmap <c-f> <right>
+cmap <c-g> <nop>
+cmap <c-k> <nop>
+cmap <c-l> <nop>
+cmap <c-z> <nop>
+cmap <c-x> <nop>
+cmap <c-v> <nop>
+cmap <c-b> <left>
+
+" windows focus
+noremap <silent><c-l> <c-w>l
+noremap <silent><c-h> <c-w>h
+noremap <silent><c-j> <c-w>j
+noremap <silent><c-k> <c-w>k
+
+" windows size
+nnoremap <silent>zi <cmd>res +10<cr>
+nnoremap <silent>zd <cmd>res -10<cr>
+nnoremap <silent>z= <c-w>=
+
+" windows exchange
+nnoremap <silent><c-w>t <c-w>T
+nnoremap <silent><c-w>h <c-w>H
+nnoremap <silent><c-w>j <c-w>J
+nnoremap <silent><c-w>k <c-w>K
+nnoremap <silent><C-w>l <c-w>L
+
+" cursor move
+noremap <silent><c-e> $
+noremap <silent><c-a> ^
+noremap <silent>J 5<c-e>
+noremap <silent>K 5<c-y>
+
+" tab switch
+nnoremap <silent><c-n> <cmd>tabnext<cr>
+nnoremap <silent><c-p> <cmd>tabprevious<cr>
+
+" visual
+noremap <silent>vv <c-v>
+noremap <silent>gV ggvG$
+
+" copy
+nnoremap <silent>yn <cmd>let @+=expand('%')<cr>
+nnoremap <silent>yp <cmd>let @+=expand('%:p')<cr>
+nnoremap <silent>yd <cmd>let @+=getcwd()<cr>
 
 " misc
-noremap + <C-a>
-noremap - <C-x>
+noremap <silent>+ <c-a>
+noremap <silent>- <c-x>
 
-vnoremap <C-o> <Esc>o
-vnoremap g+ g<C-a>
-vnoremap g- g<C-x>
+vnoremap <silent>+ g<c-a>
+vnoremap <silent>- g<c-x>
 
-nnoremap <C-q> <cmd>q<Cr>
-nnoremap Q @q
 nnoremap / mr/\v
-nnoremap Y y$
-nnoremap > >>
-nnoremap < <<
+nnoremap <silent>Y y$
+nnoremap <silent>> >>
+nnoremap <silent>< <<
+nnoremap <silent>Q @q
+nnoremap <silent><c-c> <cmd>BufClean<cr>
 
 
 " Plugin:
@@ -349,7 +434,7 @@ function! StatusLine(current, width)
     else
         let l:s .= '%#CrystallineInactive#'
     endif
-        let l:s .= crystalline#right_sep('', 'Fill') . ' %l,%c,%L '
+        let l:s .= crystalline#right_sep('', 'Fill') . ' %l %c %L '
     if a:current
         let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
     endif
@@ -427,8 +512,8 @@ augroup END
 
 " Substitute:
 " far
-nnoremap <Space>s :Far<Space>
-vnoremap <Space>s :Far<Space>
+nnoremap <space>s :Far<space>
+vnoremap <space>s :Far<space>
 
 
 " VisualMulti:
@@ -445,9 +530,9 @@ let g:VM_Mono_hl            = 'IncSearch'
 let g:VM_Extend_hl          = 'IncSearch'
 let g:VM_Insert_hl          = 'IncSearch'
 
-nmap <Space>v <Plug>(VM-Find-Under)
+nmap <silent><space>v <plug>(VM-Find-Under)
 
-xmap <Space>v <Plug>(VM-Find-Subword-Under)
+xmap <silent><space>v <plug>(VM-Find-Subword-Under)
 
 
 " CloseTag:
@@ -455,10 +540,10 @@ let g:closetag_filenames = '*.html,*.xml,*.tmpl'
 
 
 " Codepainter:
-vnoremap <silent>p :<C-u>call codepainter#paintText(visualmode())<Cr>
+vnoremap <silent>p :<c-u>call codepainter#paintText(visualmode())<cr>
 
-nnoremap <Space>e <cmd>PainterEraseLine<Cr>
-nnoremap <Space>E <cmd>PainterEraseAll<Cr>
+nnoremap <silent><space>e <cmd>PainterEraseLine<cr>
+nnoremap <silent><space>E <cmd>PainterEraseAll<cr>
 
 
 " Neoformat:
@@ -487,10 +572,10 @@ autocmd BufWritePre *.go,*.python,*.sh,
 
 
 " Exchange:
-nmap <silent>cx <Plug>(Exchange)
-nmap <silent>cxc <Plug>(ExchangeClear)
+nmap <silent>cx <plug>(Exchange)
+nmap <silent>cxc <plug>(ExchangeClear)
 
-vmap <silent>x <Plug>(Exchange)
+vmap <silent>x <plug>(Exchange)
 
 
 " FileManager:
@@ -509,9 +594,9 @@ let g:rnvimr_action                = {
             \ 'ew': 'EmitRangerCwd'
             \ }
 
-tnoremap <C-g>r <C-\><C-n><cmd>RnvimrToggle<Cr>
+tnoremap <silent><c-g>r <c-\><c-n><cmd>RnvimrToggle<cr>
 
-nnoremap <C-g>r <cmd>RnvimrToggle<Cr>
+nnoremap <silent><c-g>r <cmd>RnvimrToggle<cr>
 
 
 " TagsManager:
@@ -522,10 +607,10 @@ let g:vista_icon_indent          = ["╰─▸ ", "├─▸ "]
 let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive    = 'ctags'
 
-nnoremap T <cmd>Vista!!<Cr>
-nnoremap <Space>T <cmd>Vista finder<Cr>
+nnoremap <silent>T <cmd>Vista!!<cr>
+nnoremap <silent><space>T <cmd>Vista finder<cr>
 
-autocmd FileType vista,vista_kind nnoremap <buffer><silent>/ :<C-u>call vista#finder#fzf#Run()<Cr>
+autocmd FileType vista,vista_kind nnoremap <buffer><silent>/ :<C-u>call vista#finder#fzf#Run()<cr>
 
 
 " Undo Backup Swap:
@@ -559,10 +644,10 @@ let g:floaterm_width       = 0.99
 let g:floaterm_height      = 0.99
 let g:floaterm_position    = "top"
 
-tnoremap <C-o> <C-\><C-n>
-tnoremap <C-g><Return> <cmd>FloatermToggle<Cr>
+tnoremap <silent><c-o> <c-\><c-n>
+tnoremap <silent><c-g><cr> <cmd>FloatermToggle<cr>
 
-nnoremap <C-g><Return> <cmd>FloatermToggle<Cr>
+nnoremap <silent><c-g><cr> <cmd>FloatermToggle<cr>
 
 autocmd TermOpen term://* startinsert
 
@@ -587,8 +672,8 @@ let g:asyncrun_rootmarks    = [
             \ '.tasks'
             \ ]
 
-nnoremap <Space>r <cmd>AsyncTask run<Cr>
-nnoremap <Space>a :AsyncTask<space>
+nnoremap <silent><space>r <cmd>AsyncTask run<cr>
+nnoremap <silent><space>a :AsyncTask<space>
 
 
 " Coc:
@@ -621,7 +706,7 @@ let g:coc_global_extensions = [
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
-        nnoremap <buffer> q <cmd>q<Cr>
+        nnoremap <silent><buffer> q <cmd>q<cr>
     elseif (coc#rpc#ready())
         call CocActionAsync('doHover')
     else
@@ -629,87 +714,79 @@ function! s:show_documentation()
     endif
 endfunction
 
-nnoremap gh <cmd>call <sid>show_documentation()<Cr>
+nnoremap <silent>gh <cmd>call <sid>show_documentation()<cr>
 
 " coc-snippets
 let g:coc_snippet_next = '<C-j>'
 let g:coc_snippet_prev = '<C-k>'
 
-imap <C-j> <Plug>(coc-snippets-expand)
-vmap <C-j> <Plug>(coc-snippets-select)
+vmap <silent><c-j> <plug>(coc-snippets-select)
 
 " file explorer
-nmap t <cmd>CocCommand explorer --sources=file+<Cr>
+nmap <silent>t <cmd>CocCommand explorer --sources=file+<cr>
 
 " variable rename
-nmap cn <Plug>(coc-rename)
-
-" refresh in insert mode or normal mode
-nnoremap <Space><C-r> <cmd>CocRestart<Cr>
-inoremap <silent><expr><C-r> coc#refresh()
+nmap <silent>cn <plug>(coc-rename)
 
 " refactor function
-nmap <silent>cr <Plug>(coc-refactor)
+nmap <silent>cr <plug>(coc-refactor)
 
 " apply codeAction
-xmap <silent><Space>a <Plug>(coc-codeaction-selected)
+xmap <silent><space>a <plug>(coc-codeaction-selected)
 
 " go to code navigation
-nmap <silent>gd <Plug>(coc-definition)
-nmap <silent>gr <Plug>(coc-references)
-nmap <silent>gt <Plug>(coc-type-definition)
-nmap <silent>gi <Plug>(coc-implementation)
+nmap <silent>gd <plug>(coc-definition)
+nmap <silent>gr <plug>(coc-references)
+nmap <silent>gt <plug>(coc-type-definition)
+nmap <silent>gi <plug>(coc-implementation)
 
 " diagnostic jump
-nmap <silent>]d <Plug>(coc-diagnostic-next)
-nmap <silent>[d <Plug>(coc-diagnostic-prev)
+nmap <silent>]d <plug>(coc-diagnostic-next)
+nmap <silent>[d <plug>(coc-diagnostic-prev)
 
 " git chunk jump
-nmap <silent><leader>j <Plug>(coc-git-nextchunk)
-nmap <silent><leader>k <Plug>(coc-git-prevchunk)
+nmap <silent><leader>j <plug>(coc-git-nextchunk)
+nmap <silent><leader>k <plug>(coc-git-prevchunk)
 
 " float window scroll
-nnoremap <nowait><expr><C-f> coc#float#scroll(1)
-nnoremap <nowait><expr><C-b> coc#float#scroll(0)
+nnoremap <silent><nowait><expr><c-f> coc#float#scroll(1)
+nnoremap <silent><nowait><expr><c-b> coc#float#scroll(0)
 
 " function and class
-xmap if <Plug>(coc-funcobj-i)
-xmap af <Plug>(coc-funcobj-a)
-xmap ic <Plug>(coc-classobj-i)
-xmap ac <Plug>(coc-classobj-a)
+xmap <silent>if <plug>(coc-funcobj-i)
+xmap <silent>af <plug>(coc-funcobj-a)
+xmap <silent>ic <plug>(coc-classobj-i)
+xmap <silent>ac <plug>(coc-classobj-a)
 
-omap if <Plug>(coc-funcobj-i)
-omap af <Plug>(coc-funcobj-a)
-omap ic <Plug>(coc-classobj-i)
-omap ac <Plug>(coc-classobj-a)
+omap <silent>if <plug>(coc-funcobj-i)
+omap <silent>af <plug>(coc-funcobj-a)
+omap <silent>ic <plug>(coc-classobj-i)
+omap <silent>ac <plug>(coc-classobj-a)
 
 " coclist and coccommand
-nnoremap <Space>l <cmd>CocList<Cr>
-nnoremap <Space>d <cmd>CocList diagnostics<Cr>
-nnoremap <Space>y <cmd>CocList yank<Cr>
-nnoremap <Space>f <cmd>CocList --regex files<Cr>
-nnoremap <Space>b <cmd>CocList buffers<Cr>
-nnoremap <Space>w <cmd>CocList words<Cr>
-nnoremap <Space>g <cmd>CocList grep<Cr>
-nnoremap <Space>m <cmd>CocList marks<Cr>
-nnoremap <Space>h <cmd>CocList --regex mru -A<Cr>
+nnoremap <silent><space>l <cmd>CocList<cr>
+nnoremap <silent><space>d <cmd>CocList diagnostics<cr>
+nnoremap <silent><space>y <cmd>CocList yank<cr>
+nnoremap <silent><space>f <cmd>CocList --regex files<cr>
+nnoremap <silent><space>b <cmd>CocList buffers<cr>
+nnoremap <silent><space>w <cmd>CocList words<cr>
+nnoremap <silent><space>g <cmd>CocList grep<cr>
+nnoremap <silent><space>m <cmd>CocList marks<cr>
+nnoremap <silent><space>h <cmd>CocList --regex mru -A<cr>
 
-nnoremap <Space>c <cmd>CocCommand<Cr>
-nnoremap <C-y> <cmd>CocCommand editor.action.organizeImport<Cr>
+nnoremap <silent><space>c <cmd>CocCommand<cr>
+nnoremap <silent><c-y> <cmd>CocCommand editor.action.organizeImport<cr>
 
-nnoremap <leader>a <cmd>CocCommand git.chunkStage<Cr>
-nnoremap <leader>u <cmd>CocCommand git.chunkUndo<Cr>
-nnoremap <leader>p <cmd>CocCommand git.chunkInfo<Cr>
-nnoremap <leader>y <cmd>CocCommand git.copyUrl<Cr>
-nnoremap <leader>s <cmd>CocCommand git.showCommit<Cr>
-nnoremap <leader>f <cmd>CocCommand git.foldUnchanged<Cr>
-nnoremap <leader>b <cmd>CocCommand git.browserOpen<Cr>
+nnoremap <silent><leader>a <cmd>CocCommand git.chunkStage<cr>
+nnoremap <silent><leader>u <cmd>CocCommand git.chunkUndo<cr>
+nnoremap <silent><leader>p <cmd>CocCommand git.chunkInfo<cr>
+nnoremap <silent><leader>y <cmd>CocCommand git.copyUrl<cr>
+nnoremap <silent><leader>s <cmd>CocCommand git.showCommit<cr>
+nnoremap <silent><leader>f <cmd>CocCommand git.foldUnchanged<cr>
+nnoremap <silent><leader>b <cmd>CocCommand git.browserOpen<cr>
 
 " organizeImport
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
-
-" update signature help on jump placeholder
-autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 
 " Languages:
@@ -780,7 +857,7 @@ let g:mkdp_page_title                        = '${name}'
 " MarkdownSpell:
 autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
 
-nnoremap <C-g>s <cmd>set spell!<Cr>
+nnoremap <silent><c-g>s <cmd>set spell!<cr>
 
 
 " Misc:
@@ -818,8 +895,8 @@ function! s:get_ms_since(time)
     return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
 
-nnoremap <silent><C-u> :call init#up(&scroll,5,1)<Cr>
-nnoremap <silent><C-d> :call init#down(&scroll,5,1)<Cr>
+nnoremap <silent><c-u> :call init#up(&scroll,5,1)<cr>
+nnoremap <silent><c-d> :call init#down(&scroll,5,1)<cr>
 
 
 " Comment:
@@ -835,7 +912,7 @@ augroup END
 " Hlsearch:
 autocmd BufReadPre * set nohlsearch
 
-nnoremap <nowait><expr><C-g>h &hlsearch ? "<cmd>set nohlsearch<Cr>" : "<cmd>set hlsearch<Cr>"
+nnoremap <silent><nowait><expr><c-g>h &hlsearch ? "<cmd>set nohlsearch<cr>" : "<cmd>set hlsearch<cr>"
 
 
 " SaveCursor:
@@ -869,9 +946,9 @@ autocmd VimEnter *
 " Super_L:
 augroup Super_L
     autocmd!
-    autocmd FileType go inoremap <buffer><C-l> fmt.Println()<Left>
-    autocmd FileType python inoremap <buffer><C-l> print()<Left>
-    autocmd FileType sh inoremap <buffer><C-l> echo ""<Left>
+    autocmd FileType go inoremap <buffer><c-l> fmt.Println()<left>
+    autocmd FileType python inoremap <buffer><c-l> print()<left>
+    autocmd FileType sh inoremap <buffer><c-l> echo ""<left>
 augroup END
 
 
@@ -885,13 +962,13 @@ let s:setup_keyseq_table = {
 \   'A': {'v': "\<C-v>A", 'V': "\<C-v>0o$A", "\<C-v>": 'A'},
 \ }
 
-vnoremap <expr> <Plug>(niceblock-I)  Force_blockwise('I')
-vnoremap <expr> <Plug>(niceblock-A)  Force_blockwise('A')
+vnoremap <expr> <plug>(niceblock-I)  Force_blockwise('I')
+vnoremap <expr> <plug>(niceblock-A)  Force_blockwise('A')
 
 if !exists('g:niceblock_no_default_key_mappings') ||
 \  !g:niceblock_no_default_key_mappings
-  silent! xmap <unique> I  <Plug>(niceblock-I)
-  silent! xmap <unique> A  <Plug>(niceblock-A)
+  silent! xmap <unique> I  <plug>(niceblock-I)
+  silent! xmap <unique> A  <plug>(niceblock-A)
 endif
 
 
