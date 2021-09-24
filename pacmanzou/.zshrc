@@ -7,10 +7,10 @@ export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin
 export GOPATH=$HOME/go
 export PATH=$PATH:$HOME/go/bin
 export GOPROXY=https://goproxy.cn,direct
-export BROWSER=/usr/bin/google-chrome-stable
-export EDITOR=/usr/bin/nvim
 # export GOPROXY=https://goproxy.io
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
+export BROWSER=/usr/bin/google-chrome-stable
+export EDITOR=/usr/bin/nvim
 export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
 # less

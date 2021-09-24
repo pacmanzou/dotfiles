@@ -30,7 +30,6 @@ set autoindent
 set autoread
 set clipboard=unnamedplus
 set completeopt=longest,noinsert,menuone,noselect,preview
-set expandtab
 set fdm=indent
 set fileencodings=utf-8,gbk,ucs-bom,cp936
 set fillchars=stlnc:-
@@ -46,6 +45,7 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
+set lazyredraw
 set listchars=tab:\|\ ,trail:▫
 set magic
 set matchtime=0
@@ -60,6 +60,7 @@ set noshowmatch
 set noshowmode
 set nospell
 set nu
+set noexpandtab
 set notimeout
 set novisualbell
 set nowritebackup
@@ -276,7 +277,7 @@ nnoremap <silent>Y y$
 nnoremap <silent>> >>
 nnoremap <silent>< <<
 nnoremap <silent>Q @q
-nnoremap <silent><c-c> <cmd>BufClean<cr>
+nnoremap <silent><c-w>c <cmd>BufClean<cr>
 
 
 " Plugin:
@@ -293,7 +294,6 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'pacmanzou/gruvbox8.vim'
 Plug 'pacmanzou/crystalline.vim'
 Plug 'luochen1990/rainbow'
-Plug 'yggdroot/indentline'
 Plug 'RRethy/vim-hexokinase',        { 'do': 'make hexokinase'}
 Plug 'RRethy/vim-illuminate'
 
@@ -381,7 +381,7 @@ hi    StatusLineNC   gui=reverse     guifg=#000000   guibg=#ebdbb2
 hi    Search         gui=bold        guifg=#ffffff   guibg=#353535
 hi    Pmenu          guifg=#ebdbb2   guibg=#1d1d1d
 hi    CursorLine     guibg=#353535   guifg=#ebdbb2
-hi    PmenuSel       gui=reverse     guibg=#ffffff   guifg=#353535
+hi    PmenuSel       gui=reverse     guibg=#ebdbb2   guifg=#353535
 hi    PmenuThumb     guibg=#353535
 hi    PmenuSbar      guibg=#1d1d1d
 hi    DiffAdd        guifg=#b8bb26   guibg=#000000
@@ -462,19 +462,13 @@ let g:rainbow_active             = 1
 let g:rainbow_conf               = {'guifgs': ['darkorange', 'darkgray']}
 
 
-" Indentline:
-let g:indentLine_char_list       = ['|']
-let g:indentLine_fileTypeExclude = ['json']
-let g:indentLine_bufTypeExclude  = ['help', 'terminal', 'nofile']
-
-
 " Hexokinase:
 let g:Hexokinase_highlighters = ['background']
 
 
 " Illuminate:
 let g:Illuminate_highlightUnderCursor = 0
-let g:Illuminate_delay = 1000
+let g:Illuminate_delay = 700
 
 
 " BetterOperation:
