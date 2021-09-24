@@ -112,6 +112,8 @@ sudo pacman -S zsh \
     vnote-git \
     virtualbox \
     xclip \
+    xorg-xinput \
+    seahorse \
     youtube-dl \
     you-get \
     yay \

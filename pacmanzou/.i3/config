@@ -97,9 +97,8 @@ bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_
 
 
 bindsym $mod+m mode "$mode_misc"
-set $mode_misc (c)pupower   (w)ifi   (t)ouchpad   (b)luetooth
+set $mode_misc (w)ifi   (t)ouchpad   (b)luetooth
 mode "$mode_misc"{
-    bindsym c exec --no-startup-id bash $HOME/.i3/cpupower.sh, mode "default"
     bindsym w exec --no-startup-id bash $HOME/.i3/wifi.sh, mode "default"
     bindsym t exec --no-startup-id bash $HOME/.i3/touchpad.sh, mode "default"
     bindsym b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on', mode "default"
@@ -108,7 +107,7 @@ mode "$mode_misc"{
     bindsym Escape mode "default"
 }
 
-bindsym $mod+q mode "$mode_system"
+bindsym $mod+e mode "$mode_system"
 set $mode_system (l)ock   (e)xit   switch_(u)ser   (s)uspend   (h)ibernate   (r)eboot   (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"

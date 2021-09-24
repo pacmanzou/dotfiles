@@ -11,7 +11,7 @@ export BROWSER=/usr/bin/google-chrome-stable
 export EDITOR=/usr/bin/nvim
 # export GOPROXY=https://goproxy.io
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
-export SUDO_ASKPASS=${HOME}/.sudo_askpass.sh
+export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
 # less
 export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
