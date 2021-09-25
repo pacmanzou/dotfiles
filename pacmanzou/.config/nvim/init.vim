@@ -4,24 +4,23 @@
 
 
 " Let:
-let &t_ut                               = ''
-let &termencoding                       = &encoding
-let mapleader                           = ","
-let g:netrw_nogx                        = 1
-let g:python_host_prog                  = '/usr/bin/python2'
-let g:python3_host_prog                 = '/usr/bin/python3'
-let g:clipboard                         = {
-            \ 'name': 'xsel_override',
-            \ 'copy': {
-            \ '+': 'xsel --input --clipboard',
-            \ '*': 'xsel --input --primary',
-            \ },
-            \ 'paste': {
-            \ '+': 'xsel --output --clipboard',
-            \ '*': 'xsel --output --primary',
-            \ },
-            \ 'cache_enabled': 0,
-            \ }
+let &termencoding = &encoding
+let mapleader = ","
+let g:netrw_nogx = 1
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+let g:clipboard = {
+			\ 'name': 'xsel_override',
+			\ 'copy': {
+			\ '+': 'xsel --input --clipboard',
+			\ '*': 'xsel --input --primary',
+			\ },
+			\ 'paste': {
+			\ '+': 'xsel --output --clipboard',
+			\ '*': 'xsel --output --primary',
+			\ },
+			\ 'cache_enabled': 0,
+			\ }
 
 
 " Set:
@@ -294,7 +293,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'pacmanzou/gruvbox8.vim'
 Plug 'pacmanzou/crystalline.vim'
 Plug 'luochen1990/rainbow'
-Plug 'RRethy/vim-hexokinase',        { 'do': 'make hexokinase'}
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase'}
 Plug 'RRethy/vim-illuminate'
 
 " better operation
@@ -319,8 +318,8 @@ Plug 'kevinhwang91/rnvimr'
 Plug 'liuchengxu/vista.vim'
 
 " database manager
-Plug 'tpope/vim-dadbod',                     { 'on': 'DBUI'}
-Plug 'kristijanhusak/vim-dadbod-ui',         { 'on': 'DBUI'}
+Plug 'tpope/vim-dadbod', { 'on': 'DBUI'}
+Plug 'kristijanhusak/vim-dadbod-ui', { 'on': 'DBUI'}
 Plug 'kristijanhusak/vim-dadbod-completion', { 'on': 'DBUI'}
 
 " floaterm
@@ -331,7 +330,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/asynctasks.vim'
 
 " completion engine
-Plug 'neoclide/coc.nvim',            { 'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
 
 " debug engine
@@ -339,19 +338,19 @@ Plug 'wellle/tmux-complete.vim'
 
 " languages
 " go
-Plug 'josa42/vim-go-syntax',          { 'for': ['go', 'vim-plug']}
+Plug 'josa42/vim-go-syntax', { 'for': ['go', 'vim-plug']}
 
 " javascript
-Plug 'pangloss/vim-javascript',      { 'for': ['javascript', 'vim-plug']}
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vim-plug']}
 
 " markdown
-Plug 'plasticboy/vim-markdown',      { 'for': ['markdown', 'vim-plug']}
-Plug 'mzlogin/vim-markdown-toc',     { 'for': ['markdown', 'vim-plug'] }
-Plug 'iamcco/markdown-preview.nvim',     {
-            \ 'do': 'cd app && yarn install',
-            \ 'for': ['markdown', 'vim-plug'],
-            \ 'on':'MarkdownPreview'
-            \ }
+Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'vim-plug']}
+Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown', 'vim-plug'] }
+Plug 'iamcco/markdown-preview.nvim', {
+			\ 'do': 'cd app && yarn install',
+			\ 'for': ['markdown', 'vim-plug'],
+			\ 'on':'MarkdownPreview'
+			\ }
 
 call plug#end()
 
@@ -363,10 +362,10 @@ colorscheme gruvbox8
 set termguicolors
 set background=dark
 
-let g:gruvbox_italics            = 1
-let g:gruvbox_italicize_strings  = 1
+let g:gruvbox_italics = 1
+let g:gruvbox_italicize_strings = 1
 let g:gruvbox_filetype_hi_groups = 0
-let g:gruvbox_plugin_hi_groups   = 0
+let g:gruvbox_plugin_hi_groups = 0
 
 " my highlight
 hi!   link           SignColumn      LineNr
@@ -399,67 +398,67 @@ hi    SpellLocal     gui=undercurl   guifg=#8ec07c   guisp=#8ec07c
 " Crystalline:
 " coc
 function! StatusDiagnostic() abort
-    let info = get(b:, 'coc_diagnostic_info', {})
-    if empty(info) | return '' | endif
-    let msgs = []
-    if get(info, 'error', 0)
-        call add(msgs, 'e' . info['error'])
-    endif
-    if get(info, 'warning', 0)
-        call add(msgs, 'w' . info['warning'])
-    endif
-    return join(msgs)
+	let info = get(b:, 'coc_diagnostic_info', {})
+	if empty(info) | return '' | endif
+	let msgs = []
+	if get(info, 'error', 0)
+		call add(msgs, 'e' . info['error'])
+	endif
+	if get(info, 'warning', 0)
+		call add(msgs, 'w' . info['warning'])
+	endif
+	return join(msgs)
 endfunction
 
 function! GitstatusG() abort
-    let status = get(g:, 'coc_git_status', '')
-    return  status
+	let status = get(g:, 'coc_git_status', '')
+	return  status
 endfunction
 
 function! GitstatusB() abort
-    let status = get(b:, 'coc_git_status', '')
-    return  status
+	let status = get(b:, 'coc_git_status', '')
+	return  status
 endfunction
 
 function! CurrentFunction() abort
-    let status = get(b:, 'coc_current_function', '')
-    return  status
+	let status = get(b:, 'coc_current_function', '')
+	return  status
 endfunction
 
 " statusline
 function! StatusLine(current, width)
-    let l:s = ''
-    if a:current
-        let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
-    else
-        let l:s .= '%#CrystallineInactive#'
-    endif
-        let l:s .= crystalline#right_sep('', 'Fill') . ' %l %c %L '
-    if a:current
-        let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
-    endif
-    let l:s .= '%='
-    if a:current
-        let l:s .= crystalline#left_sep('', 'Fill')
-        let l:s .= crystalline#left_mode_sep('')
-    endif
-    if a:width > 40
-        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}|%{&fenc!=#""?&fenc:&enc}|%{&ff}] '
-    else
-        let l:s .= ''
-    endif
-    return l:s
+	let l:s = ''
+	if a:current
+		let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
+	else
+		let l:s .= '%#CrystallineInactive#'
+	endif
+		let l:s .= crystalline#right_sep('', 'Fill') . ' %l %c %L '
+	if a:current
+		let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
+	endif
+	let l:s .= '%='
+	if a:current
+		let l:s .= crystalline#left_sep('', 'Fill')
+		let l:s .= crystalline#left_mode_sep('')
+	endif
+	if a:width > 40
+		let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}|%{&fenc!=#""?&fenc:&enc}|%{&ff}] '
+	else
+		let l:s .= ''
+	endif
+	return l:s
 endfunction
 
 let g:crystalline_statusline_fn = 'StatusLine'
-let g:crystalline_theme         = 'pacmanzou'
+let g:crystalline_theme = 'pacmanzou'
 
 set tabline=%!crystalline#bufferline(0,0,1)
 
 
 " Rainbow:
-let g:rainbow_active             = 1
-let g:rainbow_conf               = {'guifgs': ['darkorange', 'darkgray']}
+let g:rainbow_active = 1
+let g:rainbow_conf = {'guifgs': ['darkorange', 'darkgray']}
 
 
 " Hexokinase:
@@ -474,33 +473,33 @@ let g:Illuminate_delay = 700
 " BetterOperation:
 " SmartChr:
 augroup All SmartChr
-    autocmd!
-    autocmd FileType * inoremap <buffer><expr> !
-                \ smartchr#loop('!', '!=')
+	autocmd!
+	autocmd FileType * inoremap <buffer><expr> !
+				\ smartchr#loop('!', '!=')
 augroup END
 
 augroup Golang SmartChr
-    autocmd!
-    autocmd FileType go inoremap <buffer><expr> ;
-                \ smartchr#loop(';', ':=')
-    autocmd FileType go inoremap <buffer><expr> .
-                \ smartchr#loop('.', '...')
-    autocmd FileType go inoremap <buffer><expr> ,
-                \ smartchr#loop(',', '<-')
-    autocmd FileType go inoremap <buffer><expr> ]]
-                \ smartchr#loop('[][]')
+	autocmd!
+	autocmd FileType go inoremap <buffer><expr> ;
+				\ smartchr#loop(';', ':=')
+	autocmd FileType go inoremap <buffer><expr> .
+				\ smartchr#loop('.', '...')
+	autocmd FileType go inoremap <buffer><expr> ,
+				\ smartchr#loop(',', '<-')
+	autocmd FileType go inoremap <buffer><expr> ]]
+				\ smartchr#loop('[][]')
 augroup END
 
 augroup Python SmartChr
-    autocmd!
-    autocmd FileType python inoremap <buffer><expr> .
-                \ smartchr#loop('.', '->')
+	autocmd!
+	autocmd FileType python inoremap <buffer><expr> .
+				\ smartchr#loop('.', '->')
 augroup END
 
 augroup Sh SmartChr
-    autocmd!
-    autocmd FileType sh inoremap <buffer><expr> $
-                \ smartchr#loop('$', '"${}"<Left><Left>')
+	autocmd!
+	autocmd FileType sh inoremap <buffer><expr> $
+				\ smartchr#loop('$', '"${}"<Left><Left>')
 augroup END
 
 
@@ -511,18 +510,18 @@ vnoremap <space>s :Far<space>
 
 
 " VisualMulti:
-let g:VM_leader             = {'default': ',', 'visual': ',', 'buffer': ','}
-let g:VM_silent_exit        = 1
-let g:VM_show_warnings      = 0
-let g:VM_maps               = {}
-let g:VM_maps['Find Next']  = 'n'
-let g:VM_maps['Find Prev']  = 'N'
+let g:VM_leader = {'default': ',', 'visual': ',', 'buffer': ','}
+let g:VM_silent_exit = 1
+let g:VM_show_warnings = 0
+let g:VM_maps = {}
+let g:VM_maps['Find Next'] = 'n'
+let g:VM_maps['Find Prev'] = 'N'
 let g:VM_maps['Find Under'] = ''
-let g:VM_custom_motions     = {'<C-e>': '$', '<C-a>': '^'}
-let g:VM_Cursor_hl          = 'Visual'
-let g:VM_Mono_hl            = 'IncSearch'
-let g:VM_Extend_hl          = 'IncSearch'
-let g:VM_Insert_hl          = 'IncSearch'
+let g:VM_custom_motions  = {'<C-e>': '$', '<C-a>': '^'}
+let g:VM_Cursor_hl = 'Visual'
+let g:VM_Mono_hl = 'IncSearch'
+let g:VM_Extend_hl = 'IncSearch'
+let g:VM_Insert_hl = 'IncSearch'
 
 nmap <silent><space>v <plug>(VM-Find-Under)
 
@@ -562,7 +561,7 @@ let g:neoformat_basic_format_trim = 0
 
 " saved silent autoformat
 autocmd BufWritePre *.go,*.python,*.sh,
-            \*.js,*.html,*.css,*.markdown,*.c,*.cpp silent Neoformat
+			\*.js,*.html,*.css,*.markdown,*.c,*.cpp silent Neoformat
 
 
 " Exchange:
@@ -574,19 +573,19 @@ vmap <silent>x <plug>(Exchange)
 
 " FileManager:
 " Rnvimr:
-let g:rnvimr_presets               = [{'width': 0.99, 'height': 0.93}]
-let g:rnvimr_enable_ex             = 1
-let g:rnvimr_enable_bw             = 1
-let g:rnvimr_draw_border           = 1
-let g:rnvimr_border_attr           = {'fg': -1, 'bg': -1}
-let g:rnvimr_vanilla               = 0
-let g:rnvimr_action                = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-s>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'ew': 'EmitRangerCwd'
-            \ }
+let g:rnvimr_presets = [{'width': 0.99, 'height': 0.93}]
+let g:rnvimr_enable_ex = 1
+let g:rnvimr_enable_bw = 1
+let g:rnvimr_draw_border = 1
+let g:rnvimr_border_attr = {'fg': -1, 'bg': -1}
+let g:rnvimr_vanilla = 0
+let g:rnvimr_action = {
+			\ '<C-t>': 'NvimEdit tabedit',
+			\ '<C-s>': 'NvimEdit split',
+			\ '<C-v>': 'NvimEdit vsplit',
+			\ 'gw': 'JumpNvimCwd',
+			\ 'ew': 'EmitRangerCwd'
+			\ }
 
 tnoremap <silent><c-g>r <c-\><c-n><cmd>RnvimrToggle<cr>
 
@@ -595,11 +594,11 @@ nnoremap <silent><c-g>r <cmd>RnvimrToggle<cr>
 
 " TagsManager:
 " Vista:
-let g:vista_sidebar_position     = 'vertical botright'
-let g:vista_sidebar_width        = 35
-let g:vista_icon_indent          = ["╰─▸ ", "├─▸ "]
+let g:vista_sidebar_position = 'vertical botright'
+let g:vista_sidebar_width = 35
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista#renderer#enable_icon = 0
-let g:vista_default_executive    = 'ctags'
+let g:vista_default_executive = 'ctags'
 
 nnoremap <silent>T <cmd>Vista!!<cr>
 nnoremap <silent><space>T <cmd>Vista finder<cr>
@@ -617,12 +616,12 @@ if empty(glob('~/.cache/vim/swap'))
 endif
 
 if empty(glob('~/.cache/vim/undo'))
-    silent !mkdir -p ~/.cache/vim/undo/
+	silent !mkdir -p ~/.cache/vim/undo/
 endif
 
 if has('persistent_undo')
-    set undofile
-    set undodir=~/.cache/vim/undo/
+	set undofile
+	set undodir=~/.cache/vim/undo/
 endif
 
 
@@ -632,11 +631,11 @@ let g:db_ui_winwidth = 35
 
 
 " Floaterm:
-let g:neoterm_autoscroll   = 1
+let g:neoterm_autoscroll = 1
 let g:floaterm_borderchars = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
-let g:floaterm_width       = 0.99
-let g:floaterm_height      = 0.99
-let g:floaterm_position    = "top"
+let g:floaterm_width = 0.99
+let g:floaterm_height = 0.99
+let g:floaterm_position = "top"
 
 tnoremap <silent><c-o> <c-\><c-n>
 tnoremap <silent><c-g><cr> <cmd>FloatermToggle<cr>
@@ -648,23 +647,23 @@ autocmd TermOpen term://* startinsert
 
 " AsyncrunAndAsyncTask:
 " tab run
-let g:asyncrun_status       = ''
-let g:asyncrun_open         = 9
-let g:asynctasks_term_pos   = 'TAB'
+let g:asyncrun_status = ''
+let g:asyncrun_open = 9
+let g:asynctasks_term_pos = 'TAB'
 let g:asynctasks_term_reuse = 1
-let g:asyncrun_rootmarks    = [
-            \ '.git',
-            \ '.svn',
-            \ '.root',
-            \ '.project',
-            \ '.hg',
-            \ '.idea',
-            \ '.gitignore',
-            \ 'Makefile',
-            \ 'CMakeLists.txt',
-            \ '*.pro',
-            \ '.tasks'
-            \ ]
+let g:asyncrun_rootmarks = [
+			\ '.git',
+			\ '.svn',
+			\ '.root',
+			\ '.project',
+			\ '.hg',
+			\ '.idea',
+			\ '.gitignore',
+			\ 'Makefile',
+			\ 'CMakeLists.txt',
+			\ '*.pro',
+			\ '.tasks'
+			\ ]
 
 nnoremap <silent><space>r <cmd>AsyncTask run<cr>
 nnoremap <silent><space>a :AsyncTask<space>
@@ -672,40 +671,40 @@ nnoremap <silent><space>a :AsyncTask<space>
 
 " Coc:
 let g:coc_global_extensions = [
-            \ 'coc-go',
-            \ 'coc-clangd',
-            \ 'coc-pyright',
-            \ 'coc-json',
-            \ 'coc-sh',
-            \ 'coc-sqlfluff',
-            \ 'coc-tsserver',
-            \ 'coc-html',
-            \ 'coc-css',
-            \ 'coc-vetur',
-            \ 'coc-yaml',
-            \ 'coc-docker',
-            \ 'coc-markdownlint',
-            \ 'coc-vimlsp',
-            \ 'coc-snippets',
-            \ 'coc-just-complete',
-            \ 'coc-diagnostic',
-            \ 'coc-lists',
-            \ 'coc-git',
-            \ 'coc-yank',
-            \ 'coc-explorer',
-            \ 'coc-leetcode'
-            \ ]
+			\ 'coc-go',
+			\ 'coc-clangd',
+			\ 'coc-pyright',
+			\ 'coc-json',
+			\ 'coc-sh',
+			\ 'coc-sqlfluff',
+			\ 'coc-tsserver',
+			\ 'coc-html',
+			\ 'coc-css',
+			\ 'coc-vetur',
+			\ 'coc-yaml',
+			\ 'coc-docker',
+			\ 'coc-markdownlint',
+			\ 'coc-vimlsp',
+			\ 'coc-snippets',
+			\ 'coc-just-complete',
+			\ 'coc-diagnostic',
+			\ 'coc-lists',
+			\ 'coc-git',
+			\ 'coc-yank',
+			\ 'coc-explorer',
+			\ 'coc-leetcode'
+			\ ]
 
 " show documentation
 function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-        nnoremap <silent><buffer> q <cmd>q<cr>
-    elseif (coc#rpc#ready())
-        call CocActionAsync('doHover')
-    else
-        execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+		nnoremap <silent><buffer> q <cmd>q<cr>
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 
 nnoremap <silent>gh <cmd>call <sid>show_documentation()<cr>
@@ -785,67 +784,67 @@ autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.orga
 
 " Languages:
 " Go:
-let g:go_highlight_array_whitespace_error    = 1
-let g:go_highlight_build_constraints         = 1
-let g:go_highlight_chan_whitespace_error     = 1
-let g:go_highlight_extra_types               = 1
-let g:go_highlight_fields                    = 1
-let g:go_highlight_format_strings            = 1
-let g:go_highlight_function_calls            = 1
-let g:go_highlight_function_parameters       = 1
-let g:go_highlight_functions                 = 1
-let g:go_highlight_generate_tags             = 1
-let g:go_highlight_methods                   = 1
-let g:go_highlight_operators                 = 1
-let g:go_highlight_space_tab_error           = 1
-let g:go_highlight_string_spellcheck         = 1
-let g:go_highlight_structs                   = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 1
-let g:go_highlight_types                     = 1
-let g:go_highlight_variable_declarations     = 1
-let g:go_highlight_variable_assignments      = 0
+let g:go_highlight_types = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 0
 
 
 " Javascript:
-let g:javascript_plugin_jsdoc                = 1
-let g:javascript_plugin_ngdoc                = 1
-let g:javascript_plugin_flow                 = 1
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_ngdoc = 1
+let g:javascript_plugin_flow = 1
 
 
 " Markdown:
 " vim-markdown
-let g:vim_markdown_folding_disabled          = 1
-let g:vim_markdown_conceal                   = 0
-let g:vim_markdown_conceal_code_blocks       = 0
-let g:vim_markdown_math                      = 0
+let g:vim_markdown_folding_disabled = 1
+let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
+let g:vim_markdown_math = 0
 
 " markdown-preview
-let g:mkdp_browser                           = 'chromium'
-let g:mkdp_auto_start                        = 0
-let g:mkdp_auto_close                        = 0
-let g:mkdp_refresh_slow                      = 0
-let g:mkdp_command_for_global                = 0
-let g:mkdp_open_to_the_world                 = 0
-let g:mkdp_open_ip                           = ''
-let g:mkdp_echo_preview_url                  = 0
-let g:mkdp_browserfunc                       = ''
-let g:mkdp_preview_options                   = {
-            \ 'mkit': {},
-            \ 'katex': {},
-            \ 'uml': {},
-            \ 'maid': {},
-            \ 'disable_sync_scroll': 0,
-            \ 'sync_scroll_type': 'middle',
-            \ 'hide_yaml_meta': 1,
-            \ 'sequence_diagrams': {},
-            \ 'flowchart_diagrams': {},
-            \ 'content_editable': v:false,
-            \ 'disable_filename': 0
-            \ }
-let g:mkdp_markdown_css                      = ''
-let g:mkdp_highlight_css                     = ''
-let g:mkdp_port                              = ''
-let g:mkdp_page_title                        = '${name}'
+let g:mkdp_browser = 'chromium'
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 0
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_worl = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_preview_options = {
+			\ 'mkit': {},
+			\ 'katex': {},
+			\ 'uml': {},
+			\ 'maid': {},
+			\ 'disable_sync_scroll': 0,
+			\ 'sync_scroll_type': 'middle',
+			\ 'hide_yaml_meta': 1,
+			\ 'sequence_diagrams': {},
+			\ 'flowchart_diagrams': {},
+			\ 'content_editable': v:false,
+			\ 'disable_filename': 0
+			\ }
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '${name}'
 
 
 " MarkdownSpell:
@@ -858,35 +857,35 @@ nnoremap <silent><c-g>s <cmd>set spell!<cr>
 " Smooth_scroll:
 " scroll the screen up
 function! init#up(dist, duration, speed)
-    call s:init('u', a:dist, a:duration, a:speed)
+	call s:init('u', a:dist, a:duration, a:speed)
 endfunction
 
 " scroll the screen down
 function! init#down(dist, duration, speed)
-    call s:init('d', a:dist, a:duration, a:speed)
+	call s:init('d', a:dist, a:duration, a:speed)
 endfunction
 
 " animation
 function! s:init(dir, dist, duration, speed)
-    for i in range(a:dist/a:speed)
-        let start = reltime()
-        if a:dir ==# 'd'
-            exec "normal! ".a:speed."\<C-e>".a:speed."j"
-        else
-            exec "normal! ".a:speed."\<C-y>".a:speed."k"
-        endif
-        redraw
-        let elapsed = s:get_ms_since(start)
-        let snooze = float2nr(a:duration-elapsed)
-        if snooze > 0
-            exec "sleep ".snooze."m"
-        endif
-    endfor
+	for i in range(a:dist/a:speed)
+		let start = reltime()
+		if a:dir ==# 'd'
+			exec "normal! ".a:speed."\<C-e>".a:speed."j"
+		else
+			exec "normal! ".a:speed."\<C-y>".a:speed."k"
+		endif
+		redraw
+		let elapsed = s:get_ms_since(start)
+		let snooze = float2nr(a:duration-elapsed)
+		if snooze > 0
+			exec "sleep ".snooze."m"
+		endif
+	endfor
 endfunction
 
 function! s:get_ms_since(time)
-    let cost = split(reltimestr(reltime(a:time)), '\.')
-    return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
+	let cost = split(reltimestr(reltime(a:time)), '\.')
+	return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
 
 nnoremap <silent><c-u> :call init#up(&scroll,5,1)<cr>
@@ -895,11 +894,11 @@ nnoremap <silent><c-d> :call init#down(&scroll,5,1)<cr>
 
 " Comment:
 augroup Comment for different filetype
-    autocmd!
-    autocmd FileType python,sh set commentstring=#\ %s
-    autocmd FileType c,cpp set commentstring=//\ %s
-    autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
-    autocmd FileType sql setlocal commentstring=--\ %s
+	autocmd!
+	autocmd FileType python,sh set commentstring=#\ %s
+	autocmd FileType c,cpp set commentstring=//\ %s
+	autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
+	autocmd FileType sql setlocal commentstring=--\ %s
 augroup END
 
 
@@ -922,33 +921,33 @@ let g:coc_start_at_startup = 0
 
 " cocstart
 function! CocTimerStart(timer)
-    exec "CocStart"
+	exec "CocStart"
 endfunction
 
 autocmd VimEnter *
-            \ let size = getfsize(expand('<afile>')) |
-            \ if (size > g:trigger_size) || (size == -2) |
-            \   echohl WarningMsg |
-            \ echomsg 'WARNING: Coc is dead for this huge file!' |
-            \ echohl None |
-            \ else |
-            \   call timer_start(100,'CocTimerStart',{'repeat':1}) |
-            \ endif |
-            \ unlet size
+			\ let size = getfsize(expand('<afile>')) |
+			\ if (size > g:trigger_size) || (size == -2) |
+			\   echohl WarningMsg |
+			\ echomsg 'WARNING: Coc is dead for this huge file!' |
+			\ echohl None |
+			\ else |
+			\   call timer_start(100,'CocTimerStart',{'repeat':1}) |
+			\ endif |
+			\ unlet size
 
 
 " Super_L:
 augroup Super_L
-    autocmd!
-    autocmd FileType go inoremap <buffer><c-l> fmt.Println()<left>
-    autocmd FileType python inoremap <buffer><c-l> print()<left>
-    autocmd FileType sh inoremap <buffer><c-l> echo ""<left>
+	autocmd!
+	autocmd FileType go inoremap <buffer><c-l> fmt.Println()<left>
+	autocmd FileType python inoremap <buffer><c-l> print()<left>
+	autocmd FileType sh inoremap <buffer><c-l> echo ""<left>
 augroup END
 
 
 " Visual_IA:
 function! Force_blockwise(next_key)
-  return s:setup_keyseq_table[a:next_key][mode()]
+	return s:setup_keyseq_table[a:next_key][mode()]
 endfunction
 
 let s:setup_keyseq_table = {
@@ -961,14 +960,14 @@ vnoremap <expr> <plug>(niceblock-A)  Force_blockwise('A')
 
 if !exists('g:niceblock_no_default_key_mappings') ||
 \  !g:niceblock_no_default_key_mappings
-  silent! xmap <unique> I  <plug>(niceblock-I)
-  silent! xmap <unique> A  <plug>(niceblock-A)
+	silent! xmap <unique> I  <plug>(niceblock-I)
+	silent! xmap <unique> A  <plug>(niceblock-A)
 endif
 
 
 " Cleanbuffers:
 command! -nargs=? -complete=buffer -bang BufClean
-    \ :call BufClean('<bang>')
+	\ :call BufClean('<bang>')
 
 function! BufClean(bang)
 	let last_buf = bufnr('$')
