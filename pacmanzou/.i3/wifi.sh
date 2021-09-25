@@ -9,18 +9,18 @@
 nmcli device wifi rescan
 
 _dmenu() {
-    dmenu -i -b -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#1d1d1d' -fn '' "$@"
+	dmenu -i -b -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#1d1d1d' -fn '' "$@"
 }
 
 SSID=$(nmcli device wifi list | sed -n '2,$p' | _dmenu -l 14 -p "wifi" | awk '{print $1}')
 
 if [[ -z "${SSID}" ]]; then
-    exit 0
+	exit 0
 else
-    PASS=$(_dmenu -l 0 -p "password")
-    if [[ -z "${PASS}" ]]; then
-        nmcli device wifi connect "${SSID}"
-    else
-        nmcli device wifi connect "${SSID}" password "${PASS}"
-    fi
+	PASS=$(_dmenu -l 0 -p "password")
+	if [[ -z "${PASS}" ]]; then
+		nmcli device wifi connect "${SSID}"
+	else
+		nmcli device wifi connect "${SSID}" password "${PASS}"
+	fi
 fi

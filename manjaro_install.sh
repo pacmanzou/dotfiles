@@ -4,8 +4,8 @@ set -e
 
 file="${HOME}/.gitconfig"
 if [[ -f "${file}" ]]; then
-    echo If you want to run this script, remove the .gitconfig!
-    exit
+	echo If you want to run this script, remove the .gitconfig!
+	exit
 fi
 
 echo cp some####################################################################################################################################
@@ -37,13 +37,13 @@ echo
 echo ln .config####################################################################################################################################
 folder="${HOME}/.i3"
 if [[ -d "${folder}" ]]; then
-    mv "${HOME}"/.i3/ "${HOME}"/.i3_backup/
+	mv "${HOME}"/.i3/ "${HOME}"/.i3_backup/
 fi
 ln -s "${HOME}"/dotfiles/pacmanzou/.i3/ "${HOME}"/
 
 file="${HOME}/.zshrc"
 if [[ -f "${file}" ]]; then
-    mv "${HOME}"/.zshrc "${HOME}"/.zshrc_backup
+	mv "${HOME}"/.zshrc "${HOME}"/.zshrc_backup
 fi
 ln -s "${HOME}"/dotfiles/pacmanzou/.zshrc "${HOME}"/
 
@@ -70,64 +70,65 @@ echo
 
 echo install package####################################################################################################################################
 sudo pacman -S zsh \
-    alacritty \
-    bleachbit \
-    bottom \
-    ctags \
-    copyq \
-    cmake \
-    dbeaver \
-    etcher \
-    fd \
-    fcitx5 \
-    fcitx5-rime \
-    fcitx5-configtool \
-    fzf \
-    go \
-    gcc \
-    gparted \
-    lightdm-settings \
-    libreoffice-fresh \
-    libreoffice-fresh-zh-cn \
-    lazygit \
-    lazydocker \
-    mpv \
-    manjaro-settings-manager \
-    materiav2-gtk-theme \
-    music-dl \
-    neofetch \
-    nodejs-lts-fermium \
-    cht.sh \
-    npm \
-    obs-studio \
-    python-pip \
-    python2-pip \
-    pandoc \
-    ruby \
-    ripgrep \
-    seahorse \
-    shellcheck \
-    sxiv \
-    tmux \
-    unrar \
-    unzip  \
-    vnote-git \
-    virtualbox \
-    xclip \
-    xorg-xinput \
-    youtube-dl \
-    you-get \
-    yay \
-    yarn \
-    ydcv-rs-git  \
-    zip  \
-    zathura \
-    zathura-pdf-mupdf
+	alacritty \
+	bleachbit \
+	bottom \
+	ctags \
+	copyq \
+	cmake \
+	dbeaver \
+	etcher \
+	fd \
+	fcitx5 \
+	fcitx5-rime \
+	fcitx5-configtool \
+	fzf \
+	go \
+	gcc \
+	gparted \
+	lightdm-settings \
+	libreoffice-fresh \
+	libreoffice-fresh-zh-cn \
+	lazygit \
+	lazydocker \
+	mpv \
+	manjaro-settings-manager \
+	materiav2-gtk-theme \
+	music-dl \
+	neofetch \
+	nodejs-lts-fermium \
+	cht.sh \
+	npm \
+	obs-studio \
+	python-pip \
+	python2-pip \
+	pandoc \
+	ruby \
+	ripgrep \
+	seahorse \
+	shellcheck \
+	sxiv \
+	tmux \
+	unrar \
+	unzip  \
+	vnote-git \
+	virtualbox \
+	xclip \
+	xorg-xinput \
+	youtube-dl \
+	you-get \
+	yay \
+	yarn \
+	ydcv-rs-git  \
+	zip  \
+	zathura \
+	zathura-pdf-mupdf
 
 yay -S debtap \
-    ranger-git \
-    abook \
-    google-chrome
+	ranger-git \
+	simple-mtpfs \
+	abook \
+	google-chrome
 echo install package done####################################################################################################################################
 
 echo
