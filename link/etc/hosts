@@ -1,0 +1,5 @@
+# Static table lookup for hostnames.
+# See hosts(5) for details.
+
+151.101.1.194 github.global.ssl.Fastly.net
+52.78.231.108 github.com

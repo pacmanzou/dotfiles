@@ -1,165 +1,189 @@
 #!/usr/bin/env bash
+#
+# Copyright (C) 2020 Zou Jiancheng <pacmanzou@qq.com>
+#
+# Description: install
+#
 
-set -e
+Info() {
+    printf '[\033[0;38minfo\033[0m] %b\n' "$1"
+}
+
+Warn() {
+    printf '[\033[0;33mwarning\033[0m] %b\n' "$1"
+}
+
+Success() {
+    printf '[\033[0;32msuccess\033[0m] %b\n' "$1"
+}
+
+Fail() {
+    printf '[\033[0;31mfailure\033[0m] %b\n' "$1"
+}
+
+LinkHandler() {
+    if sudo ln -bs "$1" "$2"; then
+        Success "ln -bs $1 $2"
+    else
+        Fail "ln -bs $1 $2"
+    fi
+}
+
+CopyHandler() {
+    if sudo cp -abr "$1" "$2"; then
+        Success "cp -abr $1 $2"
+    else
+        Fail "cp -abr $1 $2"
+    fi
+}
+
+FileHandler() {
+    for fileSrc in $1; do
+        basenameSrc=$(basename "${fileSrc}")
+        if [[ "." == "${basenameSrc}" || ".." == "${basenameSrc}" ||
+            "*" == "${basenameSrc}" ]]; then
+            continue
+        fi
+        for fileDst in $2; do
+            basenameDst=$(basename "${fileDst}")
+            dirnameDst=$(dirname "${fileDst}")
+            if [[ "${basenameDst}" == "${basenameSrc}" ]]; then
+                sudo mv "${fileDst}" "${fileDst}"~
+            fi
+        done
+        $3 "${fileSrc}" "${dirnameDst}"
+    done
+}
 
 file="${HOME}/.gitconfig"
+
 if [[ -f "${file}" ]]; then
-	echo If you want to run this script, remove the .gitconfig!
-	exit
+    Warn "If you want to run this script, please remove the .gitconfig!"
+    Fail "Failed to run this script"
+    exit
+else
+    Success "Successful open script"
 fi
 
-echo cp some####################################################################################################################################
-sudo cp -b "${HOME}"/dotfiles/etc/pacman.conf /etc/
-sudo cp -b "${HOME}"/dotfiles/etc/UPower/UPower.conf /etc/UPower/
-sudo cp -b "${HOME}"/dotfiles/etc/systemd/logind.conf /etc/systemd/
-sudo cp -b "${HOME}"/dotfiles/etc/systemd/logind.conf /etc/systemd/
+# link
+Info "### link to ${HOME}/.config/ ###\n"
 
-sudo cp -b ~/dotfiles/misc/evdev /usr/share/X11/xkb/keycodes/
-echo cp some done####################################################################################################################################
+FileHandler "${HOME}/dotfiles/link/home/.* ${HOME}/dotfiles/link/home/*" "${HOME}/.* ${HOME}/*" LinkHandler
+FileHandler "${HOME}/dotfiles/link/config/*" "${HOME}/.config/*" LinkHandler
+FileHandler "${HOME}/dotfiles/link/bin/*" "/usr/local/bin/*" LinkHandler
+FileHandler "${HOME}/dotfiles/link/etc/*" "/etc/*" LinkHandler
 
-echo
+# copy
+Info "### copy to ${HOME}/.config/ ###\n"
+FileHandler "${HOME}/dotfiles/copy/config/*" "${HOME}/.config/*" CopyHandler
 
-echo update system####################################################################################################################################...
+# update
+Info "### update systemctl ###\n"
+
 sudo pacman-mirrors -i -c China -m rank
 sudo pacman -Syy
 sudo pacman -S archlinuxcn-keyring
 sudo pacman -Syu
-echo update system done####################################################################################################################################
 
-echo
+# install
+sudo pacman -S alacritty \
+    bleachbit \
+    bottom \
+    ctags \
+    copyq \
+    cmake \
+    dbeaver \
+    exa \
+    etcher \
+    fd \
+    fcitx5 \
+    fcitx5-rime \
+    fcitx5-configtool \
+    fzf \
+    go \
+    gcc \
+    gparted \
+    lightdm-settings \
+    lazygit \
+    lazydocker \
+    mpv \
+    manjaro-settings-manager \
+    materiav2-gtk-theme \
+    music-dl \
+    neofetch \
+    nodejs-lts-fermium \
+    cht.sh \
+    npm \
+    neovim \
+    neomutt \
+    obs-studio \
+    python-pip \
+    python2-pip \
+    pandoc \
+    ruby \
+    ripgrep \
+    seahorse \
+    shellcheck \
+    shfmt \
+    sxiv \
+    tmux \
+    unrar \
+    unzip \
+    vnote-git \
+    virtualbox \
+    xclip \
+    xorg-xinput \
+    youtube-dl \
+    you-get \
+    yay \
+    yarn \
+    ydcv-rs-git \
+    zip \
+    zsh \
+    zathura \
+    zathura-pdf-mupdf
 
-echo ln usr/local/bin####################################################################################################################################
-sudo ln -s "${HOME}"/dotfiles/usr/local/bin/* /usr/local/bin/
-echo ln usr/local/bin done####################################################################################################################################
+yay -S abook \
+    debtap \
+    google-chrome \
+    ranger-git \
+    simple-mtpfs \
+    wps-office-cn \
+    wps-office-mui-zh-cn \
+    wps-office-fonts \
+    wps-office-mime-cn
 
-echo
+# neovim checkhealth
+Info "### neovim environment ###\n"
 
-echo ln .config####################################################################################################################################
-folder="${HOME}/.i3"
-if [[ -d "${folder}" ]]; then
-	mv "${HOME}"/.i3/ "${HOME}"/.i3_backup/
-fi
-ln -s "${HOME}"/dotfiles/pacmanzou/.i3/ "${HOME}"/
-
-file="${HOME}/.zshrc"
-if [[ -f "${file}" ]]; then
-	mv "${HOME}"/.zshrc "${HOME}"/.zshrc_backup
-fi
-ln -s "${HOME}"/dotfiles/pacmanzou/.zshrc "${HOME}"/
-
-mv "${HOME}"/.config/ "${HOME}"/.config_backup/
-mkdir "${HOME}"/.config/
-
-ln -s "${HOME}"/dotfiles/pacmanzou/.config/* "${HOME}"/.config/
-ln -s "${HOME}"/dotfiles/pacmanzou/.gitconfig "${HOME}"/
-ln -s "${HOME}"/dotfiles/pacmanzou/.pip/ "${HOME}"/
-ln -s "${HOME}"/dotfiles/pacmanzou/.i3status.conf "${HOME}"/
-ln -s "${HOME}"/dotfiles/pacmanzou/.pam_environment "${HOME}"/
-ln -s "${HOME}"/dotfiles/pacmanzou/.tmux.conf "${HOME}"/
-ln -s "${HOME}"/dotfiles/pacmanzou/.urlview "${HOME}"/
-echo ln .config done####################################################################################################################################
-
-echo
-
-echo cp config####################################################################################################################################
-sudo cp -r "${HOME}"/dotfiles/config/copyq/ "${HOME}"/.config/
-sudo cp -r "${HOME}"/dotfiles/config/VNote/ "${HOME}"/.config/
-echo cp config done####################################################################################################################################
-
-echo
-
-echo install package####################################################################################################################################
-sudo pacman -S zsh \
-	alacritty \
-	bleachbit \
-	bottom \
-	ctags \
-	copyq \
-	cmake \
-	dbeaver \
-	etcher \
-	fd \
-	fcitx5 \
-	fcitx5-rime \
-	fcitx5-configtool \
-	fzf \
-	go \
-	gcc \
-	gparted \
-	lightdm-settings \
-	libreoffice-fresh \
-	libreoffice-fresh-zh-cn \
-	lazygit \
-	lazydocker \
-	mpv \
-	manjaro-settings-manager \
-	materiav2-gtk-theme \
-	music-dl \
-	neofetch \
-	nodejs-lts-fermium \
-	cht.sh \
-	npm \
-	obs-studio \
-	python-pip \
-	python2-pip \
-	pandoc \
-	ruby \
-	ripgrep \
-	seahorse \
-	shellcheck \
-	sxiv \
-	tmux \
-	unrar \
-	unzip  \
-	vnote-git \
-	virtualbox \
-	xclip \
-	xorg-xinput \
-	youtube-dl \
-	you-get \
-	yay \
-	yarn \
-	ydcv-rs-git  \
-	zip  \
-	zathura \
-	zathura-pdf-mupdf
-
-yay -S debtap \
-	ranger-git \
-	simple-mtpfs \
-	abook \
-	google-chrome
-echo install package done####################################################################################################################################
-
-echo
-
-echo download environment####################################################################################################################################
 sudo npm install -g neovim
 yarn global add neovim
 pip install pynvim
 /usr/bin/python2 -m pip install pynvim
-echo download environment done####################################################################################################################################
 
-echo
+# misc
+Info "### misc ###\n"
 
-echo misc####################################################################################################################################
+CopyHandler "${HOME}/dotfiles/misc/evdev" "/usr/share/X11/xkb/keycodes/evdev"
+CopyHandler "${HOME}/dotfiles/misc/default.yaml" "${HOME}/.local/share/fcitx5/rime/build/default.yaml"
+CopyHandler "${HOME}/dotfiles/misc/theme.conf" "${HOME}/.local/share/fcitx5/themes/default/theme.conf"
+
 npm install -g reveal-md
-echo misc done####################################################################################################################################
 
-echo
+Info "### manual configuration ###\n"
 
-echo 手动配置部分####################################################################################################################################
-echo ssh\(git\)
-echo ssh-keygen -t rsa -C "pacmanzou@qq.com"
-echo 将公钥复制到github网页端
-echo 测试是否成功: ssh -T git@github.com
+Info "neomutt"
+Info "https://github.com/LukeSmithxyz/mutt-wizard\n"
 
-echo
+Info "ssh(git)"
+Info "ssh-keygen -t rsa -C "pacmanzou@qq.com""
+Info "将公钥复制到github网页端"
+Info "测试是否成功: ssh -T git@github.com\n"
 
-echo 需要网页端安装####################################################################################################################################
-echo ApiPost, uTools
+Info "### web install ###\n"
 
-echo
+Info "ApiPost"
+Info "UTools"
+Info "Ghelpers\n"
 
-echo misc####################################################################################################################################
-echo 配置neomutt
+Success "Successful run this script"

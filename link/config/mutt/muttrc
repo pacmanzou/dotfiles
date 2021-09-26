@@ -1,0 +1,5 @@
+# vim: filetype=neomuttrc
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+source /home/zou/.config/mutt/accounts/1-pacmanzou@qq.com.muttrc
+source /home/zou/.config/mutt/keyunbindings.conf
+source /home/zou/.config/mutt/keybindings.conf
