@@ -75,6 +75,7 @@ FileHandler "${HOME}/dotfiles/link/etc/*" "/etc/*" LinkHandler
 
 # copy
 Info "### copy to ${HOME}/.config/ ###\n"
+
 FileHandler "${HOME}/dotfiles/copy/config/*" "${HOME}/.config/*" CopyHandler
 
 # update
@@ -88,7 +89,6 @@ sudo pacman -Syu
 # install
 sudo pacman -S alacritty \
     bleachbit \
-    bottom \
     ctags \
     copyq \
     cmake \
@@ -103,6 +103,7 @@ sudo pacman -S alacritty \
     go \
     gcc \
     gparted \
+    htop \
     lightdm-settings \
     lazygit \
     lazydocker \
@@ -167,6 +168,8 @@ Info "### misc ###\n"
 CopyHandler "${HOME}/dotfiles/misc/evdev" "/usr/share/X11/xkb/keycodes/evdev"
 CopyHandler "${HOME}/dotfiles/misc/default.yaml" "${HOME}/.local/share/fcitx5/rime/build/default.yaml"
 CopyHandler "${HOME}/dotfiles/misc/theme.conf" "${HOME}/.local/share/fcitx5/themes/default/theme.conf"
+CopyHandler "${HOME}/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
+CopyHandler "${HOME}/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
 
 npm install -g reveal-md
 
