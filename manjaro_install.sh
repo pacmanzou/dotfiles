@@ -157,10 +157,11 @@ yay -S abook \
 # neovim checkhealth
 Info "### neovim environment ###\n"
 
+/usr/bin/python2 -m pip install pynvim
+/usr/bin/python3 -m pip install pynvim
 sudo npm install -g neovim
 yarn global add neovim
-pip install pynvim
-/usr/bin/python2 -m pip install pynvim
+gem install neovim
 
 # misc
 Info "### misc ###\n"
