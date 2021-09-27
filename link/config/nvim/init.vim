@@ -895,10 +895,11 @@ nnoremap <silent><c-d> :call init#down(&scroll,5,1)<cr>
 " Comment:
 augroup Comment for different filetype
 	autocmd!
-	autocmd FileType python,sh set commentstring=#\ %s
-	autocmd FileType c,cpp set commentstring=//\ %s
+	autocmd FileType python,sh setlocal commentstring=#\ %s
+	autocmd FileType c,cpp setlocal commentstring=//\ %s
 	autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
 	autocmd FileType sql setlocal commentstring=--\ %s
+	autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
 augroup END
 
 
