@@ -54,9 +54,9 @@ set matchpairs+=（:）
 set matchpairs+=【:】
 set matchpairs+=“:”
 set matchpairs+=‘:’
-set mouse=a
 set noshowmatch
 set noshowmode
+set noshowcmd
 set nospell
 set nu
 set noexpandtab
@@ -276,6 +276,7 @@ nnoremap <silent>Y y$
 nnoremap <silent>> >>
 nnoremap <silent>< <<
 nnoremap <silent>Q @q
+nnoremap <silent><c-w>w <cmd>w<cr>
 nnoremap <silent><c-w>c <cmd>BufClean<cr>
 
 
@@ -299,6 +300,7 @@ Plug 'RRethy/vim-illuminate'
 " better operation
 Plug 'pacmanzou/surround.vim'
 Plug 'pacmanzou/capslock.vim'
+Plug 'gcmt/wildfire.vim'
 Plug 'kana/vim-smartchr'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
@@ -503,6 +505,15 @@ augroup Sh SmartChr
 augroup END
 
 
+" Wildfire:
+let g:wildfire_objects = {
+    \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip", "i>"],
+    \ "html,xml" : ["at", "it"],
+\ }
+
+map <c-m> <plug>(wildfire-fuel)
+
+
 " Substitute:
 " far
 nnoremap <space>s :Far<space>
@@ -562,6 +573,8 @@ let g:neoformat_basic_format_trim = 0
 " saved silent autoformat
 autocmd BufWritePre *.go,*.python,*.sh,
 			\*.js,*.html,*.css,*.markdown,*.c,*.cpp silent Neoformat
+
+nnoremap <silent><c-w>n <cmd>Neoformat<cr>
 
 
 " Exchange:
