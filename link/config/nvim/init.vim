@@ -39,12 +39,10 @@ set guioptions-=e
 set hidden
 set history=10000
 set ignorecase
-set inccommand=split
 set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set lazyredraw
 set listchars=tab:\|\ ,trail:▫
 set magic
 set matchtime=0
@@ -301,17 +299,17 @@ Plug 'RRethy/vim-illuminate'
 Plug 'pacmanzou/surround.vim'
 Plug 'pacmanzou/exchange.vim'
 Plug 'pacmanzou/capslock.vim'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-repeat'
 Plug 'gcmt/wildfire.vim'
 Plug 'kana/vim-smartchr'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'brooth/far.vim'
 Plug 'sbdchd/neoformat'
 Plug 'alvan/vim-closetag'
 Plug 'mg979/vim-visual-multi'
 Plug 'lpinilla/vim-codepainter'
 Plug 'jiangmiao/auto-pairs'
-Plug 'lambdalisue/suda.vim' " do stuff like :sudowrite
+Plug 'lambdalisue/suda.vim'
 
 " file manager
 Plug 'kevinhwang91/rnvimr'
@@ -514,10 +512,9 @@ let g:wildfire_objects = {
 map <c-m> <plug>(wildfire-fuel)
 
 
-" Substitute:
-" far
-nnoremap <space>s :Far<space>
-vnoremap <space>s :Far<space>
+" Abolish:
+nnoremap <space>s :%S///g<left><left><left>
+vnoremap <space>s :S//g<left><left>
 
 
 " VisualMulti:
