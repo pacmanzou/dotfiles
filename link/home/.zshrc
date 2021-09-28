@@ -50,10 +50,17 @@ autoload -U edit-command-line
 
 zle -N edit-command-line
 
+bindkey -r '^J'
+bindkey -r '^G'
+bindkey -r '^Q'
+bindkey -r '^O'
+bindkey -r '^Z'
+
 bindkey '^V' edit-command-line
 bindkey '^U' backward-kill-line
 bindkey '^K' kill-line
 bindkey '^S' kill-word
+
 
 # highlight and autosuggestions
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
