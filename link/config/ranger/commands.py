@@ -1,5 +1,8 @@
-from ranger.api.commands import Command
 import os
+import shutil
+import subprocess
+
+from ranger.api.commands import Command
 from ranger.core.loader import CommandLoader
 
 
@@ -23,30 +26,17 @@ class fzf_select(Command):
     """
 
     def execute(self):
-        import subprocess
-        import os.path
-
-        if self.quantifier:
-            # match only directories
-            command = "find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
-            -o -type d -print 2> /dev/null | sed 1d | cut -b3- | fzf +m --reverse"
-
+        # match files
+        if shutil.which('fd'):
+            command = "fd --type f --hidden --follow --exclude .git | fzf +m --reverse"
         else:
-            # match files and directories
-            command = "find -L . \( -path '*/\.*' -o -fstype 'dev' -o -fstype 'proc' \) -prune \
+            command = "find -L . \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
             -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m --reverse"
-
         fzf = self.fm.execute_command(
-            command, universal_newlines=True, stdout=subprocess.PIPE
-        )
-        stdout, _ = fzf.communicate()
+            command, text=True, stdout=subprocess.PIPE)
         if fzf.returncode == 0:
-            fzf_file = os.path.abspath(stdout.rstrip("\n"))
-            if os.path.isdir(fzf_file):
-                self.fm.cd(fzf_file)
-            else:
-                self.fm.select_file(fzf_file)
-
+            fzf_file = os.path.abspath(fzf.stdout.readline().rstrip('\n'))
+            self.fm.select_file(fzf_file)
 
 class compress(Command):
     def execute(self):
