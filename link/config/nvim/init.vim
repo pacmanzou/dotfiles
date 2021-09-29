@@ -10,17 +10,17 @@ let g:netrw_nogx = 1
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 let g:clipboard = {
-			\ 'name': 'xsel_override',
-			\ 'copy': {
-			\ '+': 'xsel --input --clipboard',
-			\ '*': 'xsel --input --primary',
-			\ },
-			\ 'paste': {
-			\ '+': 'xsel --output --clipboard',
-			\ '*': 'xsel --output --primary',
-			\ },
-			\ 'cache_enabled': 0,
-			\ }
+            \ 'name': 'xsel_override',
+            \ 'copy': {
+            \ '+': 'xsel --input --clipboard',
+            \ '*': 'xsel --input --primary',
+            \ },
+            \ 'paste': {
+            \ '+': 'xsel --output --clipboard',
+            \ '*': 'xsel --output --primary',
+            \ },
+            \ 'cache_enabled': 0,
+            \ }
 
 
 " Set:
@@ -29,6 +29,7 @@ set autoindent
 set autoread
 set clipboard=unnamedplus
 set completeopt=longest,noinsert,menuone,noselect,preview
+set expandtab
 set fdm=indent
 set fileencodings=utf-8,gbk,ucs-bom,cp936
 set fillchars=stlnc:-
@@ -57,7 +58,6 @@ set noshowmode
 set noshowcmd
 set nospell
 set nu
-set noexpandtab
 set notimeout
 set novisualbell
 set nowritebackup
@@ -300,8 +300,9 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'pacmanzou/gruvbox8.vim'
 Plug 'pacmanzou/crystalline.vim'
 Plug 'luochen1990/rainbow'
-Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase'}
 Plug 'RRethy/vim-illuminate'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase'}
 
 " better operation
 Plug 'pacmanzou/surround.vim'
@@ -355,10 +356,10 @@ Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vim-plug']}
 Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'vim-plug']}
 Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown', 'vim-plug'] }
 Plug 'iamcco/markdown-preview.nvim', {
-			\ 'do': 'cd app && yarn install',
-			\ 'for': ['markdown', 'vim-plug'],
-			\ 'on':'MarkdownPreview'
-			\ }
+            \ 'do': 'cd app && yarn install',
+            \ 'for': ['markdown', 'vim-plug'],
+            \ 'on':'MarkdownPreview'
+            \ }
 
 call plug#end()
 
@@ -406,56 +407,56 @@ hi    SpellLocal     gui=undercurl   guifg=#8ec07c   guisp=#8ec07c
 " Crystalline:
 " coc
 function! StatusDiagnostic() abort
-	let info = get(b:, 'coc_diagnostic_info', {})
-	if empty(info) | return '' | endif
-	let msgs = []
-	if get(info, 'error', 0)
-		call add(msgs, 'e' . info['error'])
-	endif
-	if get(info, 'warning', 0)
-		call add(msgs, 'w' . info['warning'])
-	endif
-	return join(msgs)
+    let info = get(b:, 'coc_diagnostic_info', {})
+    if empty(info) | return '' | endif
+    let msgs = []
+    if get(info, 'error', 0)
+        call add(msgs, 'e' . info['error'])
+    endif
+    if get(info, 'warning', 0)
+        call add(msgs, 'w' . info['warning'])
+    endif
+    return join(msgs)
 endfunction
 
 function! GitstatusG() abort
-	let status = get(g:, 'coc_git_status', '')
-	return  status
+    let status = get(g:, 'coc_git_status', '')
+    return  status
 endfunction
 
 function! GitstatusB() abort
-	let status = get(b:, 'coc_git_status', '')
-	return  status
+    let status = get(b:, 'coc_git_status', '')
+    return  status
 endfunction
 
 function! CurrentFunction() abort
-	let status = get(b:, 'coc_current_function', '')
-	return  status
+    let status = get(b:, 'coc_current_function', '')
+    return  status
 endfunction
 
 " statusline
 function! StatusLine(current, width)
-	let l:s = ''
-	if a:current
-		let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
-	else
-		let l:s .= '%#CrystallineInactive#'
-	endif
-		let l:s .= crystalline#right_sep('', 'Fill') . ' %l %c %L '
-	if a:current
-		let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
-	endif
-	let l:s .= '%='
-	if a:current
-		let l:s .= crystalline#left_sep('', 'Fill')
-		let l:s .= crystalline#left_mode_sep('')
-	endif
-	if a:width > 40
-		let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}|%{&fenc!=#""?&fenc:&enc}|%{&ff}] '
-	else
-		let l:s .= ''
-	endif
-	return l:s
+    let l:s = ''
+    if a:current
+        let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
+    else
+        let l:s .= '%#CrystallineInactive#'
+    endif
+        let l:s .= crystalline#right_sep('', 'Fill') . ' %l %c %L '
+    if a:current
+        let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
+    endif
+    let l:s .= '%='
+    if a:current
+        let l:s .= crystalline#left_sep('', 'Fill')
+        let l:s .= crystalline#left_mode_sep('')
+    endif
+    if a:width > 40
+        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}|%{&fenc!=#""?&fenc:&enc}|%{&ff}] '
+    else
+        let l:s .= ''
+    endif
+    return l:s
 endfunction
 
 let g:crystalline_statusline_fn = 'StatusLine'
@@ -467,6 +468,14 @@ set tabline=%!crystalline#bufferline(0,0,1)
 " Rainbow:
 let g:rainbow_active = 1
 let g:rainbow_conf = {'guifgs': ['darkorange', 'darkgray']}
+
+
+" Indent_blankline:
+let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
+let g:indent_blankline_filetype_exclude = ['help']
+let g:indent_blankline_buftype_exclude = ['terminal']
+
+autocmd FileType go setlocal noexpandtab
 
 
 " Hexokinase:
@@ -481,33 +490,33 @@ let g:Illuminate_delay = 700
 " BetterOperation:
 " SmartChr:
 augroup All SmartChr
-	autocmd!
-	autocmd FileType * inoremap <buffer><expr> !
-				\ smartchr#loop('!', '!=')
+    autocmd!
+    autocmd FileType * inoremap <buffer><expr> !
+                \ smartchr#loop('!', '!=')
 augroup END
 
 augroup Golang SmartChr
-	autocmd!
-	autocmd FileType go inoremap <buffer><expr> ;
-				\ smartchr#loop(';', ':=')
-	autocmd FileType go inoremap <buffer><expr> .
-				\ smartchr#loop('.', '...')
-	autocmd FileType go inoremap <buffer><expr> ,
-				\ smartchr#loop(',', '<-')
-	autocmd FileType go inoremap <buffer><expr> ]]
-				\ smartchr#loop('[][]')
+    autocmd!
+    autocmd FileType go inoremap <buffer><expr> ;
+                \ smartchr#loop(';', ':=')
+    autocmd FileType go inoremap <buffer><expr> .
+                \ smartchr#loop('.', '...')
+    autocmd FileType go inoremap <buffer><expr> ,
+                \ smartchr#loop(',', '<-')
+    autocmd FileType go inoremap <buffer><expr> ]]
+                \ smartchr#loop('[][]')
 augroup END
 
 augroup Python SmartChr
-	autocmd!
-	autocmd FileType python inoremap <buffer><expr> .
-				\ smartchr#loop('.', '->')
+    autocmd!
+    autocmd FileType python inoremap <buffer><expr> .
+                \ smartchr#loop('.', '->')
 augroup END
 
 augroup Sh SmartChr
-	autocmd!
-	autocmd FileType sh inoremap <buffer><expr> $
-				\ smartchr#loop('$', '"${}"<Left><Left>')
+    autocmd!
+    autocmd FileType sh inoremap <buffer><expr> $
+                \ smartchr#loop('$', '"${}"<Left><Left>')
 augroup END
 
 
@@ -577,7 +586,7 @@ let g:neoformat_basic_format_trim = 0
 
 " saved silent autoformat
 autocmd BufWritePre *.go,*.python,*.sh,
-			\*.js,*.html,*.css,*.markdown,*.c,*.cpp silent Neoformat
+            \*.js,*.html,*.css,*.markdown,*.c,*.cpp silent Neoformat
 
 nnoremap <silent><c-g>n <cmd>Neoformat<cr>
 
@@ -598,12 +607,12 @@ let g:rnvimr_draw_border = 1
 let g:rnvimr_border_attr = {'fg': -1, 'bg': -1}
 let g:rnvimr_vanilla = 0
 let g:rnvimr_action = {
-			\ '<C-t>': 'NvimEdit tabedit',
-			\ '<C-s>': 'NvimEdit split',
-			\ '<C-v>': 'NvimEdit vsplit',
-			\ 'gw': 'JumpNvimCwd',
-			\ 'ew': 'EmitRangerCwd'
-			\ }
+            \ '<C-t>': 'NvimEdit tabedit',
+            \ '<C-s>': 'NvimEdit split',
+            \ '<C-v>': 'NvimEdit vsplit',
+            \ 'gw': 'JumpNvimCwd',
+            \ 'ew': 'EmitRangerCwd'
+            \ }
 
 tnoremap <silent><c-g>r <c-\><c-n><cmd>RnvimrToggle<cr>
 
@@ -632,12 +641,12 @@ endif
 set dir=~/.cache/nvim/swap/
 
 if empty(glob('~/.cache/nvim/undo'))
-	silent !mkdir -p ~/.cache/nvim/undo/
+    silent !mkdir -p ~/.cache/nvim/undo/
 endif
 
 if has('persistent_undo')
-	set undofile
-	set undodir=~/.cache/nvim/undo/
+    set undofile
+    set undodir=~/.cache/nvim/undo/
 endif
 
 
@@ -668,18 +677,18 @@ let g:asyncrun_open = 9
 let g:asynctasks_term_pos = 'TAB'
 let g:asynctasks_term_reuse = 1
 let g:asyncrun_rootmarks = [
-			\ '.git',
-			\ '.svn',
-			\ '.root',
-			\ '.project',
-			\ '.hg',
-			\ '.idea',
-			\ '.gitignore',
-			\ 'Makefile',
-			\ 'CMakeLists.txt',
-			\ '*.pro',
-			\ '.tasks'
-			\ ]
+            \ '.git',
+            \ '.svn',
+            \ '.root',
+            \ '.project',
+            \ '.hg',
+            \ '.idea',
+            \ '.gitignore',
+            \ 'Makefile',
+            \ 'CMakeLists.txt',
+            \ '*.pro',
+            \ '.tasks'
+            \ ]
 
 nnoremap <silent><space>r <cmd>AsyncTask run<cr>
 nnoremap <space>R :AsyncTask<space>
@@ -687,40 +696,40 @@ nnoremap <space>R :AsyncTask<space>
 
 " Coc:
 let g:coc_global_extensions = [
-			\ 'coc-go',
-			\ 'coc-clangd',
-			\ 'coc-pyright',
-			\ 'coc-json',
-			\ 'coc-sh',
-			\ 'coc-sqlfluff',
-			\ 'coc-tsserver',
-			\ 'coc-html',
-			\ 'coc-css',
-			\ 'coc-vetur',
-			\ 'coc-yaml',
-			\ 'coc-docker',
-			\ 'coc-markdownlint',
-			\ 'coc-vimlsp',
-			\ 'coc-snippets',
-			\ 'coc-just-complete',
-			\ 'coc-diagnostic',
-			\ 'coc-lists',
-			\ 'coc-git',
-			\ 'coc-yank',
-			\ 'coc-explorer',
-			\ 'coc-leetcode'
-			\ ]
+            \ 'coc-go',
+            \ 'coc-clangd',
+            \ 'coc-pyright',
+            \ 'coc-json',
+            \ 'coc-sh',
+            \ 'coc-sqlfluff',
+            \ 'coc-tsserver',
+            \ 'coc-html',
+            \ 'coc-css',
+            \ 'coc-vetur',
+            \ 'coc-yaml',
+            \ 'coc-docker',
+            \ 'coc-markdownlint',
+            \ 'coc-vimlsp',
+            \ 'coc-snippets',
+            \ 'coc-just-complete',
+            \ 'coc-diagnostic',
+            \ 'coc-lists',
+            \ 'coc-git',
+            \ 'coc-yank',
+            \ 'coc-explorer',
+            \ 'coc-leetcode'
+            \ ]
 
 " show documentation
 function! s:show_documentation()
-	if (index(['vim','help'], &filetype) >= 0)
-		execute 'h '.expand('<cword>')
-		nnoremap <silent><buffer> q <cmd>q<cr>
-	elseif (coc#rpc#ready())
-		call CocActionAsync('doHover')
-	else
-		execute '!' . &keywordprg . " " . expand('<cword>')
-	endif
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+        nnoremap <silent><buffer> q <cmd>q<cr>
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+    else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
 endfunction
 
 nnoremap <silent>gh <cmd>call <sid>show_documentation()<cr>
@@ -845,18 +854,18 @@ let g:mkdp_open_ip = ''
 let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 let g:mkdp_preview_options = {
-			\ 'mkit': {},
-			\ 'katex': {},
-			\ 'uml': {},
-			\ 'maid': {},
-			\ 'disable_sync_scroll': 0,
-			\ 'sync_scroll_type': 'middle',
-			\ 'hide_yaml_meta': 1,
-			\ 'sequence_diagrams': {},
-			\ 'flowchart_diagrams': {},
-			\ 'content_editable': v:false,
-			\ 'disable_filename': 0
-			\ }
+            \ 'mkit': {},
+            \ 'katex': {},
+            \ 'uml': {},
+            \ 'maid': {},
+            \ 'disable_sync_scroll': 0,
+            \ 'sync_scroll_type': 'middle',
+            \ 'hide_yaml_meta': 1,
+            \ 'sequence_diagrams': {},
+            \ 'flowchart_diagrams': {},
+            \ 'content_editable': v:false,
+            \ 'disable_filename': 0
+            \ }
 let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
@@ -873,35 +882,35 @@ nnoremap <silent><c-g>s <cmd>set spell!<cr>
 " Smooth_scroll:
 " scroll the screen up
 function! init#up(dist, duration, speed)
-	call s:init('u', a:dist, a:duration, a:speed)
+    call s:init('u', a:dist, a:duration, a:speed)
 endfunction
 
 " scroll the screen down
 function! init#down(dist, duration, speed)
-	call s:init('d', a:dist, a:duration, a:speed)
+    call s:init('d', a:dist, a:duration, a:speed)
 endfunction
 
 " animation
 function! s:init(dir, dist, duration, speed)
-	for i in range(a:dist/a:speed)
-		let start = reltime()
-		if a:dir ==# 'd'
-			exec "normal! ".a:speed."\<C-e>".a:speed."j"
-		else
-			exec "normal! ".a:speed."\<C-y>".a:speed."k"
-		endif
-		redraw
-		let elapsed = s:get_ms_since(start)
-		let snooze = float2nr(a:duration-elapsed)
-		if snooze > 0
-			exec "sleep ".snooze."m"
-		endif
-	endfor
+    for i in range(a:dist/a:speed)
+        let start = reltime()
+        if a:dir ==# 'd'
+            exec "normal! ".a:speed."\<C-e>".a:speed."j"
+        else
+            exec "normal! ".a:speed."\<C-y>".a:speed."k"
+        endif
+        redraw
+        let elapsed = s:get_ms_since(start)
+        let snooze = float2nr(a:duration-elapsed)
+        if snooze > 0
+            exec "sleep ".snooze."m"
+        endif
+    endfor
 endfunction
 
 function! s:get_ms_since(time)
-	let cost = split(reltimestr(reltime(a:time)), '\.')
-	return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
+    let cost = split(reltimestr(reltime(a:time)), '\.')
+    return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
 
 nnoremap <silent><c-u> :call init#up(&scroll,5,1)<cr>
@@ -910,17 +919,17 @@ nnoremap <silent><c-d> :call init#down(&scroll,5,1)<cr>
 
 " Comment:
 augroup Comment for different filetype
-	autocmd!
-	autocmd FileType python,sh setlocal commentstring=#\ %s
-	autocmd FileType c,cpp setlocal commentstring=//\ %s
-	autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
-	autocmd FileType sql setlocal commentstring=--\ %s
-	autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
+    autocmd!
+    autocmd FileType python,sh setlocal commentstring=#\ %s
+    autocmd FileType c,cpp setlocal commentstring=//\ %s
+    autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
+    autocmd FileType sql setlocal commentstring=--\ %s
+    autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
 augroup END
 
 
 " Hlsearch:
-autocmd BufReadPre * set nohlsearch
+autocmd BufReadPre * setlocal nohlsearch
 
 nnoremap <silent><nowait><expr><c-g>h &hlsearch ? "<cmd>set nohlsearch<cr>" : "<cmd>set hlsearch<cr>"
 
@@ -938,33 +947,33 @@ let g:coc_start_at_startup = 0
 
 " cocstart
 function! CocTimerStart(timer)
-	exec "CocStart"
+    exec "CocStart"
 endfunction
 
 autocmd VimEnter *
-			\ let size = getfsize(expand('<afile>')) |
-			\ if (size > g:trigger_size) || (size == -2) |
-			\   echohl WarningMsg |
-			\ echomsg 'WARNING: Coc is dead for this huge file!' |
-			\ echohl None |
-			\ else |
-			\   call timer_start(100,'CocTimerStart',{'repeat':1}) |
-			\ endif |
-			\ unlet size
+            \ let size = getfsize(expand('<afile>')) |
+            \ if (size > g:trigger_size) || (size == -2) |
+            \   echohl WarningMsg |
+            \ echomsg 'WARNING: Coc is dead for this huge file!' |
+            \ echohl None |
+            \ else |
+            \   call timer_start(100,'CocTimerStart',{'repeat':1}) |
+            \ endif |
+            \ unlet size
 
 
 " Super_L:
 augroup Super_L
-	autocmd!
-	autocmd FileType go inoremap <buffer><c-l> fmt.Println()<left>
-	autocmd FileType python inoremap <buffer><c-l> print()<left>
-	autocmd FileType sh inoremap <buffer><c-l> echo ""<left>
+    autocmd!
+    autocmd FileType go inoremap <buffer><c-l> fmt.Println()<left>
+    autocmd FileType python inoremap <buffer><c-l> print()<left>
+    autocmd FileType sh inoremap <buffer><c-l> echo ""<left>
 augroup END
 
 
 " Visual_IA:
 function! Force_blockwise(next_key)
-	return s:setup_keyseq_table[a:next_key][mode()]
+    return s:setup_keyseq_table[a:next_key][mode()]
 endfunction
 
 let s:setup_keyseq_table = {
@@ -977,40 +986,40 @@ vnoremap <expr> <plug>(niceblock-A)  Force_blockwise('A')
 
 if !exists('g:niceblock_no_default_key_mappings') ||
 \  !g:niceblock_no_default_key_mappings
-	silent! xmap <unique> I  <plug>(niceblock-I)
-	silent! xmap <unique> A  <plug>(niceblock-A)
+    silent! xmap <unique> I  <plug>(niceblock-I)
+    silent! xmap <unique> A  <plug>(niceblock-A)
 endif
 
 
 " Cleanbuffers:
 command! -nargs=? -complete=buffer -bang CleanBuffers
-CleanBuffers	\ :call CleanBuffers('<bang>')
+CleanBuffers    \ :call CleanBuffers('<bang>')
 
 function! CleanBuffers(bang)
-	let last_buf = bufnr('$')
+    let last_buf = bufnr('$')
 
-	let del_cnt = 0
-	let bufn = 1
+    let del_cnt = 0
+    let bufn = 1
 
-	while bufn <= last_buf
-		if buflisted(bufn) && bufwinnr(bufn) == -1
-			if a:bang == '' && getbufvar(bufn, '&modified')
-				echohl ErrorMsg
-				echohl 'No write since last change for buffer(add ! to override)'
-				echohl None
-			else
-				silent exe 'bdel' . a:bang . ' ' . bufn
-				if ! buflisted(bufn)
-					let del_cnt = del_cnt + 1
-				endif
-			endif
-		endif
-		let bufn = bufn + 1
-	endwhile
+    while bufn <= last_buf
+        if buflisted(bufn) && bufwinnr(bufn) == -1
+            if a:bang == '' && getbufvar(bufn, '&modified')
+                echohl ErrorMsg
+                echohl 'No write since last change for buffer(add ! to override)'
+                echohl None
+            else
+                silent exe 'bdel' . a:bang . ' ' . bufn
+                if ! buflisted(bufn)
+                    let del_cnt = del_cnt + 1
+                endif
+            endif
+        endif
+        let bufn = bufn + 1
+    endwhile
 
-	if del_cnt > 0
-		echomsg 'clean done, ' del_cnt 'buffer(s) deleted'
-	endif
+    if del_cnt > 0
+        echomsg 'clean done, ' del_cnt 'buffer(s) deleted'
+    endif
 endfunction
 
 
