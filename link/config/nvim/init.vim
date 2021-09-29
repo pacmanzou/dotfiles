@@ -584,13 +584,6 @@ autocmd BufWritePre *.go,*.python,*.sh,
 nnoremap <silent><c-g>n <cmd>Neoformat<cr>
 
 
-" Exchange:
-nmap <silent>cx <plug>(Exchange)
-nmap <silent>cxc <plug>(ExchangeClear)
-
-vmap <silent>x <plug>(Exchange)
-
-
 " FileManager:
 " Rnvimr:
 let g:rnvimr_presets = [{'width': 0.99, 'height': 0.93}]
