@@ -88,6 +88,7 @@ sudo pacman -Syu
 
 # install
 sudo pacman -S alacritty \
+    astyle \
     bleachbit \
     ctags \
     copyq \
@@ -120,6 +121,7 @@ sudo pacman -S alacritty \
     obs-studio \
     python-pip \
     python2-pip \
+    prettier \
     pandoc \
     ruby \
     ripgrep \
@@ -172,7 +174,11 @@ CopyHandler "${HOME}/dotfiles/misc/theme.conf" "${HOME}/.local/share/fcitx5/them
 CopyHandler "${HOME}/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "${HOME}/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
 
+# npm
 npm install -g reveal-md
+
+# pip
+pip install black
 
 Info "### manual configuration ###\n"
 

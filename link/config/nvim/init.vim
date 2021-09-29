@@ -174,17 +174,6 @@ map <c-w>q <nop>
 map <c-w>o <nop>
 map <c-w>f <nop>
 
-vmap q <nop>
-vmap r <nop>
-vmap t <nop>
-vmap i <nop>
-vmap o <nop>
-vmap a <nop>
-vmap s <nop>
-vmap z <nop>
-vmap n <nop>
-vmap m <nop>
-
 map <c-q> <nop>
 map <c-t> <nop>
 map <c-s> <nop>
@@ -193,6 +182,10 @@ map <c-v> <nop>
 map <c-m> <nop>
 map <space> <nop>
 
+vmap q <nop>
+vmap t <nop>
+vmap o <nop>
+vmap s <nop>
 vmap n <nop>
 vmap N <nop>
 vmap <C-f> <nop>
