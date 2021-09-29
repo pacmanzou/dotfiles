@@ -136,7 +136,6 @@ map zu <nop>
 map <c-w>+ <nop>
 map <c-w>- <nop>
 map <c-w>< <nop>
-map <c-w>= <nop>
 map <c-w>> <nop>
 map <c-w>H <nop>
 map <c-w>J <nop>
@@ -171,12 +170,13 @@ map <c-w>x <nop>
 map <c-w>z <nop>
 map <c-w>\| <nop>
 map <c-w>} <nop>
+map <c-w>q <nop>
+map <c-w>o <nop>
+map <c-w>f <nop>
 
 vmap q <nop>
 vmap r <nop>
 vmap t <nop>
-vmap y <nop>
-vmap u <nop>
 vmap i <nop>
 vmap o <nop>
 vmap a <nop>
@@ -245,11 +245,6 @@ noremap <silent><c-h> <c-w>h
 noremap <silent><c-j> <c-w>j
 noremap <silent><c-k> <c-w>k
 
-" windows size
-nnoremap <silent>zi <cmd>res +10<cr>
-nnoremap <silent>zd <cmd>res -10<cr>
-nnoremap <silent>z= <c-w>=
-
 " windows exchange
 nnoremap <silent><c-w>t <c-w>T
 nnoremap <silent><c-w>h <c-w>H
@@ -288,8 +283,7 @@ nnoremap <silent>Y y$
 nnoremap <silent>> >>
 nnoremap <silent>< <<
 nnoremap <silent>Q @q
-nnoremap <silent><c-w>w <cmd>w<cr>
-nnoremap <silent><c-w>c <cmd>BufClean<cr>
+nnoremap <silent><c-g>f <c-w>f
 
 
 " Plugin:
@@ -630,19 +624,20 @@ nnoremap <silent>T <cmd>Vista!!<cr>
 " Undo Backup Swap:
 set nobackup
 set swapfile
-set dir=~/.cache/vim/swap/
 
-if empty(glob('~/.cache/vim/swap'))
-    silent !mkdir -p ~/.cache/vim/swap
+if empty(glob('~/.cache/nvim/swap'))
+    silent !mkdir -p ~/.cache/nvim/swap
 endif
 
-if empty(glob('~/.cache/vim/undo'))
-	silent !mkdir -p ~/.cache/vim/undo/
+set dir=~/.cache/nvim/swap/
+
+if empty(glob('~/.cache/nvim/undo'))
+	silent !mkdir -p ~/.cache/nvim/undo/
 endif
 
 if has('persistent_undo')
 	set undofile
-	set undodir=~/.cache/vim/undo/
+	set undodir=~/.cache/nvim/undo/
 endif
 
 
@@ -1017,3 +1012,21 @@ function! BufClean(bang)
 		echomsg 'clean done, ' del_cnt 'buffer(s) deleted'
 	endif
 endfunction
+
+
+" FullToggle:
+command! FullToggle call s:FullToggle()
+
+function! s:FullToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+
+noremap <silent><c-w>f <cmd>FullToggle<cr>
