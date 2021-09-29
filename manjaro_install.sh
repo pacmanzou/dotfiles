@@ -55,7 +55,7 @@ FileHandler() {
     done
 }
 
-file="${HOME}/.gitconfig"
+file="$HOME/.gitconfig"
 
 if [[ -f "${file}" ]]; then
     Warn "If you want to run this script, please remove the .gitconfig!"
@@ -66,17 +66,17 @@ else
 fi
 
 # link
-Info "### link to ${HOME}/.config/ ###\n"
+Info "### link to $HOME/.config/ ###\n"
 
-FileHandler "${HOME}/dotfiles/link/home/.* ${HOME}/dotfiles/link/home/*" "${HOME}/.* ${HOME}/*" LinkHandler
-FileHandler "${HOME}/dotfiles/link/config/*" "${HOME}/.config/*" LinkHandler
-FileHandler "${HOME}/dotfiles/link/bin/*" "/usr/local/bin/*" LinkHandler
-FileHandler "${HOME}/dotfiles/link/etc/*" "/etc/*" LinkHandler
+FileHandler "$HOME/dotfiles/link/home/.* $HOME/dotfiles/link/home/*" "$HOME/.* $HOME/*" LinkHandler
+FileHandler "$HOME/dotfiles/link/config/*" "$HOME/.config/*" LinkHandler
+FileHandler "$HOME/dotfiles/link/bin/*" "/usr/local/bin/*" LinkHandler
+FileHandler "$HOME/dotfiles/link/etc/*" "/etc/*" LinkHandler
 
 # copy
-Info "### copy to ${HOME}/.config/ ###\n"
+Info "### copy to $HOME/.config/ ###\n"
 
-FileHandler "${HOME}/dotfiles/copy/config/*" "${HOME}/.config/*" CopyHandler
+FileHandler "$HOME/dotfiles/copy/config/*" "$HOME/.config/*" CopyHandler
 
 # update
 Info "### update systemctl ###\n"
@@ -156,6 +156,13 @@ yay -S abook \
     wps-office-fonts \
     wps-office-mime-cn
 
+# npm set registry
+if npm config set registry https://registry.npm.taobao.org; then
+    Success "npm config set registry https://registry.npm.taobao.org"
+else
+    Fail "npm config set registry https://registry.npm.taobao.org"
+fi
+
 # neovim checkhealth
 Info "### neovim environment ###\n"
 
@@ -168,18 +175,20 @@ gem install neovim
 # misc
 Info "### misc ###\n"
 
-CopyHandler "${HOME}/dotfiles/misc/evdev" "/usr/share/X11/xkb/keycodes/evdev"
-CopyHandler "${HOME}/dotfiles/misc/default.yaml" "${HOME}/.local/share/fcitx5/rime/build/default.yaml"
-CopyHandler "${HOME}/dotfiles/misc/theme.conf" "${HOME}/.local/share/fcitx5/themes/default/theme.conf"
-CopyHandler "${HOME}/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
-CopyHandler "${HOME}/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
+CopyHandler "$HOME/dotfiles/misc/evdev" "/usr/share/X11/xkb/keycodes/evdev"
+CopyHandler "$HOME/dotfiles/misc/default.yaml" "$HOME/.local/share/fcitx5/rime/build/default.yaml"
+CopyHandler "$HOME/dotfiles/misc/theme.conf" "$HOME/.local/share/fcitx5/themes/default/theme.conf"
+CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
+CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
 
 # npm
-npm install -g reveal-md
+sudo npm install -g reveal-md
+sudo npm install -g js-beautify
 
 # pip
 pip install black
 
+# message info
 Info "### manual configuration ###\n"
 
 Info "neomutt"

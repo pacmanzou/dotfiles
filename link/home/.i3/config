@@ -58,8 +58,8 @@ exec --no-startup-id fcitx5
 exec --no-startup-id copyq
 exec --no-startup-id utools
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id conky -c "${HOME}/.i3/conky_i3wm"
-exec --no-startup-id bash "${HOME}/.i3/mailsync.sh"
+exec --no-startup-id conky -c "$HOME/.i3/conky_i3wm"
+exec --no-startup-id bash "$HOME/.i3/mailsync.sh"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 bindsym $mod+Ctrl+q kill
@@ -98,8 +98,8 @@ bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_
 bindsym $mod+m mode "$mode_misc"
 set $mode_misc (w)ifi   (t)ouchpad   (b)luetooth
 mode "$mode_misc"{
-    bindsym w exec --no-startup-id bash "${HOME}/.i3/wifi.sh", mode "default"
-    bindsym t exec --no-startup-id bash "${HOME}/.i3/touchpad.sh", mode "default"
+    bindsym w exec --no-startup-id bash "$HOME/.i3/wifi.sh", mode "default"
+    bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
     bindsym b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on', mode "default"
 
     bindsym Return mode "default"
