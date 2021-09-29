@@ -983,10 +983,10 @@ endif
 
 
 " Cleanbuffers:
-command! -nargs=? -complete=buffer -bang BufClean
-	\ :call BufClean('<bang>')
+command! -nargs=? -complete=buffer -bang CleanBuffers
+CleanBuffers	\ :call CleanBuffers('<bang>')
 
-function! BufClean(bang)
+function! CleanBuffers(bang)
 	let last_buf = bufnr('$')
 
 	let del_cnt = 0
