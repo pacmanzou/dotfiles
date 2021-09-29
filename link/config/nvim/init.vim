@@ -579,7 +579,7 @@ let g:neoformat_basic_format_trim = 0
 autocmd BufWritePre *.go,*.python,*.sh,
 			\*.js,*.html,*.css,*.markdown,*.c,*.cpp silent Neoformat
 
-nnoremap <silent><c-w>n <cmd>Neoformat<cr>
+nnoremap <silent><c-g>n <cmd>Neoformat<cr>
 
 
 " Exchange:
