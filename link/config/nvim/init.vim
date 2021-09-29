@@ -172,6 +172,19 @@ map <c-w>z <nop>
 map <c-w>\| <nop>
 map <c-w>} <nop>
 
+vmap q <nop>
+vmap r <nop>
+vmap t <nop>
+vmap y <nop>
+vmap u <nop>
+vmap i <nop>
+vmap o <nop>
+vmap a <nop>
+vmap s <nop>
+vmap z <nop>
+vmap n <nop>
+vmap m <nop>
+
 map <c-q> <nop>
 map <c-t> <nop>
 map <c-s> <nop>
@@ -534,7 +547,7 @@ let g:VM_Insert_hl = 'IncSearch'
 
 nmap <silent><space>v <plug>(VM-Find-Under)
 
-xmap <silent><space>v <plug>(VM-Find-Subword-Under)
+vmap <silent><space>v <plug>(VM-Find-Subword-Under)
 
 
 " CloseTag:
@@ -674,7 +687,7 @@ let g:asyncrun_rootmarks = [
 			\ ]
 
 nnoremap <silent><space>r <cmd>AsyncTask run<cr>
-nnoremap <silent><space>a :AsyncTask<space>
+nnoremap <space>R :AsyncTask<space>
 
 
 " Coc:
@@ -733,7 +746,7 @@ nmap <silent>cn <plug>(coc-rename)
 nmap <silent>cr <plug>(coc-refactor)
 
 " apply codeAction
-xmap <silent><space>a <plug>(coc-codeaction-selected)
+vmap <silent><c-f> <plug>(coc-codeaction-selected)
 
 " go to code navigation
 nmap <silent>gd <plug>(coc-definition)
