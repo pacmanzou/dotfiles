@@ -73,8 +73,10 @@ promptinit
 # fzf
 source /usr/share/fzf/completion.zsh
 
-export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+if command -v fd > /dev/null; then
+	export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+	export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+fi
 
 __fsel() {
   local cmd="${FZF_CTRL_T_COMMAND:-"command find -L . -mindepth 1 \\( -path '*/\\.*' -o -fstype 'sysfs' -o -fstype 'devfs' -o -fstype 'devtmpfs' -o -fstype 'proc' \\) -prune \

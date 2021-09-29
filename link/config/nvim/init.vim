@@ -218,6 +218,7 @@ cmap <c-s> <nop>
 cmap <c-d> <delete>
 cmap <c-f> <right>
 cmap <c-g> <nop>
+cmap <c-j> <nop>
 cmap <c-k> <nop>
 cmap <c-l> <nop>
 cmap <c-z> <nop>
@@ -611,9 +612,6 @@ let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'ctags'
 
 nnoremap <silent>T <cmd>Vista!!<cr>
-nnoremap <silent><space>T <cmd>Vista finder<cr>
-
-autocmd FileType vista,vista_kind nnoremap <buffer><silent>/ :<C-u>call vista#finder#fzf#Run()<cr>
 
 
 " Undo Backup Swap:
