@@ -110,10 +110,18 @@
     "snippets.priority": -1,
     "snippets.snipmate.enable": false,
     "snippets.ultisnips.directories": [
-        "~/.config/nvim/UltiSnips/"
+        "$HOME/.config/nvim/UltiSnips/"
     ],
     "snippets.ultisnips.enable": true,
     "snippets.ultisnips.usePythonx": true,
-    "snippets.userSnippetsDirectory": "~/.config/nvim/UltiSnips/",
-    "yank.enableCompletion": false
+    "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
+    "yank.enableCompletion": false,
+    "languageserver": {
+        "sql": {
+            "command": "sqls",
+            "args": ["-config", "$HOME/.config/sqls/config.yml"],
+            "filetypes": ["sql"],
+            "shell": true
+        }
+    }
 }

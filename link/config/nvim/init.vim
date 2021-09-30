@@ -287,7 +287,7 @@ filetype plugin indent on
 
 let g:plug_window = '-tabnew'
 
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('$HOME/.config/nvim/plugged')
 
 " colorscheme && statusline
 Plug 'pacmanzou/gruvbox8.vim'
@@ -318,11 +318,6 @@ Plug 'kevinhwang91/rnvimr'
 
 " tags manager
 Plug 'liuchengxu/vista.vim'
-
-" database manager
-Plug 'tpope/vim-dadbod', { 'on': 'DBUI'}
-Plug 'kristijanhusak/vim-dadbod-ui', { 'on': 'DBUI'}
-Plug 'kristijanhusak/vim-dadbod-completion', { 'on': 'DBUI'}
 
 " floaterm
 Plug 'voldikss/vim-floaterm'
@@ -578,8 +573,16 @@ let g:neoformat_basic_format_retab = 0
 let g:neoformat_basic_format_trim = 0
 
 " saved silent autoformat
-autocmd BufWritePre *.go,*.python,*.sh,
-            \*.js,*.html,*.css,*.markdown,*.c,*.cpp silent Neoformat
+augroup fmt
+    autocmd!
+    autocmd BufWritePre *.go,
+                \ *.python,
+                \ *.sh,
+                \ *.markdown,
+                \ *.c,
+                \ *.cpp
+                \ silent Neoformat
+augroup END
 
 nnoremap <silent><c-g>n <cmd>Neoformat<cr>
 
@@ -620,25 +623,20 @@ nnoremap <silent>T <cmd>Vista!!<cr>
 set nobackup
 set swapfile
 
-if empty(glob('~/.cache/nvim/swap'))
-    silent !mkdir -p ~/.cache/nvim/swap
+if empty(glob('$HOME/.cache/nvim/swap'))
+    silent !mkdir -p "$HOME/.cache/nvim/swap"
 endif
 
-set dir=~/.cache/nvim/swap/
+set dir=$HOME/.cache/nvim/swap/
 
-if empty(glob('~/.cache/nvim/undo'))
-    silent !mkdir -p ~/.cache/nvim/undo/
+if empty(glob('$HOME/.cache/nvim/undo'))
+    silent !mkdir -p "$HOME/.cache/nvim/undo/"
 endif
 
 if has('persistent_undo')
     set undofile
-    set undodir=~/.cache/nvim/undo/
+    set undodir=$HOME/.cache/nvim/undo/
 endif
-
-
-" Dadbod:
-let g:db_ui_save_location  = '~/.config/nvim/connections.json'
-let g:db_ui_winwidth = 35
 
 
 " Floaterm:
@@ -687,7 +685,6 @@ let g:coc_global_extensions = [
             \ 'coc-pyright',
             \ 'coc-json',
             \ 'coc-sh',
-            \ 'coc-sqlfluff',
             \ 'coc-tsserver',
             \ 'coc-html',
             \ 'coc-css',

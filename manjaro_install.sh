@@ -116,6 +116,7 @@ sudo pacman -S alacritty \
     nodejs-lts-fermium \
     cht.sh \
     npm \
+    nrm \
     neovim \
     neomutt \
     obs-studio \
@@ -151,13 +152,14 @@ yay -S abook \
     google-chrome \
     ranger-git \
     simple-mtpfs \
+    sqls \
     wps-office-cn \
     wps-office-mui-zh-cn \
     wps-office-fonts \
     wps-office-mime-cn
 
-# npm set registry
-if npm config set registry https://registry.npm.taobao.org; then
+# npm set registry by nrm
+if nrm use taobao; then
     Success "npm config set registry https://registry.npm.taobao.org"
 else
     Fail "npm config set registry https://registry.npm.taobao.org"
