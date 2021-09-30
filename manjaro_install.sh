@@ -150,6 +150,7 @@ sudo pacman -S alacritty \
 yay -S abook \
     debtap \
     google-chrome \
+    pgformatter-git \
     ranger-git \
     simple-mtpfs \
     sqls \
@@ -189,17 +190,21 @@ sudo npm install -g js-beautify
 
 # pip
 pip install black
+pip install mycli
 
 # message info
 Info "### manual configuration ###\n"
-
-Info "neomutt"
-Info "https://github.com/LukeSmithxyz/mutt-wizard\n"
 
 Info "ssh(git)"
 Info "ssh-keygen -t rsa -C "pacmanzou@qq.com""
 Info "将公钥复制到github网页端"
 Info "测试是否成功: ssh -T git@github.com\n"
+
+Info "mysql"
+Info "sudo pacman -S mysql\n"
+
+Info "neomutt"
+Info "https://github.com/LukeSmithxyz/mutt-wizard\n"
 
 Info "### web install ###\n"
 
