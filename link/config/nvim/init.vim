@@ -826,6 +826,9 @@ let g:vim_markdown_conceal = 0
 let g:vim_markdown_conceal_code_blocks = 0
 let g:vim_markdown_math = 0
 
+" markdown toc
+let g:vmt_list_item_char = '-'
+
 " markdown-preview
 let g:mkdp_browser = 'chromium'
 let g:mkdp_auto_start = 0
@@ -976,7 +979,7 @@ endif
 
 " Cleanbuffers:
 command! -nargs=? -complete=buffer -bang CleanBuffers
-CleanBuffers    \ :call CleanBuffers('<bang>')
+            \ :call CleanBuffers('<bang>')
 
 function! CleanBuffers(bang)
     let last_buf = bufnr('$')

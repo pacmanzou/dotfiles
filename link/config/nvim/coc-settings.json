@@ -85,16 +85,22 @@
         "<C-y>": "prompt:paste",
         "<C-d>": "prompt:deletebackward",
         "<C-r>": "do:refresh",
-        "<C-c>": "do:exit",
         "<C-t>": "action:tabe",
         "<C-s>": "action:split",
         "<C-v>": "action:vsplit"
     },
     "list.normalMappings": {
-        "<C-c>": "do:exit",
         "<C-t>": "action:tabe",
         "<C-s>": "action:split",
         "<C-v>": "action:vsplit"
+    },
+    "languageserver": {
+        "sql": {
+            "command": "sqls",
+            "args": ["-config", "$HOME/.config/sqls/config.yml"],
+            "filetypes": ["sql"],
+            "shell": true
+        }
     },
     "python.formatting.provider": "black",
     "refactor.openCommand": "sp",
@@ -115,13 +121,5 @@
     "snippets.ultisnips.enable": true,
     "snippets.ultisnips.usePythonx": true,
     "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
-    "yank.enableCompletion": false,
-    "languageserver": {
-        "sql": {
-            "command": "sqls",
-            "args": ["-config", "$HOME/.config/sqls/config.yml"],
-            "filetypes": ["sql"],
-            "shell": true
-        }
-    }
+    "yank.enableCompletion": false
 }
