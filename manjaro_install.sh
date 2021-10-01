@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2020 Zou Jiancheng <pacmanzou@qq.com>
 #
-# Description: install
+# Description: An installation script for manjaro-i3 community edition, apply to i3 only.
 #
 
 Info() {
@@ -60,9 +60,7 @@ file="$HOME/.gitconfig"
 if [[ -f "${file}" ]]; then
     Warn "If you want to run this script, please remove the .gitconfig!"
     Fail "Failed to run this script"
-    exit
-else
-    Success "Successful open script\n"
+    exit 1
 fi
 
 # link
@@ -135,6 +133,7 @@ sudo pacman -S alacritty \
     unzip \
     vnote-git \
     virtualbox \
+    wqy-microhei \
     xclip \
     youtube-dl \
     you-get \
@@ -206,10 +205,13 @@ echo
 
 # message info
 Info "### manual configuration ###"
-Info "ssh(git)"
+Info "video card and font setup"
+Info "sudo manjaro-settings-manager\n"
+
+Info "ssh for git"
 Info "ssh-keygen -t rsa -C "pacmanzou@qq.com""
-Info "将公钥复制到github网页端"
-Info "测试是否成功: ssh -T git@github.com\n"
+Info "Copy the public key to the Web page"
+Info "test: ssh -T git@github.com\n"
 
 Info "mysql"
 Info "sudo pacman -S mysql\n"
@@ -217,5 +219,5 @@ Info "sudo pacman -S mysql\n"
 Info "neomutt"
 Info "mw -a you@email.com\n"
 
-Info "### debtap 构建 ###"
+Info "### debtap ###"
 Info "UTools"
