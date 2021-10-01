@@ -830,7 +830,7 @@ let g:vim_markdown_math = 0
 let g:vmt_list_item_char = '-'
 
 " markdown-preview
-let g:mkdp_browser = 'chromium'
+let g:mkdp_browser = 'google-chrome-stable'
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 0
 let g:mkdp_refresh_slow = 0

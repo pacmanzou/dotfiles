@@ -2,7 +2,7 @@
 #
 # Copyright (C) 2020 Zou Jiancheng <pacmanzou@qq.com>
 #
-# Description: An installation script for manjaro-i3 community edition, apply to i3 only.
+# Description: An installation script for manjaro-i3 community edition, applies to i3 only.
 #
 
 Info() {
