@@ -162,7 +162,7 @@ Info "### install end ###\n"
 
 # let $HOME/.local/share/fcitx5 is exist
 fcitx_start() {
-    fcitx5 &
+    fcitx5
     Success "success start fcitx5\n"
     sleep 3
     killall fcitx5
@@ -171,11 +171,8 @@ fcitx_start() {
 
 fcitx_start
 
-# npm set registry by nrm
 Info "### npm set ###"
-sudo npm --registry https://registry.npm.taobao.org install -g nrm
-
-if nrm use taobao; then
+if npm config set registry https://registry.npm.taobao.org; then
     Success "npm config set registry https://registry.npm.taobao.org\n"
 else
     Fail "npm config set registry https://registry.npm.taobao.org\n"
@@ -196,7 +193,7 @@ pip install mycli
 
 echo
 
-Info "### yarn and gem ###"
+Info "### yarn and gem for neovim###"
 yarn global add neovim
 gem install neovim
 
