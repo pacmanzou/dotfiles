@@ -162,7 +162,9 @@ Info "### install end ###\n"
 
 # let $HOME/.local/share/fcitx5 is exist
 Info "### start fcitx5 ###\n"
-fcitx5; sleep 3; killall fcitx5
+fcitx5 &>/dev/null
+sleep 3
+killall fcitx5
 Info "### kill fcitx5 ###\n"
 
 Info "### npm set ###"
