@@ -150,12 +150,14 @@ sudo pacman -S alacritty \
 
 yay -S abook \
     apipost-bin \
+    com.qq.im.deepin \
     debtap \
     google-chrome \
     pgformatter-git \
     ranger-git \
     simple-mtpfs \
     sqls \
+    wechat-uos \
     wps-office-cn \
     wps-office-mui-zh-cn \
     wps-office-fonts \
