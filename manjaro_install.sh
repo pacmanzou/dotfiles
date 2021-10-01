@@ -93,7 +93,6 @@ sudo pacman -S alacritty \
     ctags \
     copyq \
     cmake \
-    dpkg \
     docker \
     dbeaver \
     exa \
