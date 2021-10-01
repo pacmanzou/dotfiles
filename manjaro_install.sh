@@ -6,7 +6,7 @@
 #
 
 Info() {
-    printf '[\033[0;38minfo\033[0m] %b\n' "$1"
+    printf '[\033[0;34minfo\033[0m] %b\n' "$1"
 }
 
 Warn() {
@@ -62,25 +62,26 @@ if [[ -f "${file}" ]]; then
     Fail "Failed to run this script"
     exit
 else
-    Success "Successful open script"
+    Success "Successful open script\n"
 fi
 
 # link
-Info "### link to $HOME/.config/ ###\n"
-
+Info "### link to $HOME/.config/ ###"
 FileHandler "$HOME/dotfiles/link/home/.* $HOME/dotfiles/link/home/*" "$HOME/.* $HOME/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/config/*" "$HOME/.config/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/bin/*" "/usr/local/bin/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/etc/*" "/etc/*" LinkHandler
 
-# copy
-Info "### copy to $HOME/.config/ ###\n"
+echo
 
+# copy
+Info "### copy to $HOME/.config/ ###"
 FileHandler "$HOME/dotfiles/copy/config/*" "$HOME/.config/*" CopyHandler
 
-# update
-Info "### update systemctl ###\n"
+echo
 
+# update
+Info "### update systemctl ###"
 sudo pacman-mirrors -i -c China -m rank
 sudo pacman -Syy
 sudo pacman -S archlinuxcn-keyring
@@ -101,7 +102,6 @@ sudo pacman -S alacritty \
     fcitx5 \
     fcitx5-rime \
     fcitx5-configtool \
-    fzf \
     go \
     gcc \
     gparted \
@@ -117,7 +117,6 @@ sudo pacman -S alacritty \
     nodejs-lts-fermium \
     cht.sh \
     npm \
-    nrm \
     neovim \
     neomutt \
     obs-studio \
@@ -137,14 +136,11 @@ sudo pacman -S alacritty \
     vnote-git \
     virtualbox \
     xclip \
-    xorg-xinput \
     youtube-dl \
     you-get \
     yay \
     yarn \
-    ydcv-rs-git \
     zip \
-    zsh \
     zathura \
     zathura-pdf-mupdf
 
@@ -162,43 +158,62 @@ yay -S abook \
     wps-office-mui-zh-cn \
     wps-office-fonts \
     wps-office-mime-cn
+Info "### install end ###\n"
+
+# let $HOME/.local/share/fcitx5 is exist
+fcitx_start() {
+    fcitx5 &
+    Success "success start fcitx5\n"
+    sleep 3
+    killall fcitx5
+    Success "success kill fcitx5\n"
+}
+
+fcitx_start
 
 # npm set registry by nrm
+Info "### npm set ###"
+sudo npm --registry https://registry.npm.taobao.org install -g nrm
+
 if nrm use taobao; then
-    Success "npm config set registry https://registry.npm.taobao.org"
+    Success "npm config set registry https://registry.npm.taobao.org\n"
 else
-    Fail "npm config set registry https://registry.npm.taobao.org"
+    Fail "npm config set registry https://registry.npm.taobao.org\n"
 fi
 
-# neovim checkhealth
-Info "### neovim environment ###\n"
-
-/usr/bin/python2 -m pip install pynvim
-/usr/bin/python3 -m pip install pynvim
+Info "### npm install ###"
 sudo npm install -g neovim
+sudo npm install -g reveal-md
+sudo npm install -g js-beautify
+
+echo
+
+Info "### pip install ###"
+/usr/bin/python2 -m pip install pynvim
+pip install pynvim
+pip install black
+pip install mycli
+
+echo
+
+Info "### yarn and gem ###"
 yarn global add neovim
 gem install neovim
 
-# misc
-Info "### misc ###\n"
+echo
 
+# misc
+Info "### misc ###"
 CopyHandler "$HOME/dotfiles/misc/evdev" "/usr/share/X11/xkb/keycodes/evdev"
 CopyHandler "$HOME/dotfiles/misc/default.yaml" "$HOME/.local/share/fcitx5/rime/build/default.yaml"
 CopyHandler "$HOME/dotfiles/misc/theme.conf" "$HOME/.local/share/fcitx5/themes/default/theme.conf"
 CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
 
-# npm
-sudo npm install -g reveal-md
-sudo npm install -g js-beautify
-
-# pip
-pip install black
-pip install mycli
+echo
 
 # message info
-Info "### manual configuration ###\n"
-
+Info "### manual configuration ###"
 Info "ssh(git)"
 Info "ssh-keygen -t rsa -C "pacmanzou@qq.com""
 Info "将公钥复制到github网页端"
@@ -210,6 +225,6 @@ Info "sudo pacman -S mysql\n"
 Info "neomutt"
 Info "https://github.com/LukeSmithxyz/mutt-wizard\n"
 
-Info "### debtap 构建 ###\n"
+Info "### debtap 构建 ###"
 
 Info "UTools"
