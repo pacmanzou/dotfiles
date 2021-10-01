@@ -1,0 +1,24 @@
+# Maintainer: Zou Jiancheng <pacmanzou@qq.com>
+
+pkgname=
+pkgver=
+pkgdesc=""
+url=""
+source=("")
+
+pkgrel=1
+arch=('any')
+license=('GPL2')
+groups=()
+depends=()
+options=()
+md5sums=('SKIP')
+
+package(){
+	# Extract package data
+	tar xf data.tar.xz -C "${pkgdir}"
+
+    # Link to the binary
+    install -dm755 ${pkgdir}/usr/bin/
+    ln -sf ${pkgdir}/opt/("解deb包后查看dirname")/${pkgname}  ${pkgdir}/usr/bin/${pkgname}
+}

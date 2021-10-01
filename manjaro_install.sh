@@ -93,6 +93,7 @@ sudo pacman -S alacritty \
     ctags \
     copyq \
     cmake \
+    dpkg \
     docker \
     dbeaver \
     exa \
@@ -120,6 +121,7 @@ sudo pacman -S alacritty \
     nrm \
     neovim \
     neomutt \
+    namcap \
     obs-studio \
     python-pip \
     python2-pip \
@@ -149,8 +151,6 @@ sudo pacman -S alacritty \
     zathura-pdf-mupdf
 
 yay -S abook \
-    apipost-bin \
-    debtap \
     google-chrome \
     pgformatter-git \
     ranger-git \
@@ -208,9 +208,7 @@ Info "sudo pacman -S mysql\n"
 Info "neomutt"
 Info "https://github.com/LukeSmithxyz/mutt-wizard\n"
 
-Info "### web install ###\n"
+Info "### 下载deb包, 用PKGBUILD构建 ###\n"
 
 Info "UTools"
-Info "Ghelpers\n"
-
-Success "Successful run this script"
+Info "Apipost\n"
