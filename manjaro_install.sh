@@ -93,6 +93,7 @@ sudo pacman -S alacritty \
     ctags \
     copyq \
     cmake \
+    docker \
     dbeaver \
     exa \
     etcher \
@@ -148,6 +149,7 @@ sudo pacman -S alacritty \
     zathura-pdf-mupdf
 
 yay -S abook \
+    apipost-bin \
     debtap \
     google-chrome \
     pgformatter-git \
@@ -208,7 +210,6 @@ Info "https://github.com/LukeSmithxyz/mutt-wizard\n"
 
 Info "### web install ###\n"
 
-Info "ApiPost"
 Info "UTools"
 Info "Ghelpers\n"
 
