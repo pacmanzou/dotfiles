@@ -149,6 +149,7 @@ yay -S abook \
     com.qq.im.deepin \
     debtap \
     google-chrome \
+    mutt-wizard \
     pgformatter-git \
     ranger-git \
     simple-mtpfs \
@@ -161,15 +162,9 @@ yay -S abook \
 Info "### install end ###\n"
 
 # let $HOME/.local/share/fcitx5 is exist
-fcitx_start() {
-    fcitx5
-    Success "success start fcitx5\n"
-    sleep 3
-    killall fcitx5
-    Success "success kill fcitx5\n"
-}
-
-fcitx_start
+Info "### start fcitx5 ###\n"
+fcitx5; sleep 3; killall fcitx5
+Info "### kill fcitx5 ###\n"
 
 Info "### npm set ###"
 if npm config set registry https://registry.npm.taobao.org; then
@@ -220,8 +215,7 @@ Info "mysql"
 Info "sudo pacman -S mysql\n"
 
 Info "neomutt"
-Info "https://github.com/LukeSmithxyz/mutt-wizard\n"
+Info "mw -a you@email.com\n"
 
 Info "### debtap 构建 ###"
-
 Info "UTools"
