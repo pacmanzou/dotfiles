@@ -480,19 +480,15 @@ let g:Illuminate_delay = 700
 augroup All SmartChr
     autocmd!
     autocmd FileType * inoremap <buffer><expr> !
-                \ smartchr#loop('!', '!=')
+                \ smartchr#loop('!', ' != ')
 augroup END
 
 augroup Golang SmartChr
     autocmd!
     autocmd FileType go inoremap <buffer><expr> ;
-                \ smartchr#loop(';', ':=')
-    autocmd FileType go inoremap <buffer><expr> .
-                \ smartchr#loop('.', '...')
+                \ smartchr#loop(';', ' := ')
     autocmd FileType go inoremap <buffer><expr> ,
-                \ smartchr#loop(',', '<-')
-    autocmd FileType go inoremap <buffer><expr> ]]
-                \ smartchr#loop('[][]')
+                \ smartchr#loop(',', ' <- ')
 augroup END
 
 augroup Python SmartChr
@@ -518,8 +514,13 @@ map <c-m> <plug>(wildfire-fuel)
 
 
 " Abolish:
-nnoremap <space>s :%S///g<left><left><left>
-vnoremap <space>s :S//g<left><left>
+" nvim built-in
+nnoremap <space>s :%s///g<left><left><left>
+vnoremap <space>s :s//g<left><left>
+
+" abolish
+nnoremap <space>S :%S///g<left><left><left>
+vnoremap <space>S :S//g<left><left>
 
 
 " VisualMulti:
@@ -575,7 +576,7 @@ let g:neoformat_basic_format_trim = 0
 " saved silent autoformat
 augroup fmt
     autocmd!
-    autocmd BufWritePre *.go,*.python,*.sh,*.markdown,*.c,*.cpp silent Neoformat
+    autocmd BufWritePre *.go,*.py,*.sh,*.md,*.c,*.cpp silent Neoformat
 augroup END
 
 nnoremap <silent><c-g>n <cmd>Neoformat<cr>

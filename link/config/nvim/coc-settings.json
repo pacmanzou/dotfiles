@@ -102,17 +102,16 @@
             "shell": true
         }
     },
-    "python.formatting.provider": "black",
     "refactor.openCommand": "sp",
     "refactor.afterContext": 3,
     "refactor.beforeContext": 3,
-    "suggest.enablePreview": true,
+    "suggest.noselect": false,
     "suggest.floatEnable": true,
     "suggest.detailField": "preview",
     "suggest.maxCompleteItemCount": 20,
     "suggest.triggerAfterInsertEnter": true,
     "suggest.autoTrigger": "always",
-    "suggest.detailMaxLength": 30,
+    "suggest.detailMaxLength": 10,
     "snippets.priority": -1,
     "snippets.snipmate.enable": false,
     "snippets.ultisnips.directories": [
