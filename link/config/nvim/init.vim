@@ -116,8 +116,6 @@ map zf <nop>
 map zg <nop>
 map zh <nop>
 map zi <nop>
-map zj <nop>
-map zk <nop>
 map zl <nop>
 map zm <nop>
 map zn <nop>
@@ -250,6 +248,12 @@ nnoremap <silent><c-w>k <c-w>K
 nnoremap <silent><c-w><c-k> <c-w>K
 nnoremap <silent><C-w>l <c-w>L
 nnoremap <silent><C-w><c-l> <c-w>L
+
+" fold
+nnoremap zo zO
+nnoremap zO zR
+nnoremap zc zC
+nnoremap zC zM
 
 " cursor move
 noremap <silent><c-e> $
