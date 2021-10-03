@@ -15,7 +15,7 @@
     "explorer.width": 35,
     "explorer.file.column.indent.indentLine": true,
     "explorer.file.showHiddenFiles": true,
-    "explorer.icon.enableNerdfont": true,
+    "explorer.icon.enableNerdfont": false,
     "explorer.git.showIgnored": true,
     "explorer.keyMappingMode": "none",
     "explorer.keyMappings.global": {
@@ -23,8 +23,7 @@
         "j": "nodeNext",
         "k": "nodePrev",
         "l": ["expandable?", "expand", "open"],
-        "S": "toggleSelection",
-        "F": "search",
+        "<space>f": "search",
         "<C-t>": "open:tab",
         "<C-s>": "open:split",
         "<C-v>": "open:vsplit",

@@ -317,7 +317,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'kevinhwang91/rnvimr'
 
 " tags manager
-Plug 'liuchengxu/vista.vim'
+Plug 'preservim/tagbar'
 
 " floaterm
 Plug 'voldikss/vim-floaterm'
@@ -604,14 +604,10 @@ nnoremap <silent><c-g>r <cmd>RnvimrToggle<cr>
 
 
 " TagsManager:
-" Vista:
-let g:vista_sidebar_position = 'vertical botright'
-let g:vista_sidebar_width = 35
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-let g:vista#renderer#enable_icon = 0
-let g:vista_default_executive = 'ctags'
-
-nnoremap <silent>T <cmd>Vista!!<cr>
+" Tagbar:
+nnoremap <silent>T <cmd>TagbarToggle<cr>
+let g:tagbar_previewwin_pos = "botright"
+let g:tagbar_iconchars = ['+', '-']
 
 
 " Undo Backup Swap:
