@@ -176,6 +176,7 @@ map <c-w>f <nop>
 
 map <c-q> <nop>
 map <c-t> <nop>
+map <c-y> <nop>
 map <c-s> <nop>
 map <c-z> <nop>
 map <c-v> <nop>
@@ -480,15 +481,15 @@ let g:Illuminate_delay = 700
 augroup All SmartChr
     autocmd!
     autocmd FileType * inoremap <buffer><expr> !
-                \ smartchr#loop('!', ' != ')
+                \ smartchr#loop('!', '!=')
 augroup END
 
 augroup Golang SmartChr
     autocmd!
     autocmd FileType go inoremap <buffer><expr> ;
-                \ smartchr#loop(';', ' := ')
+                \ smartchr#loop(';', ':=')
     autocmd FileType go inoremap <buffer><expr> ,
-                \ smartchr#loop(',', ' <- ')
+                \ smartchr#loop(',', '<-')
 augroup END
 
 augroup Python SmartChr
@@ -712,7 +713,7 @@ nnoremap <silent>gh <cmd>call <sid>show_documentation()<cr>
 let g:coc_snippet_next = '<C-j>'
 let g:coc_snippet_prev = '<C-k>'
 
-vmap <silent><c-j> <plug>(coc-snippets-select)
+imap <silent><nowait><expr> <C-l> coc#float#has_float() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 
 " file explorer
 nmap <silent>t <cmd>CocCommand explorer --sources=file+<cr>
@@ -767,7 +768,7 @@ nnoremap <silent><space>m <cmd>CocList marks<cr>
 nnoremap <silent><space>h <cmd>CocList --regex mru -A<cr>
 
 nnoremap <silent><space>c <cmd>CocCommand<cr>
-nnoremap <silent><c-y> <cmd>CocCommand editor.action.organizeImport<cr>
+nnoremap <silent><space>i <cmd>CocCommand editor.action.organizeImport<cr>
 
 nnoremap <silent><leader>a <cmd>CocCommand git.chunkStage<cr>
 nnoremap <silent><leader>u <cmd>CocCommand git.chunkUndo<cr>
@@ -937,15 +938,6 @@ autocmd VimEnter *
             \   call timer_start(100,'CocTimerStart',{'repeat':1}) |
             \ endif |
             \ unlet size
-
-
-" Super_L:
-augroup Super_L
-    autocmd!
-    autocmd FileType go inoremap <buffer><c-l> fmt.Println()<left>
-    autocmd FileType python inoremap <buffer><c-l> print()<left>
-    autocmd FileType sh inoremap <buffer><c-l> echo ""<left>
-augroup END
 
 
 " Visual_IA:
