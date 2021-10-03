@@ -44,7 +44,6 @@ set incsearch
 set laststatus=2
 set lazyredraw
 set list
-set listchars=tab:\|\ ,trail:▫
 set magic
 set matchtime=0
 set matchpairs+=<:>
@@ -241,10 +240,15 @@ noremap <silent><c-k> <c-w>k
 
 " windows exchange
 nnoremap <silent><c-w>t <c-w>T
+nnoremap <silent><c-w><c-t> <c-w>T
 nnoremap <silent><c-w>h <c-w>H
+nnoremap <silent><c-w><c-h> <c-w>H
 nnoremap <silent><c-w>j <c-w>J
+nnoremap <silent><c-w><c-j> <c-w>J
 nnoremap <silent><c-w>k <c-w>K
+nnoremap <silent><c-w><c-k> <c-w>K
 nnoremap <silent><C-w>l <c-w>L
+nnoremap <silent><C-w><c-l> <c-w>L
 
 " cursor move
 noremap <silent><c-e> $
@@ -277,7 +281,7 @@ nnoremap <silent>Y y$
 nnoremap <silent>> >>
 nnoremap <silent>< <<
 nnoremap <silent>Q @q
-nnoremap <silent><c-g>f <c-w>f
+nnoremap <silent>gF <c-w>f
 
 
 " Plugin:
@@ -296,7 +300,7 @@ Plug 'pacmanzou/crystalline.vim'
 Plug 'luochen1990/rainbow'
 Plug 'RRethy/vim-illuminate'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'RRethy/vim-hexokinase', { 'do': 'make hexokinase'}
+Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
 
 " better operation
 Plug 'pacmanzou/surround.vim'
@@ -328,7 +332,7 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/asynctasks.vim'
 
 " completion engine
-Plug 'neoclide/coc.nvim', { 'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'
 
 " debug engine
@@ -336,14 +340,14 @@ Plug 'wellle/tmux-complete.vim'
 
 " languages
 " go
-Plug 'josa42/vim-go-syntax', { 'for': ['go', 'vim-plug']}
+Plug 'josa42/vim-go-syntax', {'for': ['go', 'vim-plug']}
 
 " javascript
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'vim-plug']}
+Plug 'pangloss/vim-javascript', {'for': ['javascript', 'vim-plug']}
 
 " markdown
-Plug 'plasticboy/vim-markdown', { 'for': ['markdown', 'vim-plug']}
-Plug 'mzlogin/vim-markdown-toc', { 'for': ['markdown', 'vim-plug'] }
+Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'vim-plug']}
+Plug 'mzlogin/vim-markdown-toc', {'for': ['markdown', 'vim-plug'] }
 Plug 'iamcco/markdown-preview.nvim', {
             \ 'do': 'cd app && yarn install',
             \ 'for': ['markdown', 'vim-plug'],
@@ -581,6 +585,7 @@ augroup fmt
 augroup END
 
 nnoremap <silent><c-g>n <cmd>Neoformat<cr>
+nnoremap <silent><c-g><c-n> <cmd>Neoformat<cr>
 
 
 " FileManager:
@@ -600,8 +605,10 @@ let g:rnvimr_action = {
             \ }
 
 tnoremap <silent><c-g>r <c-\><c-n><cmd>RnvimrToggle<cr>
+tnoremap <silent><c-g><c-r> <c-\><c-n><cmd>RnvimrToggle<cr>
 
 nnoremap <silent><c-g>r <cmd>RnvimrToggle<cr>
+nnoremap <silent><c-g><c-r> <cmd>RnvimrToggle<cr>
 
 
 " TagsManager:
@@ -854,6 +861,7 @@ let g:mkdp_page_title = '${name}'
 autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
 
 nnoremap <silent><c-g>s <cmd>set spell!<cr>
+nnoremap <silent><c-g><c-s> <cmd>set spell!<cr>
 
 
 " Misc:
@@ -910,6 +918,7 @@ augroup END
 autocmd BufReadPre * setlocal nohlsearch
 
 nnoremap <silent><nowait><expr><c-g>h &hlsearch ? "<cmd>set nohlsearch<cr>" : "<cmd>set hlsearch<cr>"
+nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? "<cmd>set nohlsearch<cr>" : "<cmd>set hlsearch<cr>"
 
 
 " SaveCursor:
@@ -960,51 +969,40 @@ if !exists('g:niceblock_no_default_key_mappings') ||
 endif
 
 
-" Cleanbuffers:
-command! -nargs=? -complete=buffer -bang CleanBuffers
-            \ :call CleanBuffers('<bang>')
-
-function! CleanBuffers(bang)
-    let last_buf = bufnr('$')
-
-    let del_cnt = 0
-    let bufn = 1
-
-    while bufn <= last_buf
-        if buflisted(bufn) && bufwinnr(bufn) == -1
-            if a:bang == '' && getbufvar(bufn, '&modified')
-                echohl ErrorMsg
-                echohl 'No write since last change for buffer(add ! to override)'
-                echohl None
-            else
-                silent exe 'bdel' . a:bang . ' ' . bufn
-                if ! buflisted(bufn)
-                    let del_cnt = del_cnt + 1
-                endif
-            endif
-        endif
-        let bufn = bufn + 1
-    endwhile
-
-    if del_cnt > 0
-        echomsg 'clean done, ' del_cnt 'buffer(s) deleted'
-    endif
-endfunction
-
-
 " FullToggle:
-command! FullToggle call s:FullToggle()
+command! -nargs=? -complete=buffer -bang FullToggle
+            \ :call FullToggle('<bang>')
 
-function! s:FullToggle() abort
-    if exists('t:zoomed') && t:zoomed
-        execute t:zoom_winrestcmd
-        let t:zoomed = 0
-    else
-        let t:zoom_winrestcmd = winrestcmd()
-        resize
-        vertical resize
-        let t:zoomed = 1
+function! FullToggle(bang)
+    if exists('t:maximizer_sizes')
+        call s:restore()
+    elseif winnr('$') > 1
+        call s:maximize()
     endif
 endfunction
 
-noremap <silent><c-w>f <cmd>FullToggle<cr>
+function! s:maximize()
+    let t:maximizer_sizes = { 'before': winrestcmd() }
+    vert resize | resize
+    let t:maximizer_sizes.after = winrestcmd()
+    normal! ze
+endfunction
+
+function! s:restore()
+    if exists('t:maximizer_sizes')
+        silent! exe t:maximizer_sizes.before
+        if t:maximizer_sizes.before != winrestcmd()
+            wincmd =
+        endif
+        unlet t:maximizer_sizes
+        normal! ze
+    end
+endfunction
+
+augroup restore
+    autocmd!
+    autocmd WinLeave * call s:restore()
+augroup END
+
+nmap <silent><c-w>f <cmd>FullToggle<cr>
+nmap <silent><c-w><c-f> <cmd>FullToggle<cr>
