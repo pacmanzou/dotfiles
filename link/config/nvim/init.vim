@@ -41,6 +41,7 @@ set hidden
 set history=10000
 set ignorecase
 set incsearch
+set listchars=tab:\|\ ,trail:▫
 set laststatus=2
 set lazyredraw
 set list
@@ -581,7 +582,17 @@ let g:neoformat_basic_format_trim = 0
 " saved silent autoformat
 augroup fmt
     autocmd!
-    autocmd BufWritePre *.go,*.py,*.sh,*.md,*.c,*.cpp silent Neoformat
+    autocmd BufWritePre *.go,*.py,*.sh,*.md silent Neoformat
+augroup END
+
+" comment
+augroup Comment for different filetype
+    autocmd!
+    autocmd FileType python,sh setlocal commentstring=#\ %s
+    autocmd FileType c,cpp setlocal commentstring=//\ %s
+    autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
+    autocmd FileType sql setlocal commentstring=--\ %s
+    autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
 augroup END
 
 nnoremap <silent><c-g>n <cmd>Neoformat<cr>
@@ -698,6 +709,7 @@ let g:coc_global_extensions = [
             \ 'coc-lists',
             \ 'coc-git',
             \ 'coc-yank',
+            \ 'coc-translator',
             \ 'coc-explorer',
             \ 'coc-leetcode'
             \ ]
@@ -716,19 +728,22 @@ endfunction
 
 nnoremap <silent>gh <cmd>call <sid>show_documentation()<cr>
 
-" coc-snippets
+" snippets
 let g:coc_snippet_next = '<C-j>'
 let g:coc_snippet_prev = '<C-k>'
 
 imap <silent><nowait><expr> <C-l> coc#float#has_float() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 
-" file explorer
+" explorer
 nmap <silent>t <cmd>CocCommand explorer --sources=file+<cr>
 
-" variable rename
+" translate
+nmap <silent><space>t <Plug>(coc-translator-e)
+
+" rename
 nmap <silent>cn <plug>(coc-rename)
 
-" refactor function
+" refactor
 nmap <silent>cr <plug>(coc-refactor)
 
 " apply codeAction
@@ -769,7 +784,7 @@ nnoremap <silent><space>d <cmd>CocList diagnostics<cr>
 nnoremap <silent><space>y <cmd>CocList yank<cr>
 nnoremap <silent><space>f <cmd>CocList --regex files<cr>
 nnoremap <silent><space>b <cmd>CocList buffers<cr>
-nnoremap <silent><space>w <cmd>CocList words<cr>
+nnoremap <silent><space>w <cmd>CocList lines<cr>
 nnoremap <silent><space>g <cmd>CocList grep<cr>
 nnoremap <silent><space>m <cmd>CocList marks<cr>
 nnoremap <silent><space>h <cmd>CocList --regex mru -A<cr>
@@ -860,8 +875,8 @@ let g:mkdp_page_title = '${name}'
 " MarkdownSpell:
 autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
 
-nnoremap <silent><c-g>s <cmd>set spell!<cr>
-nnoremap <silent><c-g><c-s> <cmd>set spell!<cr>
+nnoremap <silent><c-g>s <cmd>setlocal spell!<cr>
+nnoremap <silent><c-g><c-s> <cmd>setlocal spell!<cr>
 
 
 " Misc:
@@ -901,17 +916,6 @@ endfunction
 
 nnoremap <silent><c-u> :call init#up(&scroll,5,1)<cr>
 nnoremap <silent><c-d> :call init#down(&scroll,5,1)<cr>
-
-
-" Comment:
-augroup Comment for different filetype
-    autocmd!
-    autocmd FileType python,sh setlocal commentstring=#\ %s
-    autocmd FileType c,cpp setlocal commentstring=//\ %s
-    autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
-    autocmd FileType sql setlocal commentstring=--\ %s
-    autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
-augroup END
 
 
 " Hlsearch:

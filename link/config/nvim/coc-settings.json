@@ -120,5 +120,8 @@
     "snippets.ultisnips.enable": true,
     "snippets.ultisnips.usePythonx": true,
     "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
+    "translator.engines": [
+        "youdao"
+    ],
     "yank.enableCompletion": false
 }
