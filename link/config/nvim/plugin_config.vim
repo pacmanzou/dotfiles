@@ -150,12 +150,6 @@ let g:neoformat_basic_format_retab = 0
 " del $ space
 let g:neoformat_basic_format_trim = 0
 
-" saved silent autoformat
-augroup fmt
-    autocmd!
-    autocmd BufWritePre *.go,*.py,*.sh,*.md silent Neoformat
-augroup END
-
 " comment
 augroup Comment for different filetype
     autocmd!
@@ -192,12 +186,14 @@ nnoremap <silent><c-g>r <cmd>RnvimrToggle<cr>
 nnoremap <silent><c-g><c-r> <cmd>RnvimrToggle<cr>
 
 
-" Tagbar:
-nnoremap <silent>T <cmd>TagbarToggle<cr>
-let g:tagbar_previewwin_pos = "botright"
-let g:tagbar_iconchars = ['+', '-']
-let g:tagbar_map_previewwin = "p"
-let g:tagbar_map_previeww = ""
+" Vista:
+let g:vista_sidebar_position = 'vertical botright'
+let g:vista_sidebar_width = 35
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+let g:vista#renderer#enable_icon = 0
+let g:vista_default_executive = 'coc'
+
+nnoremap <silent>T <cmd>Vista!!<cr>
 
 
 " Floaterm:

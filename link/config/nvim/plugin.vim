@@ -32,7 +32,7 @@ Plug 'lambdalisue/suda.vim'
 Plug 'kevinhwang91/rnvimr'
 
 " tags
-Plug 'preservim/tagbar'
+Plug 'liuchengxu/vista.vim'
 
 " term
 Plug 'voldikss/vim-floaterm'

@@ -15,7 +15,7 @@
     "explorer.width": 35,
     "explorer.file.column.indent.indentLine": true,
     "explorer.file.showHiddenFiles": true,
-    "explorer.icon.enableNerdfont": false,
+    "explorer.icon.enableNerdfont": true,
     "explorer.git.showIgnored": true,
     "explorer.keyMappingMode": "none",
     "explorer.keyMappings.global": {
@@ -31,7 +31,7 @@
         "<C-r>": "refresh",
         "<Cr>": "open",
         "..": "gotoParent",
-        "E": "expand:recursive",
+        "O": "expand:recursive",
         "C": "collapse:recursive",
         "cn": "rename",
         ",j": "indexNext:git",
