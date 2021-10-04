@@ -15,7 +15,6 @@ export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
 # less
 export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
-export LESSOPEN="| /usr/bin/source-highlight-esc.sh %s"
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
 export LESS_TERMCAP_me=$'\e[0m'
