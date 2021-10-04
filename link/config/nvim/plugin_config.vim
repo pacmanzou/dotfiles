@@ -196,6 +196,8 @@ nnoremap <silent><c-g><c-r> <cmd>RnvimrToggle<cr>
 nnoremap <silent>T <cmd>TagbarToggle<cr>
 let g:tagbar_previewwin_pos = "botright"
 let g:tagbar_iconchars = ['+', '-']
+let g:tagbar_map_previewwin = "p"
+let g:tagbar_map_previeww = ""
 
 
 " Floaterm:
@@ -370,6 +372,7 @@ nnoremap <silent><space>h <cmd>CocList --regex mru -A<cr>
 nnoremap <silent><space>c <cmd>CocCommand<cr>
 nnoremap <silent><space>i <cmd>CocCommand editor.action.organizeImport<cr>
 
+" git
 nnoremap <silent><leader>a <cmd>CocCommand git.chunkStage<cr>
 nnoremap <silent><leader>u <cmd>CocCommand git.chunkUndo<cr>
 nnoremap <silent><leader>p <cmd>CocCommand git.chunkInfo<cr>
@@ -377,6 +380,8 @@ nnoremap <silent><leader>y <cmd>CocCommand git.copyUrl<cr>
 nnoremap <silent><leader>s <cmd>CocCommand git.showCommit<cr>
 nnoremap <silent><leader>f <cmd>CocCommand git.foldUnchanged<cr>
 nnoremap <silent><leader>b <cmd>CocCommand git.browserOpen<cr>
+nnoremap <silent><leader>c <cmd>CocList bcommits<cr>
+nnoremap <silent><leader>C <cmd>CocList commits<cr>
 
 " autocmd for go
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
