@@ -7,6 +7,7 @@ hi ColorColumn guifg=NONE guibg=#000000 gui=NONE cterm=NONE
 hi Comment guifg=#928374 guibg=NONE gui=italic cterm=italic
 hi CocErrorSign guifg=#ff4934 guibg=#1d1d1d gui=NONE cterm=NONE
 hi CursorLine guifg=#ebdbb2 guibg=#353535 gui=NONE cterm=NONE
+hi CursorLineNr guifg=#ebdbb2 guibg=#000000 gui=bold,italic cterm=bold
 hi Error guifg=#fb4934 guibg=#000000 gui=bold cterm=bold
 hi ErrorMsg guifg=#fb4934 guibg=#000000 gui=bold cterm=bold
 hi Folded guifg=#ebdbb2 guibg=#353535 gui=italic cterm=italic

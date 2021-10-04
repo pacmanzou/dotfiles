@@ -37,6 +37,7 @@ set notimeout
 set novisualbell
 set nowritebackup
 set ruler
+set relativenumber
 set scrolloff=3
 set shiftwidth=4
 set shortmess+=c
