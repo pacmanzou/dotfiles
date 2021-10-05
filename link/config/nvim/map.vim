@@ -1,3 +1,57 @@
+" Normal:
+" map
+" nop g
+map g# <nop>
+map g$ <nop>
+map g& <nop>
+map g' <nop>
+map g` <nop>
+map g* <nop>
+map g+ <nop>
+map g, <nop>
+map g- <nop>
+map g0 <nop>
+map g8 <nop>
+map g; <nop>
+map g< <nop>
+map g? <nop>
+map gD <nop>
+map gE <nop>
+map gP <nop>
+map gH <nop>
+map gI <nop>
+map gJ <nop>
+map gN <nop>
+map gQ <nop>
+map gR <nop>
+map gT <nop>
+map gU <nop>
+map g] <nop>
+map g^ <nop>
+map g_ <nop>
+map ga <nop>
+map gd <nop>
+map ge <nop>
+map gF <nop>
+map gh <nop>
+map gi <nop>
+map gj <nop>
+map gk <nop>
+map gm <nop>
+map gM <nop>
+map gn <nop>
+map go <nop>
+map gq <nop>
+map gr <nop>
+map gs <nop>
+map gt <nop>
+map gu <nop>
+map gv <nop>
+map gw <nop>
+map gx <nop>
+map g@ <nop>
+map g~ <nop>
+
 " nop z
 map Z <nop>
 map z<cr> <nop>
@@ -86,46 +140,185 @@ map <c-w>q <nop>
 map <c-w>o <nop>
 map <c-w>f <nop>
 
-map <c-q> <nop>
-map <c-t> <nop>
-map <c-y> <nop>
+" nop '
+map '' <nop>
+map '( <nop>
+map ') <nop>
+map '< <nop>
+map '> <nop>
+map '[ <nop>
+map '] <nop>
+map '{ <nop>
+map '} <nop>
+
+" nop [, ]
+map [# <nop>
+map [' <nop>
+map [( <nop>
+map [* <nop>
+map [` <nop>
+map [/ <nop>
+map [D <nop>
+map [I <nop>
+map [P <nop>
+map [[ <nop>
+map [] <nop>
+map [c <nop>
+map [d <nop>
+map [f <nop>
+map [i <nop>
+map [m <nop>
+map [p <nop>
+map [s <nop>
+map [z <nop>
+map [{ <nop>
+map ]# <nop>
+map ]' <nop>
+map ]) <nop>
+map ]* <nop>
+map ]` <nop>
+map ]/ <nop>
+map ]D <nop>
+map ]I <nop>
+map ]P <nop>
+map ][ <nop>
+map ]] <nop>
+map ]c <nop>
+map ]d <nop>
+map ]f <nop>
+map ]i <nop>
+map ]s <nop>
+map ]z <nop>
+map ]} <nop>
+
+" misc
+map <c-g> <nop>
+map <bs> <nop>
 map <c-s> <nop>
+map <c-t> <nop>
+map <c-u> <nop>
+map <c-x> <nop>
+map <c-y> <nop>
 map <c-z> <nop>
 map <c-v> <nop>
-map <c-m> <nop>
+map <c-\><c-n> <nop>
+map <c-\><c-g> <nop>
+map <c-\> <nop>
+map <c-]> <nop>
+map <c-^> <nop>
+map <c-_> <nop>
 map <space> <nop>
 
-vmap q <nop>
-vmap t <nop>
-vmap o <nop>
-vmap s <nop>
-vmap n <nop>
-vmap N <nop>
-vmap <C-f> <nop>
-vmap <C-b> <nop>
+" noremap
+" windows focus
+noremap <silent><c-l> <c-w>l
+noremap <silent><c-h> <c-w>h
+noremap <silent><c-j> <c-w>j
+noremap <silent><c-k> <c-w>k
 
-tmap <C-g> <nop>
+" cursor move
+noremap <silent><c-e> $
+noremap <silent><c-a> ^
+noremap <silent>J 5<c-e>
+noremap <silent>K 5<c-y>
 
-" imap:
+" visual select
+noremap <silent>vv <c-v>
+noremap <silent>gV ggvG$
+
+" misc
+noremap <silent>+ <c-a>
+noremap <silent>- <c-x>
+
+" nnoremap
+" windows exchange
+nnoremap <silent><c-w>t <c-w>T
+nnoremap <silent><c-w><c-t> <c-w>T
+nnoremap <silent><c-w>h <c-w>H
+nnoremap <silent><c-w><c-h> <c-w>H
+nnoremap <silent><c-w>j <c-w>J
+nnoremap <silent><c-w><c-j> <c-w>J
+nnoremap <silent><c-w>k <c-w>K
+nnoremap <silent><c-w><c-k> <c-w>K
+nnoremap <silent><C-w>l <c-w>L
+nnoremap <silent><C-w><c-l> <c-w>L
+
+" fold
+nnoremap zo zO
+nnoremap zO zR
+nnoremap zc zC
+nnoremap zC zM
+
+" tab switch
+nnoremap <silent><c-n> <cmd>tabnext<cr>
+nnoremap <silent><c-p> <cmd>tabprevious<cr>
+
+" copy name, path, directory
+nnoremap <silent>yn <cmd>let @+=expand('%')<cr>
+nnoremap <silent>yp <cmd>let @+=expand('%:p')<cr>
+nnoremap <silent>yd <cmd>let @+=getcwd()<cr>
+
+" misc
+nnoremap / mr/\v
+nnoremap <silent>Y y$
+nnoremap <silent>> >>
+nnoremap <silent>< <<
+nnoremap <silent>Q @q
+nnoremap <silent>gF <c-w>f
+
+
+" Insert:
+" imap
+imap <c-@> <nop>
 imap <c-q> <nop>
 imap <c-e> <end>
 imap <c-r> <nop>
+imap <c-r><c-r> <nop>
+imap <c-r><c-o> <nop>
+imap <c-r><c-p> <nop>
 imap <c-o> <esc>o
 imap <c-a> <esc>I
 imap <c-s> <esc>lce
 imap <c-d> <delete>
 imap <c-f> <right>
 imap <c-g> <nop>
+imap <c-g><c-j> <nop>
+imap <c-g>j <nop>
+imap <c-g><down> <nop>
+imap <c-g><c-k> <nop>
+imap <c-g>k <nop>
+imap <c-g><up> <nop>
+imap <c-g>u <nop>
+imap <c-g>U <nop>
 imap <c-h> <backspace>
 imap <c-j> <nop>
 imap <c-k> <esc>lC
 imap <c-l> <nop>
 imap <c-z> <nop>
+imap <c-x><c-d> <nop>
+imap <c-x><c-e> <nop>
+imap <c-x><c-i> <nop>
+imap <c-x><c-l> <nop>
+imap <c-x><c-n> <nop>
+imap <c-x><c-o> <nop>
+imap <c-x><c-p> <nop>
+imap <c-x><c-s> <nop>
+imap <c-x><c-t> <nop>
+imap <c-x><c-y> <nop>
+imap <c-x><c-u> <nop>
+imap <c-x><c-v> <nop>
+imap <c-x><c-]> <nop>
 imap <c-v> <nop>
 imap <c-b> <left>
+imap <c-\><c-n> <nop>
+imap <c-\><c-g> <nop>
+imap <c-]> <nop>
 imap <c-Space> <nop>
+imap <c-x>f <c-x><c-f>
 
-" cmd:
+
+" Command:
+" cmap
 cmap <c-q> <nop>
 cmap <c-e> <end>
 cmap <c-r> <nop>
@@ -145,58 +338,23 @@ cmap <c-x> <nop>
 cmap <c-v> <nop>
 cmap <c-b> <left>
 
-" windows focus
-noremap <silent><c-l> <c-w>l
-noremap <silent><c-h> <c-w>h
-noremap <silent><c-j> <c-w>j
-noremap <silent><c-k> <c-w>k
 
-" windows exchange
-nnoremap <silent><c-w>t <c-w>T
-nnoremap <silent><c-w><c-t> <c-w>T
-nnoremap <silent><c-w>h <c-w>H
-nnoremap <silent><c-w><c-h> <c-w>H
-nnoremap <silent><c-w>j <c-w>J
-nnoremap <silent><c-w><c-j> <c-w>J
-nnoremap <silent><c-w>k <c-w>K
-nnoremap <silent><c-w><c-k> <c-w>K
-nnoremap <silent><C-w>l <c-w>L
-nnoremap <silent><C-w><c-l> <c-w>L
+" Visual:
+" vmap
+vmap q <nop>
+vmap t <nop>
+vmap o <nop>
+vmap s <nop>
+vmap n <nop>
+vmap N <nop>
+vmap <C-f> <nop>
+vmap <C-b> <nop>
 
-" fold
-nnoremap zo zO
-nnoremap zO zR
-nnoremap zc zC
-nnoremap zC zM
-
-" cursor move
-noremap <silent><c-e> $
-noremap <silent><c-a> ^
-noremap <silent>J 5<c-e>
-noremap <silent>K 5<c-y>
-
-" tab switch
-nnoremap <silent><c-n> <cmd>tabnext<cr>
-nnoremap <silent><c-p> <cmd>tabprevious<cr>
-
-" visual
-noremap <silent>vv <c-v>
-noremap <silent>gV ggvG$
-
-" copy
-nnoremap <silent>yn <cmd>let @+=expand('%')<cr>
-nnoremap <silent>yp <cmd>let @+=expand('%:p')<cr>
-nnoremap <silent>yd <cmd>let @+=getcwd()<cr>
-
-noremap <silent>+ <c-a>
-noremap <silent>- <c-x>
-
+" vnoremap
 vnoremap <silent>+ g<c-a>
 vnoremap <silent>- g<c-x>
 
-nnoremap / mr/\v
-nnoremap <silent>Y y$
-nnoremap <silent>> >>
-nnoremap <silent>< <<
-nnoremap <silent>Q @q
-nnoremap <silent>gF <c-w>f
+
+" Terminal:
+" tmap
+tmap <C-g> <nop>

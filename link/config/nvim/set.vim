@@ -36,6 +36,7 @@ set nu
 set notimeout
 set novisualbell
 set nowritebackup
+set nostartofline
 set ruler
 set relativenumber
 set scrolloff=3
