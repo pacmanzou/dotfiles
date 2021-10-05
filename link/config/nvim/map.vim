@@ -192,11 +192,12 @@ map ]z <nop>
 map ]} <nop>
 
 " misc
+map <c-n> <nop>
+map <c-p> <nop>
 map <c-g> <nop>
 map <bs> <nop>
 map <c-s> <nop>
 map <c-t> <nop>
-map <c-u> <nop>
 map <c-x> <nop>
 map <c-y> <nop>
 map <c-z> <nop>
@@ -250,13 +251,17 @@ nnoremap zc zC
 nnoremap zC zM
 
 " tab switch
-nnoremap <silent><c-n> <cmd>tabnext<cr>
-nnoremap <silent><c-p> <cmd>tabprevious<cr>
+nnoremap <silent><tab> <cmd>tabnext<cr>
+nnoremap <silent><s-tab> <cmd>tabprevious<cr>
 
 " copy name, path, directory
 nnoremap <silent>yn <cmd>let @+=expand('%')<cr>
 nnoremap <silent>yp <cmd>let @+=expand('%:p')<cr>
 nnoremap <silent>yd <cmd>let @+=getcwd()<cr>
+
+" jumps
+nnoremap <silent><c-n> <c-i>
+nnoremap <silent><c-p> <c-o>
 
 " misc
 nnoremap / mr/\v
