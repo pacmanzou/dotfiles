@@ -20,7 +20,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{GitstatusB()} %{GitstatusG()}  [%{&ft}|%{&fenc!=#""?&fenc:&enc}|%{&ff}] '
+        let l:s .= '%{GitstatusB()} %{GitstatusG()}  %l/%L %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
     else
         let l:s .= ''
     endif

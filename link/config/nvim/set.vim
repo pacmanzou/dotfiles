@@ -42,7 +42,7 @@ set scrolloff=3
 set shiftwidth=4
 set shortmess+=c
 set showtabline=2
-set signcolumn=auto
+set signcolumn=yes
 set smartcase
 set smartindent
 set smarttab
