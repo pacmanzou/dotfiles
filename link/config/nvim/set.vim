@@ -30,7 +30,7 @@ set matchpairs+=“:”
 set matchpairs+=‘:’
 set noshowmatch
 set noshowmode
-set noshowcmd
+set showcmd
 set nospell
 set nu
 set notimeout
@@ -38,12 +38,11 @@ set novisualbell
 set nowritebackup
 set nostartofline
 set ruler
-set relativenumber
 set scrolloff=3
 set shiftwidth=4
 set shortmess+=c
 set showtabline=2
-set signcolumn=number
+set signcolumn=auto
 set smartcase
 set smartindent
 set smarttab
