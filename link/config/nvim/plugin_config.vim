@@ -10,9 +10,9 @@ function! StatusLine(current, width)
     else
         let l:s .= '%#CrystallineInactive#'
     endif
-        let l:s .= crystalline#right_sep('', 'Fill') . ' %l %c %L '
+        let l:s .= crystalline#right_sep('', 'Fill')
     if a:current
-        let l:s .= '%{CapsLockStatusline()}%{&spell?"SPELL ":""}%{&hlsearch?"HLSEARCH ":""} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
+        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
     endif
     let l:s .= '%='
     if a:current
@@ -325,6 +325,9 @@ nmap <silent>t <cmd>CocCommand explorer --sources=file+<cr>
 
 " translate
 nmap <silent><space>t <Plug>(coc-translator-e)
+
+" float jump
+nmap <silent><c-o> <plug>(coc-float-jump)
 
 " rename
 nmap <silent>cn <plug>(coc-rename)
