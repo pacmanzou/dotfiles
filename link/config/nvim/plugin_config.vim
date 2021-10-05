@@ -45,8 +45,18 @@ let g:Illuminate_delay = 700
 
 " Indent_blankline:
 let g:indent_blankline_char_list = ['|', '¦', '┆', '┊']
-let g:indent_blankline_filetype_exclude = ['help']
-let g:indent_blankline_buftype_exclude = ['terminal']
+let g:indent_blankline_filetype = [
+            \ 'go',
+            \ 'python',
+            \ 'sh',
+            \ 'json',
+            \ 'markdown',
+            \ 'html',
+            \ 'javascript',
+            \ 'vim',
+            \ 'c',
+            \ 'cpp'
+            \ ]
 
 
 " Hexokinase:
@@ -85,7 +95,7 @@ augroup END
 let g:wildfire_objects = {
     \ "*" : ["i'", 'i"', "i)", "i]", "i}", "ip", "i>"],
     \ "html,xml" : ["at", "it"],
-\ }
+    \ }
 
 map <c-m> <plug>(wildfire-fuel)
 
