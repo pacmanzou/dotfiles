@@ -20,7 +20,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{GitstatusB()} %{GitstatusG()}  %l/%L %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
+        let l:s .= '%{GitstatusB()} %{GitstatusG()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
     else
         let l:s .= ''
     endif
@@ -137,8 +137,8 @@ let g:closetag_filenames = '*.html,*.xml,*.tmpl'
 " Codepainter:
 vnoremap <silent>p :<c-u>call codepainter#paintText(visualmode())<cr>
 
-nnoremap <silent><space>e <cmd>PainterEraseLine<cr>
-nnoremap <silent><space>E <cmd>PainterEraseAll<cr>
+nnoremap <silent><space>e :PainterEraseLine<cr>
+nnoremap <silent><space>E :PainterEraseAll<cr>
 
 
 " Neoformat:
@@ -171,8 +171,8 @@ augroup Comment for different filetype
     autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
 augroup END
 
-nnoremap <silent><c-g>n <cmd>Neoformat<cr>
-nnoremap <silent><c-g><c-n> <cmd>Neoformat<cr>
+nnoremap <silent><c-g>n :Neoformat<cr>
+nnoremap <silent><c-g><c-n> :Neoformat<cr>
 
 
 " Rnvimr:
@@ -190,11 +190,11 @@ let g:rnvimr_action = {
             \ 'ew': 'EmitRangerCwd'
             \ }
 
-tnoremap <silent><c-g>r <c-\><c-n><cmd>RnvimrToggle<cr>
-tnoremap <silent><c-g><c-r> <c-\><c-n><cmd>RnvimrToggle<cr>
+tnoremap <silent><c-g>r <c-\><c-n>:RnvimrToggle<cr>
+tnoremap <silent><c-g><c-r> <c-\><c-n>:RnvimrToggle<cr>
 
-nnoremap <silent><c-g>r <cmd>RnvimrToggle<cr>
-nnoremap <silent><c-g><c-r> <cmd>RnvimrToggle<cr>
+nnoremap <silent><c-g>r :RnvimrToggle<cr>
+nnoremap <silent><c-g><c-r> :RnvimrToggle<cr>
 
 
 " Vista:
@@ -204,7 +204,7 @@ let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
 let g:vista#renderer#enable_icon = 0
 let g:vista_default_executive = 'coc'
 
-nnoremap <silent>T <cmd>Vista!!<cr>
+nnoremap <silent>T :Vista!!<cr>
 
 
 " Floaterm:
@@ -215,9 +215,9 @@ let g:floaterm_height = 0.99
 let g:floaterm_position = "top"
 
 tnoremap <silent><c-o> <c-\><c-n>
-tnoremap <silent><c-g><cr> <cmd>FloatermToggle<cr>
+tnoremap <silent><c-g><cr> :FloatermToggle<cr>
 
-nnoremap <silent><c-g><cr> <cmd>FloatermToggle<cr>
+nnoremap <silent><c-g><cr> :FloatermToggle<cr>
 
 autocmd TermOpen term://* startinsert
 
@@ -242,7 +242,7 @@ let g:asyncrun_rootmarks = [
             \ '.tasks'
             \ ]
 
-nnoremap <silent><space>r <cmd>AsyncTask run<cr>
+nnoremap <silent><space>r :AsyncTask run<cr>
 nnoremap <space>R :AsyncTask<space>
 
 
@@ -305,7 +305,7 @@ endfunction
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
-        nnoremap <silent><buffer> q <cmd>q<cr>
+        nnoremap <silent><buffer> q :q<cr>
     elseif (coc#rpc#ready())
         call CocActionAsync('doHover')
     else
@@ -313,7 +313,7 @@ function! s:show_documentation()
     endif
 endfunction
 
-nnoremap <silent>gh <cmd>call <sid>show_documentation()<cr>
+nnoremap <silent>gh :call <sid>show_documentation()<cr>
 
 " snippets
 let g:coc_snippet_next = '<C-j>'
@@ -322,7 +322,7 @@ let g:coc_snippet_prev = '<C-k>'
 imap <silent><nowait><expr> <C-l> coc#float#has_float() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 
 " explorer
-nmap <silent>t <cmd>CocCommand explorer --sources=file+<cr>
+nmap <silent>t :CocCommand explorer --sources=file+<cr>
 
 " translate
 nmap <silent><space>t <Plug>(coc-translator-e)
@@ -369,29 +369,29 @@ omap <silent>ic <plug>(coc-classobj-i)
 omap <silent>ac <plug>(coc-classobj-a)
 
 " coclist and coccommand
-nnoremap <silent><space>l <cmd>CocList<cr>
-nnoremap <silent><space>d <cmd>CocList diagnostics<cr>
-nnoremap <silent><space>y <cmd>CocList yank<cr>
-nnoremap <silent><space>f <cmd>CocList --regex files<cr>
-nnoremap <silent><space>b <cmd>CocList buffers<cr>
-nnoremap <silent><space>w <cmd>CocList lines<cr>
-nnoremap <silent><space>g <cmd>CocList grep<cr>
-nnoremap <silent><space>m <cmd>CocList marks<cr>
-nnoremap <silent><space>h <cmd>CocList --regex mru -A<cr>
+nnoremap <silent><space>l :CocList<cr>
+nnoremap <silent><space>d :CocList diagnostics<cr>
+nnoremap <silent><space>y :CocList yank<cr>
+nnoremap <silent><space>f :CocList --regex files<cr>
+nnoremap <silent><space>b :CocList buffers<cr>
+nnoremap <silent><space>w :CocList lines<cr>
+nnoremap <silent><space>g :CocList grep<cr>
+nnoremap <silent><space>m :CocList marks<cr>
+nnoremap <silent><space>h :CocList --regex mru -A<cr>
 
-nnoremap <silent><space>c <cmd>CocCommand<cr>
-nnoremap <silent><space>i <cmd>CocCommand editor.action.organizeImport<cr>
+nnoremap <silent><space>c :CocCommand<cr>
+nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
 
 " git
-nnoremap <silent><leader>a <cmd>CocCommand git.chunkStage<cr>
-nnoremap <silent><leader>u <cmd>CocCommand git.chunkUndo<cr>
-nnoremap <silent><leader>p <cmd>CocCommand git.chunkInfo<cr>
-nnoremap <silent><leader>y <cmd>CocCommand git.copyUrl<cr>
-nnoremap <silent><leader>s <cmd>CocCommand git.showCommit<cr>
-nnoremap <silent><leader>f <cmd>CocCommand git.foldUnchanged<cr>
-nnoremap <silent><leader>b <cmd>CocCommand git.browserOpen<cr>
-nnoremap <silent><leader>c <cmd>CocList bcommits<cr>
-nnoremap <silent><leader>C <cmd>CocList commits<cr>
+nnoremap <silent><leader>a :CocCommand git.chunkStage<cr>
+nnoremap <silent><leader>u :CocCommand git.chunkUndo<cr>
+nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
+nnoremap <silent><leader>y :CocCommand git.copyUrl<cr>
+nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
+nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
+nnoremap <silent><leader>b :CocCommand git.browserOpen<cr>
+nnoremap <silent><leader>c :CocList bcommits<cr>
+nnoremap <silent><leader>C :CocList commits<cr>
 
 " autocmd for go
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')

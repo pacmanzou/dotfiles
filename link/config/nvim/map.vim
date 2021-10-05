@@ -46,7 +46,6 @@ map gr <nop>
 map gs <nop>
 map gt <nop>
 map gu <nop>
-map gv <nop>
 map gw <nop>
 map gx <nop>
 map g@ <nop>
@@ -251,13 +250,13 @@ nnoremap zc zC
 nnoremap zC zM
 
 " tab switch
-nnoremap <silent><tab> <cmd>tabnext<cr>
-nnoremap <silent><s-tab> <cmd>tabprevious<cr>
+nnoremap <silent><tab> :tabnext<cr>
+nnoremap <silent><s-tab> :tabprevious<cr>
 
 " copy name, path, directory
-nnoremap <silent>yn <cmd>let @+=expand('%')<cr>
-nnoremap <silent>yp <cmd>let @+=expand('%:p')<cr>
-nnoremap <silent>yd <cmd>let @+=getcwd()<cr>
+nnoremap <silent>yn :let @+=expand('%')<cr>
+nnoremap <silent>yp :let @+=expand('%:p')<cr>
+nnoremap <silent>yd :let @+=getcwd()<cr>
 
 " jumps
 nnoremap <silent><c-n> <c-i>
