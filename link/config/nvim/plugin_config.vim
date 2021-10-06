@@ -215,11 +215,23 @@ let g:floaterm_height = 0.99
 let g:floaterm_position = "top"
 
 tnoremap <silent><c-o> <c-\><c-n>
-tnoremap <silent><c-g><cr> :FloatermToggle<cr>
+tnoremap <silent><c-g><cr> <cmd>FloatermToggle<cr>
 
 nnoremap <silent><c-g><cr> :FloatermToggle<cr>
 
 autocmd TermOpen term://* startinsert
+
+
+" Fugitive:
+" gv
+function! s:gv_expand()
+    let line = getline('.')
+    GV --name-status
+    call search('\V'.line, 'c')
+    normal! zz
+endfunction
+
+autocmd! FileType GV nnoremap <buffer><silent> + :call <sid>gv_expand()<cr>
 
 
 " AsyncrunAndAsyncTask:

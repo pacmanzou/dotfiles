@@ -19,7 +19,6 @@ Plug 'pacmanzou/capslock.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
-Plug 'jreybert/vimagit'
 Plug 'gcmt/wildfire.vim'
 Plug 'kana/vim-smartchr'
 Plug 'sbdchd/neoformat'
@@ -37,6 +36,11 @@ Plug 'liuchengxu/vista.vim'
 
 " term
 Plug 'voldikss/vim-floaterm'
+
+" git
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'junegunn/gv.vim'
 
 " run code
 Plug 'skywind3000/asyncrun.vim'
