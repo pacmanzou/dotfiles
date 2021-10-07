@@ -231,7 +231,11 @@ autocmd TermOpen term://* startinsert
 
 " Git:
 " Fugitive:
-nnoremap <leader>s :Git<cr>
+let g:fugitive_no_maps = 1
+
+autocmd FileType fugitive,fugitiveblame,git nnoremap <buffer><silent>q :q<cr>
+
+nnoremap <silent><leader>s :Git<cr>G
 
 
 " Gv:
@@ -325,16 +329,6 @@ function! StatusDiagnostic() abort
     return join(msgs,'')
 endfunction
 
-function! GitstatusG() abort
-    let status = get(g:, 'coc_git_status', '')
-    return  status
-endfunction
-
-function! GitstatusB() abort
-    let status = get(b:, 'coc_git_status', '')
-    return  status
-endfunction
-
 function! CurrentFunction() abort
     let status = get(b:, 'coc_current_function', '')
     return  status
@@ -365,9 +359,6 @@ nmap <silent>t :CocCommand explorer --sources=file+<cr>
 
 " translate
 nmap <silent><space>t <Plug>(coc-translator-e)
-
-" float jump
-nmap <silent><c-o> <plug>(coc-float-jump)
 
 " rename
 nmap <silent>cn <plug>(coc-rename)
@@ -416,17 +407,6 @@ nnoremap <silent><space>h :CocList --regex mru -A<cr>
 
 nnoremap <silent><space>c :CocCommand<cr>
 nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
-
-" git
-" nnoremap <silent><leader>a :CocCommand git.chunkStage<cr>
-" nnoremap <silent><leader>u :CocCommand git.chunkUndo<cr>
-" nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
-" nnoremap <silent><leader>y :CocCommand git.copyUrl<cr>
-" nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
-" nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
-" nnoremap <silent><leader>b :CocCommand git.browserOpen<cr>
-" nnoremap <silent><leader>c :CocList bcommits<cr>
-" nnoremap <silent><leader>C :CocList commits<cr>
 
 " autocmd for go
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
