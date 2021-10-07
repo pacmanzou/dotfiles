@@ -305,6 +305,7 @@ let g:coc_global_extensions = [
             \ 'coc-snippets',
             \ 'coc-just-complete',
             \ 'coc-diagnostic',
+            \ 'coc-gitignore',
             \ 'coc-lists',
             \ 'coc-yank',
             \ 'coc-translator',
