@@ -2,17 +2,22 @@
 let g:plug_window = '-tabnew'
 
 
+function! GitStatus()
+    let [a,m,r] = GitGutterGetHunkSummary()
+    return printf('+%d~%d-%d', a, m, r)
+endfunction
+
 " Crystalline:
 function! StatusLine(current, width)
     let l:s = ''
     if a:current
-        let l:s .= crystalline#mode() . crystalline#right_mode_sep('')
+        let l:s .= crystalline#mode(). crystalline#right_mode_sep('')
     else
         let l:s .= '%#CrystallineInactive#'
     endif
         let l:s .= crystalline#right_sep('', 'Fill')
     if a:current
-        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} [%{CurrentFunction()}]%h%w%m%r  %{StatusDiagnostic()}'
+        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} %h%w%m%r[Func(%{CurrentFunction()})]  '
     endif
     let l:s .= '%='
     if a:current
@@ -20,7 +25,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{GitstatusB()} %{GitstatusG()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
+        let l:s .= '%{FugitiveStatusline()}  %{GitStatus()}  %{StatusDiagnostic()}  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
     else
         let l:s .= ''
     endif
@@ -171,8 +176,8 @@ augroup Comment for different filetype
     autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
 augroup END
 
-nnoremap <silent><c-g>n :Neoformat<cr>
-nnoremap <silent><c-g><c-n> :Neoformat<cr>
+nnoremap <silent><c-g>f :Neoformat<cr>
+nnoremap <silent><c-g><c-f> :Neoformat<cr>
 
 
 " Rnvimr:
@@ -215,15 +220,21 @@ let g:floaterm_height = 0.99
 let g:floaterm_position = "top"
 
 tnoremap <silent><c-o> <c-\><c-n>
-tnoremap <silent><c-g><cr> <cmd>FloatermToggle<cr>
+tnoremap <silent><c-g>n <cmd>FloatermToggle<cr>
+tnoremap <silent><c-g><c-n> <cmd>FloatermToggle<cr>
 
-nnoremap <silent><c-g><cr> :FloatermToggle<cr>
+nnoremap <silent><c-g>n :FloatermToggle<cr>
+nnoremap <silent><c-g><c-n> :FloatermToggle<cr>
 
 autocmd TermOpen term://* startinsert
 
 
+" Git:
 " Fugitive:
-" gv
+nnoremap <leader>s :Git<cr>
+
+
+" Gv:
 function! s:gv_expand()
     let line = getline('.')
     GV --name-status
@@ -232,6 +243,20 @@ function! s:gv_expand()
 endfunction
 
 autocmd! FileType GV nnoremap <buffer><silent> + :call <sid>gv_expand()<cr>
+
+
+" Gitgutter:
+set foldtext=gitgutter#fold#foldtext()
+
+let g:gitgutter_map_keys = 0
+let g:gitgutter_highlight_linenrs = 1
+let g:gitgutter_preview_win_floating = 1
+
+nmap <leader>a <Plug>(GitGutterStageHunk)
+nmap <leader>u <Plug>(GitGutterUndoHunk)
+nmap <leader>p <Plug>(GitGutterPreviewHunk)
+nmap ]h <Plug>(GitGutterNextHunk)
+nmap [h <Plug>(GitGutterPrevHunk)
 
 
 " AsyncrunAndAsyncTask:
@@ -277,7 +302,6 @@ let g:coc_global_extensions = [
             \ 'coc-just-complete',
             \ 'coc-diagnostic',
             \ 'coc-lists',
-            \ 'coc-git',
             \ 'coc-yank',
             \ 'coc-translator',
             \ 'coc-explorer',
@@ -287,15 +311,18 @@ let g:coc_global_extensions = [
 " coc status
 function! StatusDiagnostic() abort
     let info = get(b:, 'coc_diagnostic_info', {})
-    if empty(info) | return '' | endif
     let msgs = []
     if get(info, 'error', 0)
-        call add(msgs, 'e' . info['error'])
+        call add(msgs, 'x' . info['error'])
+    else
+        call add(msgs,'x0')
     endif
     if get(info, 'warning', 0)
-        call add(msgs, 'w' . info['warning'])
+        call add(msgs, '!' . info['warning'])
+    else
+        call add(msgs,'!0')
     endif
-    return join(msgs)
+    return join(msgs,'')
 endfunction
 
 function! GitstatusG() abort
@@ -361,10 +388,6 @@ nmap <silent>gi <plug>(coc-implementation)
 nmap <silent>]d <plug>(coc-diagnostic-next)
 nmap <silent>[d <plug>(coc-diagnostic-prev)
 
-" git chunk jump
-nmap <silent><leader>j <plug>(coc-git-nextchunk)
-nmap <silent><leader>k <plug>(coc-git-prevchunk)
-
 " float window scroll
 nnoremap <silent><nowait><expr><c-f> coc#float#scroll(1)
 nnoremap <silent><nowait><expr><c-b> coc#float#scroll(0)
@@ -395,15 +418,15 @@ nnoremap <silent><space>c :CocCommand<cr>
 nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
 
 " git
-nnoremap <silent><leader>a :CocCommand git.chunkStage<cr>
-nnoremap <silent><leader>u :CocCommand git.chunkUndo<cr>
-nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
-nnoremap <silent><leader>y :CocCommand git.copyUrl<cr>
-nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
-nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
-nnoremap <silent><leader>b :CocCommand git.browserOpen<cr>
-nnoremap <silent><leader>c :CocList bcommits<cr>
-nnoremap <silent><leader>C :CocList commits<cr>
+" nnoremap <silent><leader>a :CocCommand git.chunkStage<cr>
+" nnoremap <silent><leader>u :CocCommand git.chunkUndo<cr>
+" nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
+" nnoremap <silent><leader>y :CocCommand git.copyUrl<cr>
+" nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
+" nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
+" nnoremap <silent><leader>b :CocCommand git.browserOpen<cr>
+" nnoremap <silent><leader>c :CocList bcommits<cr>
+" nnoremap <silent><leader>C :CocList commits<cr>
 
 " autocmd for go
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')

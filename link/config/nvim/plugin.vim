@@ -41,6 +41,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/gv.vim'
+Plug 'airblade/vim-gitgutter'
 
 " run code
 Plug 'skywind3000/asyncrun.vim'

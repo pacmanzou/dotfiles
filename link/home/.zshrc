@@ -42,9 +42,8 @@ setopt share_history
 # key
 bindkey -e
 
-# unmap c-s, c-d (exit term)
+# unmap c-s
 stty -ixon
-set -o ignoreeof
 
 autoload -U edit-command-line
 
