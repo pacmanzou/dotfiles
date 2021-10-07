@@ -339,13 +339,14 @@ endfunction
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
-        nnoremap <silent><buffer> q :q<cr>
     elseif (coc#rpc#ready())
         call CocActionAsync('doHover')
     else
         execute '!' . &keywordprg . " " . expand('<cword>')
     endif
 endfunction
+
+autocmd FileType help nnoremap <silent><buffer> q :q<cr>
 
 nnoremap <silent>gh :call <sid>show_documentation()<cr>
 
