@@ -17,7 +17,7 @@ function! StatusLine(current, width)
     endif
         let l:s .= crystalline#right_sep('', 'Fill')
     if a:current
-        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} %h%w%m%r[Func(%{CurrentFunction()})]  '
+        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} %h%w%m%r'
     endif
     let l:s .= '%='
     if a:current
@@ -217,14 +217,23 @@ let g:neoterm_autoscroll = 1
 let g:floaterm_borderchars = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
 let g:floaterm_width = 0.99
 let g:floaterm_height = 0.99
-let g:floaterm_position = "top"
+let g:floaterm_title = ''
+
+autocmd FileType floaterm map <c-p> <nop>
+
+nnoremap <silent><c-g>p :FloatermToggle<cr>
+nnoremap <silent><c-g><c-p> :FloatermToggle<cr>
+nnoremap <silent><c-g>n :FloatermNew<cr>
+nnoremap <silent><c-g><c-n> :FloatermNew<cr>
+nnoremap <silent><c-g>l :FloatermNew lazygit<cr>
+nnoremap <silent><c-g><c-l> :FloatermNew lazygit<cr>
+nnoremap <silent><c-g><space> :CocList floaterm<cr>
 
 tnoremap <silent><c-o> <c-\><c-n>
-tnoremap <silent><c-g>n <cmd>FloatermToggle<cr>
-tnoremap <silent><c-g><c-n> <cmd>FloatermToggle<cr>
-
-nnoremap <silent><c-g>n :FloatermToggle<cr>
-nnoremap <silent><c-g><c-n> :FloatermToggle<cr>
+tnoremap <silent><c-g><tab> <cmd>FloatermNext<cr>
+tnoremap <silent><c-g><s-tab> <cmd>FloatermNext<cr>
+tnoremap <silent><c-g>p <cmd>FloatermToggle<cr>
+tnoremap <silent><c-g><c-p> <cmd>FloatermToggle<cr>
 
 autocmd TermOpen term://* startinsert
 
@@ -306,6 +315,7 @@ let g:coc_global_extensions = [
             \ 'coc-just-complete',
             \ 'coc-diagnostic',
             \ 'coc-gitignore',
+            \ 'coc-floaterm',
             \ 'coc-lists',
             \ 'coc-yank',
             \ 'coc-translator',
