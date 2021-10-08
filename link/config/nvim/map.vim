@@ -191,8 +191,9 @@ map ]z <nop>
 map ]} <nop>
 
 " misc
-map <c-o> <nop>
+map <c-q> <nop>
 map <c-n> <nop>
+map <c-o> <nop>
 map <c-p> <nop>
 map <c-g> <nop>
 map <bs> <nop>
