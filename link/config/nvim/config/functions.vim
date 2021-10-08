@@ -117,3 +117,35 @@ augroup END
 
 map <silent><c-w>f :FullToggle<cr>
 map <silent><c-w><c-f> :FullToggle<cr>
+
+
+" Cleanbuffers:
+command! -nargs=? -complete=buffer -bang CleanBuffers
+            \ :call CleanBuffers('<bang>')
+
+function! CleanBuffers(bang)
+    let last_buf = bufnr('$')
+
+    let del_cnt = 0
+    let bufn = 1
+
+    while bufn <= last_buf
+        if buflisted(bufn) && bufwinnr(bufn) == -1
+            if a:bang == '' && getbufvar(bufn, '&modified')
+                echohl ErrorMsg
+                echohl 'No write since last change for buffer(add ! to override)'
+                echohl None
+            else
+                silent exe 'bdel' . a:bang . ' ' . bufn
+                if ! buflisted(bufn)
+                    let del_cnt = del_cnt + 1
+                endif
+            endif
+        endif
+        let bufn = bufn + 1
+    endwhile
+
+    if del_cnt > 0
+        echomsg 'clean done, ' del_cnt 'buffer(s) deleted'
+    endif
+endfunction
