@@ -5,15 +5,15 @@ autocmd FileType go setlocal noexpandtab
 " Markdown_spell:
 autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
 
-nnoremap <silent><c-g>s <cmd>setlocal spell!<cr>
-nnoremap <silent><c-g><c-s> <cmd>setlocal spell!<cr>
+nnoremap <silent><c-g>s :setlocal spell!<cr>
+nnoremap <silent><c-g><c-s> :setlocal spell!<cr>
 
 
 " Hlsearch:
 autocmd BufReadPre * setlocal nohlsearch
 
-nnoremap <silent><nowait><expr><c-g>h &hlsearch ? "<cmd>set nohlsearch<cr>" : "<cmd>set hlsearch<cr>"
-nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? "<cmd>set nohlsearch<cr>" : "<cmd>set hlsearch<cr>"
+nnoremap <silent><nowait><expr><c-g>h &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
+nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
 
 
 " SaveCursor:

@@ -115,5 +115,5 @@ augroup restore
     autocmd WinLeave * call s:restore()
 augroup END
 
-map <silent><c-w>f <cmd>FullToggle<cr>
-map <silent><c-w><c-f> <cmd>FullToggle<cr>
+map <silent><c-w>f :FullToggle<cr>
+map <silent><c-w><c-f> :FullToggle<cr>
