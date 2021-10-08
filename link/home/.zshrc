@@ -146,6 +146,8 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
+alias ra='ranger'
+alias lg='lazygit'
 
 # misc
 if [ -z "$TMUX" ]; then
