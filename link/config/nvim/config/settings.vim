@@ -48,6 +48,7 @@ set matchpairs+=（:）
 set matchpairs+=【:】
 set matchpairs+=“:”
 set matchpairs+=‘:’
+set nohlsearch
 set noshowmatch
 set noshowmode
 set showcmd

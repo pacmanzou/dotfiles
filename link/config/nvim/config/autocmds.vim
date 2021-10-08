@@ -10,8 +10,6 @@ nnoremap <silent><c-g><c-s> :setlocal spell!<cr>
 
 
 " Hlsearch:
-autocmd BufReadPre * setlocal nohlsearch
-
 nnoremap <silent><nowait><expr><c-g>h &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
 nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
 
