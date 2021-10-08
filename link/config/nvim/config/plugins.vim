@@ -1,8 +1,3 @@
-filetype plugin on
-filetype on
-filetype indent on
-filetype plugin indent on
-
 call plug#begin('$HOME/.config/nvim/plugged')
 
 " appearance

@@ -1,3 +1,23 @@
+" let:
+let &termencoding = &encoding
+let mapleader = ","
+let g:netrw_nogx = 1
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_prog = '/usr/bin/python3'
+let g:clipboard = {
+            \ 'name': 'xsel_override',
+            \ 'copy': {
+            \ '+': 'xsel --input --clipboard',
+            \ '*': 'xsel --input --primary',
+            \ },
+            \ 'paste': {
+            \ '+': 'xsel --output --clipboard',
+            \ '*': 'xsel --output --primary',
+            \ },
+            \ 'cache_enabled': 0,
+            \ }
+
+" set
 set autochdir
 set autoindent
 set autoread

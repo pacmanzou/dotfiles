@@ -2,29 +2,18 @@
 " Github: https://github.com/pacmanzou
 " Description: Nvim config
 
-" let:
-let &termencoding = &encoding
-let mapleader = ","
-let g:netrw_nogx = 1
-let g:python_host_prog = '/usr/bin/python2'
-let g:python3_host_prog = '/usr/bin/python3'
-let g:clipboard = {
-            \ 'name': 'xsel_override',
-            \ 'copy': {
-            \ '+': 'xsel --input --clipboard',
-            \ '*': 'xsel --input --primary',
-            \ },
-            \ 'paste': {
-            \ '+': 'xsel --output --clipboard',
-            \ '*': 'xsel --output --primary',
-            \ },
-            \ 'cache_enabled': 0,
-            \ }
+source $HOME/.config/nvim/config/settings.vim
+source $HOME/.config/nvim/config/mappings.vim
+source $HOME/.config/nvim/config/plugins.vim
 
-" source
-source $HOME/.config/nvim/set.vim
-source $HOME/.config/nvim/map.vim
-source $HOME/.config/nvim/plugin.vim
-source $HOME/.config/nvim/plugin_config.vim
-source $HOME/.config/nvim/misc.vim
-source $HOME/.config/nvim/highlight.vim
+let s:sourceList = split(globpath('$HOME/.config/nvim/config/plugins-config/', '*.vim'), '\n')
+
+for s:item in s:sourceList
+  exec 'source '. s:item
+endfor
+
+unlet s:sourceList
+
+source $HOME/.config/nvim/config/functions.vim
+source $HOME/.config/nvim/config/autocmds.vim
+source $HOME/.config/nvim/config/highlights.vim

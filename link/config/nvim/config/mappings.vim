@@ -190,7 +190,6 @@ map ]s <nop>
 map ]z <nop>
 map ]} <nop>
 
-" misc
 map <c-q> <nop>
 map <c-n> <nop>
 map <c-o> <nop>
@@ -228,7 +227,6 @@ noremap <silent>K 5<c-y>
 noremap <silent>vv <c-v>
 noremap <silent>gV ggvG$
 
-" misc
 noremap <silent>+ <c-a>
 noremap <silent>- <c-x>
 
@@ -264,13 +262,13 @@ nnoremap <silent>yd :let @+=getcwd()<cr>
 nnoremap <silent><c-n> <c-i>
 nnoremap <silent><c-p> <c-o>
 
-" misc
 nnoremap / mr/\v
 nnoremap <silent>Y y$
 nnoremap <silent>> >>
 nnoremap <silent>< <<
 nnoremap <silent>Q @q
 nnoremap <silent>gF <c-w>f
+nnoremap <space>s :%s///g<left><left><left>
 
 
 " Insert:
@@ -358,6 +356,7 @@ vmap <C-b> <nop>
 " vnoremap
 vnoremap <silent>+ g<c-a>
 vnoremap <silent>- g<c-x>
+vnoremap <space>s :s//g<left><left>
 
 
 " Terminal:

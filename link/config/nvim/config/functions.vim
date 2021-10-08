@@ -1,27 +1,16 @@
-" Go_noexpandtab:
-autocmd FileType go setlocal noexpandtab
-
-
-" Markdown_spell:
-autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
-
-nnoremap <silent><c-g>s <cmd>setlocal spell!<cr>
-nnoremap <silent><c-g><c-s> <cmd>setlocal spell!<cr>
-
-
 " Smooth_scroll:
 " scroll the screen up
-function! misc#up(dist, duration, speed)
-    call s:misc('u', a:dist, a:duration, a:speed)
+function! functions#up(dist, duration, speed)
+    call s:functions('u', a:dist, a:duration, a:speed)
 endfunction
 
 " scroll the screen down
-function! misc#down(dist, duration, speed)
-    call s:misc('d', a:dist, a:duration, a:speed)
+function! functions#down(dist, duration, speed)
+    call s:functions('d', a:dist, a:duration, a:speed)
 endfunction
 
 " animation
-function! s:misc(dir, dist, duration, speed)
+function! s:functions(dir, dist, duration, speed)
     for i in range(a:dist/a:speed)
         let start = reltime()
         if a:dir ==# 'd'
@@ -43,19 +32,8 @@ function! s:get_ms_since(time)
     return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
 
-nnoremap <silent><c-u> :call misc#up(&scroll,5,1)<cr>
-nnoremap <silent><c-d> :call misc#down(&scroll,5,1)<cr>
-
-
-" Hlsearch:
-autocmd BufReadPre * setlocal nohlsearch
-
-nnoremap <silent><nowait><expr><c-g>h &hlsearch ? "<cmd>set nohlsearch<cr>" : "<cmd>set hlsearch<cr>"
-nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? "<cmd>set nohlsearch<cr>" : "<cmd>set hlsearch<cr>"
-
-
-" SaveCursor:
-au BufReadPost * if line("'\"")>1 && line("'\"") <= line("$") && &filetype != 'gitcommit' | exe "normal! g'\"" | endif
+nnoremap <silent><c-u> :call functions#up(&scroll,5,1)<cr>
+nnoremap <silent><c-d> :call functions#down(&scroll,5,1)<cr>
 
 
 " Hugefile:
