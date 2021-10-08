@@ -8,7 +8,7 @@ function! StatusLine(current, width)
     endif
         let l:s .= crystalline#right_sep('', 'Fill')
     if a:current
-        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} %h%w%m%r'
+        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()}%h%w%m%r %{StatusDiagnostic()}'
     endif
     let l:s .= '%='
     if a:current
@@ -16,7 +16,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{FugitiveStatusline()}  %{GitStatus()}  %{StatusDiagnostic()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
+        let l:s .= '%{FugitiveStatusline()}  %{GitStatus()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
     else
         let l:s .= ''
     endif
@@ -26,16 +26,13 @@ endfunction
 " coc
 function! StatusDiagnostic() abort
     let info = get(b:, 'coc_diagnostic_info', {})
+    if empty(info) | return '' | endif
     let msgs = []
     if get(info, 'error', 0)
-        call add(msgs, 'x' . info['error'])
-    else
-        call add(msgs,'x0')
+        call add(msgs, ' ' . info['error'].' ')
     endif
     if get(info, 'warning', 0)
-        call add(msgs, '!' . info['warning'])
-    else
-        call add(msgs,'!0')
+        call add(msgs, ' ' . info['warning'])
     endif
     return join(msgs,'')
 endfunction

@@ -7,8 +7,8 @@
     "cursors.nextKey": "<C-n>",
     "cursors.cancelKey": "<Esc><Esc>",
     "cursors.previousKey": "<C-p>",
-    "diagnostic.errorSign": "x",
-    "diagnostic.warningSign": "!",
+	"diagnostic.errorSign": "\uf467",
+	"diagnostic.warningSign": "\uf071",
     "diagnostic-languageserver.filetypes": {
         "sh": "shellcheck"
     },
