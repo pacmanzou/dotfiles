@@ -180,28 +180,6 @@ nnoremap <silent><c-g>f :Neoformat<cr>
 nnoremap <silent><c-g><c-f> :Neoformat<cr>
 
 
-" Rnvimr:
-let g:rnvimr_presets = [{'width': 0.99, 'height': 0.93}]
-let g:rnvimr_enable_ex = 1
-let g:rnvimr_enable_bw = 1
-let g:rnvimr_draw_border = 1
-let g:rnvimr_border_attr = {'fg': -1, 'bg': -1}
-let g:rnvimr_vanilla = 0
-let g:rnvimr_action = {
-            \ '<C-t>': 'NvimEdit tabedit',
-            \ '<C-s>': 'NvimEdit split',
-            \ '<C-v>': 'NvimEdit vsplit',
-            \ 'gw': 'JumpNvimCwd',
-            \ 'ew': 'EmitRangerCwd'
-            \ }
-
-tnoremap <silent><c-g>r <c-\><c-n>:RnvimrToggle<cr>
-tnoremap <silent><c-g><c-r> <c-\><c-n>:RnvimrToggle<cr>
-
-nnoremap <silent><c-g>r :RnvimrToggle<cr>
-nnoremap <silent><c-g><c-r> :RnvimrToggle<cr>
-
-
 " Vista:
 let g:vista_sidebar_position = 'vertical botright'
 let g:vista_sidebar_width = 35
@@ -220,6 +198,7 @@ let g:floaterm_height = 0.99
 let g:floaterm_title = ''
 
 autocmd FileType floaterm map <c-p> <nop>
+autocmd TermOpen term://* startinsert
 
 nnoremap <silent><c-g>p :FloatermToggle<cr>
 nnoremap <silent><c-g><c-p> :FloatermToggle<cr>
@@ -227,6 +206,10 @@ nnoremap <silent><c-g>n :FloatermNew<cr>
 nnoremap <silent><c-g><c-n> :FloatermNew<cr>
 nnoremap <silent><c-g>l :FloatermNew lazygit<cr>
 nnoremap <silent><c-g><c-l> :FloatermNew lazygit<cr>
+nnoremap <silent><c-g>t :FloatermNew htop<cr>
+nnoremap <silent><c-g><c-t> :FloatermNew htop<cr>
+nnoremap <silent><c-g>r :FloatermNew ranger<cr>
+nnoremap <silent><c-g><c-r> :FloatermNew ranger<cr>
 nnoremap <silent><c-g><space> :CocList floaterm<cr>
 
 tnoremap <silent><c-o> <c-\><c-n>
@@ -234,8 +217,6 @@ tnoremap <silent><c-g><tab> <cmd>FloatermNext<cr>
 tnoremap <silent><c-g><s-tab> <cmd>FloatermNext<cr>
 tnoremap <silent><c-g>p <cmd>FloatermToggle<cr>
 tnoremap <silent><c-g><c-p> <cmd>FloatermToggle<cr>
-
-autocmd TermOpen term://* startinsert
 
 
 " Git:

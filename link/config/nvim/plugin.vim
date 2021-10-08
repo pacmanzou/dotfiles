@@ -28,14 +28,11 @@ Plug 'lpinilla/vim-codepainter'
 Plug 'jiangmiao/auto-pairs'
 Plug 'lambdalisue/suda.vim'
 
-" file
-Plug 'kevinhwang91/rnvimr'
+" term
+Plug 'voldikss/vim-floaterm'
 
 " tags
 Plug 'liuchengxu/vista.vim'
-
-" term
-Plug 'voldikss/vim-floaterm'
 
 " git
 Plug 'tpope/vim-fugitive'
