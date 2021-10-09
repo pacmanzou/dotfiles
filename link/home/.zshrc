@@ -156,7 +156,7 @@ if [ -z "$TMUX" ]; then
 fi
 
 if (( $+commands[exa] )); then
-    alias ls='exa -gH --time-style=iso '
+    alias ls='exa -gH --time-style=iso --icons'
     alias la='ls -la '
     alias ll='ls -l'
 else
