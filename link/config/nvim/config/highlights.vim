@@ -64,7 +64,7 @@ hi SpecialChar guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 hi SpecialComment guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 hi Statement guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 hi StorageClass guifg=#fe8019 guibg=NONE gui=NONE cterm=NONE
-hi Special guifg=#fe8019 guibg=NONE gui=italic cterm=italic
+hi Special guifg=#fe8019 guibg=NONE gui=NONE cterm=NONE
 hi String guifg=#b8bb26 guibg=NONE gui=italic cterm=italic
 hi Structure guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
 hi Todo guifg=fg guibg=#000000 gui=bold,italic cterm=bold,italic

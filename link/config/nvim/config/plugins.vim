@@ -21,7 +21,6 @@ Plug 'alvan/vim-closetag'
 Plug 'mg979/vim-visual-multi'
 Plug 'lpinilla/vim-codepainter'
 Plug 'jiangmiao/auto-pairs'
-Plug 'lambdalisue/suda.vim'
 
 " term
 Plug 'voldikss/vim-floaterm'

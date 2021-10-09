@@ -149,3 +149,7 @@ function! CleanBuffers(bang)
         echomsg 'clean done, ' del_cnt 'buffer(s) deleted'
     endif
 endfunction
+
+
+" SudoWrite:
+command! W w !sudo tee > /dev/null %
