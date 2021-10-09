@@ -16,7 +16,7 @@ function! StatusLine(current, width)
         let l:s .= crystalline#left_mode_sep('')
     endif
     if a:width > 40
-        let l:s .= '%{FugitiveStatusline()}  %{GitStatus()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
+        let l:s .= '%{GitStatus()}  %{FugitiveStatusline()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
     else
         let l:s .= ''
     endif
@@ -45,7 +45,8 @@ endfunction
 " gitgutter
 function! GitStatus()
     let [a,m,r] = GitGutterGetHunkSummary()
-    return printf('+%d~%d-%d', a, m, r)
+    if a == 0 && m == 0 && r == 0 | return '' | endif
+    return printf('+%d ~%d -%d', a, m, r)
 endfunction
 
 let g:crystalline_statusline_fn = 'StatusLine'
