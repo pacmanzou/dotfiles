@@ -64,10 +64,18 @@ bindkey '^S' kill-word
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-autoload -U compinit promptinit
+autoload -Uz compinit promptinit vcs_info
 
 compinit
 promptinit
+precmd() { vcs_info }
+
+zstyle ':vcs_info:git:*' formats '[git(%b)] '
+
+setopt PROMPT_SUBST
+
+# zsh prompt
+PROMPT='%n@%m %~ ${vcs_info_msg_0_}[%D{%L:%M}] $prompt_newline:'
 
 # fzf
 source /usr/share/fzf/completion.zsh
@@ -125,15 +133,6 @@ zle -N fzf-history-widget
 
 bindkey '^T' fzf-file-widget
 bindkey '^R' fzf-history-widget
-
-# my_prompt for zsh
-prompt_suse_setup () {
-  PS1=" %n@%m %~/$prompt_newline➤ "
-  PS2="➤ "
-  prompt_opts=( cr percent )
-}
-
-prompt_suse_setup "$@"
 
 # alias
 alias syy='sudo pacman -Syy'
