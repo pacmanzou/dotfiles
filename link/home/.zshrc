@@ -64,24 +64,57 @@ bindkey '^S' kill-word
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-autoload -Uz compinit promptinit vcs_info
+autoload -Uz compinit promptinit vcs_info colors
 
 compinit
 promptinit
 precmd() { vcs_info }
+colors
 
 zstyle ':vcs_info:git:*' formats '[git(%b)] '
 
 setopt PROMPT_SUBST
 
-# zsh prompt
-PROMPT='%n@%m %~ ${vcs_info_msg_0_}[%D{%L:%M}] $prompt_newline:'
+# prompt
+PROMPT="%n@%m %~ \${vcs_info_msg_0_}$prompt_newline:"
+RPROMPT="%T"
+
+# alias
+alias syy='sudo pacman -Syy'
+alias syu='sudo pacman -Syu'
+alias syyu='sudo pacman -Syyu'
+alias scc='sudo pacman -Scc'
+alias sudo='sudo -E'
+alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
+alias mv='mv -i'
+alias cp='cp -i'
+alias rm='rm -i'
+alias mkdir='mkdir -p'
+alias ra='ranger'
+alias lg='lazygit'
+
+# tmux
+if [ -z "$TMUX" ]; then
+    SESSION_NAME="LOCALHOST"
+    tmux new-session -s $SESSION_NAME
+fi
+
+# exa
+if (( $+commands[exa] )); then
+    alias ls='exa -gH --time-style=iso --icons'
+    alias la='ls -la '
+    alias ll='ls -l'
+else
+    alias ls='ls --color=tty --time-style=iso'
+    alias la='ls -la'
+    alias ll='ls -l'
+fi
 
 # fzf
 source /usr/share/fzf/completion.zsh
 
 if command -v fd > /dev/null; then
-    export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    export FZF_DEFAULT_COMMAND="fd --type f --hidden --follow --exclude .git"
     export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 fi
 
@@ -133,33 +166,3 @@ zle -N fzf-history-widget
 
 bindkey '^T' fzf-file-widget
 bindkey '^R' fzf-history-widget
-
-# alias
-alias syy='sudo pacman -Syy'
-alias syu='sudo pacman -Syu'
-alias syyu='sudo pacman -Syyu'
-alias scc='sudo pacman -Scc'
-alias sudo='sudo -E'
-alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
-alias mv='mv -i'
-alias cp='cp -i'
-alias rm='rm -i'
-alias mkdir='mkdir -p'
-alias ra='ranger'
-alias lg='lazygit'
-
-# misc
-if [ -z "$TMUX" ]; then
-    SESSION_NAME="LOCALHOST"
-    tmux new-session -s $SESSION_NAME
-fi
-
-if (( $+commands[exa] )); then
-    alias ls='exa -gH --time-style=iso --icons'
-    alias la='ls -la '
-    alias ll='ls -l'
-else
-    alias ls='ls --color=tty --time-style=iso'
-    alias la='ls -la'
-    alias ll='ls -l'
-fi
