@@ -29,7 +29,7 @@ function! StatusDiagnostic() abort
     if empty(info) | return '' | endif
     let msgs = []
     if get(info, 'error', 0)
-        call add(msgs, ' ' . info['error'].' ')
+        call add(msgs, 'X' . info['error'].' ')
     endif
     if get(info, 'warning', 0)
         call add(msgs, ' ' . info['warning'])
