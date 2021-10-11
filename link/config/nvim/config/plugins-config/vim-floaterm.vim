@@ -7,8 +7,9 @@ let g:floaterm_title = ''
 autocmd FileType floaterm map <c-p> <nop>
 autocmd TermOpen term://* startinsert
 
-nnoremap <silent><c-g><cr> :FloatermNew<cr>
 nnoremap <silent><c-g><space> :CocList floaterm<cr>
+nnoremap <silent><c-g>n :FloatermNew<cr>
+nnoremap <silent><c-g><c-n> :FloatermNew<cr>
 nnoremap <silent><c-g>p :FloatermToggle<cr>
 nnoremap <silent><c-g><c-p> :FloatermToggle<cr>
 nnoremap <silent><c-g>l :FloatermNew lazygit<cr>
