@@ -90,8 +90,6 @@ alias mv='mv -i'
 alias cp='cp -i'
 alias rm='rm -i'
 alias mkdir='mkdir -p'
-alias ra='ranger'
-alias lg='lazygit'
 
 # tmux
 if [ -z "$TMUX" ]; then
