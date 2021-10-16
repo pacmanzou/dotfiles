@@ -16,6 +16,8 @@ nnoremap <silent><c-g>l :FloatermNew lazygit<cr>
 nnoremap <silent><c-g><c-l> :FloatermNew lazygit<cr>
 nnoremap <silent><c-g>t :FloatermNew htop<cr>
 nnoremap <silent><c-g><c-t> :FloatermNew htop<cr>
+nnoremap <silent><c-g>m :FloatermNew neomutt<cr>
+nnoremap <silent><c-g><c-m> :FloatermNew neomutt<cr>
 nnoremap <silent><c-g>r :FloatermNew ranger<cr>
 nnoremap <silent><c-g><c-r> :FloatermNew ranger<cr>
 
