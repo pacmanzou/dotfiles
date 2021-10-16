@@ -86,7 +86,7 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
 bindsym $mod+v split h; exec --no-startup-id notify-send 'Vsplit'
-bindsym $mod+n exec --no-startup-id alacritty -e zsh
+bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 bindsym $mod+Tab workspace next
 
 bindsym $mod+Shift+Tab workspace prev
