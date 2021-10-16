@@ -40,7 +40,7 @@ set listchars=tab:\|\ ,trail:▫
 set laststatus=2
 set lazyredraw
 set list
-set mouse=""
+set mouse=nvi
 set magic
 set matchtime=0
 set matchpairs+=<:>
