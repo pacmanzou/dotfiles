@@ -1,21 +1,14 @@
-" dependence: coc, fugitive, gitgutter, capslock
+" dependence: coc, fugitive, gitgutter, capslock, vista
 function! StatusLine(current, width)
     let l:s = ''
-    if a:current
-        let l:s .= crystalline#mode(). crystalline#right_mode_sep('')
+    let l:s .= crystalline#mode()
+    if a:width > 120
+        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} %F%h%w%m%r  %{StatusDiagnostic()}%{NearestMethodOrFunction()}'
     else
-        let l:s .= '%#CrystallineInactive#'
-    endif
-        let l:s .= crystalline#right_sep('', 'Fill')
-    if a:current
-        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()}%h%w%m%r %{StatusDiagnostic()}%{NearestMethodOrFunction()}'
+        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} %f%h%w%m%r  %{StatusDiagnostic()}%{NearestMethodOrFunction()}'
     endif
     let l:s .= '%='
-    if a:current
-        let l:s .= crystalline#left_sep('', 'Fill')
-        let l:s .= crystalline#left_mode_sep('')
-    endif
-    if a:width > 40
+    if a:width > 80
         let l:s .= '%{GitStatus()}  %{FugitiveStatusline()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
     else
         let l:s .= ''
