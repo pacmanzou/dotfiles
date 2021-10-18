@@ -51,11 +51,11 @@ endfunction
 autocmd VimEnter *
             \ let size = getfsize(expand('<afile>')) |
             \ if (size > g:trigger_size) || (size == -2) |
-            \   echohl WarningMsg |
-            \ echomsg 'WARNING: Coc is dead for this huge file!' |
-            \ echohl None |
+            \     echohl WarningMsg |
+            \     echomsg 'WARNING: Coc is dead for this huge file!' |
+            \     echohl None |
             \ else |
-            \   call timer_start(100,'CocTimerStart',{'repeat':1}) |
+            \     call timer_start(100,'CocTimerStart',{'repeat':1}) |
             \ endif |
             \ unlet size
 
@@ -74,7 +74,7 @@ vnoremap <expr> <plug>(niceblock-I)  Force_blockwise('I')
 vnoremap <expr> <plug>(niceblock-A)  Force_blockwise('A')
 
 if !exists('g:niceblock_no_default_key_mappings') ||
-\  !g:niceblock_no_default_key_mappings
+            \ !g:niceblock_no_default_key_mappings
     silent! xmap <unique> I  <plug>(niceblock-I)
     silent! xmap <unique> A  <plug>(niceblock-A)
 endif
@@ -153,3 +153,34 @@ endfunction
 
 " SudoWrite:
 command! W w !sudo tee > /dev/null %
+
+
+" ShowToc:
+function s:show_toc() abort
+    let bufname = bufname('%')
+    let info = getloclist(0, {'winid': 1})
+    if !empty(info) && getwinvar(info.winid, 'qf_toc') ==# bufname
+        bel lopen
+        return
+    endif
+
+    let toc = []
+    let lnum = 2
+    let last_line = line('$') - 1
+    while lnum && lnum < last_line
+        let text = getline(lnum)
+        if text =~# '^\%( \{3\}\)\=\S.*$'
+            call add(toc, {'bufnr': bufnr('%'), 'lnum': lnum, 'text': text})
+        endif
+        let lnum = nextnonblank(lnum + 1)
+    endwhile
+
+    call setloclist(0, toc, ' ')
+    call setloclist(0, [], 'a', {'title': 'Man TOC'})
+    bel lopen
+    let w:qf_toc = bufname
+endfunction
+
+nnoremap <silent><buffer> gl <Cmd>call <SID>show_toc()<CR>
+
+autocmd FileType qf nnoremap <silent><buffer>q :q<cr>

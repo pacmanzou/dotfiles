@@ -9,7 +9,7 @@ source $HOME/.config/nvim/config/plugins.vim
 let s:sourceList = split(globpath('$HOME/.config/nvim/config/plugins-config/', '*.vim'), '\n')
 
 for s:item in s:sourceList
-  exec 'source '. s:item
+    exec 'source '. s:item
 endfor
 
 unlet s:sourceList
