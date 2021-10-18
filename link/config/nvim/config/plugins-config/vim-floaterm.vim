@@ -1,11 +1,8 @@
-let g:neoterm_autoscroll = 1
-let g:floaterm_borderchars = ['─', '│', '─', '│', '┌', '┐', '┘', '└']
-let g:floaterm_width = 0.99
-let g:floaterm_height = 0.99
+let g:floaterm_width = 1.0
+let g:floaterm_height = 1.0
 let g:floaterm_title = ''
 
 autocmd FileType floaterm map <c-p> <nop>
-autocmd TermOpen term://* startinsert
 
 nnoremap <silent><c-g><cr> :FloatermNew<cr>
 nnoremap <silent><c-g><space> :CocList floaterm<cr>
