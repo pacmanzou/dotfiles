@@ -8,7 +8,7 @@ function! StatusLine(current, width)
     endif
         let l:s .= crystalline#right_sep('', 'Fill')
     if a:current
-        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()}%h%w%m%r %{StatusDiagnostic()}'
+        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()}%h%w%m%r %{StatusDiagnostic()}%{NearestMethodOrFunction()}'
     endif
     let l:s .= '%='
     if a:current
@@ -28,18 +28,16 @@ function! StatusDiagnostic() abort
     let info = get(b:, 'coc_diagnostic_info', {})
     if empty(info) | return '' | endif
     let msgs = []
-    if get(info, 'error', 0)
+    if get(info, 'error', 0) || get(info, 'warning', 0)
         call add(msgs, 'X' . info['error'].' ')
-    endif
-    if get(info, 'warning', 0)
-        call add(msgs, ' ' . info['warning'])
+        call add(msgs, ' ' . info['warning'].'  ')
     endif
     return join(msgs,'')
 endfunction
 
-function! CurrentFunction() abort
-    let status = get(b:, 'coc_current_function', '')
-    return  status
+" vista
+function! NearestMethodOrFunction() abort
+    return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
 
 " gitgutter
