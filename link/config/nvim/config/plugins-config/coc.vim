@@ -19,6 +19,7 @@ let g:coc_global_extensions = [
             \ 'coc-floaterm',
             \ 'coc-lists',
             \ 'coc-yank',
+            \ 'coc-git',
             \ 'coc-translator',
             \ 'coc-explorer',
             \ 'coc-leetcode'
@@ -74,7 +75,10 @@ nmap <silent>[d <plug>(coc-diagnostic-prev)
 nnoremap <silent><nowait><expr><c-f> coc#float#scroll(1)
 nnoremap <silent><nowait><expr><c-b> coc#float#scroll(0)
 
-" function and class
+" jump previewd chunk
+nmap <silent><c-o> <plug>(coc-float-jump)
+
+" function, class and git chunk
 xmap <silent>if <plug>(coc-funcobj-i)
 xmap <silent>af <plug>(coc-funcobj-a)
 xmap <silent>ic <plug>(coc-classobj-i)
@@ -84,6 +88,11 @@ omap <silent>if <plug>(coc-funcobj-i)
 omap <silent>af <plug>(coc-funcobj-a)
 omap <silent>ic <plug>(coc-classobj-i)
 omap <silent>ac <plug>(coc-classobj-a)
+
+omap ig <Plug>(coc-git-chunk-inner)
+xmap ig <Plug>(coc-git-chunk-inner)
+omap ag <Plug>(coc-git-chunk-outer)
+xmap ag <Plug>(coc-git-chunk-outer)
 
 " coclist and coccommand
 nnoremap <silent><space>l :CocList<cr>
@@ -98,6 +107,17 @@ nnoremap <silent><space>h :CocList --regex mru -A<cr>
 
 nnoremap <silent><space>c :CocCommand<cr>
 nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
+
+" coc-git command
+nnoremap <silent><leader>a :CocCommand git.chunkStage<cr>
+nnoremap <silent><leader>u :CocCommand git.chunkUndo<cr>
+nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
+nnoremap <silent><leader>y :CocCommand git.copyUrl<cr>
+nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
+nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
+nnoremap <silent><leader>b :CocCommand git.browserOpen<cr>
+nnoremap <silent><leader>c :CocList bcommits<cr>
+nnoremap <silent><leader>C :CocList commits<cr>
 
 " autocmd for go
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')

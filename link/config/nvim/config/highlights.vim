@@ -10,6 +10,11 @@ hi CursorLine guifg=#ebdbb2 guibg=#353535 gui=NONE cterm=NONE
 hi CursorLineNr guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
 hi Error guifg=#fb4934 guibg=#000000 gui=bold cterm=bold
 hi ErrorMsg guifg=#fb4934 guibg=#000000 gui=bold cterm=bold
+hi CocGitAddedSign guifg=#b8bb26 guibg=#000000 gui=NONE cterm=NONE
+hi CocGitChangedSign guifg=#8ec07c guibg=#000000 gui=NONE cterm=NONE
+hi CocGitRemovedSign guifg=#fb4934 guibg=#000000 gui=NONE cterm=NONE
+hi diffAdded guifg=#b8bb26 guibg=#00000000 gui=NONE cterm=NONE
+hi diffRemoved guifg=#fb4934 guibg=#00000000 gui=NONE cterm=NONE
 hi Folded guifg=#ebdbb2 guibg=#353535 gui=italic cterm=italic
 hi FloatermBorder guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
 hi LineNr guifg=#7c6f64 guibg=NONE gui=NONE cterm=NONE

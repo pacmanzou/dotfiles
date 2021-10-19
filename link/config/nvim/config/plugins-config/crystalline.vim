@@ -1,4 +1,4 @@
-" dependence: coc, fugitive, gitgutter, capslock, vista
+" dependence: coc, coc-git, capslock, vista
 function! StatusLine(current, width)
     let l:s = ''
     let l:s .= crystalline#mode()
@@ -9,12 +9,17 @@ function! StatusLine(current, width)
     endif
     let l:s .= '%='
     if a:width > 80
-        let l:s .= '%{GitStatus()}  %{FugitiveStatusline()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
+        let l:s .= '%{GitstatusB()} %{GitstatusG()}  %l/%L  %{&ft}[%{&fenc!=#""?&fenc:&enc}] '
     else
         let l:s .= ''
     endif
     return l:s
 endfunction
+
+let g:crystalline_statusline_fn = 'StatusLine'
+let g:crystalline_theme = 'pacmanzou'
+
+set tabline=%!crystalline#bufferline(0,0,1)
 
 " coc
 function! StatusDiagnostic() abort
@@ -28,19 +33,17 @@ function! StatusDiagnostic() abort
     return join(msgs,'')
 endfunction
 
+function! GitstatusG() abort
+    let status = get(g:, 'coc_git_status', '')
+    return  status
+endfunction
+
+function! GitstatusB() abort
+    let status = get(b:, 'coc_git_status', '')
+    return  status
+endfunction
+
 " vista
 function! NearestMethodOrFunction() abort
     return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
-
-" gitgutter
-function! GitStatus()
-    let [a,m,r] = GitGutterGetHunkSummary()
-    if a == 0 && m == 0 && r == 0 | return '' | endif
-    return printf('+%d ~%d -%d', a, m, r)
-endfunction
-
-let g:crystalline_statusline_fn = 'StatusLine'
-let g:crystalline_theme = 'pacmanzou'
-
-set tabline=%!crystalline#bufferline(0,0,1)
