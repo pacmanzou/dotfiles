@@ -269,7 +269,6 @@ nnoremap <silent>> >>
 nnoremap <silent>< <<
 nnoremap <silent>Q @q
 nnoremap <silent>gF <c-w>f
-nnoremap <space>s :%s///g<left><left><left>
 
 
 " Insert:
@@ -357,7 +356,6 @@ vmap <C-b> <nop>
 " vnoremap
 vnoremap <silent>+ g<c-a>
 vnoremap <silent>- g<c-x>
-vnoremap <space>s :s//g<left><left>
 
 
 " Terminal:

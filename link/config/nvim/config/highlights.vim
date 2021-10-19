@@ -22,7 +22,7 @@ hi PmenuThumb guifg=NONE guibg=#353535 gui=NONE cterm=NONE
 hi SpecialKey guifg=#928374 guibg=NONE gui=NONE cterm=NONE
 hi StatusLine guifg=#000000 guibg=#ebdbb2 gui=reverse cterm=reverse
 hi StatusLineNC guifg=#000000 guibg=#ebdbb2 gui=reverse cterm=reverse
-hi Visual guifg=NONE guibg=#353535 gui=NONE cterm=NONE
+hi Visual guifg=#353535 guibg=#ebdbb2 gui=NONE cterm=NONE
 hi WildMenu guifg=#ebdbb2 guibg=#1d1d1d gui=bold cterm=bold
 hi Conceal guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
 hi Cursor guifg=NONE guibg=NONE gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse
@@ -32,11 +32,11 @@ hi DiffDelete guifg=#fb4934 guibg=#000000 gui=reverse cterm=reverse
 hi DiffText guifg=#fabd2f guibg=#000000 gui=reverse cterm=reverse
 hi Directory guifg=#b8bb26 guibg=NONE gui=bold cterm=bold
 hi EndOfBuffer guifg=#000000 guibg=NONE gui=NONE cterm=NONE
-hi IncSearch guifg=#ffffff guibg=#353535 gui=bold cterm=reverse
+hi IncSearch guifg=#ebdbb2 guibg=#353535 gui=bold cterm=bold
 hi ModeMsg guifg=#fabd2f guibg=NONE gui=bold cterm=bold
 hi MoreMsg guifg=#fabd2f guibg=NONE gui=bold cterm=bold
 hi Question guifg=#fe8019 guibg=NONE gui=bold cterm=bold
-hi Search guifg=#ffffff guibg=#353535 gui=bold cterm=reverse
+hi Search guifg=#ebdbb2 guibg=#353535 gui=bold cterm=bold
 hi Title guifg=#b8bb26 guibg=NONE gui=bold cterm=bold
 hi WarningMsg guifg=#FE8019 guibg=NONE gui=bold cterm=bold
 hi Boolean guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
