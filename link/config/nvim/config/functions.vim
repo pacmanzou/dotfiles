@@ -204,3 +204,19 @@ function! s:open_diff()
 endfunction
 
 command! -nargs=0 Difforig call s:open_diff()
+
+
+" AutoSave:
+function! s:autosave(enable)
+  augroup autosave
+    autocmd!
+    if a:enable
+      autocmd TextChanged,InsertLeave <buffer>
+            \  if empty(&buftype) && !empty(bufname(''))
+            \|   silent! update
+            \| endif
+    endif
+  augroup END
+endfunction
+
+command! -bang AutoSave call s:autosave(<bang>1)
