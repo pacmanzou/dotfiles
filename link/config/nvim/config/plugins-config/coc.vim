@@ -89,10 +89,10 @@ omap <silent>af <plug>(coc-funcobj-a)
 omap <silent>ic <plug>(coc-classobj-i)
 omap <silent>ac <plug>(coc-classobj-a)
 
-omap ig <Plug>(coc-git-chunk-inner)
-xmap ig <Plug>(coc-git-chunk-inner)
-omap ag <Plug>(coc-git-chunk-outer)
-xmap ag <Plug>(coc-git-chunk-outer)
+omap <silent>ig <Plug>(coc-git-chunk-inner)
+xmap <silent>ig <Plug>(coc-git-chunk-inner)
+omap <silent>ag <Plug>(coc-git-chunk-outer)
+xmap <silent>ag <Plug>(coc-git-chunk-outer)
 
 " coclist and coccommand
 nnoremap <silent><space>l :CocList<cr>
@@ -118,6 +118,10 @@ nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
 nnoremap <silent><leader>b :CocCommand git.browserOpen<cr>
 nnoremap <silent><leader>c :CocList bcommits<cr>
 nnoremap <silent><leader>C :CocList commits<cr>
+nnoremap <silent><leader>g :CocList --auto-preview gstatus<CR>
+
+nmap <silent><leader>j <plug>(coc-git-nextchunk)
+nmap <silent><leader>k <plug>(coc-git-prevchunk)
 
 " autocmd for go
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
