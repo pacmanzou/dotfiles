@@ -184,3 +184,23 @@ endfunction
 nnoremap <silent><buffer> gl <Cmd>call <SID>show_toc()<CR>
 
 autocmd FileType qf nnoremap <silent><buffer>q :q<cr>
+
+
+" Diff:
+function! s:open_diff()
+	" Open diff window and start comparison
+	let l:bnr = bufnr('%')
+	call setwinvar(winnr(), 'diff_origin', l:bnr)
+	vertical new __diff
+	let l:diff_bnr = bufnr('%')
+	setlocal buftype=nofile bufhidden=wipe
+	r ++edit #
+	0d_
+	diffthis
+    setlocal readonly
+	wincmd p
+	let b:diff_bnr = l:diff_bnr
+	diffthis
+endfunction
+
+command! -nargs=0 Difforig call s:open_diff()
