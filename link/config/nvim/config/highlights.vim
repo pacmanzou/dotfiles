@@ -37,11 +37,11 @@ hi DiffDelete guifg=#fb4934 guibg=#000000 gui=reverse cterm=reverse
 hi DiffText guifg=#fabd2f guibg=#000000 gui=reverse cterm=reverse
 hi Directory guifg=#b8bb26 guibg=NONE gui=bold cterm=bold
 hi EndOfBuffer guifg=#000000 guibg=NONE gui=NONE cterm=NONE
-hi IncSearch guifg=#ebdbb2 guibg=#353535 gui=bold cterm=bold
+hi IncSearch guifg=#ffffff guibg=#353535 gui=bold cterm=bold
 hi ModeMsg guifg=#fabd2f guibg=NONE gui=bold cterm=bold
 hi MoreMsg guifg=#fabd2f guibg=NONE gui=bold cterm=bold
 hi Question guifg=#fe8019 guibg=NONE gui=bold cterm=bold
-hi Search guifg=#ebdbb2 guibg=#353535 gui=bold cterm=bold
+hi Search guifg=#ffffff guibg=#353535 gui=bold cterm=bold
 hi Title guifg=#b8bb26 guibg=NONE gui=bold cterm=bold
 hi WarningMsg guifg=#FE8019 guibg=NONE gui=bold cterm=bold
 hi Boolean guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
