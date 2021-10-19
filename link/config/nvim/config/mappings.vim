@@ -268,7 +268,8 @@ nnoremap <silent>Y y$
 nnoremap <silent>> >>
 nnoremap <silent>< <<
 nnoremap <silent>Q @q
-nnoremap <silent>gF <c-w>f
+nnoremap <silent>gf <c-w>f
+nnoremap <silent>gF gf
 
 
 " Insert:
