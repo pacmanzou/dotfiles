@@ -200,7 +200,7 @@ mode "resize" {
 bar {
     i3bar_command i3bar
     status_command i3status
-    height 22
+    height 19
     tray_output all
     position bottom
     strip_workspace_numbers yes
@@ -218,6 +218,6 @@ bar {
     }
 }
 
-gaps inner 13
-gaps outer -2
+gaps inner 6
+gaps outer -7
 smart_borders on
