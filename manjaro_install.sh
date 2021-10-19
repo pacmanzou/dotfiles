@@ -89,6 +89,9 @@ sudo pacman -Syu
 sudo pacman -S alacritty \
     astyle \
     bleachbit \
+    bluez \
+    bluez-utils \
+    blueman \
     ctags \
     copyq \
     cmake \
