@@ -71,7 +71,7 @@ promptinit
 precmd() { vcs_info }
 colors
 
-zstyle ':vcs_info:git:*' formats '[git(%b)] '
+zstyle ':vcs_info:git:*' formats '  %b'
 
 setopt PROMPT_SUBST
 
