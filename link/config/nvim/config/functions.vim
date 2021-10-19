@@ -155,37 +155,6 @@ endfunction
 command! W w !sudo tee > /dev/null %
 
 
-" ShowToc:
-function s:show_toc() abort
-    let bufname = bufname('%')
-    let info = getloclist(0, {'winid': 1})
-    if !empty(info) && getwinvar(info.winid, 'qf_toc') ==# bufname
-        bel lopen
-        return
-    endif
-
-    let toc = []
-    let lnum = 2
-    let last_line = line('$') - 1
-    while lnum && lnum < last_line
-        let text = getline(lnum)
-        if text =~# '^\%( \{3\}\)\=\S.*$'
-            call add(toc, {'bufnr': bufnr('%'), 'lnum': lnum, 'text': text})
-        endif
-        let lnum = nextnonblank(lnum + 1)
-    endwhile
-
-    call setloclist(0, toc, ' ')
-    call setloclist(0, [], 'a', {'title': 'Man TOC'})
-    bel lopen
-    let w:qf_toc = bufname
-endfunction
-
-nnoremap <silent><buffer> gl <Cmd>call <SID>show_toc()<CR>
-
-autocmd FileType qf nnoremap <silent><buffer>q :q<cr>
-
-
 " Diff:
 function! s:open_diff()
 	" Open diff window and start comparison
