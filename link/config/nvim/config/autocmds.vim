@@ -10,6 +10,9 @@ nnoremap <silent><c-g><c-s> :setlocal spell!<cr>
 " git
 autocmd FileType git nnoremap <silent><buffer>q :q<cr>
 
+" qf
+autocmd FileType qf nnoremap <silent><buffer>q :q<cr>
+
 " hlsearch
 nnoremap <silent><nowait><expr><c-g>h &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
 nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
