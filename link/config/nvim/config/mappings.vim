@@ -263,7 +263,6 @@ nnoremap <silent><c-n> <c-i>
 nnoremap <silent><c-p> <c-o>
 
 nnoremap / mr/\v
-nnoremap x "_x
 nnoremap <silent>Y y$
 nnoremap <silent>> >>
 nnoremap <silent>< <<

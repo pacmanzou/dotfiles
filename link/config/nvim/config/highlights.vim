@@ -27,7 +27,7 @@ hi PmenuThumb guifg=NONE guibg=#353535 gui=NONE cterm=NONE
 hi SpecialKey guifg=#928374 guibg=NONE gui=NONE cterm=NONE
 hi StatusLine guifg=#000000 guibg=#ebdbb2 gui=reverse cterm=reverse
 hi StatusLineNC guifg=#000000 guibg=#ebdbb2 gui=reverse cterm=reverse
-hi Visual guifg=#353535 guibg=#ebdbb2 gui=NONE cterm=NONE
+hi Visual guifg=#fabd2f guibg=#353535 gui=NONE cterm=NONE
 hi WildMenu guifg=#ebdbb2 guibg=#1d1d1d gui=bold cterm=bold
 hi Conceal guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
 hi Cursor guifg=NONE guibg=NONE gui=reverse ctermfg=NONE ctermbg=NONE cterm=reverse
