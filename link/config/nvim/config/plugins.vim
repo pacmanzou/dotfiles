@@ -26,11 +26,6 @@ Plug 'voldikss/vim-floaterm'
 " tags
 Plug 'liuchengxu/vista.vim'
 
-" git
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'junegunn/gv.vim'
-
 " run code
 Plug 'skywind3000/asyncrun.vim'
 Plug 'skywind3000/asynctasks.vim'
