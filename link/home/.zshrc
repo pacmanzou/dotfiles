@@ -76,7 +76,7 @@ zstyle ':vcs_info:git:*' formats '  %b'
 setopt PROMPT_SUBST
 
 # prompt
-PROMPT="%n@%m %~ \${vcs_info_msg_0_}$prompt_newline:"
+PROMPT="%B%n@%m%b %~ \${vcs_info_msg_0_}$prompt_newline:"
 RPROMPT="%T"
 
 # alias
