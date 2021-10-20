@@ -3,9 +3,9 @@ function! StatusLine(current, width)
     let l:s = ''
     let l:s .= crystalline#mode()
     if a:width > 120
-        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} %F%h%w%m%r  %{StatusDiagnostic()}'
+        let l:s .= '%{CapsLockStatusline()}%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""} %F%h%w%m%r  %{StatusDiagnostic()}'
     else
-        let l:s .= '%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""}%{CapsLockStatusline()} %f%h%w%m%r  %{StatusDiagnostic()}'
+        let l:s .= '%{CapsLockStatusline()}%{&hlsearch?"HLSEARCH ":""}%{&spell?"SPELL ":""} %f%h%w%m%r  %{StatusDiagnostic()}'
     endif
     let l:s .= '%='
     if a:width > 80
