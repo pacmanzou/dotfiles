@@ -104,9 +104,6 @@
             "shell": true
         }
     },
-    "refactor.openCommand": "sp",
-    "refactor.afterContext": 3,
-    "refactor.beforeContext": 3,
     "suggest.noselect": true,
     "suggest.floatEnable": true,
     "suggest.detailField": "preview",
