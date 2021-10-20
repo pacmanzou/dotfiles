@@ -55,9 +55,6 @@ nmap <silent><space>t <Plug>(coc-translator-e)
 " rename
 nmap <silent>cn <plug>(coc-rename)
 
-" refactor
-nmap <silent>cr <plug>(coc-refactor)
-
 " apply codeAction
 vmap <silent><c-f> <plug>(coc-codeaction-selected)
 
