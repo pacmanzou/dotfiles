@@ -44,7 +44,7 @@ Plug 'wellle/tmux-complete.vim'
 
 " languages
 " go
-Plug 'josa42/vim-go-syntax', {'for': ['go', 'vim-plug']}
+Plug 'pacmanzou/go-syntax.vim', {'for': ['go', 'vim-plug']}
 
 " js
 Plug 'pangloss/vim-javascript', {'for': ['javascript', 'vim-plug']}
