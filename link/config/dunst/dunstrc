@@ -1,8 +1,8 @@
 [global]
-    frame_width = 1
+    frame_width = 6
     frame_color = "#1d1d1d"
     
-    font = Noto Sans 11
+    font = Source Code Pro 13
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -68,7 +68,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "0x4-11+11"
+    geometry = "0x4-0+0"
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -83,7 +83,7 @@
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
     # default 120
-    idle_threshold = 120 
+    idle_threshold = 120
     
     # Which monitor should the notifications be displayed on.
     monitor = 0
@@ -163,7 +163,7 @@
     # Xev might be helpful to find names for keys.
 
     # Close notification.
-    close = mod1+n
+    close = mod1+shift+n
 
     # Close all notifications.
     # close_all = ctrl+mod1+space
@@ -171,7 +171,7 @@
     # Redisplay last message(s).
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1".
-    history = mod1+shift+n 
+    history = mod1+n
 
     # Context menu.
     # context = mod1+c
