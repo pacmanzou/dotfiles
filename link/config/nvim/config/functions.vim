@@ -36,30 +36,6 @@ nnoremap <silent><c-u> :call functions#up(&scroll,5,1)<cr>
 nnoremap <silent><c-d> :call functions#down(&scroll,5,1)<cr>
 
 
-" Hugefile:
-" file maxsize
-let g:trigger_size         = 0.5 * 1024 * 1024
-
-" coc startup delay
-let g:coc_start_at_startup = 0
-
-" cocstart
-function! CocTimerStart(timer)
-    exec "CocStart"
-endfunction
-
-autocmd VimEnter *
-            \ let size = getfsize(expand('<afile>')) |
-            \ if (size > g:trigger_size) || (size == -2) |
-            \     echohl WarningMsg |
-            \     echomsg 'WARNING: Coc is dead for this huge file!' |
-            \     echohl None |
-            \ else |
-            \     call timer_start(100,'CocTimerStart',{'repeat':1}) |
-            \ endif |
-            \ unlet size
-
-
 " Visual_IA:
 function! Force_blockwise(next_key)
     return s:setup_keyseq_table[a:next_key][mode()]
