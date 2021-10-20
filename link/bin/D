@@ -22,5 +22,5 @@ elif [[ "${1}" == "-h" ]]; then
     exit 0
 fi
 
-mv -i "${@}" "${trash}"
+mv -b "${@}" "${trash}"
 exit 0
