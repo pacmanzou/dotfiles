@@ -75,7 +75,7 @@ nnoremap <silent><nowait><expr><c-b> coc#float#scroll(0)
 " jump previewd chunk
 nmap <silent><c-o> <plug>(coc-float-jump)
 
-" function, class and git chunk
+" function and class
 xmap <silent>if <plug>(coc-funcobj-i)
 xmap <silent>af <plug>(coc-funcobj-a)
 xmap <silent>ic <plug>(coc-classobj-i)
@@ -85,11 +85,6 @@ omap <silent>if <plug>(coc-funcobj-i)
 omap <silent>af <plug>(coc-funcobj-a)
 omap <silent>ic <plug>(coc-classobj-i)
 omap <silent>ac <plug>(coc-classobj-a)
-
-omap <silent>ig <Plug>(coc-git-chunk-inner)
-xmap <silent>ig <Plug>(coc-git-chunk-inner)
-omap <silent>ag <Plug>(coc-git-chunk-outer)
-xmap <silent>ag <Plug>(coc-git-chunk-outer)
 
 " coclist and coccommand
 nnoremap <silent><space>l :CocList<cr>
@@ -105,20 +100,32 @@ nnoremap <silent><space>h :CocList --regex mru -A<cr>
 nnoremap <silent><space>c :CocCommand<cr>
 nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
 
-" coc-git command
+" coc-git
+" create text object for git chunks
+omap <silent>ig <Plug>(coc-git-chunk-inner)
+xmap <silent>ig <Plug>(coc-git-chunk-inner)
+omap <silent>ag <Plug>(coc-git-chunk-outer)
+xmap <silent>ag <Plug>(coc-git-chunk-outer)
+
+" navigate chunks of current buffer
+nmap <silent>[g <plug>(coc-git-nextchunk)
+nmap <silent>]g <plug>(coc-git-prevchunk)
+
+" navigate conflicts of current buffer
+nmap <silent>[c <Plug>(coc-git-prevconflict)
+nmap <silent>]c <Plug>(coc-git-nextconflict)
+
+" coclist and coccommand for coc-git
+nnoremap <silent><leader>c :CocList bcommits<cr>
+nnoremap <silent><leader>C :CocList commits<cr>
+
 nnoremap <silent><leader>a :CocCommand git.chunkStage<cr>
 nnoremap <silent><leader>u :CocCommand git.chunkUndo<cr>
 nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
 nnoremap <silent><leader>y :CocCommand git.copyUrl<cr>
 nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
 nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
-nnoremap <silent><leader>b :CocCommand git.browserOpen<cr>
-nnoremap <silent><leader>c :CocList bcommits<cr>
-nnoremap <silent><leader>C :CocList commits<cr>
-nnoremap <silent><leader>g :CocList --auto-preview gstatus<CR>
-
-nmap <silent><leader>j <plug>(coc-git-nextchunk)
-nmap <silent><leader>k <plug>(coc-git-prevchunk)
+nnoremap <silent><leader>o :CocCommand git.browserOpen<cr>
 
 " autocmd for go
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')

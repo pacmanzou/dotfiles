@@ -8,3 +8,8 @@
     ; insteadOf = https://github.com
 ; [url "https://hub.fastgit.org"]
     ; insteadOf = https://github.com
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto
