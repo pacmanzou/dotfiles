@@ -45,10 +45,8 @@ font:
 
 draw_bold_text_with_bright_colors: true
 
-# Colors (Gruvbox dark)
-
+## Default colors
 # colors:
-#   # Default colors
 #   primary:
 #     background: '0x000000'
 #     foreground: '0xffffff'
