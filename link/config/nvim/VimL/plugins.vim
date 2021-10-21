@@ -36,12 +36,8 @@ Plug 'wellle/tmux-complete.vim'
 " debug
 " Plug 'puremourning/vimspector'
 
-" languages
 " go
 Plug 'pacmanzou/go-syntax.vim', {'for': ['go', 'vim-plug']}
-
-" js
-Plug 'pangloss/vim-javascript', {'for': ['javascript', 'vim-plug']}
 
 " md
 Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'vim-plug']}
