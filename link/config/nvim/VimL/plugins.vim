@@ -16,7 +16,6 @@ Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'kana/vim-smartchr'
 Plug 'sbdchd/neoformat'
-Plug 'alvan/vim-closetag'
 Plug 'lpinilla/vim-codepainter'
 Plug 'jiangmiao/auto-pairs'
 
