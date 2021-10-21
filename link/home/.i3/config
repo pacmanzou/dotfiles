@@ -32,11 +32,13 @@ floating_modifier $mod
 # is used in the bar {} block below.
 font xft:URWGothic-Book 11
 
+# exec
 exec_always --no-startup-id fix_xcursor
 
-exec --no-startup-id fcitx5
 exec --no-startup-id copyq
+exec --no-startup-id fcitx5
 exec --no-startup-id utools
+exec --no-startup-id bluetoothctl power on
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id conky -c "$HOME/.i3/conky_i3wm"
 exec --no-startup-id bash "$HOME/.i3/mailsync.sh"
@@ -76,12 +78,11 @@ bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_
 
 
 bindsym $mod+m mode "$mode_misc"
-set $mode_misc (w)ifi   (t)ouchpad   (f)citx   (b)luetooth
+set $mode_misc (w)ifi   (t)ouchpad   (f)citx
 mode "$mode_misc"{
     bindsym w exec --no-startup-id bash "$HOME/.i3/wifi.sh", mode "default"
     bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
     bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx_restart.sh", mode "default"
-    bindsym b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on', mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
