@@ -39,8 +39,7 @@ Plug 'wellle/tmux-complete.vim'
 " go
 Plug 'pacmanzou/go-syntax.vim', {'for': ['go', 'vim-plug']}
 
-" md
-Plug 'plasticboy/vim-markdown', {'for': ['markdown', 'vim-plug']}
+" markdown
 Plug 'mzlogin/vim-markdown-toc', {'for': ['markdown', 'vim-plug'] }
 Plug 'iamcco/markdown-preview.nvim', {
             \ 'do': 'cd app && yarn install',

@@ -16,6 +16,14 @@ let g:clipboard = {
             \ },
             \ 'cache_enabled': 0,
             \ }
+let g:markdown_fenced_languages = [
+            \ 'go',
+            \ 'python',
+            \ 'bash',
+            \ 'javascript',
+            \ 'html',
+            \ 'viml=vim'
+            \ ]
 
 " set
 set autochdir
