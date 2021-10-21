@@ -71,13 +71,20 @@ promptinit
 precmd() { vcs_info }
 colors
 
-zstyle ':vcs_info:git:*' formats '  %b'
+zstyle ':vcs_info:*:*' formats "%r" "  %b"
 
 setopt PROMPT_SUBST
 
+git_dirty() {
+    # Check if we're in a git repo
+    command git rev-parse --is-inside-work-tree &>/dev/null || return
+    # Check if it's dirty
+    command git diff --quiet --ignore-submodules HEAD &>/dev/null; [ $? -eq 1 ] && echo "*"
+}
+
 # prompt
-PROMPT="%B%n@%m%b %~ \${vcs_info_msg_0_}$prompt_newline:"
-RPROMPT="%T"
+PROMPT='%B%n@%m%b %~ $vcs_info_msg_1_$(git_dirty)$prompt_newline:'
+RPROMPT='%T'
 
 # alias
 alias syy='sudo pacman -Syy'
