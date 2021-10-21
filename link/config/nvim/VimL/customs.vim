@@ -1,16 +1,14 @@
-" Smooth_scroll:
-" scroll the screen up
-function! functions#up(dist, duration, speed)
-    call s:functions('u', a:dist, a:duration, a:speed)
+" Strengthen_operations:
+" smooth scroll
+function! customs#up(dist, duration, speed)
+    call s:customs('u', a:dist, a:duration, a:speed)
 endfunction
 
-" scroll the screen down
-function! functions#down(dist, duration, speed)
-    call s:functions('d', a:dist, a:duration, a:speed)
+function! customs#down(dist, duration, speed)
+    call s:customs('d', a:dist, a:duration, a:speed)
 endfunction
 
-" animation
-function! s:functions(dir, dist, duration, speed)
+function! s:customs(dir, dist, duration, speed)
     for i in range(a:dist/a:speed)
         let start = reltime()
         if a:dir ==# 'd'
@@ -32,11 +30,10 @@ function! s:get_ms_since(time)
     return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
 
-nnoremap <silent><c-u> :call functions#up(&scroll,5,1)<cr>
-nnoremap <silent><c-d> :call functions#down(&scroll,5,1)<cr>
+nnoremap <silent><c-u> :call customs#up(&scroll,5,1)<cr>
+nnoremap <silent><c-d> :call customs#down(&scroll,5,1)<cr>
 
-
-" Visual_IA:
+" can use I, V in visual mode
 function! Force_blockwise(next_key)
     return s:setup_keyseq_table[a:next_key][mode()]
 endfunction
@@ -55,8 +52,7 @@ if !exists('g:niceblock_no_default_key_mappings') ||
     silent! xmap <unique> A  <plug>(niceblock-A)
 endif
 
-
-" FullToggle:
+" full screen toggle
 command! -nargs=? -complete=buffer -bang FullToggle
             \ :call FullToggle('<bang>')
 
@@ -95,11 +91,11 @@ map <silent><c-w>f :FullToggle<cr>
 map <silent><c-w><c-f> :FullToggle<cr>
 
 
-" ClearSpaces:
+" Commands:
+"clear space at the end of a line
 command! ClearSpaces %s/\s\+$//g
 
-
-" ClearBuffers:
+"clear buffers
 command! -nargs=? -complete=buffer -bang CleanBuffers
             \ :call ClearBuffers('<bang>')
 
@@ -130,14 +126,13 @@ function! ClearBuffers(bang)
     endif
 endfunction
 
-
-" SudoWrite:
+" save as root
 command! SudoWrite w !sudo tee > /dev/null %
 
+" real-time diff original file
+command! -nargs=0 DiffOrigin call s:open_diff()
 
-" DiffOrigin:
 function! s:open_diff()
-	" Open diff window and start comparison
 	let l:bnr = bufnr('%')
 	call setwinvar(winnr(), 'diff_origin', l:bnr)
 	vertical new __diff
@@ -152,10 +147,9 @@ function! s:open_diff()
 	diffthis
 endfunction
 
-command! -nargs=0 DiffOrigin call s:open_diff()
+" auto save when exit the insert mode
+command! -bang AutoSave call s:autosave(<bang>1)
 
-
-" AutoSave:
 function! s:autosave(enable)
   augroup autosave
     autocmd!
@@ -168,4 +162,23 @@ function! s:autosave(enable)
   augroup END
 endfunction
 
-command! -bang AutoSave call s:autosave(<bang>1)
+
+" Autocmds:
+" go
+autocmd FileType go setlocal noexpandtab
+
+" markdown
+autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
+
+" git
+autocmd FileType git nnoremap <silent><buffer>q :q<cr>
+
+" qf
+autocmd FileType qf nnoremap <silent><buffer>q :q<cr>
+
+" term
+autocmd TermOpen term://* startinsert
+
+" *
+" save the cursor position
+autocmd BufReadPost * if line("'\"")>1 && line("'\"") <= line("$") && &filetype != 'gitcommit' | exe "normal! g'\"" | endif

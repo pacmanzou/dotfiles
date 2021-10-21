@@ -262,13 +262,26 @@ nnoremap <silent>yd :let @+=getcwd()<cr>
 nnoremap <silent><c-n> <c-i>
 nnoremap <silent><c-p> <c-o>
 
+" hlsearch
+nnoremap <silent><nowait><expr><c-g>h &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
+nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
+
+" spell
+nnoremap <silent><c-g>s :setlocal spell!<cr>
+nnoremap <silent><c-g><c-s> :setlocal spell!<cr>
+
+" search by regex
 nnoremap / mr/\v
-nnoremap <silent>Y y$
-nnoremap <silent>> >>
-nnoremap <silent>< <<
-nnoremap <silent>Q @q
+
+" open the file under the cursor
 nnoremap <silent>gf <c-w>f
 nnoremap <silent>gF gf
+
+" misc
+nnoremap <silent>> >>
+nnoremap <silent>< <<
+nnoremap <silent>Y y$
+nnoremap <silent>Q @q
 
 
 " Insert:
