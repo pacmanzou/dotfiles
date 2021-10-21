@@ -5,6 +5,7 @@ let g:coc_global_extensions = [
             \ 'coc-json',
             \ 'coc-sh',
             \ 'coc-tsserver',
+            \ 'coc-emmet',
             \ 'coc-html',
             \ 'coc-css',
             \ 'coc-vetur',
