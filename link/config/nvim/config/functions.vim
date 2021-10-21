@@ -95,11 +95,15 @@ map <silent><c-w>f :FullToggle<cr>
 map <silent><c-w><c-f> :FullToggle<cr>
 
 
-" Cleanbuffers:
-command! -nargs=? -complete=buffer -bang CleanBuffers
-            \ :call CleanBuffers('<bang>')
+" ClearSpaces:
+command! ClearSpaces %s/\s\+$//g
 
-function! CleanBuffers(bang)
+
+" ClearBuffers:
+command! -nargs=? -complete=buffer -bang CleanBuffers
+            \ :call ClearBuffers('<bang>')
+
+function! ClearBuffers(bang)
     let last_buf = bufnr('$')
 
     let del_cnt = 0
@@ -122,16 +126,16 @@ function! CleanBuffers(bang)
     endwhile
 
     if del_cnt > 0
-        echomsg 'clean done, ' del_cnt 'buffer(s) deleted'
+        echomsg 'Clear done, ' del_cnt 'buffer(s) cleard'
     endif
 endfunction
 
 
 " SudoWrite:
-command! W w !sudo tee > /dev/null %
+command! SudoWrite w !sudo tee > /dev/null %
 
 
-" Diff:
+" DiffOrigin:
 function! s:open_diff()
 	" Open diff window and start comparison
 	let l:bnr = bufnr('%')
@@ -148,7 +152,7 @@ function! s:open_diff()
 	diffthis
 endfunction
 
-command! -nargs=0 Difforig call s:open_diff()
+command! -nargs=0 DiffOrigin call s:open_diff()
 
 
 " AutoSave:
