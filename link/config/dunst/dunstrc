@@ -176,14 +176,6 @@
     # Context menu.
     # context = mod1+c
 
-[urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#1d1d1d"
-    foreground = "#ebdbb2"
-    timeout = 5
-    icon = /home/zou/.config/dunst/normal.png
-
 [urgency_normal]
     background = "#1d1d1d"
     foreground = "#ebdbb2"
@@ -191,8 +183,8 @@
     icon = /home/zou/.config/dunst/normal.png
 
 [urgency_critical]
-    background = "#D62929"
-    foreground = "#ebdbb2"
+    background = "#1d1d1d"
+    foreground = "#fb4934"
     timeout = 0
     icon = /home/zou/.config/dunst/critical.png
 
