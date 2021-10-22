@@ -1,4 +1,4 @@
-" dependence: coc, coc-git, capslock
+" dependence: coc and coc-git
 function! StatusLine(current, width)
     let l:s = ''
     let l:s .= crystalline#mode()

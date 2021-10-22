@@ -264,8 +264,8 @@ nnoremap <silent><c-p> <c-o>
 " select code block in markdown
 xnoremap <silent> ib g_?^\s*```<cr>jo/^\s*```<cr>kV:<c-u>nohl<cr>gv
 xnoremap <silent> ab g_?^\s*```<cr>o/^\s*```<cr>V:<c-u>nohl<cr>gv
-onoremap <silent> ib :<C-U>execute "normal vib"<cr>
-onoremap <silent> ab :<C-U>execute "normal vab"<cr>
+onoremap <silent> ib :<c-u>execute "normal vib"<cr>
+onoremap <silent> ab :<c-u>execute "normal vab"<cr>
 
 " search by regex
 nnoremap / mr/\v
@@ -360,14 +360,14 @@ vmap o     <nop>
 vmap s     <nop>
 vmap n     <nop>
 vmap N     <nop>
-vmap <C-f> <nop>
-vmap <C-b> <nop>
+vmap <c-f> <nop>
+vmap <c-b> <nop>
 
 " vnoremap
 vnoremap <silent>+ g<c-a>
 vnoremap <silent>- g<c-x>
 
 
-" Terminal:
+" terminal:
 " tmap
-tmap <C-g> <nop>
+tmap <c-g> <nop>
