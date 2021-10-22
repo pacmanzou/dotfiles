@@ -19,6 +19,7 @@ let g:coc_global_extensions = [
             \ 'coc-lists',
             \ 'coc-git',
             \ 'coc-pairs',
+            \ 'coc-floaterm',
             \ 'coc-translator',
             \ 'coc-explorer',
             \ 'coc-leetcode'
@@ -57,7 +58,7 @@ nmap <silent>t <Plug>(coc-translator-e)
 " rename
 nmap <silent>cn <plug>(coc-rename)
 
-" apply codeAction
+" apply codeAction, need lsp to support
 vmap <silent><c-f> <plug>(coc-codeaction-selected)
 
 " go to code navigation
@@ -97,11 +98,14 @@ nnoremap <silent><space>w :CocList words<cr>
 nnoremap <silent><space>g :CocList grep<cr>
 nnoremap <silent><space>m :CocList --regex mru -A<cr>
 
+" coc-floaterm
+nnoremap <silent><c-g><space> :CocList floaterm<cr>
+
 nnoremap <silent><space>c :CocCommand<cr>
 nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
 
 " coc-git
-" create text object for git chunks
+" create text object for git chunk
 omap <silent>ig <Plug>(coc-git-chunk-inner)
 xmap <silent>ig <Plug>(coc-git-chunk-inner)
 omap <silent>ag <Plug>(coc-git-chunk-outer)
