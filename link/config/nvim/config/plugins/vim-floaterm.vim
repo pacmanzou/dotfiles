@@ -19,6 +19,8 @@ nnoremap <silent><c-g>n     :FloatermNew neomutt<cr>
 nnoremap <silent><c-g><c-n> :FloatermNew neomutt<cr>
 nnoremap <silent><c-g>r     :FloatermNew ranger<cr>
 nnoremap <silent><c-g><c-r> :FloatermNew ranger<cr>
+nnoremap <silent><c-g>h     :FloatermNew htop<cr>
+nnoremap <silent><c-g><c-h> :FloatermNew htop<cr>
 
 " git
 nnoremap <silent><leader>b :FloatermNew git blame --color-lines %<cr>
