@@ -178,11 +178,8 @@ autocmd FileType go setlocal noexpandtab
 " markdown
 autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
 
-" git
-autocmd FileType git nnoremap <silent><buffer>q :q<cr>
-
-" qf
-autocmd FileType qf nnoremap <silent><buffer>q :q<cr>
+" git, qf and help
+autocmd FileType git,qf,help nnoremap <silent><buffer>q :q<cr>
 
 " term
 autocmd TermOpen term://* startinsert

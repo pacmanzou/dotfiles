@@ -1,3 +1,5 @@
+""" coc extensions load """
+""
 let g:coc_global_extensions = [
             \ 'coc-go',
             \ 'coc-pyright',
@@ -25,36 +27,8 @@ let g:coc_global_extensions = [
             \ 'coc-leetcode'
             \ ]
 
-" show documentation
-function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
-        call CocActionAsync('doHover')
-    else
-        execute '!' . &keywordprg . " " . expand('<cword>')
-    endif
-endfunction
-
-autocmd FileType help nnoremap <silent><buffer> q :q<cr>
-
-nnoremap <silent>gh :call <sid>show_documentation()<cr>
-
-" snippets
-let g:coc_snippet_next = '<C-j>'
-let g:coc_snippet_prev = '<C-k>'
-
-imap <silent><nowait><expr> <C-l> coc#float#has_float() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
-
-" pairs
-inoremap <silent><c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
-
-" explorer
-nmap <silent><space>e :CocCommand explorer --sources=file+<cr>
-
-" translate
-nmap <silent>t <Plug>(coc-translator-e)
-
+""" coc basci config """
+""
 " rename
 nmap <silent>cn <plug>(coc-rename)
 
@@ -98,11 +72,44 @@ nnoremap <silent><space>w :CocList words<cr>
 nnoremap <silent><space>g :CocList grep<cr>
 nnoremap <silent><space>m :CocList --regex mru -A<cr>
 
-" coc-floaterm
-nnoremap <silent><c-g><space> :CocList floaterm<cr>
-
 nnoremap <silent><space>c :CocCommand<cr>
 nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
+
+" show documentation
+function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+        execute 'h '.expand('<cword>')
+    elseif (coc#rpc#ready())
+        call CocActionAsync('doHover')
+    else
+        execute '!' . &keywordprg . " " . expand('<cword>')
+    endif
+endfunction
+
+nnoremap <silent>gh :call <sid>show_documentation()<cr>
+
+" autocmd
+autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
+
+""" coc extensions config """
+""
+" coc-snippets
+let g:coc_snippet_next = '<C-j>'
+let g:coc_snippet_prev = '<C-k>'
+
+imap <silent><nowait><expr> <C-l> coc#float#has_float() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+
+" coc-pairs
+inoremap <silent><c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
+
+" coc-explorer
+nmap <silent><space>e :CocCommand explorer --sources=file+<cr>
+
+" coc-translate
+nmap <silent>t <Plug>(coc-translator-e)
+
+" coc-floaterm
+nnoremap <silent><c-g><space> :CocList floaterm<cr>
 
 " coc-git
 " create text object for git chunk
@@ -129,6 +136,3 @@ nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
 nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
 nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
 nnoremap <silent><leader>o :CocCommand git.browserOpen<cr>
-
-" autocmd for go
-autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
