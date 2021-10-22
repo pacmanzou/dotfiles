@@ -3,7 +3,6 @@ let g:floaterm_height = 1.0
 let g:floaterm_title = ''
 
 nnoremap <silent><c-g><cr>    :FloatermNew<cr>
-nnoremap <silent><c-g><space> :CocList floaterm<cr>
 nnoremap <silent><c-g>p       :FloatermToggle<cr>
 nnoremap <silent><c-g><c-p>   :FloatermToggle<cr>
 
