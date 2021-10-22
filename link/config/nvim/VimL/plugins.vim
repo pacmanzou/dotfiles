@@ -5,20 +5,21 @@ Plug 'pacmanzou/crystalline.vim'
 Plug 'luochen1990/rainbow'
 Plug 'RRethy/vim-illuminate'
 Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'LunarWatcher/auto-pairs'
 Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
 
 " operation
 Plug 'pacmanzou/surround.vim'
-Plug 'pacmanzou/exchange.vim'
-Plug 'pacmanzou/capslock.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-abolish'
 Plug 'tpope/vim-repeat'
 Plug 'junegunn/vim-easy-align'
+Plug 'tommcdo/vim-exchange'
 Plug 'kana/vim-smartchr'
-Plug 'sbdchd/neoformat'
 Plug 'lpinilla/vim-codepainter'
-Plug 'LunarWatcher/auto-pairs'
+
+" format
+Plug 'sbdchd/neoformat'
 
 " term
 Plug 'voldikss/vim-floaterm'
