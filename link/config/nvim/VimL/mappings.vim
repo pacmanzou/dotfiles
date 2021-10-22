@@ -261,14 +261,6 @@ nnoremap <silent>yd :let @+=getcwd()<cr>
 nnoremap <silent><c-n> <c-i>
 nnoremap <silent><c-p> <c-o>
 
-" hlsearch
-nnoremap <silent><nowait><expr><c-g>h     &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
-nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
-
-" spell
-nnoremap <silent><c-g>s     :setlocal spell!<cr>
-nnoremap <silent><c-g><c-s> :setlocal spell!<cr>
-
 " select code block in markdown
 xnoremap <silent> ib g_?^\s*```<cr>jo/^\s*```<cr>kV:<c-u>nohl<cr>gv
 xnoremap <silent> ab g_?^\s*```<cr>o/^\s*```<cr>V:<c-u>nohl<cr>gv
