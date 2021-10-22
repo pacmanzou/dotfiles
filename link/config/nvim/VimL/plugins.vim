@@ -41,7 +41,8 @@ Plug 'wellle/tmux-complete.vim'
 Plug 'pacmanzou/go-syntax.vim', {'for': ['go', 'vim-plug']}
 
 " markdown
-Plug 'mzlogin/vim-markdown-toc', {'for': ['markdown', 'vim-plug'] }
+Plug 'mzlogin/vim-markdown-toc', {'for': ['markdown', 'vim-plug']}
+Plug 'ferrine/md-img-paste.vim', {'for': ['markdown', 'vim-plug']}
 Plug 'iamcco/markdown-preview.nvim', {
             \ 'do': 'cd app && yarn install',
             \ 'for': ['markdown', 'vim-plug'],
