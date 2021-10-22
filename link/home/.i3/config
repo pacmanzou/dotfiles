@@ -78,11 +78,12 @@ bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_
 
 
 bindsym $mod+m mode "$mode_misc"
-set $mode_misc (w)ifi   (t)ouchpad   (f)citx
+set $mode_misc (w)ifi   (t)ouchpad   (f)citx   (b)luetooth
 mode "$mode_misc"{
     bindsym w exec --no-startup-id bash "$HOME/.i3/wifi.sh", mode "default"
     bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
     bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx_restart.sh", mode "default"
+    bindsym b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on', mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
