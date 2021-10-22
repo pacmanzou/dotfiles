@@ -211,11 +211,11 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #000000
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border 1pixel
-default_floating_border 1pixel
+default_border none
+default_floating_border none
 
-smart_borders on
+# smart_borders on
 
 # gaps
-gaps inner 7
-gaps outer -7
+# gaps inner 7
+# gaps outer -7
