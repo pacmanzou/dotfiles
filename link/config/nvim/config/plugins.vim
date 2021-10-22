@@ -16,6 +16,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tommcdo/vim-exchange'
 Plug 'kana/vim-smartchr'
 Plug 'lpinilla/vim-codepainter'
+Plug 'AndrewRadev/splitjoin.vim'
 
 " format
 Plug 'sbdchd/neoformat'
