@@ -120,7 +120,7 @@ nnoremap <silent><leader>u :CocCommand git.chunkUndo<cr>
 nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
 nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
 nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
-nnoremap <silent><leader>b :CocCommand git.browserOpen<cr>
+nnoremap <silent><leader>o :CocCommand git.browserOpen<cr>
 
 " autocmd for go
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')

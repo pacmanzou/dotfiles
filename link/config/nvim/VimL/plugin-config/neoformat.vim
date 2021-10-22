@@ -27,5 +27,4 @@ augroup Comment for different filetype
     autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
 augroup END
 
-nnoremap <silent><c-g>f :Neoformat<cr>
-nnoremap <silent><c-g><c-f> :Neoformat<cr>
+nnoremap <silent><space>n :Neoformat<cr>

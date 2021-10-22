@@ -42,12 +42,7 @@
     "git.splitWindowCommand": "below sp",
     "git.addGBlameToVirtualText": true,
     "git.blameUseRealTime": true,
-    "git.addedSign.hlGroup": "GitAdd",
-    "git.changedSign.hlGroup": "GitModify",
-    "git.removedSign.hlGroup": "GitDelete",
     "git.branchCharacter": "",
-    "git.topRemovedSign.text": "",
-    "git.changeRemovedSign.text": "",
     "leetcode.language": "golang",
     "list.source.files.args": ["--hidden", "--files"],
     "list.source.files.excludePatterns": ["**/.git/**"],
@@ -89,6 +84,5 @@
     "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
     "translator.engines": [
         "youdao"
-    ],
-    "yank.enableCompletion": false
+    ]
 }
