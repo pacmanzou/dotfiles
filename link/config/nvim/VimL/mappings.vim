@@ -53,7 +53,6 @@ map g~ <nop>
 
 " nop z
 map Z <nop>
-map z<cr> <nop>
 map z+ <nop>
 map z- <nop>
 map z. <nop>
@@ -190,25 +189,25 @@ map ]s <nop>
 map ]z <nop>
 map ]} <nop>
 
-map <c-q> <nop>
-map <c-n> <nop>
-map <c-o> <nop>
-map <c-p> <nop>
-map <c-g> <nop>
-map <bs> <nop>
-map <c-s> <nop>
-map <c-t> <nop>
-map <c-x> <nop>
-map <c-y> <nop>
-map <c-z> <nop>
-map <c-v> <nop>
+map <c-q>      <nop>
+map <c-n>      <nop>
+map <c-o>      <nop>
+map <c-p>      <nop>
+map <c-g>      <nop>
+map <bs>       <nop>
+map <c-s>      <nop>
+map <c-t>      <nop>
+map <c-x>      <nop>
+map <c-y>      <nop>
+map <c-z>      <nop>
+map <c-v>      <nop>
 map <c-\><c-n> <nop>
 map <c-\><c-g> <nop>
-map <c-\> <nop>
-map <c-]> <nop>
-map <c-^> <nop>
-map <c-_> <nop>
-map <space> <nop>
+map <c-\>      <nop>
+map <c-]>      <nop>
+map <c-^>      <nop>
+map <c-_>      <nop>
+map <space>    <nop>
 
 " noremap
 " windows focus
@@ -220,8 +219,8 @@ noremap <silent><c-k> <c-w>k
 " cursor move
 noremap <silent><c-e> $
 noremap <silent><c-a> ^
-noremap <silent>J 5<c-e>
-noremap <silent>K 5<c-y>
+noremap <silent>J     5<c-e>
+noremap <silent>K     5<c-y>
 
 " visual select
 noremap <silent>vv <c-v>
@@ -232,15 +231,15 @@ noremap <silent>- <c-x>
 
 " nnoremap
 " windows exchange
-nnoremap <silent><c-w>t <c-w>T
+nnoremap <silent><c-w>t     <c-w>T
 nnoremap <silent><c-w><c-t> <c-w>T
-nnoremap <silent><c-w>h <c-w>H
+nnoremap <silent><c-w>h     <c-w>H
 nnoremap <silent><c-w><c-h> <c-w>H
-nnoremap <silent><c-w>j <c-w>J
+nnoremap <silent><c-w>j     <c-w>J
 nnoremap <silent><c-w><c-j> <c-w>J
-nnoremap <silent><c-w>k <c-w>K
+nnoremap <silent><c-w>k     <c-w>K
 nnoremap <silent><c-w><c-k> <c-w>K
-nnoremap <silent><C-w>l <c-w>L
+nnoremap <silent><C-w>l     <c-w>L
 nnoremap <silent><C-w><c-l> <c-w>L
 
 " fold
@@ -250,7 +249,7 @@ nnoremap zc zC
 nnoremap zC zM
 
 " tab switch
-nnoremap <silent><tab> :tabnext<cr>
+nnoremap <silent><tab>   :tabnext<cr>
 nnoremap <silent><s-tab> :tabprevious<cr>
 
 " copy name, path, directory
@@ -263,11 +262,11 @@ nnoremap <silent><c-n> <c-i>
 nnoremap <silent><c-p> <c-o>
 
 " hlsearch
-nnoremap <silent><nowait><expr><c-g>h &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
+nnoremap <silent><nowait><expr><c-g>h     &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
 nnoremap <silent><nowait><expr><c-g><c-h> &hlsearch ? ":set nohlsearch<cr>" : ":set hlsearch<cr>"
 
 " spell
-nnoremap <silent><c-g>s :setlocal spell!<cr>
+nnoremap <silent><c-g>s     :setlocal spell!<cr>
 nnoremap <silent><c-g><c-s> :setlocal spell!<cr>
 
 " search by regex
@@ -286,51 +285,51 @@ nnoremap <silent>Q @q
 
 " Insert:
 " imap
-imap <c-@> <nop>
-imap <c-q> <nop>
-imap <c-e> <end>
-imap <c-r> <nop>
-imap <c-r><c-r> <nop>
-imap <c-r><c-o> <nop>
-imap <c-r><c-p> <nop>
-imap <c-o> <esc>o
-imap <c-a> <esc>I
-imap <c-s> <esc>lce
-imap <c-d> <delete>
-imap <c-f> <right>
-imap <c-g> <nop>
-imap <c-g><c-j> <nop>
-imap <c-g>j <nop>
+imap <c-@>       <nop>
+imap <c-q>       <nop>
+imap <c-e>       <end>
+imap <c-r>       <nop>
+imap <c-r><c-r>  <nop>
+imap <c-r><c-o>  <nop>
+imap <c-r><c-p>  <nop>
+imap <c-o>       <esc>o
+imap <c-a>       <esc>I
+imap <c-s>       <esc>lce
+imap <c-d>       <delete>
+imap <c-f>       <right>
+imap <c-g>       <nop>
+imap <c-g><c-j>  <nop>
+imap <c-g>j      <nop>
 imap <c-g><down> <nop>
-imap <c-g><c-k> <nop>
-imap <c-g>k <nop>
-imap <c-g><up> <nop>
-imap <c-g>u <nop>
-imap <c-g>U <nop>
-imap <c-h> <backspace>
-imap <c-j> <nop>
-imap <c-k> <esc>lC
-imap <c-l> <nop>
-imap <c-z> <nop>
-imap <c-x><c-d> <nop>
-imap <c-x><c-e> <nop>
-imap <c-x><c-i> <nop>
-imap <c-x><c-l> <nop>
-imap <c-x><c-n> <nop>
-imap <c-x><c-o> <nop>
-imap <c-x><c-p> <nop>
-imap <c-x><c-s> <nop>
-imap <c-x><c-t> <nop>
-imap <c-x><c-y> <nop>
-imap <c-x><c-u> <nop>
-imap <c-x><c-v> <nop>
-imap <c-x><c-]> <nop>
-imap <c-v> <nop>
-imap <c-b> <left>
-imap <c-\><c-n> <nop>
-imap <c-\><c-g> <nop>
-imap <c-]> <nop>
-imap <c-x>f <c-x><c-f>
+imap <c-g><c-k>  <nop>
+imap <c-g>k      <nop>
+imap <c-g><up>   <nop>
+imap <c-g>u      <nop>
+imap <c-g>U      <nop>
+imap <c-h>       <backspace>
+imap <c-j>       <nop>
+imap <c-k>       <esc>lC
+imap <c-l>       <nop>
+imap <c-z>       <nop>
+imap <c-x><c-d>  <nop>
+imap <c-x><c-e>  <nop>
+imap <c-x><c-i>  <nop>
+imap <c-x><c-l>  <nop>
+imap <c-x><c-n>  <nop>
+imap <c-x><c-o>  <nop>
+imap <c-x><c-p>  <nop>
+imap <c-x><c-s>  <nop>
+imap <c-x><c-t>  <nop>
+imap <c-x><c-y>  <nop>
+imap <c-x><c-u>  <nop>
+imap <c-x><c-v>  <nop>
+imap <c-x><c-]>  <nop>
+imap <c-v>       <nop>
+imap <c-b>       <left>
+imap <c-\><c-n>  <nop>
+imap <c-\><c-g>  <nop>
+imap <c-]>       <nop>
+imap <c-x>f      <c-x><c-f>
 
 
 " Command:
@@ -357,12 +356,12 @@ cmap <c-b> <left>
 
 " Visual:
 " vmap
-vmap q <nop>
-vmap t <nop>
-vmap o <nop>
-vmap s <nop>
-vmap n <nop>
-vmap N <nop>
+vmap q     <nop>
+vmap t     <nop>
+vmap o     <nop>
+vmap s     <nop>
+vmap n     <nop>
+vmap N     <nop>
 vmap <C-f> <nop>
 vmap <C-b> <nop>
 
