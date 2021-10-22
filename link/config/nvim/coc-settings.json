@@ -1,4 +1,5 @@
 {
+    "coc.preferences.formatOnType": true,
     "coc.preferences.rootPatterns": [".git", ".gitignore", "Makefile"],
     "diagnostic.errorSign": "\uf467",
     "diagnostic.warningSign": "\uf071",

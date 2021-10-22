@@ -5,7 +5,6 @@ Plug 'pacmanzou/crystalline.vim'
 Plug 'luochen1990/rainbow'
 Plug 'RRethy/vim-illuminate'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'LunarWatcher/auto-pairs'
 Plug 'RRethy/vim-hexokinase', {'do': 'make hexokinase'}
 
 " operation

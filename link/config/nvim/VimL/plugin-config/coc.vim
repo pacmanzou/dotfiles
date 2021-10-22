@@ -18,6 +18,7 @@ let g:coc_global_extensions = [
             \ 'coc-gitignore',
             \ 'coc-lists',
             \ 'coc-git',
+            \ 'coc-pairs',
             \ 'coc-translator',
             \ 'coc-explorer',
             \ 'coc-leetcode'
@@ -43,6 +44,9 @@ let g:coc_snippet_next = '<C-j>'
 let g:coc_snippet_prev = '<C-k>'
 
 imap <silent><nowait><expr> <C-l> coc#float#has_float() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+
+" pairs
+inoremap <silent><c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
 
 " explorer
 nmap <silent><space>e :CocCommand explorer --sources=file+<cr>
