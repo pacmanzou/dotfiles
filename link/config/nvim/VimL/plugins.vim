@@ -18,7 +18,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'kana/vim-smartchr'
 Plug 'sbdchd/neoformat'
 Plug 'lpinilla/vim-codepainter'
-Plug 'jiangmiao/auto-pairs'
+Plug 'LunarWatcher/auto-pairs'
 
 " term
 Plug 'voldikss/vim-floaterm'
