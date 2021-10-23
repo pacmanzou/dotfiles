@@ -1,6 +1,8 @@
 {
     "coc.preferences.formatOnType": true,
     "coc.preferences.rootPatterns": [".git", ".gitignore", "Makefile"],
+	"diagnostic.infoSign": "",
+	"diagnostic.hintSign": "",
     "diagnostic.errorSign": "",
     "diagnostic.warningSign": "",
     "diagnostic-languageserver.filetypes": {
