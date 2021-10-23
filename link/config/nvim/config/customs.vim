@@ -1,15 +1,15 @@
 " Strengthen_operations:
 """ smooth scroll """
 ""
-function! customs#up(dist, duration, speed)
+function! customs#up(dist, duration, speed) abort
     call s:customs('u', a:dist, a:duration, a:speed)
 endfunction
 
-function! customs#down(dist, duration, speed)
+function! customs#down(dist, duration, speed) abort
     call s:customs('d', a:dist, a:duration, a:speed)
 endfunction
 
-function! s:customs(dir, dist, duration, speed)
+function! s:customs(dir, dist, duration, speed) abort
     for i in range(a:dist/a:speed)
         let start = reltime()
         if a:dir ==# 'd'
@@ -26,7 +26,7 @@ function! s:customs(dir, dist, duration, speed)
     endfor
 endfunction
 
-function! s:get_ms_since(time)
+function! s:get_ms_since(time) abort
     let cost = split(reltimestr(reltime(a:time)), '\.')
     return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
@@ -36,7 +36,7 @@ nnoremap <silent><c-d> :call customs#down(&scroll,5,1)<cr>
 
 """ can use I, V in visual mode """
 ""
-function! Force_blockwise(next_key)
+function! Force_blockwise(next_key) abort
     return s:setup_keyseq_table[a:next_key][mode()]
 endfunction
 
@@ -59,7 +59,7 @@ endif
 command! -nargs=? -complete=buffer -bang FullToggle
             \ :call FullToggle('<bang>')
 
-function! FullToggle(bang)
+function! FullToggle(bang) abort
     if exists('t:maximizer_sizes')
         call s:restore()
     elseif winnr('$') > 1
@@ -67,14 +67,14 @@ function! FullToggle(bang)
     endif
 endfunction
 
-function! s:maximize()
+function! s:maximize() abort
     let t:maximizer_sizes = { 'before': winrestcmd() }
     vert resize | resize
     let t:maximizer_sizes.after = winrestcmd()
     normal! ze
 endfunction
 
-function! s:restore()
+function! s:restore() abort
     if exists('t:maximizer_sizes')
         silent! exe t:maximizer_sizes.before
         if t:maximizer_sizes.before != winrestcmd()
@@ -102,9 +102,9 @@ command! ClearSpaces %s/\s\+$//g
 """ clear buffers """
 ""
 command! -nargs=? -complete=buffer -bang CleanBuffers
-            \ :call ClearBuffers('<bang>')
+            \ :call s:clearbuffers('<bang>')
 
-function! ClearBuffers(bang)
+function! s:clearbuffers(bang) abort
     let last_buf = bufnr('$')
 
     let del_cnt = 0
@@ -139,7 +139,7 @@ command! SudoWrite w !sudo tee > /dev/null %
 ""
 command! -nargs=0 DiffOrigin call s:open_diff()
 
-function! s:open_diff()
+function! s:open_diff() abort
 	let l:bnr = bufnr('%')
 	call setwinvar(winnr(), 'diff_origin', l:bnr)
 	vertical new __diff
@@ -158,7 +158,7 @@ endfunction
 ""
 command! -bang AutoSave call s:autosave(<bang>1)
 
-function! s:autosave(enable)
+function! s:autosave(enable) abort
   augroup autosave
     autocmd!
     if a:enable

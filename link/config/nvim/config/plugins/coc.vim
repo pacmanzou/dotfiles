@@ -76,7 +76,7 @@ nnoremap <silent><space>c :CocCommand<cr>
 nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
 
 " show documentation
-function! s:show_documentation()
+function! s:show_documentation() abort
     if (index(['vim','help'], &filetype) >= 0)
         execute 'h '.expand('<cword>')
     elseif (coc#rpc#ready())

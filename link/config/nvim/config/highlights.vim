@@ -3,6 +3,7 @@ hi clear
 hi StatusLine              guifg=#ebdbb2   guibg=#000000   gui=NONE           cterm=NONE
 hi TabLine                 guifg=#353535   guibg=#000000   gui=NONE           cterm=NONE
 hi TabLineSel              guifg=#ebdbb2   guibg=#000000   gui=NONE           cterm=NONE
+hi TabLineFill             guifg=#ebdbb2   guibg=#000000   gui=NONE           cterm=NONE
 hi StatusLineNC            guifg=#ebdbb2   guibg=#000000   gui=NONE           cterm=NONE
 hi Visual                  guifg=#fabd2f   guibg=#353535   gui=NONE           cterm=NONE
 hi Normal                  guifg=#ebdbb2   guibg=#000000   gui=NONE           cterm=NONE
