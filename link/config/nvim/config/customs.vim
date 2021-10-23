@@ -176,7 +176,15 @@ endfunction
 autocmd FileType go setlocal noexpandtab
 
 " markdown
-autocmd BufReadPre,BufNewFile *.md setlocal spell spelllang=en_us,cjk
+autocmd FileType markdown setlocal spell spelllang=en_us,cjk
+autocmd FileType markdown let g:markdown_fenced_languages = [
+            \ 'go',
+            \ 'python',
+            \ 'bash',
+            \ 'javascript',
+            \ 'html',
+            \ 'vim'
+            \ ]
 
 " term
 autocmd TermOpen term://* startinsert
