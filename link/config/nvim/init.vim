@@ -39,11 +39,58 @@ source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/customs.vim
 source $HOME/.config/nvim/config/plugins.vim
 
-let s:sourceList = split(glob('$HOME/.config/nvim/config/plugins/*.vim'), '\n')
+function! SourceList(path) abort
+    let s:sourceList = a:path
 
-for s:item in s:sourceList
-    exec 'source '. s:item
-endfor
+    for s:item in s:sourceList
+        exec 'source '. s:item
+    endfor
 
-unlet s:item
-unlet s:sourceList
+    unlet s:item
+    unlet s:sourceList
+endfunction
+
+function! LoadGlobalPlugins(timer) abort
+    call plug#load(
+                \ 'vim-illuminate',
+                \ 'vim-hexokinase',
+                \ 'surround.vim',
+                \ 'vim-commentary',
+                \ 'vim-abolish',
+                \ 'vim-repeat',
+                \ 'vim-easy-align',
+                \ 'vim-exchange',
+                \ 'vim-smartchr',
+                \ 'vim-codepainter',
+                \ 'splitjoin.vim',
+                \ 'neoformat',
+                \ 'vim-floaterm',
+                \ 'vista.vim',
+                \ 'asyncrun.vim',
+                \ 'asynctasks.vim',
+                \ 'coc.nvim',
+                \ 'tmux-complete.vim'
+                \ )
+
+    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/global/*.vim'), '\n'))
+endfunction
+
+function! LoadMarkdownPlugins(timer) abort
+    call plug#load(
+                \ 'vim-markdown-toc',
+                \ 'md-img-paste.vim',
+                \ 'markdown-preview.nvim'
+                \ )
+
+    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim'), '\n'))
+endfunction
+
+call SourceList(split(glob('$HOME/.config/nvim/config/plugins/*.vim'), '\n'))
+
+" delay load
+augroup load_plugins
+    autocmd!
+    autocmd VimEnter * call timer_start(100, 'LoadGlobalPlugins', {'repeat': 1})
+    autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins', {'repeat': 1})
+augroup END
+
