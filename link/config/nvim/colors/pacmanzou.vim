@@ -1,5 +1,6 @@
-" clear
 hi clear
+
+let g:colors_name = 'pacmanzou'
 
 " basics
 hi Normal       guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
@@ -105,43 +106,3 @@ hi Typedef        guifg=#fabd2f guibg=NONE    gui=NONE        cterm=NONE
 hi Todo           guifg=fg      guibg=#000000 gui=bold,italic cterm=bold,italic
 hi Underlined     guifg=#83a598 guibg=NONE    gui=underline   cterm=underline
 hi CursorIM       guifg=NONE    guibg=NONE    gui=reverse     ctermfg=NONE ctermbg=NONE cterm=reverse
-
-" markdown
-hi def link markdownH1                  htmlH1
-hi def link markdownH2                  htmlH2
-hi def link markdownH3                  htmlH3
-hi def link markdownH4                  htmlH4
-hi def link markdownH5                  htmlH5
-hi def link markdownH6                  htmlH6
-hi def link markdownHeadingRule         markdownRule
-hi def link markdownH1Delimiter         markdownHeadingDelimiter
-hi def link markdownH2Delimiter         markdownHeadingDelimiter
-hi def link markdownH3Delimiter         markdownHeadingDelimiter
-hi def link markdownH4Delimiter         markdownHeadingDelimiter
-hi def link markdownH5Delimiter         markdownHeadingDelimiter
-hi def link markdownH6Delimiter         markdownHeadingDelimiter
-hi def link markdownHeadingDelimiter    Delimiter
-hi def link markdownOrderedListMarker   markdownListMarker
-hi def link markdownListMarker          htmlTagName
-hi def link markdownBlockquote          Comment
-hi def link markdownRule                PreProc
-hi def link markdownFootnote            Typedef
-hi def link markdownFootnoteDefinition  Typedef
-hi def link markdownLinkText            htmlLink
-hi def link markdownIdDeclaration       Typedef
-hi def link markdownId                  Type
-hi def link markdownAutomaticLink       markdownUrl
-hi def link markdownUrl                 Float
-hi def link markdownUrlTitle            String
-hi def link markdownIdDelimiter         markdownLinkDelimiter
-hi def link markdownUrlDelimiter        htmlTag
-hi def link markdownUrlTitleDelimiter   Delimiter
-hi def link markdownItalic              htmlItalic
-hi def link markdownItalicDelimiter     markdownItalic
-hi def link markdownBold                htmlBold
-hi def link markdownBoldDelimiter       markdownBold
-hi def link markdownBoldItalic          htmlBoldItalic
-hi def link markdownBoldItalicDelimiter markdownBoldItalic
-hi def link markdownCodeDelimiter       Delimiter
-hi def link markdownEscape              Special
-hi def link markdownError               Error

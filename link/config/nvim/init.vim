@@ -26,25 +26,24 @@ let &termencoding = &encoding
 let mapleader = ","
 let g:netrw_nogx = 1
 
-" let the mode use English
+" language
 language en_US.UTF-8
 
-" load base files
+" colorscheme
+colorscheme pacmanzou
+
+" source
 source $HOME/.config/nvim/config/settings.vim
 source $HOME/.config/nvim/config/mappings.vim
 source $HOME/.config/nvim/config/statusline.vim
 source $HOME/.config/nvim/config/customs.vim
-source $HOME/.config/nvim/config/highlights.vim
+source $HOME/.config/nvim/config/plugins.vim
 
-" delay loading plugins
-autocmd VimEnter * call timer_start(100, 'SourcePlugins', {'repeat': 1})
+let s:sourceList = split(glob('$HOME/.config/nvim/config/plugins/*.vim'), '\n')
 
-function! SourcePlugins(timer) abort
-    source $HOME/.config/nvim/config/plugins.vim
+for s:item in s:sourceList
+    exec 'source '. s:item
+endfor
 
-    let s:sourceList = split(glob('$HOME/.config/nvim/config/plugins/*.vim'), '\n')
-
-    for s:item in s:sourceList
-        exec 'source '. s:item
-    endfor
-endfunction
+unlet s:item
+unlet s:sourceList
