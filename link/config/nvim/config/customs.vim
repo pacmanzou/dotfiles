@@ -196,4 +196,4 @@ autocmd FileType floaterm map <buffer><c-p> <nop>
 autocmd BufReadPost * if line("'\"")>1 && line("'\"") <= line("$") && &filetype != 'gitcommit' | exe "normal! g'\"" | endif
 
 " yank highlight
-autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=700}
+autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="Visual", timeout=700}

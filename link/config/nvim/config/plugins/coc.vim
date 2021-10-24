@@ -119,12 +119,12 @@ omap <silent>ag <Plug>(coc-git-chunk-outer)
 xmap <silent>ag <Plug>(coc-git-chunk-outer)
 
 " navigate chunks of current buffer
-nmap <silent>[g <plug>(coc-git-nextchunk)
-nmap <silent>]g <plug>(coc-git-prevchunk)
+nmap <silent>]g <plug>(coc-git-nextchunk)
+nmap <silent>[g <plug>(coc-git-prevchunk)
 
 " navigate conflicts of current buffer
-nmap <silent>[c <Plug>(coc-git-prevconflict)
 nmap <silent>]c <Plug>(coc-git-nextconflict)
+nmap <silent>[c <Plug>(coc-git-prevconflict)
 
 " coclist and coccommand for coc-git
 nnoremap <silent><leader>c :CocList bcommits<cr>
