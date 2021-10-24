@@ -368,6 +368,6 @@ vnoremap <silent>+ g<c-a>
 vnoremap <silent>- g<c-x>
 
 
-" terminal:
+" Terminal:
 " tmap
 tmap <c-g> <nop>
