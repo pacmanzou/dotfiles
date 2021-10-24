@@ -1,6 +1,7 @@
-let g:floaterm_width = 1.0
-let g:floaterm_height = 1.0
+let g:floaterm_width = 1.1
+let g:floaterm_height = 1.1
 let g:floaterm_title = ''
+let g:floaterm_borderchars =['','','','','','','','']
 
 nnoremap <silent><c-g><cr>    :FloatermNew zsh<cr>
 nnoremap <silent><c-g>p       :FloatermToggle<cr>
