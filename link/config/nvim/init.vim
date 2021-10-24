@@ -6,6 +6,7 @@
 let g:python_host_prog = '/usr/bin/python2'
 let g:python3_host_prog = '/usr/bin/python3'
 let g:node_host_prog = '/usr/bin/neovim-node-host'
+let g:ruby_host_prog = '$HOME/.local/share/gem/ruby/3.0.0/bin/neovim-ruby-host'
 
 " this is to avoid a bug that completes a code snippet.
 let g:clipboard = {
