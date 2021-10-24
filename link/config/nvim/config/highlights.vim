@@ -2,34 +2,34 @@
 hi clear
 
 " basics
-hi Normal       guifg=#ebdbb2   guibg=#000000 gui=NONE           cterm=NONE
-hi Visual       guifg=NONE      guibg=NONE gui=reverse           cterm=NONE
-hi SignColumn   guifg=#ebdbb2   guibg=#000000 gui=NONE           cterm=NONE
-hi ColorColumn  guifg=NONE      guibg=#000000 gui=NONE           cterm=NONE
-hi VertSplit    guifg=#665c54   guibg=#000000 gui=NONE           cterm=NONE
-hi Comment      guifg=#928374   guibg=NONE    gui=italic         cterm=italic
-hi CursorLine   guifg=NONE      guibg=#353535 gui=NONE           cterm=NONE
-hi CursorLineNr guifg=#ebdbb2   guibg=#000000 gui=NONE           cterm=NONE
-hi Error        guifg=#fb4934   guibg=#000000 gui=bold           cterm=bold
-hi ErrorMsg     guifg=#fb4934   guibg=#000000 gui=bold           cterm=bold
-hi ModeMsg      guifg=#ebdbb2   guibg=NONE    gui=bold           cterm=bold
-hi MoreMsg      guifg=#ebdbb2   guibg=NONE    gui=bold           cterm=bold
-hi WarningMsg   guifg=#FE8019   guibg=NONE    gui=bold           cterm=bold
-hi LineNr       guifg=#7c6f64   guibg=NONE    gui=NONE           cterm=NONE
-hi NonText      guifg=#504945   guibg=NONE    gui=NONE           cterm=NONE
-hi MatchParen   guifg=NONE      guibg=#665c54 gui=bold,underline cterm=bold,underline
-hi SpecialKey   guifg=#928374   guibg=NONE    gui=NONE           cterm=NONE
-hi WildMenu     guifg=#ebdbb2   guibg=#1d1d1d gui=bold           cterm=bold
-hi Conceal      guifg=#83a598   guibg=NONE    gui=NONE           cterm=NONE
-hi Cursor       guifg=NONE      guibg=NONE    gui=reverse        ctermfg=NONE ctermbg=NONE cterm=reverse
-hi Directory    guifg=#b8bb26   guibg=NONE    gui=bold           cterm=bold
-hi EndOfBuffer  guifg=#000000   guibg=NONE    gui=NONE           cterm=NONE
-hi Question     guifg=#fe8019   guibg=NONE    gui=bold           cterm=bold
-hi Title        guifg=#ebdbb2   guibg=NONE    gui=bold           cterm=bold
+hi Normal       guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
+hi Visual       guifg=NONE    guibg=NONE    gui=reverse        cterm=NONE
+hi SignColumn   guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
+hi ColorColumn  guifg=NONE    guibg=#000000 gui=NONE           cterm=NONE
+hi VertSplit    guifg=#665c54 guibg=#000000 gui=NONE           cterm=NONE
+hi Comment      guifg=#928374 guibg=NONE    gui=italic         cterm=italic
+hi CursorLine   guifg=NONE    guibg=#353535 gui=NONE           cterm=NONE
+hi CursorLineNr guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
+hi Error        guifg=#fb4934 guibg=#000000 gui=bold           cterm=bold
+hi ErrorMsg     guifg=#fb4934 guibg=#000000 gui=bold           cterm=bold
+hi ModeMsg      guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
+hi MoreMsg      guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
+hi WarningMsg   guifg=#FE8019 guibg=NONE    gui=bold           cterm=bold
+hi LineNr       guifg=#7c6f64 guibg=NONE    gui=NONE           cterm=NONE
+hi NonText      guifg=#504945 guibg=NONE    gui=NONE           cterm=NONE
+hi MatchParen   guifg=NONE    guibg=#665c54 gui=bold,underline cterm=bold,underline
+hi SpecialKey   guifg=#928374 guibg=NONE    gui=NONE           cterm=NONE
+hi WildMenu     guifg=#ebdbb2 guibg=#1d1d1d gui=bold           cterm=bold
+hi Conceal      guifg=#83a598 guibg=NONE    gui=NONE           cterm=NONE
+hi Cursor       guifg=NONE    guibg=NONE    gui=reverse        ctermfg=NONE ctermbg=NONE cterm=reverse
+hi Directory    guifg=#b8bb26 guibg=NONE    gui=bold           cterm=bold
+hi EndOfBuffer  guifg=#000000 guibg=NONE    gui=NONE           cterm=NONE
+hi Question     guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
+hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
 
 " search
-hi IncSearch    guifg=NONE   guibg=NONE gui=reverse cterm=reverse
-hi Search       guifg=NONE   guibg=NONE gui=reverse cterm=reverse
+hi IncSearch guifg=NONE guibg=NONE gui=reverse cterm=reverse
+hi Search    guifg=NONE guibg=NONE gui=reverse cterm=reverse
 
 " statusline
 hi StatusLine   guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
