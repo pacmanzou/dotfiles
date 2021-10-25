@@ -219,8 +219,8 @@ noremap <silent><c-k> <c-w>k
 " cursor move
 noremap <silent><c-e> $
 noremap <silent><c-a> ^
-noremap <silent>J     5<c-e>
-noremap <silent>K     5<c-y>
+noremap <silent>J     3<c-e>
+noremap <silent>K     3<c-y>
 
 " visual select
 noremap <silent>vv <c-v>
