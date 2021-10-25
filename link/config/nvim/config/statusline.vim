@@ -16,16 +16,16 @@ function! StatusDiagnostic() abort
     if empty(info) | return '' | endif
     let msgs = []
     if get(info, 'error', 0)
-        call add(msgs, ' ' . info['error'].' ')
+        call add(msgs, '' . info['error'].' ')
     endif
     if get(info, 'hint', 0)
-        call add(msgs, ' ' . info['hint'].' ')
+        call add(msgs, '' . info['hint'].' ')
     endif
     if get(info, 'info', 0)
-        call add(msgs, ' ' . info['info'].' ')
+        call add(msgs, '' . info['info'].' ')
     endif
     if get(info, 'warning', 0)
-        call add(msgs, ' ' . info['warning'])
+        call add(msgs, '' . info['warning'])
     endif
     return join(msgs,'')
 endfunction
