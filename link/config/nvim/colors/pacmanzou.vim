@@ -32,10 +32,6 @@ hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
 hi IncSearch guifg=NONE guibg=NONE gui=reverse cterm=reverse
 hi Search    guifg=NONE guibg=NONE gui=reverse cterm=reverse
 
-" statusline
-hi StatusLine   guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
-hi StatusLineNC guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
-
 " tabline
 hi TabLine     guifg=#353535 guibg=#000000 gui=NONE cterm=NONE
 hi TabLineSel  guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
