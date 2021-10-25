@@ -98,7 +98,7 @@ alias mkdir='mkdir -p'
 
 # tmux
 if [ -z "$TMUX" ]; then
-    SESSION_NAME="LOCALHOST"
+    SESSION_NAME="localhost"
     tmux new-session -s $SESSION_NAME
 fi
 
