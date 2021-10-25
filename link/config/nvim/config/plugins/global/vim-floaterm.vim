@@ -1,5 +1,5 @@
-let g:floaterm_width = 1.1
-let g:floaterm_height = 1.1
+let g:floaterm_width = 1.2
+let g:floaterm_height = 1.2
 let g:floaterm_title = ''
 let g:floaterm_borderchars =['','','','','','','','']
 
