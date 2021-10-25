@@ -59,9 +59,6 @@ hi diffRemoved             guifg=#fb4934 guibg=#00000000 gui=NONE cterm=NONE
 hi Folded     guifg=#ebdbb2 guibg=#353535 gui=italic cterm=italic
 hi FoldColumn guifg=#ebdbb2 guibg=#000000 gui=NONE   cterm=NONE
 
-" floaterm
-hi FloatermBorder guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
-
 " pmenu
 hi Pmenu      guifg=#ebdbb2 guibg=#1d1d1d gui=NONE    cterm=NONE
 hi PmenuSel   guifg=#ebdbb2 guibg=#353535 gui=reverse cterm=reverse
