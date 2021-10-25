@@ -16,18 +16,12 @@ scrolling:
   multiplier: 3
 
 font:
-  # normal:
-  #   family: WenQuanYi Micro Hei Mono
-  # bold:
-  #   family: WenQuanYi Micro Hei Mono
-  # italic:
-  #   family: WenQuanYi Micro Hei Mono
   normal:
-    family: Source Code Pro
+    family: DejaVu Sans Mono
   bold:
-    family: Source Code Pro
+    family: DejaVu Sans Mono
   italic:
-    family: Source Code Pro
+    family: DejaVu Sans Mono
   size: 13
   offset:
     x: 0
