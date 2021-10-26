@@ -17,14 +17,4 @@ let g:neoformat_basic_format_retab = 0
 " del $ space
 let g:neoformat_basic_format_trim = 0
 
-" comment
-augroup Comment for different filetype
-    autocmd!
-    autocmd FileType python,sh setlocal commentstring=#\ %s
-    autocmd FileType c,cpp setlocal commentstring=//\ %s
-    autocmd FileType markdown,md setlocal commentstring=<!--\ %s-->
-    autocmd FileType sql setlocal commentstring=--\ %s
-    autocmd BufNewFile,BufRead *.ini,*.conf setlocal commentstring=#\ %s
-augroup END
-
 nnoremap <silent><space>n :Neoformat<cr>

@@ -25,3 +25,6 @@ nnoremap <silent><c-g><c-h> :FloatermNew htop<cr>
 
 " git
 nnoremap <silent><leader>b :FloatermNew git blame --color-lines %<cr>
+
+" autocmd
+autocmd FileType floaterm map <buffer><c-p> <nop>

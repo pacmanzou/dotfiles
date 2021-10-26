@@ -1,4 +1,3 @@
-" Strengthen_operations:
 """ smooth scroll """
 ""
 function! customs#up(dist, duration, speed) abort
@@ -167,7 +166,6 @@ augroup Golang SmartChar
 augroup END
 
 
-" Commands:
 """ clear space at the end of a line """
 ""
 command! ClearSpaces %s/\s\+$//g
@@ -244,26 +242,10 @@ function! s:autosave(enable) abort
 endfunction
 
 
-" Autocmds:
-" go
-autocmd FileType go setlocal noexpandtab
-
-" markdown
-autocmd FileType markdown setlocal spell spelllang=en_us,cjk
-autocmd FileType markdown let g:markdown_fenced_languages = [
-            \ 'go',
-            \ 'python',
-            \ 'bash',
-            \ 'javascript',
-            \ 'html',
-            \ 'vim'
-            \ ]
-
+""" autocmd """
+""
 " term
 autocmd TermOpen term://* startinsert
-
-" floaterm
-autocmd FileType floaterm map <buffer><c-p> <nop>
 
 " save the cursor position
 autocmd BufReadPost * if line("'\"")>1 && line("'\"") <= line("$") && &filetype != 'gitcommit' | exe "normal! g'\"" | endif

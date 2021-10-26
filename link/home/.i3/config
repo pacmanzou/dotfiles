@@ -218,4 +218,4 @@ smart_borders on
 
 # gaps
 gaps inner 12
-gaps outer -1
+gaps outer -2

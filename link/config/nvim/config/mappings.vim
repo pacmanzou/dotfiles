@@ -1,4 +1,3 @@
-" Normal:
 " map
 " nop g
 map g# <nop>
@@ -200,7 +199,6 @@ map <c-t>      <nop>
 map <c-x>      <nop>
 map <c-y>      <nop>
 map <c-z>      <nop>
-map <c-v>      <nop>
 map <c-\><c-n> <nop>
 map <c-\><c-g> <nop>
 map <c-\>      <nop>
@@ -223,8 +221,7 @@ noremap <silent>J     3<c-e>
 noremap <silent>K     3<c-y>
 
 " visual select
-noremap <silent>vv <c-v>
-noremap <silent>gV ggvG$
+noremap <silent>gV ggVG$
 
 noremap <silent>+ <c-a>
 noremap <silent>- <c-x>
@@ -281,7 +278,6 @@ nnoremap <silent>Y y$
 nnoremap <silent>Q @q
 
 
-" Insert:
 " imap
 imap <c-@>       <nop>
 imap <c-q>       <nop>
@@ -330,7 +326,6 @@ imap <c-]>       <nop>
 imap <c-x>f      <c-x><c-f>
 
 
-" Command:
 " cmap
 cmap <c-q> <nop>
 cmap <c-e> <end>
@@ -352,7 +347,6 @@ cmap <c-v> <nop>
 cmap <c-b> <left>
 
 
-" Visual:
 " vmap
 vmap q     <nop>
 vmap t     <nop>
@@ -368,6 +362,5 @@ vnoremap <silent>+ g<c-a>
 vnoremap <silent>- g<c-x>
 
 
-" Terminal:
 " tmap
 tmap <c-g> <nop>

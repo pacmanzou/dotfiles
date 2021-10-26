@@ -1,8 +1,8 @@
 {
     "coc.preferences.formatOnType": true,
     "coc.preferences.rootPatterns": [".git", ".gitignore", "Makefile"],
-	"diagnostic.infoSign": "",
-	"diagnostic.hintSign": "",
+    "diagnostic.infoSign": "",
+    "diagnostic.hintSign": "",
     "diagnostic.errorSign": "",
     "diagnostic.warningSign": "",
     "diagnostic-languageserver.filetypes": {
@@ -50,6 +50,7 @@
     "list.source.files.args": ["--hidden", "--files"],
     "list.source.files.excludePatterns": ["**/.git/**"],
     "list.source.grep.defaultArgs": ["-smartcase", "-regex"],
+    "list.previewHighlightGroup": "Normal",
     "list.indicator": ":",
     "list.alignColumns": true,
     "list.nextKeymap": "<C-n>",

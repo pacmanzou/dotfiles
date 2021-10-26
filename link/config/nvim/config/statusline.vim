@@ -8,8 +8,6 @@ function! StatusLine() abort
     return s
 endfunction
 
-set statusline=%!StatusLine()
-
 " coc
 function! StatusDiagnostic() abort
     let info = get(b:, 'coc_diagnostic_info', {})
@@ -29,3 +27,5 @@ function! StatusDiagnostic() abort
     endif
     return join(msgs,'')
 endfunction
+
+set statusline=%!StatusLine()

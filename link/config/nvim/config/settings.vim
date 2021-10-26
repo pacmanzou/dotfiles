@@ -1,5 +1,5 @@
+" set
 set autochdir
-set background=dark
 set clipboard=unnamedplus
 set expandtab
 set fdm=indent
@@ -30,7 +30,6 @@ set signcolumn=yes
 set softtabstop=4
 set splitbelow
 set splitright
-set syntax=off
 set termguicolors
 set tabstop=4
 set updatetime=100

@@ -1,4 +1,9 @@
+set background=dark
 hi clear
+
+if exists("syntax_on")
+	syntax reset
+endif
 
 let g:colors_name = 'pacmanzou'
 
@@ -61,11 +66,11 @@ hi FoldColumn guifg=#ebdbb2 guibg=#000000 gui=NONE   cterm=NONE
 
 " pmenu
 hi Pmenu      guifg=#ebdbb2 guibg=#1d1d1d gui=NONE    cterm=NONE
-hi PmenuSel   guifg=#ebdbb2 guibg=#353535 gui=reverse cterm=reverse
+hi PmenuSel   guifg=#353535 guibg=#ebdbb2 gui=reverse cterm=reverse
 hi PmenuSbar  guifg=NONE    guibg=#1d1d1d gui=NONE    cterm=NONE
 hi PmenuThumb guifg=NONE    guibg=#353535 gui=NONE    cterm=NONE
 
-" languages
+" others
 hi Boolean        guifg=#d3869b guibg=NONE    gui=NONE        cterm=NONE
 hi Character      guifg=#d3869b guibg=NONE    gui=NONE        cterm=NONE
 hi Conditional    guifg=#fb4934 guibg=NONE    gui=NONE        cterm=NONE
