@@ -132,6 +132,7 @@ sudo pacman -S alacritty \
     shfmt \
     sxiv \
     tmux \
+    ttf-hack \
     unrar \
     unzip \
     vnote-git \
