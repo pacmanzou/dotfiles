@@ -3,10 +3,9 @@ let g:plug_window = '-tabnew'
 
 call plug#begin('$HOME/.config/nvim/plugged')
 " appearance
+Plug 'luochen1990/rainbow'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'p00f/nvim-ts-rainbow'
-Plug 'RRethy/nvim-treesitter-textsubjects'
+Plug 'pacmanzou/go-syntax.vim', {'for': ['go', 'gomod']}
 
 " global
 Plug 'RRethy/vim-illuminate',      {'on': []}
