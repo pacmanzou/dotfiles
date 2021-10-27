@@ -82,7 +82,6 @@ git_dirty() {
 
 # prompt
 PROMPT='%B%F{green}%n@%m%f%b %~ $vcs_info_msg_1_$(git_dirty)$prompt_newline:'
-RPROMPT='%T'
 
 # alias
 alias syy='sudo pacman -Syy'
