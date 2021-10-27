@@ -9,7 +9,7 @@ gui:
   theme:
     lightTheme: false # For terminals with a light background
     activeBorderColor:
-      - white
+      - yellow
       - bold
     inactiveBorderColor:
       - white
