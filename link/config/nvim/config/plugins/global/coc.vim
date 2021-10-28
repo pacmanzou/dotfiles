@@ -1,7 +1,6 @@
 """ coc extensions load """
 ""
 let g:coc_global_extensions = [
-            \ 'coc-go',
             \ 'coc-pyright',
             \ 'coc-json',
             \ 'coc-sh',

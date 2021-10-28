@@ -134,7 +134,6 @@ map <c-w>z <nop>
 map <c-w>\| <nop>
 map <c-w>} <nop>
 map <c-w>q <nop>
-map <c-w>o <nop>
 map <c-w>f <nop>
 
 " nop '

@@ -1,3 +1,18 @@
+let g:go_term_enabled = 1
+let g:go_term_close_on_exit = 0
+let g:go_fmt_autosave = 0
+let g:go_imports_autosave = 0
+let g:go_mod_fmt_autosave = 0
+let g:go_def_mapping_enabled = 0
+let g:go_code_completion_enabled = 0
+let g:go_doc_keywordprg_enabled = 0
+let g:go_textobj_include_variable = 0
+let g:go_fmt_fail_silently = 1
+let g:go_auto_type_info = 0
+let g:go_template_autocreate = 0
+let g:go_echo_go_info = 0
+let g:go_echo_command_info = 0
+
 let g:go_highlight_array_whitespace_error = 1
 let g:go_highlight_build_constraints = 1
 let g:go_highlight_chan_whitespace_error = 1
@@ -15,4 +30,4 @@ let g:go_highlight_string_spellcheck = 1
 let g:go_highlight_structs = 1
 let g:go_highlight_trailing_whitespace_error = 1
 let g:go_highlight_types = 1
-let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_declarations = 0

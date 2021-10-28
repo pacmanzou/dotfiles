@@ -5,7 +5,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 " appearance
 Plug 'luochen1990/rainbow'
 Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'pacmanzou/go-syntax.vim', {'for': ['go', 'gomod']}
+Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
 " global
 Plug 'RRethy/vim-illuminate',      {'on': []}
@@ -25,7 +25,6 @@ Plug 'skywind3000/asyncrun.vim',   {'on': []}
 Plug 'skywind3000/asynctasks.vim', {'on': []}
 Plug 'neoclide/coc.nvim',          {'branch': 'release',     'on': []}
 Plug 'wellle/tmux-complete.vim',   {'on': []}
-" Plug 'puremourning/vimspector'
 
 " markdown
 Plug 'mzlogin/vim-markdown-toc',              {'on': []}

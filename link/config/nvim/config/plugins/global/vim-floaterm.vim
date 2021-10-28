@@ -24,3 +24,4 @@ nnoremap <silent><leader>b :FloatermNew git blame --color-lines %<cr>
 
 " autocmd
 autocmd FileType floaterm map <buffer><c-p> <nop>
+autocmd TermOpen floaterm://* startinsert
