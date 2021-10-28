@@ -19,9 +19,6 @@ nnoremap <silent><c-g><c-l> :FloatermNew lazygit<cr>
 nnoremap <silent><c-g>r     :FloatermNew ranger<cr>
 nnoremap <silent><c-g><c-r> :FloatermNew ranger<cr>
 
-" git
-nnoremap <silent><leader>b :FloatermNew git blame --color-lines %<cr>
-
 " autocmd
 autocmd FileType floaterm map <buffer><c-p> <nop>
 autocmd TermOpen floaterm://* startinsert

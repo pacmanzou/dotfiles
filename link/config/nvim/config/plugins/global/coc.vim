@@ -120,13 +120,6 @@ nmap <silent>[g <plug>(coc-git-prevchunk)
 nmap <silent>]c <Plug>(coc-git-nextconflict)
 nmap <silent>[c <Plug>(coc-git-prevconflict)
 
-" coclist and coccommand for coc-git
-nnoremap <silent><leader>c :CocList bcommits<cr>
-nnoremap <silent><leader>C :CocList commits<cr>
-
-nnoremap <silent><leader>a :CocCommand git.chunkStage<cr>
-nnoremap <silent><leader>u :CocCommand git.chunkUndo<cr>
-nnoremap <silent><leader>p :CocCommand git.chunkInfo<cr>
-nnoremap <silent><leader>f :CocCommand git.foldUnchanged<cr>
-nnoremap <silent><leader>s :CocCommand git.showCommit<cr>
-nnoremap <silent><leader>o :CocCommand git.browserOpen<cr>
+nnoremap <silent><space>a :CocCommand git.chunkStage<cr>
+nnoremap <silent><space>u :CocCommand git.chunkUndo<cr>
+nnoremap <silent><space>p :CocCommand git.chunkInfo<cr>
