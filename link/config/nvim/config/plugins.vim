@@ -27,9 +27,9 @@ Plug 'neoclide/coc.nvim',          {'branch': 'release',     'on': []}
 Plug 'wellle/tmux-complete.vim',   {'on': []}
 
 " markdown
-Plug 'mzlogin/vim-markdown-toc',              {'on': []}
-Plug 'ferrine/md-img-paste.vim',              {'on': []}
-Plug 'iamcco/markdown-preview.nvim',          {
+Plug 'mzlogin/vim-markdown-toc',     {'on': []}
+Plug 'ferrine/md-img-paste.vim',     {'on': []}
+Plug 'iamcco/markdown-preview.nvim', {
             \ 'do': 'cd app && yarn install',
             \ 'on': []
             \ }
