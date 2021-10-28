@@ -51,16 +51,11 @@ nnoremap <silent><nowait><expr><c-b> coc#float#scroll(0)
 " jump previewd chunk
 nmap <silent><c-o> <plug>(coc-float-jump)
 
-" function and class
+" function object
 xmap <silent>if <plug>(coc-funcobj-i)
 xmap <silent>af <plug>(coc-funcobj-a)
-xmap <silent>ic <plug>(coc-classobj-i)
-xmap <silent>ac <plug>(coc-classobj-a)
-
 omap <silent>if <plug>(coc-funcobj-i)
 omap <silent>af <plug>(coc-funcobj-a)
-omap <silent>ic <plug>(coc-classobj-i)
-omap <silent>ac <plug>(coc-classobj-a)
 
 " coclist and coccommand
 nnoremap <silent><space>l :CocList<cr>
