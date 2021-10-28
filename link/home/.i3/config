@@ -217,5 +217,5 @@ default_floating_border 1pixel
 smart_borders on
 
 # gaps
-gaps inner 12
-gaps outer -3
+gaps inner 8
+gaps outer 1
