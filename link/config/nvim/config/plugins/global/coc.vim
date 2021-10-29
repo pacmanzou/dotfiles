@@ -32,7 +32,7 @@ let g:coc_global_extensions = [
 nmap <silent>cn <plug>(coc-rename)
 
 " apply codeAction, need lsp to support
-vmap <silent><c-f> <plug>(coc-codeaction-selected)
+vmap <silent><c-s> <plug>(coc-codeaction-selected)
 
 " go to code navigation
 nmap <silent>gd <plug>(coc-definition)
