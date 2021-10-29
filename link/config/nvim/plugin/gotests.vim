@@ -1,4 +1,4 @@
-" gotests for vim
+" Gotests for vim
 " ---
 "
 " Commands:
