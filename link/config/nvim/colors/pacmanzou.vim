@@ -33,10 +33,6 @@ hi EndOfBuffer  guifg=#000000 guibg=NONE    gui=NONE           cterm=NONE
 hi Question     guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
 hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
 
-" search
-hi IncSearch guifg=NONE guibg=NONE gui=reverse cterm=reverse
-hi Search    guifg=NONE guibg=NONE gui=reverse cterm=reverse
-
 " tabline
 hi TabLine     guifg=#353535 guibg=#000000 gui=NONE cterm=NONE
 hi TabLineSel  guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
