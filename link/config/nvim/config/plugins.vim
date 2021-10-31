@@ -69,7 +69,7 @@ function! LoadGlobalPlugins(timer) abort
                 \ )
 
     " source global plugins config
-    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/global/*.vim'), '\n'))
+    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/global/*.vim')))
 endfunction
 
 function! LoadMarkdownPlugins(timer) abort
@@ -81,13 +81,13 @@ function! LoadMarkdownPlugins(timer) abort
                 \ )
 
     " source markdown plugins config
-    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim'), '\n'))
+    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim')))
 endfunction
 
 " appearance
 " appearance plugins need to be loaded directly
 " source appearance plugins config
-call SourceList(split(glob('$HOME/.config/nvim/config/plugins/appearance/*.vim'), '\n'))
+call SourceList(split(glob('$HOME/.config/nvim/config/plugins/appearance/*.vim')))
 
 " global
 autocmd VimEnter * call timer_start(100, 'LoadGlobalPlugins', {'repeat': 1})
