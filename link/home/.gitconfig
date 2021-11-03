@@ -2,12 +2,15 @@
 	email = pacmanzou@qq.com
 	name = pacmanzou
 
-[url "git@github.com:"]
-    insteadOf = https://github.com/
-; [url "https://github.com.cnpmjs.org"]
-    ; insteadOf = https://github.com
+; ssh
+; [url "git@github.com:"]
+;     insteadOf = https://github.com/
+; https
+[url "https://github.com.cnpmjs.org"]
+    insteadOf = https://github.com
 ; [url "https://hub.fastgit.org"]
     ; insteadOf = https://github.com
+
 [color]
 	status = auto
 	diff = auto
