@@ -25,9 +25,9 @@ unmap n=
 unmap backspace
 
 map [index] q toggle_index
-map d toggle_page_mode 2
+map t toggle_page_mode 2
 map r rotate
-map t toggle_index
+map e toggle_index
 map <C-r> reload
 map <C--> zoom out
 map <C-=> zoom in
