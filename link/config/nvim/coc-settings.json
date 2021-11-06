@@ -3,7 +3,7 @@
     "coc.preferences.rootPatterns": [".git", ".gitignore", "Makefile"],
     "diagnostic.infoSign": "",
     "diagnostic.hintSign": "",
-    "diagnostic.errorSign": "",
+    "diagnostic.errorSign": "",
     "diagnostic.warningSign": "",
     "diagnostic-languageserver.filetypes": {
         "sh": "shellcheck"
