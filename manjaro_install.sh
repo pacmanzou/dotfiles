@@ -87,7 +87,6 @@ sudo pacman -Syu
 
 # install
 sudo pacman -S alacritty \
-    astyle \
     bleachbit \
     bluez \
     bluez-utils \

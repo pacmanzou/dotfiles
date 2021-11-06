@@ -7,8 +7,6 @@ let g:neoformat_enabled_javascript = ['jsbeautify']
 let g:neoformat_enabled_html = ['htmlbeautify']
 let g:neoformat_enabled_css = ['cssbeautify']
 let g:neoformat_enabled_markdown = ['prettier']
-let g:neoformat_enabled_c = ['astyle']
-let g:neoformat_enabled_cpp = ['astyle']
 
 " when a filetype is not found
 let g:neoformat_basic_format_align = 0

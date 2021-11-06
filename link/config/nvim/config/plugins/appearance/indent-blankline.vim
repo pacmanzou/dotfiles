@@ -7,7 +7,5 @@ let g:indent_blankline_filetype = [
             \ 'markdown',
             \ 'html',
             \ 'javascript',
-            \ 'vim',
-            \ 'c',
-            \ 'cpp'
+            \ 'vim'
             \ ]
