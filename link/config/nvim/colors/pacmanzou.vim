@@ -33,6 +33,10 @@ hi EndOfBuffer  guifg=#000000 guibg=NONE    gui=NONE           cterm=NONE
 hi Question     guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
 hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
 
+" search
+hi Search       guifg=#000000 guibg=#fe8019 gui=NONE cterm=NONE
+hi IncSearch    guifg=#000000 guibg=#fe8019 gui=NONE cterm=NONE
+
 " tabline
 hi TabLine     guifg=#353535 guibg=#000000 gui=NONE cterm=NONE
 hi TabLineSel  guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
@@ -46,6 +50,7 @@ hi DiffText   guifg=#fabd2f guibg=#000000 gui=reverse cterm=reverse
 
 " coc
 hi CocErrorSign guifg=#ff4934 guibg=#000000 gui=NONE cterm=NONE
+hi CocPreviewHi guifg=#fe8019 guibg=#000000 gui=NONE cterm=NONE
 
 " coc-git
 hi CocGitAddedSign         guifg=#b8bb26 guibg=#000000   gui=NONE cterm=NONE
