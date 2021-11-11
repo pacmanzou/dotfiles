@@ -69,13 +69,11 @@ FileHandler "$HOME/dotfiles/link/home/.* $HOME/dotfiles/link/home/*" "$HOME/.* $
 FileHandler "$HOME/dotfiles/link/config/*" "$HOME/.config/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/bin/*" "/usr/local/bin/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/etc/*" "/etc/*" LinkHandler
-
 echo
 
 # copy
 Info "### copy to $HOME/.config/ ###"
 FileHandler "$HOME/dotfiles/copy/config/*" "$HOME/.config/*" CopyHandler
-
 echo
 
 # update
@@ -161,27 +159,18 @@ yay -S abook \
     wps-office-mui-zh-cn \
     wps-office-fonts \
     wps-office-mime-cn
-Info "### install end ###\n"
 
-# let $HOME/.local/share/fcitx5 is exist
-Info "### start fcitx5 ###\n"
-fcitx5 &>/dev/null
-sleep 3
-killall fcitx5
-Info "### kill fcitx5 ###\n"
-
-Info "### npm set ###"
+Info "### npm install ###"
+# npm set registry
 if npm config set registry https://registry.npm.taobao.org; then
     Success "npm config set registry https://registry.npm.taobao.org\n"
 else
     Fail "npm config set registry https://registry.npm.taobao.org\n"
 fi
 
-Info "### npm install ###"
 sudo npm install -g neovim
 sudo npm install -g reveal-md
 sudo npm install -g js-beautify
-
 echo
 
 Info "### pip install ###"
@@ -189,23 +178,29 @@ Info "### pip install ###"
 pip install pynvim
 pip install black
 pip install mycli
-
 echo
 
 Info "### yarn and gem for neovim###"
 yarn global add neovim
 gem install neovim
+echo
 
+Info "### go install ###"
+go install github.com/cweill/gotests/...@latest
 echo
 
 # misc
 Info "### misc ###"
-CopyHandler "$HOME/dotfiles/misc/evdev" "/usr/share/X11/xkb/keycodes/evdev"
+# let $HOME/.local/share/fcitx5 is exist
+fcitx5 &>/dev/null
+sleep 3
+killall fcitx5
+
 CopyHandler "$HOME/dotfiles/misc/default.yaml" "$HOME/.local/share/fcitx5/rime/build/default.yaml"
 CopyHandler "$HOME/dotfiles/misc/theme.conf" "$HOME/.local/share/fcitx5/themes/default/theme.conf"
+CopyHandler "$HOME/dotfiles/misc/evdev" "/usr/share/X11/xkb/keycodes/evdev"
 CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
-
 echo
 
 # message info
@@ -217,6 +212,10 @@ Info "ssh for git"
 Info "ssh-keygen -t rsa -C "pacmanzou@qq.com""
 Info "Copy the public key to the Web page"
 Info "test: ssh -T git@github.com\n"
+
+Info "https for git by using token"
+Info "git clone https://github.com/pacmanzou/personal $HOME/personal/"
+Info "copy the token on the Web page to fill in the password\n"
 
 Info "mysql"
 Info "sudo pacman -S mysql\n"

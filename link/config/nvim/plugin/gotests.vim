@@ -18,7 +18,7 @@ endif
 function! s:Tests() range
     let bin = g:gotests_bin
     if !executable(bin)
-        echom 'gotests-vim: gotests binary not found.'
+        echom 'gotests: gotests binary not found.'
         return
     endif
 
@@ -32,7 +32,7 @@ function! s:Tests() range
     if (!empty(funcMatch))
         let funcMatch = funcMatch[1:]
     else
-        echom 'gotests-vim: No function selected!'
+        echom 'gotests: No function selected!'
         return
     endif
 
@@ -43,13 +43,13 @@ function! s:Tests() range
 
     let file = expand('%')
     let out = system(bin . ' -w -only ' . shellescape(funcMatch) . ' ' . tmplDir . ' ' . shellescape(file))
-    echom 'gotests-vim: ' . out
+    echom 'gotests: ' . out
 endfunction
 
 function! s:AllTests()
     let bin = g:gotests_bin
     if !executable(bin)
-        echom 'gotests-vim: gotests binary not found.'
+        echom 'gotests: gotests binary not found.'
         return
     endif
 
@@ -60,5 +60,5 @@ function! s:AllTests()
 
     let file = expand('%')
     let out = system(bin . ' -w -all ' . tmplDir . ' ' . shellescape(file))
-    echom 'gotests-vim: ' out
+    echom 'gotests: ' out
 endfunction
