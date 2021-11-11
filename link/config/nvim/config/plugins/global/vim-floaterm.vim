@@ -21,4 +21,3 @@ nnoremap <silent><c-g><c-r> :FloatermNew ranger<cr>
 
 " autocmd
 autocmd FileType floaterm map <buffer><c-p> <nop>
-autocmd TermOpen floaterm://* startinsert
