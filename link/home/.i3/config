@@ -43,6 +43,7 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id conky -c "$HOME/.i3/conky_i3wm"
 exec --no-startup-id bash "$HOME/.i3/mailsync.sh"
 exec --no-startup-id bash "$HOME/.i3/monitorbattery.sh"
+exec --no-startup-id bash "$HOME/.i3/cpupower.sh"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 bindsym $mod+Ctrl+q kill
@@ -84,7 +85,7 @@ mode "$mode_misc"{
     bindsym w exec --no-startup-id bash "$HOME/.i3/wifi.sh", mode "default"
     bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
     bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx_restart.sh", mode "default"
-    bindsym g exec --no-startup-id xclip -i -sel clipboard "$HOME/.github_token.txt"; exec --no-startup-id notify-send 'Github token copied', mode "default"
+    bindsym g exec --no-startup-id xclip -i -sel clipboard "$HOME/personal/github_token.txt"; exec --no-startup-id notify-send 'Github token copied', mode "default"
     bindsym b exec --no-startup-id bluetoothctl power on; exec --no-startup-id notify-send 'Bluetoothctl power on', mode "default"
 
     bindsym Return mode "default"
