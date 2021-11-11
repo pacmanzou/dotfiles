@@ -27,20 +27,20 @@ class fzf_select(Command):
 
     def execute(self):
         # match files
-        if shutil.which('fd'):
+        if shutil.which("fd"):
             command = "fd --type f --hidden --follow --exclude .git | fzf +m --reverse"
         else:
             command = "find -L . \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
             -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m --reverse"
-        fzf = self.fm.execute_command(
-            command, text=True, stdout=subprocess.PIPE)
+        fzf = self.fm.execute_command(command, text=True, stdout=subprocess.PIPE)
         if fzf.returncode == 0:
-            fzf_file = os.path.abspath(fzf.stdout.readline().rstrip('\n'))
+            fzf_file = os.path.abspath(fzf.stdout.readline().rstrip("\n"))
             self.fm.select_file(fzf_file)
+
 
 class compress(Command):
     def execute(self):
-        """ Compress marked files to current directory """
+        """Compress marked files to current directory"""
         cwd = self.fm.thisdir
         marked_files = cwd.get_selection()
 
@@ -68,7 +68,7 @@ class compress(Command):
         self.fm.loader.add(obj)
 
     def tab(self, _):
-        """ Complete with current folder name """
+        """Complete with current folder name"""
 
         extension = [".zip", ".tar.gz", ".rar", ".7z"]
         return [
@@ -79,7 +79,7 @@ class compress(Command):
 
 class extracthere(Command):
     def execute(self):
-        """ Extract copied files to current directory """
+        """Extract copied files to current directory"""
         copied_files = tuple(self.fm.copy_buffer)
 
         if not copied_files:
