@@ -129,7 +129,7 @@ sudo pacman -S alacritty \
     seahorse \
     shellcheck \
     shfmt \
-    sxiv \
+    viewnior \
     tmux \
     ttf-hack \
     unrar \
