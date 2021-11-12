@@ -93,7 +93,6 @@ sudo pacman -S alacritty \
     copyq \
     cmake \
     docker \
-    dbeaver \
     exa \
     etcher \
     fd \
@@ -223,5 +222,8 @@ Info "sudo pacman -S mysql\n"
 Info "neomutt"
 Info "mw -a you@email.com\n"
 
-Info "### debtap ###"
-Info "UTools"
+Info "### deb ###"
+Info "utools\n"
+
+Info "### appimage ###"
+Info "beekeeper"
