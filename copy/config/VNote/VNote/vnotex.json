@@ -1,10 +1,10 @@
 {
     "core": {
-        "check_for_updates_on_start": true,
+        "check_for_updates_on_start": false,
         "docks_tabbar_icon_size": 20,
         "history_max_count": 100,
         "locale": "",
-        "per_notebook_history": true,
+        "per_notebook_history": false,
         "recover_last_session_on_start": true,
         "shortcuts": {
             "ActivateNextTab": "Tab",
@@ -20,7 +20,7 @@
             "ActivateTab9": "",
             "AlternateTab": "",
             "CloseOtherTabs": "",
-            "CloseTab": "Ctrl+Q",
+            "CloseTab": "Ctrl+W",
             "CloseTabsToTheRight": "",
             "DistributeSplits": "",
             "ExpandContentArea": "e",
@@ -33,18 +33,18 @@
             "LocateNode": "",
             "LocationListDock": "",
             "MaximizeSplit": "",
-            "MoveOneSplitDown": "Ctrl+W,J",
-            "MoveOneSplitLeft": "Ctrl+W,H",
-            "MoveOneSplitRight": "Ctrl+W,L",
-            "MoveOneSplitUp": "Ctrl+W,K",
+            "MoveOneSplitDown": "",
+            "MoveOneSplitLeft": "",
+            "MoveOneSplitRight": "",
+            "MoveOneSplitUp": "",
             "NavigationDock": "",
-            "NavigationMode": "f",
+            "NavigationMode": "",
             "NewNote": "",
             "NewWorkspace": "",
-            "OneSplitDown": "Ctrl+J",
-            "OneSplitLeft": "Ctrl+H",
-            "OneSplitRight": "Ctrl+L",
-            "OneSplitUp": "Ctrl+K",
+            "OneSplitDown": "",
+            "OneSplitLeft": "",
+            "OneSplitRight": "",
+            "OneSplitUp": "",
             "OpenLastClosedFile": "u",
             "OpenWithDefaultProgram": "",
             "OutlineDock": "",
@@ -56,9 +56,10 @@
             "Settings": "",
             "SnippetDock": "",
             "StayOnTop": "",
+            "TagDock": "",
             "VerticalSplit": ""
         },
-        "theme": "pacmanzou",
+        "theme": "pure",
         "toolbar_icon_size": 16
     },
     "editor": {
@@ -69,6 +70,7 @@
             "line_ending": "lf",
             "shortcuts": {
                 "ApplySnippet": "",
+                "Debug": "",
                 "Discard": "",
                 "EditRead": "",
                 "FindAndReplace": "",
@@ -77,6 +79,7 @@
                 "Outline": "v",
                 "RichPaste": "",
                 "Save": "",
+                "Tag": "",
                 "TypeBold": "",
                 "TypeCheckedTodoList": "",
                 "TypeCode": "",
@@ -116,6 +119,7 @@
             "confirm_before_clear_obsolete_images": true,
             "constrain_image_width": true,
             "constrain_inplace_preview_width": false,
+            "edit_view_mode": "editonly",
             "editor_overridden_font_family": "",
             "export_resource": {
                 "resources": [
@@ -144,6 +148,7 @@
             "fetch_images_in_parse_and_paste": true,
             "graphviz_exe": "",
             "html_tag": true,
+            "image_align_center": true,
             "indent_first_line": false,
             "inplace_preview_sources": "imagelink;codeblock;math",
             "insert_file_name_as_title": true,
@@ -166,6 +171,7 @@
                         "scripts": [
                         ],
                         "styles": [
+                            "web/css/user.css",
                             "web/css/globalstyles.css"
                         ]
                     },
@@ -219,6 +225,7 @@
                             "web/js/markdown-it/markdown-it-inject-linenumbers.js",
                             "web/js/markdown-it/markdownItAnchor.umd.js",
                             "web/js/markdown-it/markdownItTocDoneRight.umd.js",
+                            "web/js/markdown-it/markdown-it-implicit-figure.js",
                             "web/js/markdownit.js"
                         ],
                         "styles": [
@@ -322,6 +329,7 @@
         "text_editor": {
             "center_cursor": "never",
             "expand_tab": true,
+            "highlight_whitespace": true,
             "input_mode": "normal",
             "line_number": "absolute",
             "spell_check": false,
@@ -335,20 +343,20 @@
         }
     },
     "metadata": {
-        "version": "3.7.0"
+        "version": "3.9.0"
     },
     "widget": {
         "find_and_replace_options": 16,
         "main_window_keep_docks_expanding_content_area": [
+            "OutlineDock.vnotex"
         ],
         "node_explorer_auto_import_external_files_enabled": true,
         "node_explorer_close_before_open_with_enabled": true,
         "node_explorer_external_files_visible": true,
-        "node_explorer_recycle_bin_node_visible": false,
         "node_explorer_view_order": 0,
         "outline_auto_expanded_level": 6,
         "outline_section_number_enabled": false,
         "search_panel_advanced_settings_visible": true,
-        "snippet_panel_builtin_snippets_visible": true
+        "tag_explorer_two_columns_enabled": true
     }
 }
