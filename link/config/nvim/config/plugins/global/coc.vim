@@ -99,7 +99,7 @@ inoremap <silent><c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
 nmap <silent><space>e :CocCommand explorer --sources=file+<cr>
 
 " coc-translate
-nmap <silent>t <Plug>(coc-translator-p)
+nmap <silent>t <Plug>(coc-translator-e)
 
 " coc-floaterm
 nnoremap <silent><c-g><space> :CocList floaterm<cr>
