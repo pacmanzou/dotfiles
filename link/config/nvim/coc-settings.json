@@ -1,10 +1,10 @@
 {
     "coc.preferences.formatOnType": true,
     "coc.preferences.rootPatterns": [".git", ".gitignore"],
-    "diagnostic.infoSign": "",
-    "diagnostic.hintSign": "",
-    "diagnostic.errorSign": "",
-    "diagnostic.warningSign": "",
+    "diagnostic.infoSign": "I",
+    "diagnostic.hintSign": "H",
+    "diagnostic.errorSign": "E",
+    "diagnostic.warningSign": "W",
     "diagnostic-languageserver.filetypes": {
         "sh": "shellcheck"
     },
