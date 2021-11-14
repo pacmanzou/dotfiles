@@ -87,10 +87,10 @@ autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.orga
 """ coc extensions config """
 ""
 " coc-snippets
-let g:coc_snippet_next = '<C-j>'
-let g:coc_snippet_prev = '<C-k>'
+let g:coc_snippet_next = '<c-j>'
+let g:coc_snippet_prev = '<c-k>'
 
-imap <silent><nowait><expr> <C-l> coc#float#has_float() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+imap <silent><nowait><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 
 " coc-pairs
 inoremap <silent><c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
