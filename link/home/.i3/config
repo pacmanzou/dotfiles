@@ -161,7 +161,6 @@ for_window [class="Lxappearance"] floating enable, move position center
 for_window [class="Manjaro Settings Manager"] floating enable, move position center
 for_window [class="Pamac-manager"] floating enable, move position center
 for_window [class="Gcolor"] floating enable, move position center
-for_window [class="baidunetdisk"] floating enable, move position center
 for_window [class="Fcitx5"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Nitrogen"] floating enable, move position center
