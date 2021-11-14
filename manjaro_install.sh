@@ -145,10 +145,12 @@ sudo pacman -S alacritty \
 
 yay -S abook \
     apipost-bin \
+    baidunetdisk-electron \
     com.qq.im.deepin \
     debtap \
     google-chrome \
     mutt-wizard \
+    mindmaster_cn \
     pgformatter-git \
     ranger-git \
     simple-mtpfs \
