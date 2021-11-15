@@ -21,9 +21,7 @@ Plug 'AndrewRadev/splitjoin.vim',  {'on': []}
 Plug 'sbdchd/neoformat',           {'on': []}
 Plug 'voldikss/vim-floaterm',      {'on': []}
 Plug 'liuchengxu/vista.vim',       {'on': []}
-Plug 'skywind3000/asyncrun.vim',   {'on': []}
-Plug 'skywind3000/asynctasks.vim', {'on': []}
-Plug 'neoclide/coc.nvim',          {'branch': 'release',     'on': []}
+Plug 'neoclide/coc.nvim',          {'branch': 'release', 'on': []}
 Plug 'wellle/tmux-complete.vim',   {'on': []}
 
 " markdown
@@ -62,8 +60,6 @@ function! LoadGlobalPlugins(timer) abort
                 \ 'neoformat',
                 \ 'vim-floaterm',
                 \ 'vista.vim',
-                \ 'asyncrun.vim',
-                \ 'asynctasks.vim',
                 \ 'coc.nvim',
                 \ 'tmux-complete.vim'
                 \ )

@@ -81,9 +81,6 @@ endfunction
 
 nnoremap <silent>gh :call <sid>show_documentation()<cr>
 
-" autocmd
-autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
-
 """ coc extensions config """
 ""
 " coc-snippets
