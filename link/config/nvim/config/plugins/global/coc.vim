@@ -27,6 +27,10 @@ let g:coc_global_extensions = [
 
 """ coc basci config """
 ""
+" used for the format on type and improvement of brackets
+inoremap <silent><nowait><expr><cr> pumvisible() ? coc#_select_confirm()
+            \: "\<c-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
+
 " rename
 nmap <silent>cn <plug>(coc-rename)
 
@@ -44,8 +48,8 @@ nmap <silent>]d <plug>(coc-diagnostic-next)
 nmap <silent>[d <plug>(coc-diagnostic-prev)
 
 " float window scroll
-nnoremap <silent><nowait><expr><c-f> coc#float#scroll(1)
-nnoremap <silent><nowait><expr><c-b> coc#float#scroll(0)
+nnoremap <silent><expr><c-f> coc#float#scroll(1)
+nnoremap <silent><expr><c-b> coc#float#scroll(0)
 
 " jump previewd chunk
 nmap <silent><c-o> <plug>(coc-float-jump)
@@ -87,10 +91,7 @@ nnoremap <silent>gh :call <sid>show_documentation()<cr>
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
-imap <silent><nowait><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
-
-" coc-pairs
-inoremap <silent><c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
+imap <silent><nowait><expr><c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 
 " coc-explorer
 nmap <silent><space>e :CocCommand explorer --sources=file+<cr>
