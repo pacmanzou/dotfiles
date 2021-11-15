@@ -31,5 +31,5 @@ augroup restore
     autocmd WinLeave * call s:restore()
 augroup END
 
-map <silent><c-w>f :call FullToggle('<bang>')<cr>
-map <silent><c-w><c-f> :call FullToggle('<bang>')<cr>
+map <silent> <c-w>f :call FullToggle('<bang>')<cr>
+map <silent> <c-w><c-f> :call FullToggle('<bang>')<cr>

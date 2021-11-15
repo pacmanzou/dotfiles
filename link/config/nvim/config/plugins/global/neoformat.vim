@@ -15,4 +15,4 @@ let g:neoformat_basic_format_retab = 0
 " del $ space
 let g:neoformat_basic_format_trim = 0
 
-nnoremap <silent><space>n :Neoformat<cr>
+nnoremap <silent> <space>n :Neoformat<cr>

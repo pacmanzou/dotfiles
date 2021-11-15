@@ -28,49 +28,49 @@ let g:coc_global_extensions = [
 """ coc basci config """
 ""
 " used for the format on type and improvement of brackets
-inoremap <silent><nowait><expr><cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><nowait><expr> <cr> pumvisible() ? coc#_select_confirm()
             \: "\<c-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
 
 " rename
-nmap <silent>cn <plug>(coc-rename)
+nmap <silent> cn <plug>(coc-rename)
 
 " apply codeAction, need lsp to support
-vmap <silent><c-l> <plug>(coc-codeaction-selected)
+vmap <silent> <c-l> <plug>(coc-codeaction-selected)
 
 " go to code navigation
-nmap <silent>gd <plug>(coc-definition)
-nmap <silent>gr <plug>(coc-references)
-nmap <silent>gt <plug>(coc-type-definition)
-nmap <silent>gi <plug>(coc-implementation)
+nmap <silent> gd <plug>(coc-definition)
+nmap <silent> gr <plug>(coc-references)
+nmap <silent> gt <plug>(coc-type-definition)
+nmap <silent> gi <plug>(coc-implementation)
 
 " diagnostic jump
-nmap <silent>]d <plug>(coc-diagnostic-next)
-nmap <silent>[d <plug>(coc-diagnostic-prev)
+nmap <silent> ]d <plug>(coc-diagnostic-next)
+nmap <silent> [d <plug>(coc-diagnostic-prev)
 
 " float window scroll
-nnoremap <silent><expr><c-f> coc#float#scroll(1)
-nnoremap <silent><expr><c-b> coc#float#scroll(0)
+nnoremap <silent><expr> <c-f> coc#float#scroll(1)
+nnoremap <silent><expr> <c-b> coc#float#scroll(0)
 
 " jump previewd chunk
-nmap <silent><c-o> <plug>(coc-float-jump)
+nmap <silent> <c-o> <plug>(coc-float-jump)
 
 " function object
-xmap <silent>if <plug>(coc-funcobj-i)
-xmap <silent>af <plug>(coc-funcobj-a)
-omap <silent>if <plug>(coc-funcobj-i)
-omap <silent>af <plug>(coc-funcobj-a)
+xmap <silent> if <plug>(coc-funcobj-i)
+xmap <silent> af <plug>(coc-funcobj-a)
+omap <silent> if <plug>(coc-funcobj-i)
+omap <silent> af <plug>(coc-funcobj-a)
 
 " coclist and coccommand
-nnoremap <silent><space>l :CocList<cr>
-nnoremap <silent><space>d :CocList diagnostics<cr>
-nnoremap <silent><space>f :CocList --regex files<cr>
-nnoremap <silent><space>b :CocList buffers<cr>
-nnoremap <silent><space>w :CocList words<cr>
-nnoremap <silent><space>g :CocList grep<cr>
-nnoremap <silent><space>m :CocList --regex mru -A<cr>
+nnoremap <silent> <space>l :CocList<cr>
+nnoremap <silent> <space>d :CocList diagnostics<cr>
+nnoremap <silent> <space>f :CocList --regex files<cr>
+nnoremap <silent> <space>b :CocList buffers<cr>
+nnoremap <silent> <space>w :CocList words<cr>
+nnoremap <silent> <space>g :CocList grep<cr>
+nnoremap <silent> <space>m :CocList --regex mru -A<cr>
 
-nnoremap <silent><space>c :CocCommand<cr>
-nnoremap <silent><space>i :CocCommand editor.action.organizeImport<cr>
+nnoremap <silent> <space>c :CocCommand<cr>
+nnoremap <silent> <space>i :CocCommand editor.action.organizeImport<cr>
 
 " show documentation
 function! s:show_documentation() abort
@@ -83,7 +83,7 @@ function! s:show_documentation() abort
     endif
 endfunction
 
-nnoremap <silent>gh :call <sid>show_documentation()<cr>
+nnoremap <silent> gh :call <sid>show_documentation()<cr>
 
 """ coc extensions config """
 ""
@@ -91,32 +91,32 @@ nnoremap <silent>gh :call <sid>show_documentation()<cr>
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
-imap <silent><nowait><expr><c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+imap <silent><nowait><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 
 " coc-explorer
-nmap <silent><space>e :CocCommand explorer --sources=file+<cr>
+nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
 " coc-translate
-nmap <silent>t <Plug>(coc-translator-e)
+nmap <silent> t <Plug>(coc-translator-e)
 
 " coc-floaterm
-nnoremap <silent><c-g><space> :CocList floaterm<cr>
+nnoremap <silent> <c-g><space> :CocList floaterm<cr>
 
 " coc-git
 " create text object for git chunk
-omap <silent>ig <Plug>(coc-git-chunk-inner)
-xmap <silent>ig <Plug>(coc-git-chunk-inner)
-omap <silent>ag <Plug>(coc-git-chunk-outer)
-xmap <silent>ag <Plug>(coc-git-chunk-outer)
+omap <silent> ig <Plug>(coc-git-chunk-inner)
+xmap <silent> ig <Plug>(coc-git-chunk-inner)
+omap <silent> ag <Plug>(coc-git-chunk-outer)
+xmap <silent> ag <Plug>(coc-git-chunk-outer)
 
 " navigate chunks of current buffer
-nmap <silent>]g <plug>(coc-git-nextchunk)
-nmap <silent>[g <plug>(coc-git-prevchunk)
+nmap <silent> ]g <plug>(coc-git-nextchunk)
+nmap <silent> [g <plug>(coc-git-prevchunk)
 
 " navigate conflicts of current buffer
-nmap <silent>]c <Plug>(coc-git-nextconflict)
-nmap <silent>[c <Plug>(coc-git-prevconflict)
+nmap <silent> ]c <Plug>(coc-git-nextconflict)
+nmap <silent> [c <Plug>(coc-git-prevconflict)
 
-nnoremap <silent><space>a :CocCommand git.chunkStage<cr>
-nnoremap <silent><space>u :CocCommand git.chunkUndo<cr>
-nnoremap <silent><space>p :CocCommand git.chunkInfo<cr>
+nnoremap <silent> <space>a :CocCommand git.chunkStage<cr>
+nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
+nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>

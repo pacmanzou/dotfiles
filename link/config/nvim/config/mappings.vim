@@ -208,35 +208,35 @@ map <space>    <nop>
 
 " noremap
 " windows focus
-noremap <silent><c-l> <c-w>l
-noremap <silent><c-h> <c-w>h
-noremap <silent><c-j> <c-w>j
-noremap <silent><c-k> <c-w>k
+noremap <silent> <c-l> <c-w>l
+noremap <silent> <c-h> <c-w>h
+noremap <silent> <c-j> <c-w>j
+noremap <silent> <c-k> <c-w>k
 
 " cursor move
-noremap <silent><c-e> $
-noremap <silent><c-a> ^
-noremap <silent>J     3<c-e>
-noremap <silent>K     3<c-y>
+noremap <silent> <c-e> $
+noremap <silent> <c-a> ^
+noremap <silent> J     3<c-e>
+noremap <silent> K     3<c-y>
 
 " visual select
-noremap <silent>gV ggVG$
+noremap <silent> gV ggVG$
 
-noremap <silent>+ <c-a>
-noremap <silent>- <c-x>
+noremap <silent> + <c-a>
+noremap <silent> - <c-x>
 
 " nnoremap
 " windows exchange
-nnoremap <silent><c-w>t     <c-w>T
-nnoremap <silent><c-w><c-t> <c-w>T
-nnoremap <silent><c-w>h     <c-w>H
-nnoremap <silent><c-w><c-h> <c-w>H
-nnoremap <silent><c-w>j     <c-w>J
-nnoremap <silent><c-w><c-j> <c-w>J
-nnoremap <silent><c-w>k     <c-w>K
-nnoremap <silent><c-w><c-k> <c-w>K
-nnoremap <silent><C-w>l     <c-w>L
-nnoremap <silent><C-w><c-l> <c-w>L
+nnoremap <silent> <c-w>t     <c-w>T
+nnoremap <silent> <c-w><c-t> <c-w>T
+nnoremap <silent> <c-w>h     <c-w>H
+nnoremap <silent> <c-w><c-h> <c-w>H
+nnoremap <silent> <c-w>j     <c-w>J
+nnoremap <silent> <c-w><c-j> <c-w>J
+nnoremap <silent> <c-w>k     <c-w>K
+nnoremap <silent> <c-w><c-k> <c-w>K
+nnoremap <silent> <C-w>l     <c-w>L
+nnoremap <silent> <C-w><c-l> <c-w>L
 
 " fold
 nnoremap zo zO
@@ -245,17 +245,17 @@ nnoremap zc zC
 nnoremap zC zM
 
 " tab switch
-nnoremap <silent><tab>   :tabnext<cr>
-nnoremap <silent><s-tab> :tabprevious<cr>
+nnoremap <silent> <tab>   :tabnext<cr>
+nnoremap <silent> <s-tab> :tabprevious<cr>
 
 " copy name, path, directory
-nnoremap <silent>yn :let @+=expand('%')<cr>
-nnoremap <silent>yp :let @+=expand('%:p')<cr>
-nnoremap <silent>yd :let @+=getcwd()<cr>
+nnoremap <silent> yn :let @+=expand('%')<cr>
+nnoremap <silent> yp :let @+=expand('%:p')<cr>
+nnoremap <silent> yd :let @+=getcwd()<cr>
 
 " jumps
-nnoremap <silent><c-n> <c-i>
-nnoremap <silent><c-p> <c-o>
+nnoremap <silent> <c-n> <c-i>
+nnoremap <silent> <c-p> <c-o>
 
 " select code block in markdown
 xnoremap <silent> ib g_?^\s*```<cr>jo/^\s*```<cr>kV:<c-u>nohl<cr>gv
@@ -267,18 +267,18 @@ onoremap <silent> ab :<c-u>execute "normal vab"<cr>
 nnoremap / mr/\v
 
 " open the file under the cursor
-nnoremap <silent>gf <c-w>f
-nnoremap <silent>gF gf
+nnoremap <silent> gf <c-w>f
+nnoremap <silent> gF gf
 
 " substitute
 nnoremap <space>s :%s///g<left><left><left>
 vnoremap <space>s :s///g<left><left><left>
 
 " misc
-nnoremap <silent>> >>
-nnoremap <silent>< <<
-nnoremap <silent>Y y$
-nnoremap <silent>Q @q
+nnoremap <silent> > >>
+nnoremap <silent> < <<
+nnoremap <silent> Y y$
+nnoremap <silent> Q @q
 
 
 " imap
@@ -361,8 +361,8 @@ vmap <c-f> <nop>
 vmap <c-b> <nop>
 
 " vnoremap
-vnoremap <silent>+ g<c-a>
-vnoremap <silent>- g<c-x>
+vnoremap <silent> + g<c-a>
+vnoremap <silent> - g<c-x>
 
 
 " tmap

@@ -1,1 +1,1 @@
-map <buffer><c-p> <nop>
+map <buffer> <c-p> <nop>

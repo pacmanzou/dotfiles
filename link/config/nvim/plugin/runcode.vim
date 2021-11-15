@@ -29,4 +29,4 @@ function! RunCode()
 	endif
 endfunction
 
-nnoremap <silent><space>r :call RunCode()<cr>
+nnoremap <silent> <space>r :call RunCode()<cr>
