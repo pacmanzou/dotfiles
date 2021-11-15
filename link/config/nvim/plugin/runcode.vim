@@ -17,11 +17,15 @@ function! RunCode()
 	elseif &filetype == 'javascript'
 		:sp
 		:res -11
-		:term export DEBUG="INFO,ERROR,WARNING"; node --trace-warnings .
+		:term node %
 	elseif &filetype == 'html'
         silent! exec "!xdg-open %"
 	elseif &filetype == 'markdown'
 		silent! exec "MarkdownPreview"
+    else
+        echohl WarningMsg
+        echo "Current filetype is not supported"
+        echohl None
 	endif
 endfunction
 

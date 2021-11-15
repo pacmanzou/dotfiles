@@ -18,8 +18,8 @@ function! s:clearbuffers(bang) abort
     while bufn <= last_buf
         if buflisted(bufn) && bufwinnr(bufn) == -1
             if a:bang == '' && getbufvar(bufn, '&modified')
-                echohl ErrorMsg
-                echohl 'No write since last change for buffer(add ! to override)'
+                echohl WarningMsg
+                echo 'No write since last change for buffer(add ! to override)'
                 echohl None
             else
                 silent exe 'bdel' . a:bang . ' ' . bufn
