@@ -51,22 +51,22 @@
     "list.previewHighlightGroup": "CocPreviewHi",
     "list.indicator": ":",
     "list.alignColumns": true,
-    "list.nextKeymap": "<C-n>",
-    "list.previousKeymap": "<C-p>",
+    "list.nextKeymap": "<c-n>",
+    "list.previousKeymap": "<c-p>",
     "list.insertMappings": {
-        "<C-f>": "prompt:right",
-        "<C-b>": "prompt:left",
-        "<C-y>": "prompt:paste",
-        "<C-d>": "prompt:deletebackward",
-        "<C-r>": "do:refresh",
-        "<C-t>": "action:tabe",
-        "<C-s>": "action:split",
-        "<C-v>": "action:vsplit"
+        "<c-f>": "prompt:right",
+        "<c-b>": "prompt:left",
+        "<c-y>": "prompt:paste",
+        "<c-d>": "prompt:deletebackward",
+        "<c-r>": "do:refresh",
+        "<c-t>": "action:tabe",
+        "<c-s>": "action:split",
+        "<c-v>": "action:vsplit"
     },
     "list.normalMappings": {
-        "<C-t>": "action:tabe",
-        "<C-s>": "action:split",
-        "<C-v>": "action:vsplit"
+        "<c-t>": "action:tabe",
+        "<c-s>": "action:split",
+        "<c-v>": "action:vsplit"
     },
     "languageserver": {
         "go": {
