@@ -82,7 +82,7 @@
             "shell": true
         }
     },
-    "suggest.enablePreselect": true,
+    "suggest.noselect": false,
     "suggest.maxCompleteItemCount": 20,
     "suggest.detailMaxLength": 10,
     "snippets.priority": -1,
