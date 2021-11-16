@@ -56,7 +56,6 @@
     "list.insertMappings": {
         "<c-f>": "prompt:right",
         "<c-b>": "prompt:left",
-        "<c-y>": "prompt:paste",
         "<c-d>": "prompt:deletebackward",
         "<c-r>": "do:refresh",
         "<c-t>": "action:tabe",
