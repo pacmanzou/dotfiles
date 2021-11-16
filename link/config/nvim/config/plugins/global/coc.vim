@@ -70,7 +70,6 @@ nnoremap <silent> <space>g :CocList grep<cr>
 nnoremap <silent> <space>m :CocList --regex mru -A<cr>
 
 nnoremap <silent> <space>c :CocCommand<cr>
-nnoremap <silent> <space>i :CocCommand editor.action.organizeImport<cr>
 
 " show documentation
 function! s:show_documentation() abort
@@ -85,13 +84,16 @@ endfunction
 
 nnoremap <silent> gh :call <sid>show_documentation()<cr>
 
+" autocmd
+autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+
 """ coc extensions config """
 ""
 " coc-snippets
 let g:coc_snippet_next = '<c-j>'
 let g:coc_snippet_prev = '<c-k>'
 
-imap <silent><nowait><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 
 " coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
