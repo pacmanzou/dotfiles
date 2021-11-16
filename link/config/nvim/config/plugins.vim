@@ -22,7 +22,6 @@ Plug 'sbdchd/neoformat',           {'on': []}
 Plug 'voldikss/vim-floaterm',      {'on': []}
 Plug 'liuchengxu/vista.vim',       {'on': []}
 Plug 'neoclide/coc.nvim',          {'branch': 'release', 'on': []}
-Plug 'wellle/tmux-complete.vim',   {'on': []}
 
 " markdown
 Plug 'mzlogin/vim-markdown-toc',     {'on': []}
@@ -60,8 +59,7 @@ function! LoadGlobalPlugins(timer) abort
                 \ 'neoformat',
                 \ 'vim-floaterm',
                 \ 'vista.vim',
-                \ 'coc.nvim',
-                \ 'tmux-complete.vim'
+                \ 'coc.nvim'
                 \ )
 
     " source global plugins config
