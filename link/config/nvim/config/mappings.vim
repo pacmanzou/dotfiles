@@ -327,6 +327,8 @@ imap <c-\><c-n>  <nop>
 imap <c-\><c-g>  <nop>
 imap <c-]>       <nop>
 imap <c-x>f      <c-x><c-f>
+imap <s-tab>     <nop>
+imap <silent><expr> <tab> pumvisible() ? "" : "\<tab>"
 
 
 " cmap

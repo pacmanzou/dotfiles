@@ -27,15 +27,15 @@ let g:coc_global_extensions = [
 
 """ coc basci config """
 ""
-" used for the format on type and improvement of brackets
-inoremap <silent><nowait><expr> <cr> pumvisible() ? coc#_select_confirm()
+"make <c-m> auto-select the first completion item and notify coc.nvim to format on enter
+inoremap <silent><nowait><expr> <c-m> pumvisible() ? coc#_select_confirm()
             \: "\<c-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
 
 " rename
 nmap <silent> cn <plug>(coc-rename)
 
 " apply codeAction, need lsp to support
-vmap <silent> <c-l> <plug>(coc-codeaction-selected)
+vmap <silent> <c-m> <plug>(coc-codeaction-selected)
 
 " go to code navigation
 nmap <silent> gd <plug>(coc-definition)
@@ -71,6 +71,16 @@ nnoremap <silent> <space>m :CocList --regex mru -A<cr>
 
 nnoremap <silent> <space>c :CocCommand<cr>
 
+" multiple cursors
+function! s:select_current_word()
+    if !get(b:, 'coc_cursors_activated', 0)
+        return "\<plug>(coc-cursors-word)"
+    endif
+    return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
+endfunc
+
+nmap <silent><expr> <c-s> <sid>select_current_word()
+
 " show documentation
 function! s:show_documentation() abort
     if (index(['vim','help'], &filetype) >= 0)
@@ -89,12 +99,6 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 
 """ coc extensions config """
 ""
-" coc-snippets
-let g:coc_snippet_next = '<c-j>'
-let g:coc_snippet_prev = '<c-k>'
-
-imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
-
 " coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
