@@ -13,7 +13,6 @@ let g:coc_global_extensions = [
             \ 'coc-docker',
             \ 'coc-snippets',
             \ 'coc-just-complete',
-            \ 'coc-markdownlint',
             \ 'coc-diagnostic',
             \ 'coc-gitignore',
             \ 'coc-lists',
