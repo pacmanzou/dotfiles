@@ -11,9 +11,9 @@ Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 Plug 'RRethy/vim-illuminate',      {'on': []}
 Plug 'RRethy/vim-hexokinase',      {'do': 'make hexokinase', 'on': []}
 Plug 'pacmanzou/surround.vim',     {'on': []}
-Plug 'tpope/vim-commentary',       {'on': []}
 Plug 'tpope/vim-abolish',          {'on': []}
 Plug 'tpope/vim-repeat',           {'on': []}
+Plug 'tomtom/tcomment_vim',        {'on': []}
 Plug 'junegunn/vim-easy-align',    {'on': []}
 Plug 'tommcdo/vim-exchange',       {'on': []}
 Plug 'lpinilla/vim-codepainter',   {'on': []}
@@ -49,9 +49,9 @@ function! LoadGlobalPlugins(timer) abort
                 \ 'vim-illuminate',
                 \ 'vim-hexokinase',
                 \ 'surround.vim',
-                \ 'vim-commentary',
                 \ 'vim-abolish',
                 \ 'vim-repeat',
+                \ 'tcomment_vim',
                 \ 'vim-easy-align',
                 \ 'vim-exchange',
                 \ 'vim-codepainter',
