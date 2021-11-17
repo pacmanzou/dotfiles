@@ -169,16 +169,17 @@ else
     Fail "npm config set registry https://registry.npm.taobao.org\n"
 fi
 
-sudo npm install -g neovim
-sudo npm install -g reveal-md
-sudo npm install -g js-beautify
+sudo npm install -g js-beautify \
+    markdownlint-cli \
+    neovim \
+    revel-md
 echo
 
 Info "### pip install ###"
 /usr/bin/python2 -m pip install pynvim
-pip install pynvim
-pip install black
-pip install mycli
+pip install black \
+    mycli \
+    pynvim
 echo
 
 Info "### yarn and gem for neovim###"
