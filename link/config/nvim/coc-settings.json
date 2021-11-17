@@ -6,7 +6,6 @@
     "diagnostic.hintSign": "H",
     "diagnostic.errorSign": "E",
     "diagnostic.warningSign": "W",
-    "diagnostic.refreshOnInsertMode": true,
     "diagnostic-languageserver.filetypes": {
         "sh": "shellcheck"
     },
