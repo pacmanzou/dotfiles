@@ -20,7 +20,7 @@ let g:go_code_completion_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 let g:go_auto_type_info = 0
 let g:go_echo_go_info = 0
-let g:go_echo_command_info = 0
+let g:go_echo_command_info = 1
 let g:go_textobj_include_variable = 0
 let g:go_fmt_fail_silently = 1
 
