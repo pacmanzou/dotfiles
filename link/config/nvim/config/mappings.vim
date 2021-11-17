@@ -270,10 +270,6 @@ nnoremap / mr/\v
 nnoremap <silent> gf <c-w>f
 nnoremap <silent> gF gf
 
-" substitute
-nnoremap <space>s :%s///g<left><left><left>
-vnoremap <space>s :s///g<left><left><left>
-
 " misc
 nnoremap <silent> > >>
 nnoremap <silent> < <<

@@ -1,3 +1,3 @@
-nnoremap <space>S :%S///g<left><left><left>
+nnoremap <space>s :%S///g<left><left><left>
 
-vnoremap <space>S :S///g<left><left><left>
+vnoremap <space>s :S///g<left><left><left>
