@@ -26,15 +26,14 @@ let g:coc_global_extensions = [
 
 """ coc basci config """
 ""
-"make <c-m> auto-select the first completion item and notify coc.nvim to format on enter
-inoremap <silent><nowait><expr> <c-m> pumvisible() ? coc#_select_confirm()
-            \: "\<c-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
+" used for the format on type and improvement of brackets
+inoremap <silent><nowait> <c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
 
 " rename
 nmap <silent> cn <plug>(coc-rename)
 
 " apply codeAction, need lsp to support
-vmap <silent> <c-m> <plug>(coc-codeaction-selected)
+vmap <silent> <c-l> <plug>(coc-codeaction-selected)
 
 " go to code navigation
 nmap <silent> gd <plug>(coc-definition)
@@ -88,6 +87,9 @@ autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.org
 
 """ coc extensions config """
 ""
+" coc-snippets
+imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+
 " coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
