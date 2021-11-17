@@ -71,16 +71,6 @@ nnoremap <silent> <space>m :CocList --regex mru -A<cr>
 
 nnoremap <silent> <space>c :CocCommand<cr>
 
-" multiple cursors
-function! s:select_current_word()
-    if !get(b:, 'coc_cursors_activated', 0)
-        return "\<plug>(coc-cursors-word)"
-    endif
-    return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
-endfunc
-
-nmap <silent><expr> <c-s> <sid>select_current_word()
-
 " show documentation
 function! s:show_documentation() abort
     if (index(['vim','help'], &filetype) >= 0)
