@@ -4,9 +4,6 @@
 " Commands:
 " - GoTests GoTestsAll
 
-command! -range GoTests <line1>,<line2>call s:Tests()
-command! GoTestsAll call s:AllTests()
-
 if !exists('g:gotests_bin')
     let g:gotests_bin = 'gotests'
 endif
@@ -62,3 +59,6 @@ function! s:AllTests()
     let out = system(bin . ' -w -all ' . tmplDir . ' ' . shellescape(file))
     echom 'gotests: ' out
 endfunction
+
+command! -range GoTests <line1>,<line2>call s:Tests()
+command! GoTestsAll call s:AllTests()
