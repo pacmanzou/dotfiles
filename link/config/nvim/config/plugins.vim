@@ -7,7 +7,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
 " global
-Plug 'RRethy/vim-illuminate',      {'on': []}
 Plug 'pacmanzou/surround.vim',     {'on': []}
 Plug 'tpope/vim-abolish',          {'on': []}
 Plug 'tpope/vim-repeat',           {'on': []}
@@ -44,7 +43,6 @@ endfunction
 function! LoadGlobalPlugins(timer) abort
     " load global plugins
     call plug#load(
-                \ 'vim-illuminate',
                 \ 'surround.vim',
                 \ 'vim-abolish',
                 \ 'vim-repeat',
