@@ -65,7 +65,12 @@ function! s:cursor_preceded_with_p(s)
     endif
 endfunction
 
-augroup Golang SmartChar
+augroup All
+    autocmd!
+    autocmd FileType * inoremap <buffer><expr> ! Loop('!', '!=')
+augroup END
+
+augroup Golang
     autocmd!
     autocmd FileType go inoremap <buffer><expr> ; Loop(';', ':=')
     autocmd FileType go inoremap <buffer><expr> , Loop(',', '<-')
