@@ -2,9 +2,8 @@
 let g:plug_window = '-tabnew'
 
 call plug#begin('$HOME/.config/nvim/plugged')
-" appearance
-Plug 'lukas-reineke/indent-blankline.nvim'
-Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
+" primary
+Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
 " global
 Plug 'pacmanzou/surround.vim',     {'on': []}
@@ -67,10 +66,9 @@ function! LoadMarkdownPlugins(timer) abort
     call SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim')))
 endfunction
 
-" appearance
-" appearance plugins need to be loaded directly
-" source appearance plugins config
-call SourceList(split(glob('$HOME/.config/nvim/config/plugins/appearance/*.vim')))
+" load plugins
+" primary plugins need to be loaded directly
+call SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
 
 " global
 autocmd VimEnter * call timer_start(100, 'LoadGlobalPlugins', {'repeat': 1})
