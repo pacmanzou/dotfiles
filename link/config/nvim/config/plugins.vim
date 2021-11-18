@@ -13,7 +13,6 @@ Plug 'tpope/vim-repeat',           {'on': []}
 Plug 'tomtom/tcomment_vim',        {'on': []}
 Plug 'junegunn/vim-easy-align',    {'on': []}
 Plug 'tommcdo/vim-exchange',       {'on': []}
-Plug 'lpinilla/vim-codepainter',   {'on': []}
 Plug 'AndrewRadev/splitjoin.vim',  {'on': []}
 Plug 'sbdchd/neoformat',           {'on': []}
 Plug 'voldikss/vim-floaterm',      {'on': []}
@@ -49,7 +48,6 @@ function! LoadGlobalPlugins(timer) abort
                 \ 'tcomment_vim',
                 \ 'vim-easy-align',
                 \ 'vim-exchange',
-                \ 'vim-codepainter',
                 \ 'splitjoin.vim',
                 \ 'neoformat',
                 \ 'vim-floaterm',
