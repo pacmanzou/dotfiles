@@ -13,7 +13,7 @@ let s:cpo_save = &cpo
 set cpo&vim
 
 " defining the colors
-hi paint guifg=NONE guibg=NONE gui=reverse cterm=reverse
+hi paint guifg=#000000 guibg=#ebdbb2 gui=NONE cterm=NONE
 
 let g:paint_name = "paint"
 let g:marks = {}

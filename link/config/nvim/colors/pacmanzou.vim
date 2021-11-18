@@ -9,7 +9,8 @@ let g:colors_name = 'pacmanzou'
 
 " basics
 hi Normal       guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
-hi Visual       guifg=NONE    guibg=NONE    gui=reverse        cterm=reverse
+hi Visual       guifg=#000000 guibg=#ebdbb2 gui=NONE           cterm=NONE
+hi TermCursor   guifg=#000000 guibg=#ebdbb2 gui=NONE           cterm=NONE
 hi SignColumn   guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
 hi ColorColumn  guifg=NONE    guibg=#000000 gui=NONE           cterm=NONE
 hi VertSplit    guifg=#665c54 guibg=#000000 gui=NONE           cterm=NONE
