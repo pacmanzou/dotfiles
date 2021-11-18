@@ -2,10 +2,10 @@
 let g:plug_window = '-tabnew'
 
 call plug#begin('$HOME/.config/nvim/plugged')
-" primary
+" priority
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
-" global
+" primary
 Plug 'pacmanzou/surround.vim',     {'on': []}
 Plug 'tpope/vim-repeat',           {'on': []}
 Plug 'tomtom/tcomment_vim',        {'on': []}
@@ -36,8 +36,8 @@ function! SourceList(path) abort
     unlet s:sourceList
 endfunction
 
-function! LoadGlobalPlugins(timer) abort
-    " load global plugins
+function! LoadprimaryPlugins(timer) abort
+    " load primary plugins
     call plug#load(
                 \ 'surround.vim',
                 \ 'vim-repeat',
@@ -50,8 +50,8 @@ function! LoadGlobalPlugins(timer) abort
                 \ 'coc.nvim'
                 \ )
 
-    " source global plugins config
-    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/global/*.vim')))
+    " source primary plugins config
+    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
 endfunction
 
 function! LoadMarkdownPlugins(timer) abort
@@ -67,11 +67,11 @@ function! LoadMarkdownPlugins(timer) abort
 endfunction
 
 " load plugins
-" primary plugins need to be loaded directly
-call SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
+" priority plugins need to be loaded directly
+call SourceList(split(glob('$HOME/.config/nvim/config/plugins/priority/*.vim')))
 
-" global
-autocmd VimEnter * call timer_start(100, 'LoadGlobalPlugins', {'repeat': 1})
+" primary
+autocmd VimEnter * call timer_start(100, 'LoadprimaryPlugins', {'repeat': 1})
 
 " markdown
 autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins', {'repeat': 1})
