@@ -9,7 +9,7 @@ let g:colors_name = 'pacmanzou'
 
 " basics
 hi Normal       guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
-hi Visual       guifg=NONE    guibg=NONE    gui=reverse        cterm=NONE
+hi Visual       guifg=NONE    guibg=NONE    gui=reverse        cterm=reverse
 hi SignColumn   guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
 hi ColorColumn  guifg=NONE    guibg=#000000 gui=NONE           cterm=NONE
 hi VertSplit    guifg=#665c54 guibg=#000000 gui=NONE           cterm=NONE
@@ -27,15 +27,14 @@ hi MatchParen   guifg=NONE    guibg=#665c54 gui=bold,underline cterm=bold,underl
 hi SpecialKey   guifg=#928374 guibg=NONE    gui=NONE           cterm=NONE
 hi WildMenu     guifg=#ebdbb2 guibg=#1d1d1d gui=bold           cterm=bold
 hi Conceal      guifg=#83a598 guibg=NONE    gui=NONE           cterm=NONE
-hi Cursor       guifg=NONE    guibg=NONE    gui=reverse        ctermfg=NONE ctermbg=NONE cterm=reverse
 hi Directory    guifg=#b8bb26 guibg=NONE    gui=bold           cterm=bold
 hi EndOfBuffer  guifg=#000000 guibg=NONE    gui=NONE           cterm=NONE
 hi Question     guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
 hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
 
 " search
-hi Search       guifg=#000000 guibg=#fe8019 gui=NONE cterm=NONE
-hi IncSearch    guifg=#000000 guibg=#fe8019 gui=NONE cterm=NONE
+hi Search       guifg=#000000 guibg=#fe8019 gui=bold cterm=bold
+hi IncSearch    guifg=#000000 guibg=#fe8019 gui=bold cterm=bold
 
 " tabline
 hi TabLine     guifg=#353535 guibg=#000000 gui=NONE cterm=NONE
@@ -49,8 +48,9 @@ hi DiffDelete guifg=#fb4934 guibg=#000000 gui=reverse cterm=reverse
 hi DiffText   guifg=#fabd2f guibg=#000000 gui=reverse cterm=reverse
 
 " coc
-hi CocErrorSign guifg=#ff4934 guibg=#000000 gui=NONE cterm=NONE
-hi CocPreviewHi guifg=#fe8019 guibg=#000000 gui=NONE cterm=NONE
+hi CocErrorSign     guifg=#ff4934 guibg=#000000 gui=NONE           cterm=NONE
+hi CocPreviewHi     guifg=#fe8019 guibg=#000000 gui=bold           cterm=bold
+hi CocHighlightText guifg=NONE    guibg=NONE    gui=underline,bold cterm=underline,bold
 
 " coc-git
 hi CocGitAddedSign         guifg=#b8bb26 guibg=#000000   gui=NONE cterm=NONE
@@ -104,4 +104,4 @@ hi Type           guifg=#fabd2f guibg=NONE    gui=NONE        cterm=NONE
 hi Typedef        guifg=#fabd2f guibg=NONE    gui=NONE        cterm=NONE
 hi Todo           guifg=fg      guibg=#000000 gui=bold,italic cterm=bold,italic
 hi Underlined     guifg=#83a598 guibg=NONE    gui=underline   cterm=underline
-hi CursorIM       guifg=NONE    guibg=NONE    gui=reverse     ctermfg=NONE ctermbg=NONE cterm=reverse
+hi CursorIM       guifg=NONE    guibg=NONE    gui=reverse     cterm=reverse

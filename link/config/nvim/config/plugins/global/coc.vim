@@ -84,7 +84,13 @@ endfunction
 nnoremap <silent> gh :call <sid>show_documentation()<cr>
 
 " autocmd
-autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" auto import package when saving a file
+autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
+
+" update signature help on jump placeholder.
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 
 """ coc extensions config """
 ""
