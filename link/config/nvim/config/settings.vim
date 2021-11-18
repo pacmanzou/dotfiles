@@ -7,7 +7,7 @@ set fileencodings=utf-8,gbk,ucs-bom,cp936
 set foldlevel=99
 set hidden
 set ignorecase
-set listchars=tab:\ \ ,trail:▫
+set listchars=tab:\|\ ,trail:▫
 set lazyredraw
 set list
 set magic
