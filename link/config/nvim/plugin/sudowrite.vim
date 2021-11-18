@@ -5,7 +5,7 @@
 " - SudoWrite
 
 if exists('g:loaded_sudowrite')
-	finish
+    finish
 endif
 let g:loaded_sudowrite = 1
 

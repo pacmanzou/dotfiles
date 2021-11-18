@@ -5,7 +5,7 @@
 " - ClearBuffers
 
 if exists('g:loaded_clearbuffers')
-	finish
+    finish
 endif
 let g:loaded_clearbuffers = 1
 
