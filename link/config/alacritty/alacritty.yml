@@ -15,6 +15,7 @@ scrolling:
   history: 10000
   multiplier: 3
 
+
 font:
   normal:
     family: Hack
@@ -34,6 +35,9 @@ colors:
   primary:
     background: '0x000000'
     foreground: '0xebdbb2'
+  cursor:
+    text: '0x000000'
+    cursor: '0xebdbb2'
   normal:
     black:   '0x000000'
     red:     '0xfb4934'
