@@ -3,6 +3,7 @@ let g:plug_window = '-tabnew'
 
 call plug#begin('$HOME/.config/nvim/plugged')
 " priority
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
 " primary
