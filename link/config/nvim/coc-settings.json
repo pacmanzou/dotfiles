@@ -10,7 +10,7 @@
         "markdown": "markdownlint",
         "sh": "shellcheck"
     },
-    "explorer.width": 36,
+    "explorer.width": 35,
     "explorer.icon.enableNerdfont": true,
     "explorer.keyMappingMode": "none",
     "explorer.keyMappings.global": {
