@@ -222,9 +222,6 @@ noremap <silent> K     3<c-y>
 " visual select
 noremap <silent> gV ggVG$
 
-noremap <silent> + <c-a>
-noremap <silent> - <c-x>
-
 " nnoremap
 " windows exchange
 nnoremap <silent> <c-w>t     <c-w>T
@@ -257,12 +254,6 @@ nnoremap <silent> yd :let @+=getcwd()<cr>
 nnoremap <silent> <c-n> <c-i>
 nnoremap <silent> <c-p> <c-o>
 
-" select code block in markdown
-xnoremap <silent> ib g_?^\s*```<cr>jo/^\s*```<cr>kV:<c-u>nohl<cr>gv
-xnoremap <silent> ab g_?^\s*```<cr>o/^\s*```<cr>V:<c-u>nohl<cr>gv
-onoremap <silent> ib :<c-u>execute "normal vib"<cr>
-onoremap <silent> ab :<c-u>execute "normal vab"<cr>
-
 " substitute
 nnoremap <space>s :%s///g<left><left><left>
 vnoremap <space>s :s///g<left><left><left>
@@ -272,6 +263,12 @@ nnoremap <silent> x "_x
 nnoremap <silent> X "_D
 vnoremap <silent> x "_x
 vnoremap <silent> X "_X
+
+" quickily +, -
+nnoremap <silent> + <c-a>
+nnoremap <silent> - <c-x>
+vnoremap <silent> + g<c-a>
+vnoremap <silent> - g<c-x>
 
 " search by regex
 nnoremap / mr/\v
@@ -367,10 +364,6 @@ vmap n     <nop>
 vmap N     <nop>
 vmap <c-f> <nop>
 vmap <c-b> <nop>
-
-" vnoremap
-vnoremap <silent> + g<c-a>
-vnoremap <silent> - g<c-x>
 
 
 " tmap
