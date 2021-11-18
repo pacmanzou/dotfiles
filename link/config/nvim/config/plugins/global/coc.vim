@@ -31,7 +31,7 @@ let g:coc_global_extensions = [
 inoremap <silent><nowait> <c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
 
 " rename
-nmap <silent> cn <plug>(coc-rename)
+nmap <silent> cr <plug>(coc-rename)
 
 " apply codeAction, need lsp to support
 vmap <silent> <c-l> <plug>(coc-codeaction-selected)

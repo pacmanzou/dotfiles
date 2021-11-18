@@ -31,7 +31,7 @@
         "..": "gotoParent",
         "O": "expand:recursive",
         "C": "collapse:recursive",
-        "cn": "rename",
+        "cr": "rename",
         "yp": "copyFilepath",
         "yn": "copyFilename",
         "yy": "copyFile",
