@@ -8,7 +8,6 @@ Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
 " global
 Plug 'RRethy/vim-illuminate',      {'on': []}
-Plug 'RRethy/vim-hexokinase',      {'do': 'make hexokinase', 'on': []}
 Plug 'pacmanzou/surround.vim',     {'on': []}
 Plug 'tpope/vim-abolish',          {'on': []}
 Plug 'tpope/vim-repeat',           {'on': []}
@@ -46,7 +45,6 @@ function! LoadGlobalPlugins(timer) abort
     " load global plugins
     call plug#load(
                 \ 'vim-illuminate',
-                \ 'vim-hexokinase',
                 \ 'surround.vim',
                 \ 'vim-abolish',
                 \ 'vim-repeat',
