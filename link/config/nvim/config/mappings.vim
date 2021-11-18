@@ -263,6 +263,16 @@ xnoremap <silent> ab g_?^\s*```<cr>o/^\s*```<cr>V:<c-u>nohl<cr>gv
 onoremap <silent> ib :<c-u>execute "normal vib"<cr>
 onoremap <silent> ab :<c-u>execute "normal vab"<cr>
 
+" substitute
+nnoremap <space>s :%s///g<left><left><left>
+vnoremap <space>s :s///g<left><left><left>
+
+" x delete without yank
+nnoremap <silent> x "_x
+nnoremap <silent> X "_D
+vnoremap <silent> x "_x
+vnoremap <silent> X "_X
+
 " search by regex
 nnoremap / mr/\v
 

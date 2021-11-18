@@ -8,11 +8,9 @@ Plug 'fatih/vim-go',{'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
 " global
 Plug 'pacmanzou/surround.vim',     {'on': []}
-Plug 'tpope/vim-abolish',          {'on': []}
 Plug 'tpope/vim-repeat',           {'on': []}
 Plug 'tomtom/tcomment_vim',        {'on': []}
 Plug 'junegunn/vim-easy-align',    {'on': []}
-Plug 'tommcdo/vim-exchange',       {'on': []}
 Plug 'AndrewRadev/splitjoin.vim',  {'on': []}
 Plug 'sbdchd/neoformat',           {'on': []}
 Plug 'voldikss/vim-floaterm',      {'on': []}
@@ -43,11 +41,9 @@ function! LoadGlobalPlugins(timer) abort
     " load global plugins
     call plug#load(
                 \ 'surround.vim',
-                \ 'vim-abolish',
                 \ 'vim-repeat',
                 \ 'tcomment_vim',
                 \ 'vim-easy-align',
-                \ 'vim-exchange',
                 \ 'splitjoin.vim',
                 \ 'neoformat',
                 \ 'vim-floaterm',
