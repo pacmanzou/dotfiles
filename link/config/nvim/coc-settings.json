@@ -1,6 +1,4 @@
 {
-    "coc.preferences.formatOnType": true,
-    "coc.preferences.formatOnSaveFiletypes": ["go"],
     "coc.preferences.rootPatterns": [".git", ".gitignore"],
     "diagnostic.infoSign": "I",
     "diagnostic.hintSign": "H",

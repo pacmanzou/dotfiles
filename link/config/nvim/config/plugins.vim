@@ -7,13 +7,13 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
 " primary
-Plug 'tpope/vim-repeat',           {'on': []}
-Plug 'tomtom/tcomment_vim',        {'on': []}
-Plug 'AndrewRadev/splitjoin.vim',  {'on': []}
-Plug 'sbdchd/neoformat',           {'on': []}
-Plug 'voldikss/vim-floaterm',      {'on': []}
-Plug 'liuchengxu/vista.vim',       {'on': []}
-Plug 'neoclide/coc.nvim',          {'branch': 'release', 'on': []}
+Plug 'tpope/vim-repeat',          {'on': []}
+Plug 'tomtom/tcomment_vim',       {'on': []}
+Plug 'AndrewRadev/splitjoin.vim', {'on': []}
+Plug 'sbdchd/neoformat',          {'on': []}
+Plug 'voldikss/vim-floaterm',     {'on': []}
+Plug 'liuchengxu/vista.vim',      {'on': []}
+Plug 'neoclide/coc.nvim',         {'branch': 'release', 'on': []}
 
 " markdown
 Plug 'mzlogin/vim-markdown-toc',     {'on': []}
@@ -68,7 +68,7 @@ endfunction
 call SourceList(split(glob('$HOME/.config/nvim/config/plugins/priority/*.vim')))
 
 " primary
-autocmd VimEnter * call timer_start(100, 'LoadprimaryPlugins', {'repeat': 1})
+autocmd VimEnter * call timer_start(100, 'LoadprimaryPlugins')
 
 " markdown
-autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins', {'repeat': 1})
+autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins')

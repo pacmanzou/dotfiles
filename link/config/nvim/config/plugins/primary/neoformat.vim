@@ -14,3 +14,8 @@ let g:neoformat_basic_format_retab = 0
 let g:neoformat_basic_format_trim = 0
 
 nnoremap <silent> <space>n :Neoformat<cr>
+
+augroup Neoformat
+    autocmd!
+    autocmd BufWritePre *.go Neoformat
+augroup END
