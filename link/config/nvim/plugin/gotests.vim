@@ -1,4 +1,4 @@
-" Gotests for vim
+" Gotests for go
 " ---
 "
 " Commands:

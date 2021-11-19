@@ -7,7 +7,6 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 
 " primary
-Plug 'pacmanzou/surround.vim',     {'on': []}
 Plug 'tpope/vim-repeat',           {'on': []}
 Plug 'tomtom/tcomment_vim',        {'on': []}
 Plug 'AndrewRadev/splitjoin.vim',  {'on': []}
@@ -39,7 +38,6 @@ endfunction
 function! LoadprimaryPlugins(timer) abort
     " load primary plugins
     call plug#load(
-                \ 'surround.vim',
                 \ 'vim-repeat',
                 \ 'tcomment_vim',
                 \ 'splitjoin.vim',
