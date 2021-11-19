@@ -8,7 +8,7 @@ set fillchars=stl:\ ,stlnc:\ ,vert:\|,fold:·,diff:-
 set foldlevel=99
 set hidden
 set ignorecase
-set listchars=tab:\ \ ,trail:▫
+set listchars=tab:\|\ ,trail:▫
 set lazyredraw
 set list
 set magic
