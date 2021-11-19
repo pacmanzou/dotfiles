@@ -36,5 +36,5 @@ function! s:clearbuffers(bang) abort
     endif
 endfunction
 
-command! -nargs=? -complete=buffer -bang CleanBuffers
+command! -nargs=? -complete=buffer -bang ClearBuffers
             \ :call s:clearbuffers('<bang>')
