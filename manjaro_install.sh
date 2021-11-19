@@ -172,7 +172,7 @@ fi
 sudo npm install -g js-beautify \
     markdownlint-cli \
     neovim \
-    revel-md
+    reveal-md
 echo
 
 Info "### pip install ###"
