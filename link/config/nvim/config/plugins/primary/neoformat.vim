@@ -1,4 +1,4 @@
-let g:neoformat_enabled_go = ['gofmt']
+let g:neoformat_enabled_go = ['gofumpt']
 let g:neoformat_enabled_python = ['black']
 let g:neoformat_enabled_sh = ['shfmt']
 let g:neoformat_enabled_json = ['jsbeautify']
@@ -14,8 +14,3 @@ let g:neoformat_basic_format_retab = 0
 let g:neoformat_basic_format_trim = 0
 
 nnoremap <silent> <space>n :Neoformat<cr>
-
-augroup Neoformat
-    autocmd!
-    autocmd BufWritePre *.go Neoformat
-augroup END
