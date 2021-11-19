@@ -34,8 +34,8 @@ hi Question     guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
 hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
 
 " search
-hi Search       guifg=#000000 guibg=#fe8019 gui=bold cterm=bold
-hi IncSearch    guifg=#000000 guibg=#fe8019 gui=bold cterm=bold
+hi Search    guifg=#000000 guibg=#fe8019 gui=bold cterm=bold
+hi IncSearch guifg=#000000 guibg=#fe8019 gui=bold cterm=bold
 
 " tabline
 hi TabLine     guifg=#353535 guibg=#000000 gui=NONE cterm=NONE
