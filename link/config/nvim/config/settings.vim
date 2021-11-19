@@ -2,7 +2,7 @@
 set autochdir
 set clipboard=unnamedplus
 set expandtab
-set fdm=indent
+set foldmethod=indent
 set fileencodings=utf-8,gbk,ucs-bom,cp936
 set fillchars=stl:\ ,stlnc:\ ,vert:\|,fold:·,diff:-
 set foldlevel=99
@@ -21,12 +21,13 @@ set matchpairs+=‘:’
 set nohlsearch
 set notimeout
 set nowritebackup
+set number
 set scrolloff=3
 set shiftwidth=4
 set shortmess+=c
 set smartcase
 set smartindent
-set signcolumn=yes
+set signcolumn=number
 set softtabstop=4
 set splitbelow
 set splitright
