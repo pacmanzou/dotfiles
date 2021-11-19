@@ -22,9 +22,8 @@ let g:clipboard = {
             \ 'cache_enabled': 0,
             \ }
 
-let &termencoding = &encoding
+" leader key
 let mapleader = ","
-let g:netrw_nogx = 1
 
 " colorscheme
 colorscheme pacmanzou
