@@ -19,4 +19,3 @@ function! s:ClearSpaces(line1, line2)
 endfunction
 
 command! -range=% ClearSpaces call <sid>ClearSpaces(<line1>, <line2>)
-
