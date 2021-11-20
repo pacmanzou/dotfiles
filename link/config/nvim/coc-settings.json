@@ -81,11 +81,19 @@
             "shell": true
         }
     },
+    "pairs.enableCharacters": [
+        "(",
+        "[",
+        "{",
+        "'",
+        "\"",
+        "`"
+    ],
     "suggest.noselect": false,
     "suggest.maxCompleteItemCount": 20,
     "suggest.detailField": "abbr",
     "suggest.detailMaxLength": 10,
-    "snippets.priority": -1,
+    "snippets.priority": 100,
     "snippets.ultisnips.directories": [
         "$HOME/.config/nvim/UltiSnips/"
     ],
