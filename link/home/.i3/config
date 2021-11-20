@@ -182,7 +182,7 @@ mode "resize" {
 bar {
     i3bar_command i3bar
     status_command i3status
-    height 24
+    height 21
     tray_output all
     position bottom
     strip_workspace_numbers yes
@@ -210,14 +210,9 @@ client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #000000
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border none
-default_floating_border none
+default_border 1pixel
+default_floating_border 1pixel
+smart_borders on
 
-# default_border 1pixel
-# default_floating_border 1pixel
-#
-# smart_borders on
-
-# gaps
 gaps inner 8
-gaps outer 1
+gaps outer 2
