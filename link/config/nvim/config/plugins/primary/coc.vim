@@ -1,5 +1,3 @@
-""" coc extensions load """
-""
 let g:coc_global_extensions = [
             \ 'coc-pyright',
             \ 'coc-json',
@@ -25,8 +23,39 @@ let g:coc_global_extensions = [
             \ 'coc-leetcode'
             \ ]
 
-""" coc basci config """
-""
+" coc-snippets
+imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+
+" coc-explorer
+nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
+
+autocmd FileType coc-explorer map <buffer> <c-p> <nop>
+
+" coc-translate
+nmap <silent> t <Plug>(coc-translator-e)
+
+" coc-floaterm
+nnoremap <silent> <c-g><space> :CocList floaterm<cr>
+
+" coc-git
+" create text object for git chunk
+omap <silent> ig <Plug>(coc-git-chunk-inner)
+xmap <silent> ig <Plug>(coc-git-chunk-inner)
+omap <silent> ag <Plug>(coc-git-chunk-outer)
+xmap <silent> ag <Plug>(coc-git-chunk-outer)
+
+" navigate chunks of current buffer
+nmap <silent> ]g <plug>(coc-git-nextchunk)
+nmap <silent> [g <plug>(coc-git-prevchunk)
+
+" navigate conflicts of current buffer
+nmap <silent> ]c <Plug>(coc-git-nextconflict)
+nmap <silent> [c <Plug>(coc-git-prevconflict)
+
+nnoremap <silent> <space>a :CocCommand git.chunkStage<cr>
+nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
+nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
+
 " used for the format on type and improvement of brackets
 inoremap <silent><nowait> <c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
 
@@ -83,41 +112,6 @@ endfunction
 
 nnoremap <silent> gh :call <sid>show_documentation()<cr>
 
-" autocmd
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" update signature help on jump placeholder.
+" autocmds
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-
-""" coc extensions config """
-""
-" coc-snippets
-imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
-
-" coc-explorer
-nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
-
-" coc-translate
-nmap <silent> t <Plug>(coc-translator-e)
-
-" coc-floaterm
-nnoremap <silent> <c-g><space> :CocList floaterm<cr>
-
-" coc-git
-" create text object for git chunk
-omap <silent> ig <Plug>(coc-git-chunk-inner)
-xmap <silent> ig <Plug>(coc-git-chunk-inner)
-omap <silent> ag <Plug>(coc-git-chunk-outer)
-xmap <silent> ag <Plug>(coc-git-chunk-outer)
-
-" navigate chunks of current buffer
-nmap <silent> ]g <plug>(coc-git-nextchunk)
-nmap <silent> [g <plug>(coc-git-prevchunk)
-
-" navigate conflicts of current buffer
-nmap <silent> ]c <Plug>(coc-git-nextconflict)
-nmap <silent> [c <Plug>(coc-git-prevconflict)
-
-nnoremap <silent> <space>a :CocCommand git.chunkStage<cr>
-nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
-nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
+autocmd CursorHold * silent call CocActionAsync('highlight')
