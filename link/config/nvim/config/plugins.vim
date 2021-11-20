@@ -10,6 +10,7 @@ Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
 Plug 'tpope/vim-repeat',          {'on': []}
 Plug 'tomtom/tcomment_vim',       {'on': []}
 Plug 'AndrewRadev/splitjoin.vim', {'on': []}
+Plug 'junegunn/vim-easy-align',   {'on': []}
 Plug 'sbdchd/neoformat',          {'on': []}
 Plug 'voldikss/vim-floaterm',     {'on': []}
 Plug 'liuchengxu/vista.vim',      {'on': []}
@@ -41,6 +42,7 @@ function! LoadprimaryPlugins(timer) abort
                 \ 'vim-repeat',
                 \ 'tcomment_vim',
                 \ 'splitjoin.vim',
+                \ 'vim-easy-align',
                 \ 'neoformat',
                 \ 'vim-floaterm',
                 \ 'vista.vim',
