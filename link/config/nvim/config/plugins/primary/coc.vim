@@ -55,6 +55,7 @@ nnoremap <silent> <space>a :CocCommand git.chunkStage<cr>
 nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
 nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
 
+" coc basic config
 " used for the format on type and improvement of brackets
 inoremap <silent><nowait> <c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
 
