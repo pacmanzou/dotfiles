@@ -192,6 +192,7 @@ map <c-n>      <nop>
 map <c-o>      <nop>
 map <c-p>      <nop>
 map <c-g>      <nop>
+map <cr>       <nop>
 map <bs>       <nop>
 map <c-s>      <nop>
 map <c-t>      <nop>
