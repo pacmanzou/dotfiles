@@ -1,10 +1,6 @@
 " Highlight the under cursor word
 
-let s:interestingWordsGUIColors = ['#aeee00', '#ff0000', '#0000ff', '#b88823', '#ffa724', '#ff2c4b']
-let s:interestingWordsTermColors = ['154', '121', '211', '137', '214', '222']
-
-let g:interestingWordsGUIColors = exists('g:interestingWordsGUIColors') ? g:interestingWordsGUIColors : s:interestingWordsGUIColors
-let g:interestingWordsTermColors = exists('g:interestingWordsTermColors') ? g:interestingWordsTermColors : s:interestingWordsTermColors
+let s:interestingWordsColors = ['#ebdbb2', '#b8bb26', '#fb4934']
 
 let s:hasBuiltColors = 0
 
@@ -199,25 +195,12 @@ function! s:uiMode()
 endfunction
 
 " initialise highlight colors from list of GUIColors
-" initialise length of s:interestingWord list
-" initialise s:recentlyUsed list
 function! s:buildColors()
     if (s:hasBuiltColors)
         return
     endif
     let ui = s:uiMode()
-    let wordColors = (ui == 'gui') ? g:interestingWordsGUIColors : g:interestingWordsTermColors
-    if (exists('g:interestingWordsRandomiseColors') && g:interestingWordsRandomiseColors)
-        " fisher-yates shuffle
-        let i = len(wordColors)-1
-        while i > 0
-            let j = s:Random(i)
-            let temp = wordColors[i]
-            let wordColors[i] = wordColors[j]
-            let wordColors[j] = temp
-            let i -= 1
-        endwhile
-    endif
+    let wordColors = s:interestingWordsColors
     " select ui type
     " highlight group indexed from 1
     let currentIndex = 1
@@ -230,16 +213,6 @@ function! s:buildColors()
     endfor
     let s:hasBuiltColors = 1
 endfunc
-
-" helper function to get random number between 0 and n-1 inclusive
-function! s:Random(n)
-    let timestamp = reltimestr(reltime())[-2:]
-    return float2nr(floor(a:n * timestamp/100))
-endfunction
-
-if !exists('g:interestingWordsDefaultMappings') || g:interestingWordsDefaultMappings != 0
-        let g:interestingWordsDefaultMappings = 1
-endif
 
 nnoremap <silent> <space>h :call InterestingWords('n')<cr>
 vnoremap <silent> <space>h :call InterestingWords('v')<cr>
