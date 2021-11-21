@@ -188,7 +188,6 @@ gem install neovim
 echo
 
 Info "### go install ###"
-go install github.com/cweill/gotests/...@latest
 go install mvdan.cc/gofumpt@latest
 echo
 
