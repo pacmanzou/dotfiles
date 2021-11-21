@@ -28,7 +28,7 @@ class fzf_select(Command):
     def execute(self):
         # match files
         if shutil.which("fd"):
-            command = "fd --type f --hidden --follow --exclude .git | fzf +m --reverse"
+            command = "fd --type f --follow --exclude .git | fzf +m --reverse"
         else:
             command = "find -L . \\( -path '*/\\.*' -o -fstype 'dev' -o -fstype 'proc' \\) -prune \
             -o -print 2> /dev/null | sed 1d | cut -b3- | fzf +m --reverse"
