@@ -297,7 +297,8 @@
 
 [urgency_critical]
     background = "#1d1d1d"
-    foreground = "#fb4934"
+    foreground = "#fe8019"
+    frame_color = "#fe8019"
     timeout = 0
     new_icon = /home/zou/.config/dunst/critical.png
 
