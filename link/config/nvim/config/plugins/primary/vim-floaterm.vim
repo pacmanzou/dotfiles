@@ -18,5 +18,9 @@ nnoremap <silent> <c-g>l     :FloatermNew lazygit<cr>
 nnoremap <silent> <c-g><c-l> :FloatermNew lazygit<cr>
 nnoremap <silent> <c-g>r     :FloatermNew ranger<cr>
 nnoremap <silent> <c-g><c-r> :FloatermNew ranger<cr>
+nnoremap <silent> <c-g>n     :FloatermNew neomutt<cr>
+nnoremap <silent> <c-g><c-n> :FloatermNew neomutt<cr>
+nnoremap <silent> <c-g>h     :FloatermNew htop<cr>
+nnoremap <silent> <c-g><c-h> :FloatermNew htop<cr>
 
 autocmd FileType floaterm map <buffer> <c-p> <nop>
