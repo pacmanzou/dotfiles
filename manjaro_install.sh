@@ -120,7 +120,6 @@ sudo pacman -S alacritty \
     python-pip \
     python2-pip \
     prettier \
-    pandoc \
     ruby \
     ripgrep \
     seahorse \
