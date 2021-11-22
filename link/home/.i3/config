@@ -4,33 +4,30 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
-# background $term_background
-# Same logic applied to everything else.
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0     color0
-set_from_resource $term_color1     color1
-set_from_resource $term_color2     color2
-set_from_resource $term_color3     color3
-set_from_resource $term_color4     color4
-set_from_resource $term_color5     color5
-set_from_resource $term_color6     color6
-set_from_resource $term_color7     color7
-set_from_resource $term_color8     color8
-set_from_resource $term_color9     color9
-set_from_resource $term_color10    color10
-set_from_resource $term_color11    color11
-set_from_resource $term_color12    color12
-set_from_resource $term_color13    color13
-set_from_resource $term_color14    color14
-set_from_resource $term_color15    color15
-
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font xft:URWGothic-Book 11
+
+# Theme colors
+# class                 border  backgr. text    indic.   child_border
+client.focused          #000000 #ebdbb2 #000000 #000000
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+default_border 1pixel
+default_floating_border normal
+
+# Hide borders
+hide_edge_borders none
+
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
+smart_borders on
+
+# Set inner/outer gaps
+gaps inner 8
+gaps outer 2
 
 # exec
 exec_always --no-startup-id fix_xcursor
@@ -46,17 +43,9 @@ exec --no-startup-id bash "$HOME/.i3/monitorbattery.sh"
 exec --no-startup-id bash "$HOME/.i3/cpupower.sh"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
-bindsym $mod+Ctrl+q kill
-bindsym $mod+Ctrl+r restart
-bindsym $mod+Ctrl+o floating toggle
-bindsym $mod+Ctrl+p move scratchpad
-bindsym $mod+Ctrl+h move left 50
-bindsym $mod+Ctrl+j move down 50
-bindsym $mod+Ctrl+k move up 50
-bindsym $mod+Ctrl+l move right 50
-bindsym $mod+Ctrl+w move container to workspace back_and_forth
-
+bindsym $mod+Tab workspace next
 bindsym $mod+w workspace back_and_forth
+bindsym $mod+e mode "$mode_system"
 bindsym $mod+r exec --no-startup-id flameshot gui
 bindsym $mod+i exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+o focus mode_toggle
@@ -71,17 +60,24 @@ bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
 bindsym $mod+v split h; exec --no-startup-id notify-send 'Vsplit'
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
-bindsym $mod+Shift+n exec --no-startup-id dunstctl close
+bindsym $mod+m mode "$mode_misc"
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
-bindsym $mod+Tab workspace next
+
+bindsym $mod+Ctrl+q kill
+bindsym $mod+Ctrl+r restart
+bindsym $mod+Ctrl+i exec --no-startup-id amixer -q set Master 5%+ unmute
+bindsym $mod+Ctrl+o floating toggle
+bindsym $mod+Ctrl+p move scratchpad
+bindsym $mod+Ctrl+d exec --no-startup-id amixer -q set Master 5%- unmute
+bindsym $mod+Ctrl+h move left 50
+bindsym $mod+Ctrl+j move down 50
+bindsym $mod+Ctrl+k move up 50
+bindsym $mod+Ctrl+l move right 50
+bindsym $mod+Ctrl+n exec --no-startup-id dunstctl close
 
 bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Shift+i exec --no-startup-id amixer -q set Master 5%+ unmute
-bindsym $mod+Shift+d exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
 
-
-bindsym $mod+m mode "$mode_misc"
 set $mode_misc (w)ifi   (t)ouchpad   (f)citx   (g)ithub_token   (b)luetooth
 mode "$mode_misc"{
     bindsym w exec --no-startup-id bash "$HOME/.i3/wifi.sh", mode "default"
@@ -94,7 +90,6 @@ mode "$mode_misc"{
     bindsym Escape mode "default"
 }
 
-bindsym $mod+e mode "$mode_system"
 set $mode_system (l)ock   (e)xit   switch_(u)ser   (s)uspend   (h)ibernate   (r)eboot   (Shift+s)hutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -105,6 +100,16 @@ mode "$mode_system" {
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
 
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+# Resize window (you can also use the mouse for that)
+mode "resize" {
+    bindsym l resize shrink width 50 px
+    bindsym k resize grow height 50 px
+    bindsym j resize shrink height 50 px
+    bindsym h resize grow width 50 px
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -134,17 +139,6 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
-# Move focused container to workspace
-bindsym $mod+Ctrl+1 move container to workspace $ws1
-bindsym $mod+Ctrl+2 move container to workspace $ws2
-bindsym $mod+Ctrl+3 move container to workspace $ws3
-bindsym $mod+Ctrl+4 move container to workspace $ws4
-bindsym $mod+Ctrl+5 move container to workspace $ws5
-bindsym $mod+Ctrl+6 move container to workspace $ws6
-bindsym $mod+Ctrl+7 move container to workspace $ws7
-bindsym $mod+Ctrl+8 move container to workspace $ws8
-bindsym $mod+Ctrl+9 move container to workspace $ws9
-
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
@@ -162,7 +156,6 @@ for_window [class="Lightdm-settings"] floating enable, move position center
 for_window [class="Lxappearance"] floating enable, move position center
 for_window [class="Manjaro Settings Manager"] floating enable, move position center
 for_window [class="Pamac-manager"] floating enable, move position center
-for_window [class="Gcolor"] floating enable, move position center
 for_window [class="Fcitx5"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Nitrogen"] floating enable, move position center
@@ -171,16 +164,7 @@ for_window [class="Viewnior"] floating enable, resize set 960 720, move position
 
 for_window [title="^alacritty-copy$"] floating enable, move position center
 
-# Resize window (you can also use the mouse for that)
-mode "resize" {
-    bindsym l resize shrink width 50 px
-    bindsym k resize grow height 50 px
-    bindsym j resize shrink height 50 px
-    bindsym h resize grow width 50 px
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
+# Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
     i3bar_command i3bar
     status_command i3status
@@ -201,20 +185,3 @@ bar {
         binding_mode       #000000 #1d1d1d #ebdbb2
     }
 }
-
-# Theme colors
-# class                 border  backgr. text    indic.   child_border
-client.focused          #000000 #ebdbb2 #000000 #000000
-client.focused_inactive #000000 #000000 #000000 #000000
-client.unfocused        #000000 #000000 #000000 #000000
-client.urgent           #CB4B16 #000000 #000000 #000000
-client.placeholder      #000000 #0c0c0c #ffffff #000000
-client.background       #000000
-
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border 1pixel
-default_floating_border 1pixel
-smart_borders on
-
-gaps inner 8
-gaps outer 2
