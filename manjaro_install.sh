@@ -134,7 +134,6 @@ sudo pacman -S alacritty \
     virtualbox \
     wqy-microhei \
     xclip \
-    youtube-dl \
     you-get \
     yay \
     yarn \
