@@ -1,4 +1,4 @@
-" Author: Zou Jiancheng <pacmanzou@qq.com>
+" Author: pacmanzou <pacmanzou@qq.com>
 " Github: https://github.com/pacmanzou
 " Description: Nvim config
 
