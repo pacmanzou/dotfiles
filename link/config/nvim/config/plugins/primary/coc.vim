@@ -56,6 +56,18 @@ nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
 nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
 
 " coc basic config
+" use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <tab>
+      \ pumvisible() ? "\<c-n>" :
+      \ <sid>check_back_space() ? "\<tab>" :
+      \ coc#refresh()
+inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " used for the format on type and improvement of brackets
 inoremap <silent><nowait> <c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
 
