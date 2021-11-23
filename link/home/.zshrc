@@ -84,32 +84,50 @@ git_dirty() {
 PROMPT='%B%F{green}%n@%m%f%b %~ $vcs_info_msg_1_$(git_dirty)$prompt_newline:'
 
 # alias
-alias syy='sudo pacman -Syy'
-alias syu='sudo pacman -Syu'
-alias syyu='sudo pacman -Syyu'
-alias scc='sudo pacman -Scc'
 alias sudo='sudo -E'
 alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
-alias mv='mv -i'
 alias cp='cp -i'
+alias mv='mv -i'
 alias rm='rm -i'
-alias mkdir='mkdir -p'
+alias grep='grep --colour=auto'
+alias df='df -h'
+alias free='free -m'
+alias more=less
+
+if (( $+commands[exa] )); then
+    alias ls='exa -gH --time-style=iso --icons'
+else
+    alias ls='ls --color=tty --time-style=iso'
+fi
+
+# # extract - archive extractor
+# # usage: extract <file>
+extract ()
+{
+    if [ -f $1 ] ; then
+        case $1 in
+            *.tar.bz2)   tar xjf $1   ;;
+            *.tar.gz)    tar xzf $1   ;;
+            *.bz2)       bunzip2 $1   ;;
+            *.rar)       unrar x $1   ;;
+            *.gz)        gunzip $1    ;;
+            *.tar)       tar xf $1    ;;
+            *.tbz2)      tar xjf $1   ;;
+            *.tgz)       tar xzf $1   ;;
+            *.zip)       unzip $1     ;;
+            *.Z)         uncompress $1;;
+            *.7z)        7z x $1      ;;
+            *)           echo "'$1' cannot be extracted via extract()" ;;
+            esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+}
 
 # tmux
 if [ -z "$TMUX" ]; then
     SESSION_NAME="localhost"
     tmux new-session -s $SESSION_NAME
-fi
-
-# exa
-if (( $+commands[exa] )); then
-    alias ls='exa -gH --time-style=iso --icons'
-    alias la='ls -la '
-    alias ll='ls -l'
-else
-    alias ls='ls --color=tty --time-style=iso'
-    alias la='ls -la'
-    alias ll='ls -l'
 fi
 
 # fzf

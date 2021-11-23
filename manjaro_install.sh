@@ -122,13 +122,13 @@ sudo pacman -S alacritty \
     prettier \
     ruby \
     ripgrep \
+    rar \
     seahorse \
     shellcheck \
     shfmt \
     viewnior \
     tmux \
     ttf-hack \
-    unrar \
     unzip \
     vnote-git \
     virtualbox \
