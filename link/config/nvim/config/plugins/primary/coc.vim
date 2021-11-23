@@ -87,10 +87,6 @@ nmap <silent> gi <plug>(coc-implementation)
 nmap <silent> ]d <plug>(coc-diagnostic-next)
 nmap <silent> [d <plug>(coc-diagnostic-prev)
 
-" float window scroll
-nnoremap <silent><expr> <c-f> coc#float#scroll(1)
-nnoremap <silent><expr> <c-b> coc#float#scroll(0)
-
 " jump previewd chunk
 nmap <silent> <c-o> <plug>(coc-float-jump)
 
