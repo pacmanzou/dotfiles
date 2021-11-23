@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 #
-# Description: Disable the touch pad
-# Time: 22:32:35 2020-11-06
+# Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
+#
+# Description: disable the touch pad
+#
 
 declare -i ID
 

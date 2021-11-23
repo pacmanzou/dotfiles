@@ -1,10 +1,14 @@
 #!/usr/bin/env bash
 #
-# Description: Restart fcitx
-# Time: 22:32:35 2020-11-06
+# Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
+#
+# Description: restart fcitx5
+#
 
 killall fcitx5
+
 sleep 0.1
 fcitx5 &
+
 sleep 0.1
 notify-send 'Fcitx5 restart'
