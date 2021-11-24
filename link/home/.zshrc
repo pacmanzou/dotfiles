@@ -1,15 +1,17 @@
 #!/usr/bin/env zsh
 
 # environment variable
-export PATH=$PATH:/usr/bin
-export GOPATH=$HOME/go
+export LANG=en_US.UTF-8
+export EDITOR=/usr/bin/nvim
+export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
+
+# golang
 export PATH=$PATH:$HOME/go/bin
+export GOPATH=$HOME/go
+# go proxy url
 export GOPROXY=https://goproxy.cn,direct
 # export GOPROXY=https://goproxy.io
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
-export BROWSER=/usr/bin/google-chrome-stable
-export EDITOR=/usr/bin/nvim
-export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
 # less
 export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
