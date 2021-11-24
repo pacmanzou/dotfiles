@@ -66,20 +66,20 @@ bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+m mode "$mode_misc"
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 
-bindsym $mod+Ctrl+q kill
 bindsym $mod+Ctrl+r restart
-bindsym $mod+Ctrl+i exec --no-startup-id amixer -q set Master 5%+ unmute
 bindsym $mod+Ctrl+o floating toggle
 bindsym $mod+Ctrl+p move scratchpad
-bindsym $mod+Ctrl+d exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
-bindsym $mod+Ctrl+n exec --no-startup-id dunstctl close
 
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Shift+q kill
 bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
+bindsym $mod+Shift+i exec --no-startup-id amixer -q set Master 5%+ unmute
+bindsym $mod+Shift+d exec --no-startup-id amixer -q set Master 5%- unmute
+bindsym $mod+Shift+n exec --no-startup-id dunstctl close
 
 set $mode_misc (w)ifi   (t)ouchpad   (f)citx   (g)ithub_token   (b)luetooth
 mode "$mode_misc"{
