@@ -48,8 +48,8 @@ hi DiffDelete guifg=#fb4934 guibg=#000000 gui=reverse cterm=reverse
 hi DiffText   guifg=#fabd2f guibg=#000000 gui=reverse cterm=reverse
 
 " coc
-hi CocErrorSign     guifg=#ff4934 guibg=#000000 gui=NONE           cterm=NONE
-hi CocPreviewHi     guifg=#fabd2f guibg=#000000 gui=NONE           cterm=NONE
+hi CocErrorSign     guifg=#ff4934 guibg=NONE    gui=NONE      cterm=NONE
+hi CocPreviewHi     guifg=#fabd2f guibg=#000000 gui=NONE      cterm=NONE
 hi CocHighlightText guifg=NONE    guibg=NONE    gui=underline cterm=underline
 
 " coc-git
