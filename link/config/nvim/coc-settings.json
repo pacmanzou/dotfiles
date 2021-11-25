@@ -1,9 +1,5 @@
 {
     "coc.preferences.rootPatterns": [".git", ".gitignore"],
-    "diagnostic.infoSign": "I",
-    "diagnostic.hintSign": "H",
-    "diagnostic.errorSign": "E",
-    "diagnostic.warningSign": "W",
     "diagnostic-languageserver.filetypes": {
         "markdown": "markdownlint",
         "sh": "shellcheck"
