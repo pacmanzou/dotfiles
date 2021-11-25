@@ -26,7 +26,6 @@ set shiftwidth=4
 set shortmess+=c
 set smartcase
 set smartindent
-set signcolumn=number
 set softtabstop=4
 set splitbelow
 set splitright
