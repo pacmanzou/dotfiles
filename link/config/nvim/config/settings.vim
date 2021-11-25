@@ -8,7 +8,6 @@ set foldlevel=99
 set hidden
 set ignorecase
 set listchars=tab:\|\ ,trail:▫
-set lazyredraw
 set list
 set magic
 set matchpairs+=<:>
