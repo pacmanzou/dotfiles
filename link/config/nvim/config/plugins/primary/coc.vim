@@ -28,8 +28,6 @@ imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand
 " coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
-autocmd FileType coc-explorer map <buffer> <c-p> <nop>
-
 " coc-translate
 nmap <silent> t <Plug>(coc-translator-e)
 
