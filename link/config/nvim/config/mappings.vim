@@ -295,7 +295,7 @@ imap <c-r><c-o>  <nop>
 imap <c-r><c-p>  <nop>
 imap <c-o>       <esc>o
 imap <c-a>       <esc>I
-imap <c-s>       <esc>lce
+imap <c-s>       <nop>
 imap <c-d>       <delete>
 imap <c-f>       <right>
 imap <c-g>       <nop>
@@ -309,7 +309,7 @@ imap <c-g>u      <nop>
 imap <c-g>U      <nop>
 imap <c-h>       <backspace>
 imap <c-j>       <nop>
-imap <c-k>       <esc>lC
+imap <c-k>       <nop>
 imap <c-l>       <nop>
 imap <c-z>       <nop>
 imap <c-x><c-d>  <nop>
