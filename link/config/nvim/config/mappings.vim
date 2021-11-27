@@ -363,7 +363,3 @@ vmap n     <nop>
 vmap N     <nop>
 vmap <c-f> <nop>
 vmap <c-b> <nop>
-
-
-" tmap
-tmap <c-g> <nop>

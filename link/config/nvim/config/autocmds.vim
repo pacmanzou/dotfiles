@@ -7,15 +7,15 @@ autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="Visual", timeo
 " map in a special filetype
 function! SpecialMap()
     if (index([''], &filetype) >= 0)
-        map <buffer> <c-n> <nop>
-        map <buffer> <c-p> <nop>
+        map <buffer> <c-n>  <nop>
+        map <buffer> <c-p>  <nop>
     elseif (index(['list'], &filetype) >= 0)
-        map <buffer> <c-n> <nop>
-        map <buffer> <c-p> <nop>
-        map <buffer> <c-d> <nop>
-        map <buffer> <c-u> <nop>
-        map <buffer> <c-b> <nop>
-        map <buffer> <c-f> <nop>
+        map      <buffer> <c-n> <nop>
+        map      <buffer> <c-p> <nop>
+        nnoremap <buffer> <c-d> <c-d>
+        nnoremap <buffer> <c-u> <c-u>
+        nnoremap <buffer> <c-b> <c-b>
+        nnoremap <buffer> <c-f> <c-f>
     else
         return
     endif
