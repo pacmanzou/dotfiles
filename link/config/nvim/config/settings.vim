@@ -1,6 +1,7 @@
 " set
 set autochdir
 set clipboard=unnamedplus
+set completeopt-=preview
 set expandtab
 set foldmethod=indent
 set fileencodings=utf-8,gbk,ucs-bom,cp936
