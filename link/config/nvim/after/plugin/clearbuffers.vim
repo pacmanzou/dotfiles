@@ -9,32 +9,16 @@ if exists('g:loaded_clearbuffers')
 endif
 let g:loaded_clearbuffers = 1
 
-function! s:clearbuffers(bang) abort
-    let last_buf = bufnr('$')
-
-    let del_cnt = 0
-    let bufn = 1
-
-    while bufn <= last_buf
-        if buflisted(bufn) && bufwinnr(bufn) == -1
-            if a:bang == '' && getbufvar(bufn, '&modified')
-                echohl WarningMsg
-                echo 'No write since last change for buffer(add ! to override)'
-                echohl None
-            else
-                silent exe 'bdel' . a:bang . ' ' . bufn
-                if ! buflisted(bufn)
-                    let del_cnt = del_cnt + 1
-                endif
+function! s:ClearBuffers(bang) abort
+    let l:tpbl=[]
+    call map(range(1, tabpagenr('$')), 'extend(l:tpbl, tabpagebuflist(v:val))')
+    for buf in filter(range(1, bufnr('$')), 'bufexists(v:val) && index(l:tpbl, v:val)==-1')
+        if getbufvar(buf, '&mod') == 0
+            if (getbufvar(buf, '&buftype') != 'terminal' || a:bang)
+                silent execute 'bwipeout!' buf
             endif
         endif
-        let bufn = bufn + 1
-    endwhile
-
-    if del_cnt > 0
-        echomsg 'Clear done, ' del_cnt 'buffer(s) cleard'
-    endif
+    endfor
 endfunction
 
-command! -nargs=? -complete=buffer -bang ClearBuffers
-            \ :call s:clearbuffers('<bang>')
+command -bang ClearBuffers call <sid>ClearBuffers(<bang>0)
