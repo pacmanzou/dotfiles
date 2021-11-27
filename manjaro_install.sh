@@ -125,7 +125,6 @@ sudo pacman -S alacritty \
     shellcheck \
     shfmt \
     viewnior \
-    vint \
     tmux \
     ttf-hack \
     unzip \

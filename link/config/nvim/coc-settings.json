@@ -2,7 +2,6 @@
     "coc.preferences.rootPatterns": [".git", ".gitignore"],
     "diagnostic-languageserver.filetypes": {
         "sh": "shellcheck",
-        "vim": "vint",
         "markdown": "markdownlint"
     },
     "explorer.width": 35,
