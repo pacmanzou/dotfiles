@@ -36,7 +36,7 @@ function! SourceList(path) abort
     unlet s:sourceList
 endfunction
 
-function! LoadprimaryPlugins(timer) abort
+function! LoadPrimaryPlugins(timer) abort
     " load primary plugins
     call plug#load(
                 \ 'vim-repeat',
@@ -70,7 +70,7 @@ endfunction
 call SourceList(split(glob('$HOME/.config/nvim/config/plugins/priority/*.vim')))
 
 " primary
-autocmd VimEnter * call timer_start(100, 'LoadprimaryPlugins')
+autocmd VimEnter * call timer_start(100, 'LoadPrimaryPlugins')
 
 " markdown
 autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins')
