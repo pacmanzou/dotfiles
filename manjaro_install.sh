@@ -113,14 +113,12 @@ sudo pacman -S alacritty \
     neofetch \
     nodejs-lts-fermium \
     cht.sh \
-    npm \
+    npm6 \
     neovim \
     neomutt \
     obs-studio \
     python-pip \
-    python2-pip \
     prettier \
-    ruby \
     ripgrep \
     rar \
     seahorse \
@@ -136,7 +134,6 @@ sudo pacman -S alacritty \
     xclip \
     you-get \
     yay \
-    yarn \
     zip \
     zathura \
     zathura-pdf-mupdf
@@ -169,20 +166,13 @@ fi
 
 sudo npm install -g js-beautify \
     markdownlint-cli \
-    neovim \
     reveal-md
 echo
 
 Info "### pip install ###"
-/usr/bin/python2 -m pip install pynvim
 pip install black \
     mycli \
     pynvim
-echo
-
-Info "### yarn and gem for neovim###"
-yarn global add neovim
-gem install neovim
 echo
 
 Info "### go install ###"
