@@ -21,7 +21,7 @@ hi Error        guifg=#fb4934 guibg=#000000 gui=bold           cterm=bold
 hi ErrorMsg     guifg=#fb4934 guibg=#000000 gui=bold           cterm=bold
 hi ModeMsg      guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
 hi MoreMsg      guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
-hi WarningMsg   guifg=#FE8019 guibg=NONE    gui=bold           cterm=bold
+hi WarningMsg   guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
 hi LineNr       guifg=#7c6f64 guibg=NONE    gui=NONE           cterm=NONE
 hi NonText      guifg=#504945 guibg=NONE    gui=NONE           cterm=NONE
 hi MatchParen   guifg=NONE    guibg=#665c54 gui=bold,underline cterm=bold,underline
@@ -31,6 +31,7 @@ hi Conceal      guifg=#504945 guibg=NONE    gui=NONE           cterm=NONE
 hi Directory    guifg=#b8bb26 guibg=NONE    gui=bold           cterm=bold
 hi Question     guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
 hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
+hi SpellBad     guifg=#fe8019 guibg=#000000 gui=underline      cterm=underline
 
 " search
 hi Search    guifg=#000000 guibg=#fabd2f gui=NONE cterm=NONE
