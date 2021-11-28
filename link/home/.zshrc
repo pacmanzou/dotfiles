@@ -13,6 +13,9 @@ export GOPROXY=https://goproxy.cn,direct
 # export GOPROXY=https://goproxy.io
 # export GOPROXY=https://mirrors.aliyun.com/goproxy/
 
+# yarn
+export PATH=$PATH:$HOME/.yarn/bin
+
 # less
 export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
 export LESS_TERMCAP_mb=$'\e[1;32m'

@@ -132,6 +132,7 @@ sudo pacman -S alacritty \
     virtualbox \
     wqy-microhei \
     xclip \
+    yarn \
     you-get \
     yay \
     zip \
@@ -157,12 +158,9 @@ yay -S abook \
     wps-office-mime-cn
 
 Info "### npm install ###"
-# npm set registry
-if npm config set registry https://registry.npm.taobao.org; then
-    Success "npm config set registry https://registry.npm.taobao.org\n"
-else
-    Fail "npm config set registry https://registry.npm.taobao.org\n"
-fi
+# npm and yarn set registry
+npm config set registry https://registry.npm.taobao.org
+yarn config set registry https://registry.npm.taobao.org
 
 sudo npm install -g js-beautify \
     markdownlint-cli \
