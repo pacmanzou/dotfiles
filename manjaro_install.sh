@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright (C) 2020 Zou Jiancheng <pacmanzou@qq.com>
+# Copyright (C) 2020 pacmanzou <pacmanzou@qq.com>
 #
 # Description: An installation script for manjaro-i3 community edition, applies to i3 only.
 #
@@ -64,26 +64,24 @@ if [[ -f "${file}" ]]; then
 fi
 
 # link
-Info "### link to $HOME/.config/ ###"
+Info "### link to ... ###"
 FileHandler "$HOME/dotfiles/link/home/.* $HOME/dotfiles/link/home/*" "$HOME/.* $HOME/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/config/*" "$HOME/.config/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/bin/*" "/usr/local/bin/*" LinkHandler
-FileHandler "$HOME/dotfiles/link/etc/*" "/etc/*" LinkHandler
 echo
 
 # copy
-Info "### copy to $HOME/.config/ ###"
+Info "### copy to ... ###"
+FileHandler "$HOME/dotfiles/copy/home/.* $HOME/dotfiles/copy/home/*" "$HOME/.* $HOME/*" CopyHandler
 FileHandler "$HOME/dotfiles/copy/config/*" "$HOME/.config/*" CopyHandler
+FileHandler "$HOME/dotfiles/copy/etc/*" "/etc/*" CopyHandler
 echo
 
-# update
 Info "### update systemctl ###"
 sudo pacman-mirrors -i -c China -m rank
 sudo pacman -Syy
 sudo pacman -S archlinuxcn-keyring
 sudo pacman -Syu
-
-# install
 sudo pacman -S alacritty \
     bleachbit \
     bluez \
@@ -124,6 +122,7 @@ sudo pacman -S alacritty \
     seahorse \
     shellcheck \
     shfmt \
+    typespeed \
     viewnior \
     tmux \
     ttf-hack \
@@ -158,10 +157,6 @@ yay -S abook \
     wps-office-mime-cn
 
 Info "### npm install ###"
-# npm and yarn set registry
-npm config set registry https://registry.npm.taobao.org
-yarn config set registry https://registry.npm.taobao.org
-
 sudo npm install -g js-beautify \
     markdownlint-cli \
     reveal-md
@@ -191,7 +186,6 @@ CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
 echo
 
-# message info
 Info "### manual configuration ###"
 Info "video card and font setup"
 Info "sudo manjaro-settings-manager\n"
