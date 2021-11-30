@@ -1,6 +1,6 @@
 " Full current focus window
 
-function! FullToggle(bang) abort
+function! s:FullToggle(bang) abort
     if exists('t:maximizer_sizes')
         call s:restore()
     elseif winnr('$') > 1
@@ -31,5 +31,5 @@ augroup restore
     autocmd WinLeave * call s:restore()
 augroup END
 
-map <silent> <c-w>f :call FullToggle('<bang>')<cr>
-map <silent> <c-w><c-f> :call FullToggle('<bang>')<cr>
+map <silent> <c-w>f :call <sid>FullToggle('<bang>')<cr>
+map <silent> <c-w><c-f> :call <sid>FullToggle('<bang>')<cr>

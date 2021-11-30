@@ -1,6 +1,6 @@
 " Run the code
 
-function! RunCode()
+function! s:RunCode() abort
     silent! exec "w"
     if &filetype == 'go'
         :sp
@@ -29,4 +29,4 @@ function! RunCode()
     endif
 endfunction
 
-nnoremap <silent> <space>r :call RunCode()<cr>
+nnoremap <silent> <space>r :call <sid>RunCode()<cr>

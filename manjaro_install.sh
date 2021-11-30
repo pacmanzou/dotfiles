@@ -170,6 +170,7 @@ echo
 
 Info "### go install ###"
 go install mvdan.cc/gofumpt@latest
+go install github.com/cweill/gotests/...@latest
 echo
 
 # misc

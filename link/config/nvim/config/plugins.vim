@@ -4,7 +4,8 @@ let g:plug_window = '-tabnew'
 call plug#begin('$HOME/.config/nvim/plugged')
 " priority
 Plug 'Yggdroot/indentLine'
-Plug 'fatih/vim-go', {'do': ':GoUpdateBinaries', 'for': ['go', 'gomod']}
+Plug 'fatih/vim-go',      {'for': ['go', 'gomod']}
+Plug 'buoto/gotests-vim', {'for': 'go'}
 
 " primary
 Plug 'tpope/vim-repeat',          {'on': []}
@@ -25,15 +26,12 @@ Plug 'iamcco/markdown-preview.nvim', {
             \ }
 call plug#end()
 
-function! SourceList(path) abort
-    let s:sourceList = a:path
+function! s:SourceList(path) abort
+    let l:sourceList = a:path
 
-    for s:item in s:sourceList
-        exec 'source '. s:item
+    for l:item in l:sourceList
+        exec 'source '. l:item
     endfor
-
-    unlet s:item
-    unlet s:sourceList
 endfunction
 
 function! LoadPrimaryPlugins(timer) abort
@@ -50,7 +48,7 @@ function! LoadPrimaryPlugins(timer) abort
                 \ )
 
     " source primary plugins config
-    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
+    call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
 endfunction
 
 function! LoadMarkdownPlugins(timer) abort
@@ -62,12 +60,12 @@ function! LoadMarkdownPlugins(timer) abort
                 \ )
 
     " source markdown plugins config
-    call SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim')))
+    call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim')))
 endfunction
 
 " load plugins
 " priority plugins need to be loaded directly
-call SourceList(split(glob('$HOME/.config/nvim/config/plugins/priority/*.vim')))
+call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/priority/*.vim')))
 
 " primary
 autocmd VimEnter * call timer_start(100, 'LoadPrimaryPlugins')

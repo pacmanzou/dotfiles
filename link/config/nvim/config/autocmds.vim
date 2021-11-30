@@ -5,7 +5,7 @@ autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "norm
 autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="Visual", timeout=700}
 
 " map in a special filetype
-function! SpecialMap()
+function! s:SpecialMap() abort
     if (index([''], &filetype) >= 0)
         map <buffer> <c-n>  <nop>
         map <buffer> <c-p>  <nop>
@@ -21,4 +21,4 @@ function! SpecialMap()
     endif
 endfunction
 
-autocmd BufEnter * call SpecialMap()
+autocmd BufEnter * call s:SpecialMap()

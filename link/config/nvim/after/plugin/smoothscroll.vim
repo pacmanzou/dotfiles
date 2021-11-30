@@ -1,10 +1,10 @@
 " Smooth scorll
 
-function! SmoothUp(dist, duration, speed) abort
+function! s:SmoothUp(dist, duration, speed) abort
     call s:smoothscroll('u', a:dist, a:duration, a:speed)
 endfunction
 
-function! SmoothDown(dist, duration, speed) abort
+function! s:SmoothDown(dist, duration, speed) abort
     call s:smoothscroll('d', a:dist, a:duration, a:speed)
 endfunction
 
@@ -30,8 +30,8 @@ function! s:get_ms_since(time) abort
     return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
 
-nnoremap <silent> <c-d> :call SmoothDown(&scroll, 6, 1)<cr>
-nnoremap <silent> <c-u> :call SmoothUp(&scroll, 6, 1)<cr>
+nnoremap <silent> <c-d> :call <sid>SmoothDown(&scroll, 6, 1)<cr>
+nnoremap <silent> <c-u> :call <sid>SmoothUp(&scroll, 6, 1)<cr>
 
-nnoremap <silent> <c-f> :call SmoothDown(&scroll*2, 6, 1)<cr>
-nnoremap <silent> <c-b> :call SmoothUp(&scroll*2, 6, 1)<cr>
+nnoremap <silent> <c-f> :call <sid>SmoothDown(&scroll*2, 6, 1)<cr>
+nnoremap <silent> <c-b> :call <sid>SmoothUp(&scroll*2, 6, 1)<cr>

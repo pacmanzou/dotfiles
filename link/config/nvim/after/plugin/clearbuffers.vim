@@ -21,4 +21,4 @@ function! s:ClearBuffers(bang) abort
     endfor
 endfunction
 
-command -bang ClearBuffers call <sid>ClearBuffers(<bang>0)
+command -bang ClearBuffers call s:ClearBuffers(<bang>0)
