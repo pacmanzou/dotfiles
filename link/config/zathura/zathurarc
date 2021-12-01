@@ -34,6 +34,7 @@ map <C-=> zoom in
 map <C-p> jumplist backward
 map <C-n> jumplist forward
 
+set sandbox none
 set selection-clipboard clipboard
 
 set notification-warning-bg     "#000000" # base01
