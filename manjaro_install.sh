@@ -127,6 +127,7 @@ sudo pacman -S alacritty \
     tmux \
     ttf-hack \
     unzip \
+    utools \
     vnote-git \
     virtualbox \
     wqy-microhei \
@@ -205,9 +206,6 @@ Info "sudo pacman -S mysql\n"
 
 Info "neomutt"
 Info "mw -a you@email.com\n"
-
-Info "### deb ###"
-Info "utools\n"
 
 Info "### appimage ###"
 Info "beekeeper"
