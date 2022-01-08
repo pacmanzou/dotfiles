@@ -148,7 +148,6 @@ yay -S abook \
     mutt-wizard \
     mindmaster_cn \
     pgformatter-git \
-    ranger-git \
     simple-mtpfs \
     sqls \
     wechat-uos \
