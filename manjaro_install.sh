@@ -77,7 +77,7 @@ FileHandler "$HOME/dotfiles/copy/config/*" "$HOME/.config/*" CopyHandler
 FileHandler "$HOME/dotfiles/copy/etc/*" "/etc/*" CopyHandler
 echo
 
-Info "### update systemctl ###"
+Info "### update system ###"
 sudo pacman-mirrors -i -c China -m rank
 sudo pacman -Syy
 sudo pacman -S archlinuxcn-keyring
@@ -87,6 +87,7 @@ sudo pacman -S alacritty \
     bluez \
     bluez-utils \
     blueman \
+    cht.sh \
     ctags \
     copyq \
     cmake \
@@ -110,7 +111,6 @@ sudo pacman -S alacritty \
     music-dl \
     neofetch \
     nodejs-lts-fermium \
-    cht.sh \
     npm6 \
     neovim \
     neomutt \
@@ -139,22 +139,22 @@ sudo pacman -S alacritty \
     zathura \
     zathura-pdf-mupdf
 
-yay -S abook \
-    apipost-bin \
-    baidunetdisk-electron \
-    com.qq.im.deepin \
-    debtap \
-    google-chrome \
-    mutt-wizard \
-    mindmaster_cn \
-    pgformatter-git \
-    simple-mtpfs \
-    sqls \
-    wechat-uos \
-    wps-office-cn \
-    wps-office-mui-zh-cn \
-    wps-office-fonts \
-    wps-office-mime-cn
+# yay -S abook \
+#     apipost-bin \
+#     baidunetdisk-electron \
+#     com.qq.im.deepin \
+#     debtap \
+#     google-chrome \
+#     mutt-wizard \
+#     mindmaster_cn \
+#     pgformatter-git \
+#     simple-mtpfs \
+#     sqls \
+#     wechat-uos \
+#     wps-office-cn \
+#     wps-office-mui-zh-cn \
+#     wps-office-fonts \
+#     wps-office-mime-cn
 
 Info "### npm install ###"
 sudo npm install -g js-beautify \
