@@ -1,5 +1,4 @@
 " map
-" nop g
 map g# <nop>
 map g$ <nop>
 map g& <nop>
@@ -50,7 +49,6 @@ map gx <nop>
 map g@ <nop>
 map g~ <nop>
 
-" nop z
 map Z <nop>
 map z+ <nop>
 map z- <nop>
@@ -95,7 +93,6 @@ map zx <nop>
 map zy <nop>
 map zu <nop>
 
-" nop <c-w>
 map <c-w>+ <nop>
 map <c-w>- <nop>
 map <c-w>< <nop>
@@ -136,7 +133,6 @@ map <c-w>} <nop>
 map <c-w>q <nop>
 map <c-w>f <nop>
 
-" nop '
 map '' <nop>
 map '( <nop>
 map ') <nop>
@@ -147,7 +143,6 @@ map '] <nop>
 map '{ <nop>
 map '} <nop>
 
-" nop [, ]
 map [# <nop>
 map [' <nop>
 map [( <nop>
@@ -207,7 +202,6 @@ map <c-^>      <nop>
 map <c-_>      <nop>
 map <space>    <nop>
 
-" noremap
 " windows focus
 noremap <silent> <c-l> <c-w>l
 noremap <silent> <c-h> <c-w>h
@@ -223,7 +217,6 @@ noremap <silent> K     <c-y>
 " visual select
 noremap <silent> gV ggVG$
 
-" nnoremap
 " windows exchange
 nnoremap <silent> <c-w>t     <c-w>T
 nnoremap <silent> <c-w><c-t> <c-w>T
@@ -272,7 +265,7 @@ vnoremap <silent> + g<c-a>
 vnoremap <silent> - g<c-x>
 
 " search by regex
-nnoremap / mr/\v
+nnoremap / /\v
 
 " open the file under the cursor
 nnoremap <silent> gf <c-w>f
@@ -363,3 +356,15 @@ vmap n     <nop>
 vmap N     <nop>
 vmap <c-f> <nop>
 vmap <c-b> <nop>
+
+vnoremap <silent> * :<c-u>
+    \let old_reg=getreg('"')<bar>let old_regtype=getregtype('"')<cr>
+    \gvy/<c-r><c-r>=substitute(
+    \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
+    \gv:call setreg('"', old_reg, old_regtype)<cr>
+
+vnoremap <silent> # :<c-u>
+    \let old_reg=getreg('"')<bar>let old_regtype=getregtype('"')<cr>
+    \gvy?<c-r><c-r>=substitute(
+    \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
+    \gv:call setreg('"', old_reg, old_regtype)<cr>

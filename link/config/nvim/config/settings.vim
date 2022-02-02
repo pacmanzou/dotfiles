@@ -37,10 +37,10 @@ set undofile
 set undodir=$HOME/.cache/nvim/undo/
 set dir=$HOME/.cache/nvim/swap/
 
-if empty(glob('$HOME/.cache/nvim/swap'))
-    silent !mkdir -p "$HOME/.cache/nvim/swap"
-endif
-
 if empty(glob('$HOME/.cache/nvim/undo'))
     silent !mkdir -p "$HOME/.cache/nvim/undo/"
+endif
+
+if empty(glob('$HOME/.cache/nvim/swap'))
+    silent !mkdir -p "$HOME/.cache/nvim/swap"
 endif
