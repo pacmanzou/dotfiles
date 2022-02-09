@@ -252,7 +252,7 @@ nnoremap <silent> <c-p> <c-o>
 nnoremap <space>s :%s///g<left><left><left>
 vnoremap <space>s :s///g<left><left><left>
 
-" x delete without yank
+" x delete without copying
 nnoremap <silent> x "_x
 nnoremap <silent> X "_D
 vnoremap <silent> x "_x
