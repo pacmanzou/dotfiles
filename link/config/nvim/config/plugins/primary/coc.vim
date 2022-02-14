@@ -23,8 +23,7 @@ let g:coc_global_extensions = [
             \ ]
 
 " coc-snippets
-imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
-
+imap <silent> <expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 " coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
