@@ -15,7 +15,7 @@ Plug 'junegunn/vim-easy-align',   {'on': []}
 Plug 'sbdchd/neoformat',          {'on': []}
 Plug 'voldikss/vim-floaterm',     {'on': []}
 Plug 'liuchengxu/vista.vim',      {'on': []}
-Plug 'neoclide/coc.nvim',         {'branch': 'release', 'on': []}
+Plug 'neoclide/coc.nvim',         {'on': [], 'branch': 'release'}
 
 " markdown
 Plug 'mzlogin/vim-markdown-toc',     {'on': []}

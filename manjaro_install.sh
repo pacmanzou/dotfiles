@@ -5,55 +5,8 @@
 # Description: An installation script for manjaro-i3 community edition, applies to i3 only.
 #
 
-Info() {
-    printf '[\033[0;34minfo\033[0m] %b\n' "$1"
-}
-
-Warn() {
-    printf '[\033[0;33mwarning\033[0m] %b\n' "$1"
-}
-
-Success() {
-    printf '[\033[0;32msuccess\033[0m] %b\n' "$1"
-}
-
-Fail() {
-    printf '[\033[0;31mfailure\033[0m] %b\n' "$1"
-}
-
-LinkHandler() {
-    if sudo ln -bs "$1" "$2"; then
-        Success "ln -bs $1 $2"
-    else
-        Fail "ln -bs $1 $2"
-    fi
-}
-
-CopyHandler() {
-    if sudo cp -abr "$1" "$2"; then
-        Success "cp -abr $1 $2"
-    else
-        Fail "cp -abr $1 $2"
-    fi
-}
-
-FileHandler() {
-    for fileSrc in $1; do
-        basenameSrc=$(basename "${fileSrc}")
-        if [[ "." == "${basenameSrc}" || ".." == "${basenameSrc}" ||
-            "*" == "${basenameSrc}" ]]; then
-            continue
-        fi
-        for fileDst in $2; do
-            basenameDst=$(basename "${fileDst}")
-            dirnameDst=$(dirname "${fileDst}")
-            if [[ "${basenameDst}" == "${basenameSrc}" ]]; then
-                sudo mv "${fileDst}" "${fileDst}"~
-            fi
-        done
-        $3 "${fileSrc}" "${dirnameDst}"
-    done
-}
+# shellcheck disable=1091
+source "$HOME/dotfiles/handler.sh"
 
 file="$HOME/.gitconfig"
 
@@ -182,7 +135,6 @@ killall fcitx5
 
 CopyHandler "$HOME/dotfiles/misc/default.yaml" "$HOME/.local/share/fcitx5/rime/build/default.yaml"
 CopyHandler "$HOME/dotfiles/misc/theme.conf" "$HOME/.local/share/fcitx5/themes/default/theme.conf"
-CopyHandler "$HOME/dotfiles/misc/evdev" "/usr/share/X11/xkb/keycodes/evdev"
 CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
 echo

@@ -23,7 +23,7 @@ let g:coc_global_extensions = [
             \ ]
 
 " coc-snippets
-imap <silent> <expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 " coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
@@ -58,7 +58,7 @@ inoremap <silent><expr> <tab>
       \ pumvisible() ? "\<c-n>" :
       \ <sid>check_back_space() ? "\<tab>" :
       \ coc#refresh()
-inoremap <expr><s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
+inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
 
 function! s:check_back_space() abort
     let col = col('.') - 1
