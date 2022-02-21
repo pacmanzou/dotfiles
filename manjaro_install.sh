@@ -73,6 +73,7 @@ sudo pacman -S alacritty \
     prettier \
     ripgrep \
     rar \
+    scrcpy \
     seahorse \
     shellcheck \
     shfmt \
