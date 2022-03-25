@@ -95,7 +95,6 @@ sudo pacman -S alacritty \
     zathura-pdf-mupdf
 
 # yay -S abook \
-#     apipost-bin \
 #     baidunetdisk-electron \
 #     com.qq.im.deepin \
 #     debtap \
@@ -105,7 +104,6 @@ sudo pacman -S alacritty \
 #     pgformatter-git \
 #     simple-mtpfs \
 #     sqls \
-#     wechat-uos \
 #     wps-office-cn \
 #     wps-office-mui-zh-cn \
 #     wps-office-fonts \
@@ -161,3 +159,4 @@ Info "mw -a you@email.com\n"
 
 Info "### appimage ###"
 Info "beekeeper"
+Info "apifox"
