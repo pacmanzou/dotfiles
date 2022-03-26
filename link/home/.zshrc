@@ -105,6 +105,15 @@ else
     alias ls='ls --color=tty --time-style=iso'
 fi
 
+# function
+function mkcd {
+    command mkdir "$1" && cd "$1" || exit
+}
+
+function ei {
+    go mod init "$(basename "$(pwd)")" && touch main.go
+}
+
 # # extract - archive extractor
 # # usage: extract <file>
 extract ()

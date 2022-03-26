@@ -32,8 +32,8 @@
         "dd": "cutFile",
         "pp": "pasteFile",
         "D": "deleteForever",
-        "af": "addFile",
-        "ad": "addDirectory",
+        "at": "addFile",
+        "am": "addDirectory",
         "q": "quit",
         "?": "help"
     },
