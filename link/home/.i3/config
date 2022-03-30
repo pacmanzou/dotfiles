@@ -48,7 +48,6 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 bindsym $mod+Tab workspace next
 bindsym $mod+w workspace back_and_forth
-bindsym $mod+e mode "$mode_system"
 bindsym $mod+r exec --no-startup-id flameshot gui
 bindsym $mod+i exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+o focus mode_toggle
@@ -66,9 +65,8 @@ bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+m mode "$mode_misc"
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 
+bindsym $mod+Ctrl+e mode "$mode_system"
 bindsym $mod+Ctrl+r restart
-bindsym $mod+Ctrl+o floating toggle
-bindsym $mod+Ctrl+p move scratchpad
 bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
@@ -78,6 +76,8 @@ bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Shift+i exec --no-startup-id amixer -q set Master 5%+ unmute
+bindsym $mod+Shift+o floating toggle
+bindsym $mod+Shift+p move scratchpad
 bindsym $mod+Shift+d exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym $mod+Shift+n exec --no-startup-id dunstctl close
 
