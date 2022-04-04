@@ -3,6 +3,8 @@ let g:plug_window = '-tabnew'
 
 call plug#begin('$HOME/.config/nvim/plugged')
 " priority
+Plug 'nvim-treesitter/nvim-treesitter'
+
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '|'
@@ -19,9 +21,6 @@ let g:indentLine_fileTypeExclude = [
             \ 'vista'
             \ ]
 
-Plug 'sheerun/vim-polyglot'
-let g:polyglot_disabled = ['go.plugin', 'markdown', 'jsonc', 'json']
-
 Plug 'fatih/vim-go',      {'for': ['go', 'gomod']}
 Plug 'buoto/gotests-vim', {'for': 'go'}
 let g:go_term_mode = "split"
@@ -37,10 +36,6 @@ let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 let g:go_code_completion_enabled = 0
 let g:go_template_autocreate = 0
-let g:go_highlight_function_calls = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_build_constraints = 1
 
 " primary
 Plug 'tpope/vim-repeat',          {'on': []}
@@ -104,3 +99,24 @@ autocmd VimEnter * call timer_start(100, 'LoadPrimaryPlugins')
 
 " markdown
 autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins')
+
+lua << EOF
+require("nvim-treesitter.install").prefer_git = true
+require'nvim-treesitter.configs'.setup {
+ensure_installed = {
+    "go",
+    "gomod",
+    "json",
+    "javascript",
+    "html",
+    "css",
+    "vue",
+    "bash",
+    "python"
+    },
+    highlight = {
+        enable = true,
+        disable = {}
+    },
+}
+EOF
