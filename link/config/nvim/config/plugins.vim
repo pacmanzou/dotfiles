@@ -3,8 +3,6 @@ let g:plug_window = '-tabnew'
 
 call plug#begin('$HOME/.config/nvim/plugged')
 " priority
-Plug 'nvim-treesitter/nvim-treesitter'
-
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '|'
@@ -20,6 +18,8 @@ let g:indentLine_fileTypeExclude = [
             \ 'coc-explorer',
             \ 'vista'
             \ ]
+
+Plug 'nvim-treesitter/nvim-treesitter'
 
 Plug 'fatih/vim-go',      {'for': ['go', 'gomod']}
 Plug 'buoto/gotests-vim', {'for': 'go'}

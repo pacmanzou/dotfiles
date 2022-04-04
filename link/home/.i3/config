@@ -16,8 +16,12 @@ font xft:URWGothic-Book 11
 client.focused          #000000 #ebdbb2 #000000 #000000
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border 1pixel
-default_floating_border 1pixel
+
+# default_border 1pixel
+# default_floating_border 1pixel
+
+default_border none
+default_floating_border none
 
 # Hide borders
 hide_edge_borders none
