@@ -19,8 +19,6 @@ let g:indentLine_fileTypeExclude = [
             \ 'vista'
             \ ]
 
-Plug 'nvim-treesitter/nvim-treesitter'
-
 Plug 'fatih/vim-go',      {'for': ['go', 'gomod']}
 Plug 'buoto/gotests-vim', {'for': 'go'}
 let g:go_term_mode = "split"
@@ -36,6 +34,10 @@ let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 let g:go_code_completion_enabled = 0
 let g:go_template_autocreate = 0
+
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'RRethy/nvim-treesitter-textsubjects'
 
 " primary
 Plug 'tpope/vim-repeat',          {'on': []}
@@ -103,20 +105,37 @@ autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins')
 lua << EOF
 require("nvim-treesitter.install").prefer_git = true
 require'nvim-treesitter.configs'.setup {
-ensure_installed = {
-    "go",
-    "gomod",
-    "json",
-    "javascript",
-    "html",
-    "css",
-    "vue",
-    "bash",
-    "python"
-    },
+    ensure_installed = {
+        "go",
+        "gomod",
+        "json",
+        "javascript",
+        "html",
+        "css",
+        "vue",
+        "bash",
+        "python"
+        },
     highlight = {
         enable = true,
-        disable = {}
+    },
+    textsubjects = {
+        enable = true,
+        keymaps = {
+            ['.'] = 'textsubjects-smart',
+        },
+    },
+    textobjects = {
+        select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner",
+            },
+        },
     },
 }
 EOF

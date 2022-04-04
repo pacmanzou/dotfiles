@@ -86,12 +86,6 @@ nmap <silent> [d <plug>(coc-diagnostic-prev)
 " jump previewd chunk
 nmap <silent> <c-o> <plug>(coc-float-jump)
 
-" function object
-xmap <silent> if <plug>(coc-funcobj-i)
-xmap <silent> af <plug>(coc-funcobj-a)
-omap <silent> if <plug>(coc-funcobj-i)
-omap <silent> af <plug>(coc-funcobj-a)
-
 " coclist and coccommand
 nnoremap <silent> <space>l :CocList<cr>
 nnoremap <silent> <space>d :CocList diagnostics<cr>
@@ -118,4 +112,5 @@ nnoremap <silent> gh :call <sid>show_documentation()<cr>
 
 " autocmds
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
 autocmd CursorHold * silent call CocActionAsync('highlight')
