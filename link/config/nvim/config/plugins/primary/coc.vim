@@ -34,15 +34,15 @@ nmap <silent> t <plug>(coc-translator-e)
 nnoremap <silent> <space><c-g> :CocList floaterm<cr>
 
 " coc-git
-" create text object for git chunk
-omap <silent> ig <plug>(coc-git-chunk-inner)
-xmap <silent> ig <plug>(coc-git-chunk-inner)
-omap <silent> ag <plug>(coc-git-chunk-outer)
-xmap <silent> ag <plug>(coc-git-chunk-outer)
+" create text object for git hunk
+omap <silent> ih <plug>(coc-git-chunk-inner)
+xmap <silent> ih <plug>(coc-git-chunk-inner)
+omap <silent> ah <plug>(coc-git-chunk-outer)
+xmap <silent> ah <plug>(coc-git-chunk-outer)
 
-" navigate chunks of current buffer
-nmap <silent> ]g <plug>(coc-git-nextchunk)
-nmap <silent> [g <plug>(coc-git-prevchunk)
+" navigate hunks of current buffer
+nmap <silent> ]h <plug>(coc-git-nextchunk)
+nmap <silent> [h <plug>(coc-git-prevchunk)
 
 " navigate conflicts of current buffer
 nmap <silent> ]c <plug>(coc-git-nextconflict)
