@@ -40,7 +40,7 @@ smart_gaps on
 exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id copyq
-exec --no-startup-id fcitx5
+exec --no-startup-id fcitx
 exec --no-startup-id utools
 exec --no-startup-id bluetoothctl power on
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
@@ -163,12 +163,11 @@ for_window [class="Lightdm-settings"] floating enable, move position center
 for_window [class="Lxappearance"] floating enable, move position center
 for_window [class="Manjaro Settings Manager"] floating enable, move position center
 for_window [class="Pamac-manager"] floating enable, move position center
-for_window [class="Fcitx5"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Nitrogen"] floating enable, move position center
 for_window [class="mpv"] floating enable, resize set 1280 960, move position center
 for_window [class="Viewnior"] floating enable, resize set 960 720, move position center
-
+for_window [class="Fcitx"] floating enable, resize set 960 720, move position center
 for_window [title="^alacritty-copy$"] floating enable, move position center
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)

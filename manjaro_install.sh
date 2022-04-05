@@ -48,9 +48,9 @@ sudo pacman -S alacritty \
     exa \
     etcher \
     fd \
-    fcitx5 \
-    fcitx5-rime \
-    fcitx5-configtool \
+    fcitx \
+    fcitx-rime \
+    fcitx-configtool \
     go \
     gcc \
     gparted \
@@ -127,13 +127,6 @@ echo
 
 # misc
 Info "### misc ###"
-# let $HOME/.local/share/fcitx5 is exist
-fcitx5 &>/dev/null
-sleep 3
-killall fcitx5
-
-CopyHandler "$HOME/dotfiles/misc/default.yaml" "$HOME/.local/share/fcitx5/rime/build/default.yaml"
-CopyHandler "$HOME/dotfiles/misc/theme.conf" "$HOME/.local/share/fcitx5/themes/default/theme.conf"
 CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
 echo

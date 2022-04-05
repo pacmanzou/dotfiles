@@ -2,13 +2,13 @@
 #
 # Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
 #
-# Description: restart fcitx5
+# Description: restart fcitx
 #
 
-killall fcitx5
+killall fcitx
 
 sleep 0.1
 fcitx5 &
 
 sleep 0.1
-notify-send 'Fcitx5 restart'
+notify-send 'Fcitx restart'
