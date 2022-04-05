@@ -249,7 +249,7 @@ nnoremap <silent> <c-n> <c-i>
 nnoremap <silent> <c-p> <c-o>
 
 " substitute
-nnoremap <space>s :%s///g<left><left><left>
+nnoremap <space>s :%s/<c-r><c-w>//g<left><left>
 vnoremap <space>s :s///g<left><left><left>
 
 " x delete without copying
