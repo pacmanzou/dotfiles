@@ -129,6 +129,7 @@ echo
 Info "### misc ###"
 CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
+CopyHandler "$HOME/dotfiles/misc/pacmanzou/" "/usr/share/fcitx/skin/"
 echo
 
 Info "### manual configuration ###"
