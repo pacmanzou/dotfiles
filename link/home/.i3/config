@@ -165,6 +165,7 @@ for_window [class="Nitrogen"] floating enable, move position center
 for_window [class="mpv"] floating enable, resize set 1280 960, move position center
 for_window [class="Viewnior"] floating enable, resize set 960 720, move position center
 for_window [class="Fcitx"] floating enable, resize set 960 720, move position center
+for_window [class="Pcmanfm"] floating enable, resize set 960 720, move position center
 for_window [title="^alacritty-copy$"] floating enable, move position center
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
