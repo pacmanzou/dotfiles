@@ -17,24 +17,21 @@ client.focused          #000000 #ebdbb2 #000000 #000000
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 
-# default_border 1pixel
-# default_floating_border 1pixel
-
 default_border none
 default_floating_border none
 
-# Hide borders
-hide_edge_borders none
+# default_border 1pixel
+# default_floating_border 1pixel
 
 # Smart borders (draw borders around container only if it is not the only container on this workspace)
-smart_borders on
+# smart_borders on
 
 # Set inner/outer gaps
-gaps inner 8
-gaps outer 2
+# gaps inner 8
+# gaps outer 2
 
 # Smart gaps (gaps used if only more than one container on the workspace)
-smart_gaps on
+# smart_gaps on
 
 # exec
 exec_always --no-startup-id fix_xcursor
@@ -174,7 +171,7 @@ for_window [title="^alacritty-copy$"] floating enable, move position center
 bar {
     i3bar_command i3bar
     status_command i3status
-    height 22
+    height 21
     tray_output all
     position bottom
     strip_workspace_numbers yes
