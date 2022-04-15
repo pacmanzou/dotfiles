@@ -82,6 +82,7 @@ bindsym $mod+Shift+p move scratchpad
 bindsym $mod+Shift+d exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym $mod+Shift+n exec --no-startup-id dunstctl close
 bindsym $mod+Shift+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
+bindsym $mod+Shift+space exec --no-startup-id dmenu_run -i -b -nb '#1d1d1d' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -fn '' -p 'dmenu'
 
 set $mode_misc (w)ifi   (t)ouchpad   (f)citx   (g)ithub_token   (b)luetooth
 mode "$mode_misc"{
@@ -186,6 +187,7 @@ bar {
         inactive_workspace #000000 #000000 #ebdbb2
         active_workspace   #000000 #000000 #ebdbb2
         focused_workspace  #1d1d1d #353535 #ebdbb2
+
         urgent_workspace   #000000 #000000 #ebdbb2
         binding_mode       #000000 #1d1d1d #ebdbb2
     }

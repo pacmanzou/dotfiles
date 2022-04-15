@@ -1,6 +1,6 @@
 {
     "coc.preferences.rootPatterns": [".git", ".gitignore"],
-    "colors.filetypes": ["css", "vim"],
+    "colors.filetypes": ["html", "css", "vim"],
     "diagnostic-languageserver.filetypes": {
         "sh": "shellcheck",
         "markdown": "markdownlint"
