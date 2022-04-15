@@ -25,9 +25,6 @@ let g:clipboard = {
 " leader
 let mapleader = ","
 
-" colorscheme
-colorscheme pacmanzou
-
 " plugins
 source $HOME/.config/nvim/config/plugins.vim
 
@@ -36,3 +33,6 @@ source $HOME/.config/nvim/config/settings.vim
 source $HOME/.config/nvim/config/mappings.vim
 source $HOME/.config/nvim/config/autocmds.vim
 source $HOME/.config/nvim/config/statusline.vim
+
+" colorscheme
+colorscheme pacmanzou
