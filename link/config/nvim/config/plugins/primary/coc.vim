@@ -99,13 +99,11 @@ nnoremap <silent> <space>m :CocList --regex mru -A<cr>
 nnoremap <silent> <space>c :CocCommand<cr>
 
 " show documentation
-function! s:show_documentation() abort
-    if (index(['vim','help'], &filetype) >= 0)
-        execute 'h '.expand('<cword>')
-    elseif (coc#rpc#ready())
+function! s:show_documentation()
+    if CocAction('hasProvider', 'hover')
         call CocActionAsync('doHover')
     else
-        execute '!' . &keywordprg . " " . expand('<cword>')
+        call feedkeys('K', 'in')
     endif
 endfunction
 
