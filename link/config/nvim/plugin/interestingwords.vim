@@ -1,6 +1,6 @@
 " Highlight the under cursor word
 
-let s:interestingWordsColors = ['#ebdbb2', '#b8bb26', '#fb4934']
+let s:interestingWordsColors = ['#b8bb26', '#8ec07c', '#fb4934']
 
 let s:hasBuiltColors = 0
 
