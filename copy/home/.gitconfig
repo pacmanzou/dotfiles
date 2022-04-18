@@ -3,13 +3,13 @@
 	name = pacmanzou
 
 ; ssh
-; [url "git@github.com:"]
-;     insteadOf = https://github.com/
+# [url "git@github.com:"]
+#     insteadOf = https://github.com/
+
 ; https
-[url "https://github.com.cnpmjs.org"]
+# [url "https://hub.fastgit.xyz"]
+[url "https://hub.0z.gs"]
     insteadOf = https://github.com
-; [url "https://hub.fastgit.org"]
-;     insteadOf = https://github.com
 
 [color]
 	status = auto
