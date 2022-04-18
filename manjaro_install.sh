@@ -111,6 +111,7 @@ sudo pacman -S alacritty \
 
 Info "### npm install ###"
 sudo npm install -g js-beautify \
+    json-server \
     markdownlint-cli \
     reveal-md
 echo
