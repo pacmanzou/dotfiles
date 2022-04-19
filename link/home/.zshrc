@@ -59,9 +59,9 @@ bindkey -r '^G'
 bindkey -r '^J'
 bindkey -r '^K'
 bindkey -r '^Z'
+bindkey -r '^V'
 
 bindkey '^U' backward-kill-line
-bindkey '^V' edit-command-line
 
 # highlight and autosuggestions for zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
