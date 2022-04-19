@@ -48,20 +48,6 @@ hi DiffChange guifg=#8ec07c guibg=#000000 gui=reverse cterm=reverse
 hi DiffDelete guifg=#fb4934 guibg=#000000 gui=reverse cterm=reverse
 hi DiffText   guifg=#fabd2f guibg=#000000 gui=reverse cterm=reverse
 
-" coc
-hi CocErrorSign     guifg=#ff4934 guibg=NONE    gui=NONE      cterm=NONE
-hi CocPreviewHi     guifg=#fabd2f guibg=#000000 gui=NONE      cterm=NONE
-hi CocHighlightText guifg=NONE    guibg=NONE    gui=underline cterm=underline
-
-" coc-git
-hi CocGitAddedSign         guifg=#b8bb26 guibg=NONE   gui=NONE cterm=NONE
-hi CocGitChangedSign       guifg=#8ec07c guibg=NONE   gui=NONE cterm=NONE
-hi CocGitRemovedSign       guifg=#fb4934 guibg=NONE   gui=NONE cterm=NONE
-hi CocGitTopRemovedSign    guifg=#fb4934 guibg=NONE   gui=NONE cterm=NONE
-hi CocGitChangeRemovedSign guifg=#8ec07c guibg=NONE   gui=NONE cterm=NONE
-hi diffAdded               guifg=#b8bb26 guibg=NONE   gui=NONE cterm=NONE
-hi diffRemoved             guifg=#fb4934 guibg=NONE   gui=NONE cterm=NONE
-
 " fold
 hi Folded     guifg=#ebdbb2 guibg=#353535 gui=italic cterm=italic
 hi FoldColumn guifg=#ebdbb2 guibg=#000000 gui=NONE   cterm=NONE
@@ -106,3 +92,17 @@ hi Typedef        guifg=#fabd2f guibg=NONE gui=NONE        cterm=NONE
 hi Todo           guifg=fg      guibg=NONE gui=bold,italic cterm=bold,italic
 hi Underlined     guifg=#83a598 guibg=NONE gui=underline   cterm=underline
 hi CursorIM       guifg=NONE    guibg=NONE gui=reverse     cterm=reverse
+
+" coc
+hi CocErrorSign     guifg=#ff4934 guibg=NONE    gui=NONE      cterm=NONE
+hi CocPreviewHi     guifg=#fabd2f guibg=#000000 gui=NONE      cterm=NONE
+hi CocHighlightText guifg=NONE    guibg=NONE    gui=underline cterm=underline
+
+" coc-git
+hi CocGitAddedSign         guifg=#b8bb26 guibg=NONE   gui=NONE cterm=NONE
+hi CocGitChangedSign       guifg=#8ec07c guibg=NONE   gui=NONE cterm=NONE
+hi CocGitRemovedSign       guifg=#fb4934 guibg=NONE   gui=NONE cterm=NONE
+hi CocGitTopRemovedSign    guifg=#fb4934 guibg=NONE   gui=NONE cterm=NONE
+hi CocGitChangeRemovedSign guifg=#8ec07c guibg=NONE   gui=NONE cterm=NONE
+hi diffAdded               guifg=#b8bb26 guibg=NONE   gui=NONE cterm=NONE
+hi diffRemoved             guifg=#fb4934 guibg=NONE   gui=NONE cterm=NONE
