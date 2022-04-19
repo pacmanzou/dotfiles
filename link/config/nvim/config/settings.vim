@@ -17,6 +17,7 @@ set matchpairs+=（:）
 set matchpairs+=【:】
 set matchpairs+=“:”
 set matchpairs+=‘:’
+set mouse+=a
 set nohlsearch
 set notimeout
 set nowritebackup
