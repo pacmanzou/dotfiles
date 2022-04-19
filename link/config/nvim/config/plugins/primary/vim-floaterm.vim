@@ -7,9 +7,6 @@ nnoremap <silent> <c-g><cr>  :FloatermNew zsh<cr>
 nnoremap <silent> <c-g>p     :FloatermToggle<cr>
 nnoremap <silent> <c-g><c-p> :FloatermToggle<cr>
 
-tnoremap <silent> <c-o>        <c-\><c-n>
-tnoremap <silent> <c-g><tab>   <cmd>FloatermNext<cr>
-tnoremap <silent> <c-g><s-tab> <cmd>FloatermNext<cr>
 tnoremap <silent> <c-g>p       <cmd>FloatermToggle<cr>
 tnoremap <silent> <c-g><c-p>   <cmd>FloatermToggle<cr>
 

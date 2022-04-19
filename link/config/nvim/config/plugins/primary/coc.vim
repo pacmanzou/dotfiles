@@ -16,7 +16,6 @@ let g:coc_global_extensions = [
             \ 'coc-git',
             \ 'coc-pairs',
             \ 'coc-highlight',
-            \ 'coc-floaterm',
             \ 'coc-translator',
             \ 'coc-explorer',
             \ 'coc-leetcode'
@@ -29,9 +28,6 @@ nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
 " coc-translate
 nmap <silent> t <plug>(coc-translator-e)
-
-" coc-floaterm
-nnoremap <silent> <space><c-g> :CocList floaterm<cr>
 
 " coc-git
 " create text object for git hunk
