@@ -2,6 +2,9 @@
 " Github: https://github.com/pacmanzou
 " Description: Nvim config
 
+" set encoding
+scriptencoding utf-8
+
 " provider
 let g:loaded_node_provider = 0
 let g:loaded_ruby_provider = 0
