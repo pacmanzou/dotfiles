@@ -99,6 +99,7 @@ hi CocPreviewHi     guifg=#fabd2f guibg=#000000 gui=NONE      cterm=NONE
 hi CocHighlightText guifg=NONE    guibg=NONE    gui=underline cterm=underline
 
 " coc-git
+hi CocCodeLens             guifg=#928374 guibg=NONE   gui=NONE cterm=NONE
 hi CocGitAddedSign         guifg=#b8bb26 guibg=NONE   gui=NONE cterm=NONE
 hi CocGitChangedSign       guifg=#8ec07c guibg=NONE   gui=NONE cterm=NONE
 hi CocGitRemovedSign       guifg=#fb4934 guibg=NONE   gui=NONE cterm=NONE

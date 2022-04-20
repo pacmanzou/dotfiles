@@ -39,6 +39,8 @@
         "?": "help"
     },
     "git.splitWindowCommand": "below sp",
+    "git.addGBlameToVirtualText": true,
+    "git.blameUseRealTime": true,
     "leetcode.language": "golang",
     "list.source.files.args": ["--hidden", "--files"],
     "list.source.files.excludePatterns": ["**/.git/**"],
