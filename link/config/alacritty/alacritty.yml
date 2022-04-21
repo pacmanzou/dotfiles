@@ -9,7 +9,7 @@ window:
   padding:
     x: 0
     y: 0
-  dynamic_padding: false
+  dynamic_padding: true
   decorations: full
   startup_mode: Windowed
 scrolling:
