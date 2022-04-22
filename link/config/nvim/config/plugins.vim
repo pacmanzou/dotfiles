@@ -19,6 +19,10 @@ let g:indentLine_fileTypeExclude = [
       \ 'vista'
       \ ]
 
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'RRethy/nvim-treesitter-textsubjects'
+
 Plug 'fatih/vim-go',      {'for': ['go', 'gomod']}
 Plug 'buoto/gotests-vim', {'for': 'go'}
 let g:go_term_mode = "split"
@@ -35,11 +39,9 @@ let g:go_doc_keywordprg_enabled = 0
 let g:go_code_completion_enabled = 0
 let g:go_template_autocreate = 0
 
+Plug 'othree/html5.vim', {'for': 'html'}
+Plug 'yuezk/vim-js', {'for': 'javascript'}
 Plug 'posva/vim-vue', {'for': 'vue'}
-
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'RRethy/nvim-treesitter-textsubjects'
 
 " primary
 Plug 'tpope/vim-repeat',          {'on': []}
@@ -110,22 +112,26 @@ require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "go",
     "gomod",
+    "python",
     "json",
-    "javascript",
     "html",
     "css",
-    "vue",
-    "bash",
-    "python"
+    "javascript",
+    "vue"
     },
   highlight = {
     enable = true,
-    disable = {'html', 'vue'}
+    disable = {
+      'html',
+      'css',
+      'javascript',
+      'vue'
+      },
   },
   textsubjects = {
     enable = true,
     keymaps = {
-      ['.'] = 'textsubjects-smart',
+      ['.'] = 'textsubjects-smart'
     },
   },
   textobjects = {
@@ -136,7 +142,7 @@ require'nvim-treesitter.configs'.setup {
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
         ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner",
+        ["ic"] = "@class.inner"
       },
     },
   },
