@@ -146,8 +146,8 @@ Info "https for git by using token"
 Info "git clone https://github.com/pacmanzou/personal $HOME/personal/"
 Info "copy the token on the Web page to fill in the password\n"
 
-Info "mysql"
-Info "sudo pacman -S mysql\n"
+Info "mariadb"
+Info "sudo pacman -S mariadb\n"
 
 Info "neomutt"
 Info "mw -a you@email.com\n"
