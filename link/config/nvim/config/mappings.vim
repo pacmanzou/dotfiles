@@ -356,15 +356,3 @@ vmap n     <nop>
 vmap N     <nop>
 vmap <c-f> <nop>
 vmap <c-b> <nop>
-
-vnoremap <silent> * :<c-u>
-    \let old_reg=getreg('"')<bar>let old_regtype=getregtype('"')<cr>
-    \gvy/<c-r><c-r>=substitute(
-    \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
-    \gv:call setreg('"', old_reg, old_regtype)<cr>
-
-vnoremap <silent> # :<c-u>
-    \let old_reg=getreg('"')<bar>let old_regtype=getregtype('"')<cr>
-    \gvy?<c-r><c-r>=substitute(
-    \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<cr><cr>
-    \gv:call setreg('"', old_reg, old_regtype)<cr>

@@ -1,101 +1,101 @@
 {
-    "coc.preferences.rootPatterns": [".git", ".gitignore"],
-    "colors.filetypes": ["html", "css", "vim"],
-    "diagnostic-languageserver.filetypes": {
-        "sh": "shellcheck",
-        "markdown": "markdownlint"
+  "coc.preferences.rootPatterns": [".git", ".gitignore"],
+  "colors.filetypes": ["html", "css", "vim"],
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck",
+    "markdown": "markdownlint"
+  },
+  "explorer.width": 35,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.keyMappingMode": "none",
+  "explorer.keyMappings.global": {
+    "<space>f": "search",
+    "<space>a": "gitStage",
+    "<space>u": "gitUnstage",
+    "<space>p": "preview:labeling",
+    "<c-t>": "open:tab",
+    "<c-s>": "open:split",
+    "<c-v>": "open:vsplit",
+    "<c-h>": "toggleHidden",
+    "<c-r>": "refresh",
+    "<c-m>": "open",
+    "h": "collapse",
+    "j": "nodeNext",
+    "k": "nodePrev",
+    "l": ["expandable?", "expand", "open"],
+    "..": "gotoParent",
+    "O": "expand:recursive",
+    "C": "collapse:recursive",
+    "cr": "rename",
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "yy": "copyFile",
+    "dd": "cutFile",
+    "pp": "pasteFile",
+    "D": "deleteForever",
+    "at": "addFile",
+    "am": "addDirectory",
+    "q": "quit",
+    "?": "help"
+  },
+  "git.splitWindowCommand": "below sp",
+  "git.addGBlameToVirtualText": true,
+  "git.blameUseRealTime": true,
+  "leetcode.language": "golang",
+  "list.source.files.args": ["--hidden", "--files"],
+  "list.source.files.excludePatterns": ["**/.git/**"],
+  "list.source.grep.defaultArgs": ["-smartcase", "-regex"],
+  "list.previewHighlightGroup": "CocPreviewHi",
+  "list.indicator": ":",
+  "list.alignColumns": true,
+  "list.nextKeymap": "<c-n>",
+  "list.previousKeymap": "<c-p>",
+  "list.insertMappings": {
+    "<c-f>": "prompt:right",
+    "<c-b>": "prompt:left",
+    "<c-d>": "prompt:deletebackward",
+    "<c-r>": "do:refresh",
+    "<c-t>": "action:tabe",
+    "<c-s>": "action:split",
+    "<c-v>": "action:vsplit"
+  },
+  "list.normalMappings": {
+    "<c-t>": "action:tabe",
+    "<c-s>": "action:split",
+    "<c-v>": "action:vsplit"
+  },
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "trace.server": "verbose",
+      "filetypes": ["go"]
     },
-    "explorer.width": 35,
-    "explorer.icon.enableNerdfont": true,
-    "explorer.keyMappingMode": "none",
-    "explorer.keyMappings.global": {
-        "<space>f": "search",
-        "<space>a": "gitStage",
-        "<space>u": "gitUnstage",
-        "<space>p": "preview:labeling",
-        "<c-t>": "open:tab",
-        "<c-s>": "open:split",
-        "<c-v>": "open:vsplit",
-        "<c-h>": "toggleHidden",
-        "<c-r>": "refresh",
-        "<c-m>": "open",
-        "h": "collapse",
-        "j": "nodeNext",
-        "k": "nodePrev",
-        "l": ["expandable?", "expand", "open"],
-        "..": "gotoParent",
-        "O": "expand:recursive",
-        "C": "collapse:recursive",
-        "cr": "rename",
-        "yp": "copyFilepath",
-        "yn": "copyFilename",
-        "yy": "copyFile",
-        "dd": "cutFile",
-        "pp": "pasteFile",
-        "D": "deleteForever",
-        "at": "addFile",
-        "am": "addDirectory",
-        "q": "quit",
-        "?": "help"
-    },
-    "git.splitWindowCommand": "below sp",
-    "git.addGBlameToVirtualText": true,
-    "git.blameUseRealTime": true,
-    "leetcode.language": "golang",
-    "list.source.files.args": ["--hidden", "--files"],
-    "list.source.files.excludePatterns": ["**/.git/**"],
-    "list.source.grep.defaultArgs": ["-smartcase", "-regex"],
-    "list.previewHighlightGroup": "CocPreviewHi",
-    "list.indicator": ":",
-    "list.alignColumns": true,
-    "list.nextKeymap": "<c-n>",
-    "list.previousKeymap": "<c-p>",
-    "list.insertMappings": {
-        "<c-f>": "prompt:right",
-        "<c-b>": "prompt:left",
-        "<c-d>": "prompt:deletebackward",
-        "<c-r>": "do:refresh",
-        "<c-t>": "action:tabe",
-        "<c-s>": "action:split",
-        "<c-v>": "action:vsplit"
-    },
-    "list.normalMappings": {
-        "<c-t>": "action:tabe",
-        "<c-s>": "action:split",
-        "<c-v>": "action:vsplit"
-    },
-    "languageserver": {
-        "go": {
-            "command": "gopls",
-            "rootPatterns": ["go.mod"],
-            "trace.server": "verbose",
-            "filetypes": ["go"]
-        },
-        "sql": {
-            "command": "sqls",
-            "args": ["-config", "$HOME/.config/sqls/config.yml"],
-            "filetypes": ["sql"],
-            "shell": true
-        }
-    },
-    "pairs.enableCharacters": [
-        "(",
-        "[",
-        "{",
-        "'",
-        "\"",
-        "`"
-    ],
-    "suggest.noselect": false,
-    "suggest.maxCompleteItemCount": 20,
-    "suggest.detailField": "abbr",
-    "suggest.detailMaxLength": 10,
-    "snippets.priority": 100,
-    "snippets.ultisnips.directories": [
-        "$HOME/.config/nvim/UltiSnips/"
-    ],
-    "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
-    "translator.engines": [
-        "youdao"
-    ]
+    "sql": {
+      "command": "sqls",
+      "args": ["-config", "$HOME/.config/sqls/config.yml"],
+      "filetypes": ["sql"],
+      "shell": true
+    }
+  },
+  "pairs.enableCharacters": [
+    "(",
+    "[",
+    "{",
+    "'",
+    "\"",
+    "`"
+  ],
+  "suggest.noselect": false,
+  "suggest.maxCompleteItemCount": 20,
+  "suggest.detailField": "abbr",
+  "suggest.detailMaxLength": 10,
+  "snippets.priority": 100,
+  "snippets.ultisnips.directories": [
+    "$HOME/.config/nvim/UltiSnips/"
+  ],
+  "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
+  "translator.engines": [
+    "youdao"
+  ]
 }

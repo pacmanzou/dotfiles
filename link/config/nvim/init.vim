@@ -13,17 +13,17 @@ let g:loaded_python_provider = 0
 
 let g:python3_host_prog = '/usr/bin/python3'
 let g:clipboard = {
-            \ 'name': 'xsel_override',
-            \ 'copy': {
-            \ '+': 'xsel --input --clipboard',
-            \ '*': 'xsel --input --primary',
-            \ },
-            \ 'paste': {
-            \ '+': 'xsel --output --clipboard',
-            \ '*': 'xsel --output --primary',
-            \ },
-            \ 'cache_enabled': 0,
-            \ }
+      \ 'name': 'xsel_override',
+      \ 'copy': {
+      \ '+': 'xsel --input --clipboard',
+      \ '*': 'xsel --input --primary',
+      \ },
+      \ 'paste': {
+      \ '+': 'xsel --output --clipboard',
+      \ '*': 'xsel --output --primary',
+      \ },
+      \ 'cache_enabled': 0,
+      \ }
 
 " leader
 let mapleader = ","

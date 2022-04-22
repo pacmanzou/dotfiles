@@ -1,25 +1,25 @@
 let g:coc_global_extensions = [
-            \ 'coc-pyright',
-            \ 'coc-json',
-            \ 'coc-sh',
-            \ 'coc-vimlsp',
-            \ 'coc-tsserver',
-            \ 'coc-html',
-            \ 'coc-css',
-            \ 'coc-emmet',
-            \ 'coc-vetur',
-            \ 'coc-docker',
-            \ 'coc-snippets',
-            \ 'coc-diagnostic',
-            \ 'coc-gitignore',
-            \ 'coc-lists',
-            \ 'coc-git',
-            \ 'coc-pairs',
-            \ 'coc-highlight',
-            \ 'coc-translator',
-            \ 'coc-explorer',
-            \ 'coc-leetcode'
-            \ ]
+      \ 'coc-pyright',
+      \ 'coc-json',
+      \ 'coc-sh',
+      \ 'coc-vimlsp',
+      \ 'coc-tsserver',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-emmet',
+      \ 'coc-vetur',
+      \ 'coc-docker',
+      \ 'coc-snippets',
+      \ 'coc-diagnostic',
+      \ 'coc-gitignore',
+      \ 'coc-lists',
+      \ 'coc-git',
+      \ 'coc-pairs',
+      \ 'coc-highlight',
+      \ 'coc-translator',
+      \ 'coc-explorer',
+      \ 'coc-leetcode'
+      \ ]
 
 " coc-snippets
 imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
@@ -57,8 +57,8 @@ inoremap <silent><expr> <tab>
 inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
 
 function! s:check_back_space() abort
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~# '\s'
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " used for the format on type and improvement of brackets
@@ -96,11 +96,11 @@ nnoremap <silent> <space>c :CocCommand<cr>
 
 " show documentation
 function! s:show_documentation()
-    if CocAction('hasProvider', 'hover')
-        call CocActionAsync('doHover')
-    else
-        call feedkeys('K', 'in')
-    endif
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
 endfunction
 
 nnoremap <silent> gh :call <sid>show_documentation()<cr>

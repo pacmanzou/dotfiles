@@ -1,26 +1,26 @@
 # A valid snippet should starts with:
 #
-#		snippet trigger_word [ "description" [ options ] ]
+#   snippet trigger_word [ "description" [ options ] ]
 #
 # and end with:
 #
-#		endsnippet
+#   endsnippet
 #
 # Snippet options:
 #
-#		b - Beginning of line.
-#		i - In-word expansion.
-#		w - Word boundary.
-#		r - Regular expression
-#		e - Custom context snippet
-#		A - Snippet will be triggered automatically, when condition matches.
+#   b - Beginning of line.
+#   i - In-word expansion.
+#   w - Word boundary.
+#   r - Regular expression
+#   e - Custom context snippet
+#   A - Snippet will be triggered automatically, when condition matches.
 #
 # Basic example:
 #
-#		snippet emitter "emitter properties" b
-#		private readonly ${1} = new Emitter<$2>()
-#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
-#		endsnippet
+#   snippet emitter "emitter properties" b
+#   private readonly ${1} = new Emitter<$2>()
+#   public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#   endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 snippet todo "" b
@@ -37,44 +37,44 @@ endsnippet
 
 snippet fori "" b
 for i := ${1:0}; i < ${2:length}; i++ {
-	${3:// pass}
+  ${3:// pass}
 }
 endsnippet
 
 snippet err "" b
 if err != nil {
-	${1:// pass}
+  ${1:// pass}
 }
 endsnippet
 
 snippet ok "" b
 if !ok {
-	${1:// pass}
+  ${1:// pass}
 }
 endsnippet
 
 snippet /^sort/ "" r
 func (s $1) Len() int {
-	return len(s)
+  return len(s)
 }
 
 func (s $1) Less(i, j int) bool {
-	return s[i] ${2:<} s[j]
+  return s[i] ${2:<} s[j]
 }
 
 func (s $1) Swap(i, j int) {
-	s[i], s[j] = s[j], s[i]
+  s[i], s[j] = s[j], s[i]
 }
 endsnippet
 
 snippet /^heap/ "" r
 func (s *$1) Pop() interface{} {
-	x := (*s)[len(*s)-1]
-	*s = (*s)[:len(*s)-1]
-	return x
+  x := (*s)[len(*s)-1]
+  *s = (*s)[:len(*s)-1]
+  return x
 }
 
 func (s *$1) Push(x interface{}) {
-	*s = append(*s, x.(int))
+  *s = append(*s, x.(int))
 }
 endsnippet

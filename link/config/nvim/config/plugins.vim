@@ -11,13 +11,13 @@ let g:indentLine_showFirstIndentLevel = 1
 let g:indentLine_bufTypeExclude = ['help']
 let g:indentLine_bufNameExclude = ['_.*', 'term://.*', 'man://.*']
 let g:indentLine_fileTypeExclude = [
-            \ 'go',
-            \ 'gomod',
-            \ 'css',
-            \ 'markdown',
-            \ 'coc-explorer',
-            \ 'vista'
-            \ ]
+      \ 'go',
+      \ 'gomod',
+      \ 'css',
+      \ 'markdown',
+      \ 'coc-explorer',
+      \ 'vista'
+      \ ]
 
 Plug 'fatih/vim-go',      {'for': ['go', 'gomod']}
 Plug 'buoto/gotests-vim', {'for': 'go'}
@@ -34,6 +34,8 @@ let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0
 let g:go_code_completion_enabled = 0
 let g:go_template_autocreate = 0
+
+Plug 'posva/vim-vue', {'for': 'vue'}
 
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
@@ -53,46 +55,46 @@ Plug 'neoclide/coc.nvim',         {'on': [], 'branch': 'release'}
 Plug 'mzlogin/vim-markdown-toc',     {'on': []}
 Plug 'ferrine/md-img-paste.vim',     {'on': []}
 Plug 'iamcco/markdown-preview.nvim', {
-            \ 'do': 'cd app && yarn install',
-            \ 'on': []
-            \ }
+      \ 'do': 'cd app && yarn install',
+      \ 'on': []
+      \ }
 call plug#end()
 
 function! s:SourceList(path) abort
-    let l:sourceList = a:path
+  let l:sourceList = a:path
 
-    for l:item in l:sourceList
-        exec 'source '. l:item
-    endfor
+  for l:item in l:sourceList
+    exec 'source '. l:item
+  endfor
 endfunction
 
 function! LoadPrimaryPlugins(timer) abort
-    " load primary plugins
-    call plug#load(
-                \ 'vim-repeat',
-                \ 'tcomment_vim',
-                \ 'splitjoin.vim',
-                \ 'vim-easy-align',
-                \ 'neoformat',
-                \ 'vim-floaterm',
-                \ 'vista.vim',
-                \ 'coc.nvim'
-                \ )
+  " load primary plugins
+  call plug#load(
+        \ 'vim-repeat',
+        \ 'tcomment_vim',
+        \ 'splitjoin.vim',
+        \ 'vim-easy-align',
+        \ 'neoformat',
+        \ 'vim-floaterm',
+        \ 'vista.vim',
+        \ 'coc.nvim'
+        \ )
 
-    " source primary plugins config
-    call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
+  " source primary plugins config
+  call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
 endfunction
 
 function! LoadMarkdownPlugins(timer) abort
-    " load markdown plugins
-    call plug#load(
-                \ 'vim-markdown-toc',
-                \ 'md-img-paste.vim',
-                \ 'markdown-preview.nvim'
-                \ )
+  " load markdown plugins
+  call plug#load(
+        \ 'vim-markdown-toc',
+        \ 'md-img-paste.vim',
+        \ 'markdown-preview.nvim'
+        \ )
 
-    " source markdown plugins config
-    call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim')))
+  " source markdown plugins config
+  call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim')))
 endfunction
 
 " load plugins
@@ -105,38 +107,38 @@ autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins')
 lua << EOF
 require("nvim-treesitter.install").prefer_git = true
 require'nvim-treesitter.configs'.setup {
-    ensure_installed = {
-        "go",
-        "gomod",
-        "json",
-        "javascript",
-        "html",
-        "css",
-        "vue",
-        "bash",
-        "python"
-        },
-    highlight = {
-        enable = true,
-        disable = {'html'}
+  ensure_installed = {
+    "go",
+    "gomod",
+    "json",
+    "javascript",
+    "html",
+    "css",
+    "vue",
+    "bash",
+    "python"
     },
-    textsubjects = {
-        enable = true,
-        keymaps = {
-            ['.'] = 'textsubjects-smart',
-        },
+  highlight = {
+    enable = true,
+    disable = {'html', 'vue'}
+  },
+  textsubjects = {
+    enable = true,
+    keymaps = {
+      ['.'] = 'textsubjects-smart',
     },
-    textobjects = {
-        select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-                ["af"] = "@function.outer",
-                ["if"] = "@function.inner",
-                ["ac"] = "@class.outer",
-                ["ic"] = "@class.inner",
-            },
-        },
+  },
+  textobjects = {
+    select = {
+      enable = true,
+      lookahead = true,
+      keymaps = {
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        ["ic"] = "@class.inner",
+      },
     },
+  },
 }
 EOF
