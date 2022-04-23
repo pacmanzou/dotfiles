@@ -70,7 +70,6 @@ sudo pacman -S alacritty \
     neomutt \
     obs-studio \
     python-pip \
-    prettier \
     ripgrep \
     rar \
     scrcpy \
@@ -110,7 +109,7 @@ sudo pacman -S alacritty \
 #     wps-office-mime-cn
 
 Info "### npm install ###"
-sudo npm install -g js-beautify \
+sudo npm install -g @fsouza/prettierd \
     json-server \
     markdownlint-cli \
     reveal-md

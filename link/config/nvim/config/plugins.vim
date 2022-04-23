@@ -39,9 +39,9 @@ let g:go_doc_keywordprg_enabled = 0
 let g:go_code_completion_enabled = 0
 let g:go_template_autocreate = 0
 
-Plug 'othree/html5.vim', {'for': 'html'}
-Plug 'yuezk/vim-js', {'for': 'javascript'}
-Plug 'posva/vim-vue', {'for': 'vue'}
+Plug 'othree/html5.vim',        {'for': 'html'}
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+Plug 'posva/vim-vue',           {'for': 'vue'}
 
 " primary
 Plug 'tpope/vim-repeat',          {'on': []}
@@ -113,20 +113,10 @@ require'nvim-treesitter.configs'.setup {
     "go",
     "gomod",
     "python",
-    "json",
-    "html",
-    "css",
-    "javascript",
-    "vue"
+    "bash"
     },
   highlight = {
     enable = true,
-    disable = {
-      'html',
-      'css',
-      'javascript',
-      'vue'
-      },
   },
   textsubjects = {
     enable = true,
