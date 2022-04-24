@@ -1,7 +1,8 @@
 let g:coc_global_extensions = [
       \ 'coc-pyright',
-      \ 'coc-json',
+      \ 'coc-sql',
       \ 'coc-sh',
+      \ 'coc-json',
       \ 'coc-vimlsp',
       \ 'coc-tsserver',
       \ 'coc-html',
@@ -9,8 +10,11 @@ let g:coc_global_extensions = [
       \ 'coc-emmet',
       \ 'coc-vetur',
       \ 'coc-docker',
-      \ 'coc-snippets',
       \ 'coc-diagnostic',
+      \ 'coc-htmlhint',
+      \ 'coc-markdownlint',
+      \ 'coc-prettier',
+      \ 'coc-snippets',
       \ 'coc-gitignore',
       \ 'coc-lists',
       \ 'coc-git',
@@ -105,6 +109,15 @@ function! s:show_documentation()
 endfunction
 
 nnoremap <silent> gh :call <sid>show_documentation()<cr>
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
 " autocmds
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')

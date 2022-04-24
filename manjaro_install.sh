@@ -100,7 +100,6 @@ sudo pacman -S alacritty \
 #     google-chrome \
 #     mutt-wizard \
 #     mindmaster_cn \
-#     pgformatter-git \
 #     simple-mtpfs \
 #     sqls \
 #     wps-office-cn \
@@ -109,9 +108,7 @@ sudo pacman -S alacritty \
 #     wps-office-mime-cn
 
 Info "### npm install ###"
-sudo npm install -g @fsouza/prettierd \
-    json-server \
-    markdownlint-cli \
+sudo npm install -g json-server \
     reveal-md
 echo
 

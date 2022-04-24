@@ -1,11 +1,10 @@
 {
   "coc.preferences.formatOnType": true,
   "coc.preferences.rootPatterns": [".git", ".gitignore"],
+  "coc.preferences.formatOnSaveFiletypes": [""],
   "colors.filetypes": ["html", "css", "vim"],
-  "diagnostic-languageserver.filetypes": {
-    "sh": "shellcheck",
-    "markdown": "markdownlint"
-  },
+  "diagnostic-languageserver.filetypes": { "sh": "shellcheck" },
+  "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
   "explorer.width": 35,
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappingMode": "none",
@@ -79,6 +78,8 @@
       "shell": true
     }
   },
+  "prettier.singleQuote": false,
+  "python.formatting.provider": "black",
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "suggest.noselect": false,
   "suggest.maxCompleteItemCount": 20,
