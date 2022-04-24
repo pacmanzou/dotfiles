@@ -1,4 +1,5 @@
 {
+  "coc.preferences.formatOnType": true,
   "coc.preferences.rootPatterns": [".git", ".gitignore"],
   "colors.filetypes": ["html", "css", "vim"],
   "diagnostic-languageserver.filetypes": {

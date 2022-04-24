@@ -62,7 +62,8 @@ function! s:check_back_space() abort
 endfunction
 
 " used for the format on type and improvement of brackets
-inoremap <silent><nowait> <c-m> <c-g>u<cr><c-r>=coc#on_enter()<cr>
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+      \: "\<c-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
 
 " rename
 nmap <silent> cr <plug>(coc-rename)
