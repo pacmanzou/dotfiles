@@ -2,7 +2,7 @@
   "coc.preferences.formatOnType": true,
   "coc.preferences.rootPatterns": [".git", ".gitignore"],
   "coc.preferences.formatOnSaveFiletypes": [""],
-  "colors.filetypes": ["html", "css", "vim"],
+  "colors.filetypes": ["html", "css", "vim", "vue"],
   "diagnostic-languageserver.filetypes": { "sh": "shellcheck" },
   "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
   "explorer.width": 35,
