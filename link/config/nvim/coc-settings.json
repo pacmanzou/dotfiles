@@ -78,6 +78,8 @@
       "shell": true
     }
   },
+  "notification.border": false,
+  "notification.marginRight": 0,
   "prettier.singleQuote": false,
   "python.formatting.provider": "black",
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
