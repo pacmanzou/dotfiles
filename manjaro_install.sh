@@ -36,6 +36,7 @@ sudo pacman -Syy
 sudo pacman -S archlinuxcn-keyring
 sudo pacman -Syu
 sudo pacman -S alacritty \
+    baidupcs-go \
     bleachbit \
     bluez \
     bluez-utils \
@@ -94,7 +95,6 @@ sudo pacman -S alacritty \
     zathura-pdf-mupdf
 
 # yay -S abook \
-#     baidunetdisk-electron \
 #     com.qq.im.deepin \
 #     debtap \
 #     google-chrome \
