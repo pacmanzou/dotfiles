@@ -13,76 +13,16 @@ var countExpand float64
 var countBreak float64
 var chExpand = make(chan float64)
 var chBreak = make(chan float64)
-var deckNoAwakening = []string{
-	"使魔",
-	"使魔",
-	"眷属",
-	"眷属",
-	"公爵",
-	"格蕾丝",
-	"红灾星",
-	"红男爵",
-	"妖女",
-	"领域",
-	"帝国",
-	"帝国",
-	"欲望",
-	"欲望",
-	"欲望",
-	"转换",
-	"牛头鬼",
-	"牛头鬼",
-	"牛头鬼",
-	"堕落武者",
-	"堕落武者",
-	"堕落武者",
-	"控制器",
-	"控制器",
-}
-var deckIdeal = []string{
-	"使魔",
-	"使魔",
-	"眷属",
-	"眷属",
-	"巫师",
-	"公爵",
-	"格蕾丝",
-	"红灾星",
-	"红男爵",
-	"妖女",
-	"领域",
-	"帝国",
-	"帝国",
-	"欲望",
-	"欲望",
-	"欲望",
-	"转换",
-	"觉醒",
-	"觉醒",
-	"觉醒",
-	"牛头鬼",
-	"牛头鬼",
-	"牛头鬼",
-	"堕落武者",
-	"堕落武者",
-	"堕落武者",
-	"控制器",
-	"控制器",
-	"月之书",
-	"月之书",
-}
 
 type Deck struct {
-	Type  string
-	Value []string
+	Type string
 }
 
 func main() {
 	start := time.Now()
 	rand.Seed(time.Now().Unix())
 
-	deck := Deck{"noAwakening", deckNoAwakening}
-	// deck := Deck{"ideal", deckIdeal}
+	deck := Deck{"noAwakening"}
 
 	go dealExpand(deck)
 	go dealBreak(deck)
@@ -90,46 +30,16 @@ func main() {
 	fmt.Println("吸血鬼卡组(先手): " + deck.Type)
 	fmt.Printf("展开概率: %.2f%%\n", <-chExpand/simulationNumber*100)
 	fmt.Printf("伪二速炸卡场概率: %.2f%%\n", <-chBreak/simulationNumber*100)
-	fmt.Printf("高星魔法概率: %.2f%%\n", lock(deck.Value))
 
 	elapsed := time.Since(start)
 	fmt.Printf("\nelapsed: %v\n", elapsed)
 }
 
-func lock(deck []string) float64 {
-	var countLock float64
-	var res float64 = 1
-	var deckLock = []string{
-		"使魔",
-		"眷属",
-		"巫师",
-		"觉醒",
-		"牛头鬼",
-		"堕落武者",
-		"控制器",
-		"月之书",
-	}
-
-	for _, v := range deck {
-		if !IsExist(deckLock, v) {
-			countLock++
-		}
-	}
-
-	a := countLock
-	b := float64(len(deck))
-
-	for i := 0.0; i < cardsNumber; i++ {
-		res = (a - i) / (b - i) * res
-	}
-	return res * 100
-}
-
 func dealExpand(deck Deck) {
 	for i := 0; i < simulationNumber; i++ {
-		cards := randomCards(deck.Value)
+		cards := randomCards(deck)
 
-		if IsExist(cards, "觉醒") {
+		if IsExistAnd(cards, "觉醒", "帝国") {
 			countExpand++
 		} else if IsExistOr(cards, "牛头鬼", "堕落武者") &&
 			IsExistOr(
@@ -143,6 +53,7 @@ func dealExpand(deck Deck) {
 				"红灾星",
 				"妖女",
 				"转换",
+				"觉醒",
 			) {
 			countExpand++
 		} else if IsExistOr(cards, "眷属", "使魔", "巫师") && IsExist(cards, "欲望") {
@@ -164,7 +75,7 @@ func dealExpand(deck Deck) {
 func dealBreak(deck Deck) {
 	if deck.Type == "noAwakening" {
 		for i := 0; i < simulationNumber; i++ {
-			cards := randomCards(deck.Value)
+			cards := randomCards(deck)
 
 			if IsExistAnd(cards, "眷属", "欲望") {
 				countBreak++
@@ -196,7 +107,7 @@ func dealBreak(deck Deck) {
 		}
 	} else {
 		for i := 0; i < simulationNumber; i++ {
-			cards := randomCards(deck.Value)
+			cards := randomCards(deck)
 
 			if IsExistAnd(cards, "觉醒", "帝国") {
 				countBreak++
@@ -235,10 +146,72 @@ func dealBreak(deck Deck) {
 	chBreak <- countBreak
 }
 
-func randomCards(deck []string) []string {
-	// 每次都使用deck的副本
-	newDeck := make([]string, len(deck))
-	copy(newDeck, deck)
+func randomCards(deck Deck) []string {
+	var deckNoAwakening = []string{
+		"使魔",
+		"使魔",
+		"眷属",
+		"眷属",
+		"公爵",
+		"格蕾丝",
+		"红灾星",
+		"红男爵",
+		"妖女",
+		"领域",
+		"帝国",
+		"帝国",
+		"欲望",
+		"欲望",
+		"欲望",
+		"转换",
+		"牛头鬼",
+		"牛头鬼",
+		"牛头鬼",
+		"堕落武者",
+		"堕落武者",
+		"堕落武者",
+		"控制器",
+		"控制器",
+	}
+	var deckIdeal = []string{
+		"使魔",
+		"使魔",
+		"眷属",
+		"眷属",
+		"巫师",
+		"公爵",
+		"格蕾丝",
+		"红灾星",
+		"红男爵",
+		"妖女",
+		"领域",
+		"帝国",
+		"帝国",
+		"欲望",
+		"欲望",
+		"欲望",
+		"转换",
+		"觉醒",
+		"觉醒",
+		"觉醒",
+		"牛头鬼",
+		"牛头鬼",
+		"牛头鬼",
+		"堕落武者",
+		"堕落武者",
+		"堕落武者",
+		"控制器",
+		"控制器",
+		"月之书",
+		"月之书",
+	}
+
+	newDeck := []string{}
+	if deck.Type == "noAwakening" {
+		newDeck = deckNoAwakening
+	} else {
+		newDeck = deckIdeal
+	}
 
 	cards := make([]string, cardsNumber)
 
