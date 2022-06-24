@@ -276,6 +276,7 @@ nnoremap <silent> > >>
 nnoremap <silent> < <<
 nnoremap <silent> Y y$
 nnoremap <silent> Q @q
+nnoremap <silent> q: <nop>
 
 
 " imap
