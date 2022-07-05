@@ -35,17 +35,16 @@ func dealExpand() {
 
 		if IsExistAnd(cards, "觉醒", "帝国") {
 			countExpand++
-		} else if IsExistOr(cards, "牛头鬼", "堕落") &&
+		} else if IsExistOr(cards, "牛头", "堕落") &&
 			IsExistOr(
 				cards,
 				"使魔",
 				"眷属",
 				"巫师",
-				"影之吸血鬼",
 				"公爵",
 				"格蕾丝",
-				"红男爵",
-				"红灾星",
+				"男爵",
+				"灾星",
 				"妖女",
 				"转换",
 				"觉醒",
@@ -57,15 +56,11 @@ func dealExpand() {
 		} else if IsExistAnd(cards, "眷属", "领域") &&
 			IsExistOr(
 				cards,
-				"影之吸血鬼",
 				"公爵",
 				"格蕾丝",
-				"红男爵",
-				"红灾星",
+				"男爵",
+				"灾星",
 			) {
-			countExpand++
-		} else if IsExistAnd(cards, "影之吸血鬼", "领域") &&
-			IsExistOr(cards, "眷属", "使魔", "巫师") {
 			countExpand++
 		}
 	}
@@ -81,29 +76,25 @@ func dealBreak() {
 		} else if IsExistAnd(cards, "眷属", "欲望") {
 			countBreak++
 		} else if IsExistAnd(cards, "眷属", "领域") &&
-			IsExistOr(cards, "影之吸血鬼", "公爵") {
-			countBreak++
-		} else if IsExistAnd(cards, "影之吸血鬼", "领域", "欲望") &&
-			IsExistOr(cards, "眷属", "使魔", "巫师") {
+			IsExist(cards, "公爵") {
 			countBreak++
 		} else if IsExistAnd(cards, "使魔", "欲望") &&
 			IsExistOr(cards, "觉醒", "帝国", "转换", "公爵") {
 			countBreak++
-		} else if IsExistOr(cards, "牛头鬼", "堕落") &&
+		} else if IsExistOr(cards, "牛头", "堕落") &&
 			IsExist(cards, "公爵") {
 			countBreak++
-		} else if IsExistOr(cards, "牛头鬼", "堕落") &&
+		} else if IsExistOr(cards, "牛头", "堕落") &&
 			IsExistOr(cards, "欲望", "觉醒", "帝国", "转换") &&
 			IsExistOr(
 				cards,
 				"使魔",
 				"眷属",
 				"巫师",
-				"影之吸血鬼",
 				"公爵",
 				"格蕾丝",
-				"红男爵",
-				"红灾星",
+				"男爵",
+				"灾星",
 				"妖女",
 				"转换",
 				"帝国",
@@ -118,37 +109,38 @@ func dealBreak() {
 }
 
 func randomCards() []string {
+	// 额外: 独角仙，甲虫，霍普雷，霍普，大罪蛛，恐牙狼，预言者
 	var deck = []string{
-		"使魔", // 下级
+		"使魔", // 下级(5)
 		"使魔",
 		"眷属",
 		"眷属",
 		"巫师",
-		"影之吸血鬼", // 上级
-		"公爵",
-		"公爵",
+		"公爵", // 上级(5)
 		"格蕾丝",
-		"红灾星",
-		"红男爵",
+		"灾星",
+		"男爵",
 		"妖女",
-		"领域", // 魔法
+		"领域", // 魔法(6)
 		"帝国",
 		"帝国",
 		"欲望",
 		"欲望",
 		"欲望",
-		"转换", // 陷阱
+		"转换", // 陷阱(4)
 		"觉醒",
 		"觉醒",
 		"觉醒",
-		"牛头鬼", // 支援
-		"牛头鬼",
-		"牛头鬼",
+		"牛头", // 不死族支援(5)
+		"牛头",
 		"堕落",
 		"堕落",
 		"堕落",
-		"敌人控制器", // 泛用
-		"敌人控制器",
+		"死苏", // 泛用(5)
+		"敌控",
+		"敌控",
+		"圣杯",
+		"圣杯",
 	}
 
 	newDeck := deck
