@@ -26,7 +26,7 @@ let g:coc_global_extensions = [
       \ ]
 
 " coc-snippets
-imap <silent><expr> <c-l> pumvisible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
+imap <silent><expr> <c-l> coc#pum#visible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
 " coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
@@ -53,21 +53,22 @@ nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
 nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
 
 " coc basic config
-" use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <tab>
-      \ pumvisible() ? "\<c-n>" :
-      \ <sid>check_back_space() ? "\<tab>" :
+" " use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr> <s-tab> pumvisible() ? "\<c-p>" : "\<c-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-function! s:check_back_space() abort
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
-
-" used for the format on type and improvement of brackets
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-      \: "\<c-g>u\<cr>\<c-r>=coc#on_enter()\<cr>"
 
 " rename
 nmap <silent> cr <plug>(coc-rename)

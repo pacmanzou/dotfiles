@@ -95,9 +95,17 @@ hi CursorIM       guifg=NONE    guibg=NONE gui=reverse     cterm=reverse
 
 " coc
 hi CocSearch        guifg=#fb4934 guibg=NONE    gui=NONE      cterm=NONE
-hi CocErrorSign     guifg=#ff4934 guibg=NONE    gui=NONE      cterm=NONE
-hi CocPreviewHi     guifg=#fabd2f guibg=#000000 gui=NONE      cterm=NONE
+hi CocMenuSel       guifg=NONE    guibg=#353535 gui=NONE      cterm=NONE
+hi CocPreviewHi     guifg=#000000 guibg=#fabd2f gui=NONE      cterm=NONE
 hi CocHighlightText guifg=NONE    guibg=NONE    gui=underline cterm=underline
+hi CocErrorSign     guifg=#ff4934 guibg=NONE    gui=NONE      cterm=NONE
+hi CocWariningSign  guifg=#fe8019 guibg=NONE    gui=NONE      cterm=NONE
+hi CocHintSign      guifg=#15aabf guibg=NONE    gui=NONE      cterm=NONE
+hi CocInfoSign      guifg=#ebdbb2 guibg=NONE    gui=NONE      cterm=NONE
+hi DiagnosticError  guifg=#ff4934 guibg=NONE    gui=NONE      cterm=NONE
+hi DiagnosticWarn   guifg=#fe8019 guibg=NONE    gui=NONE      cterm=NONE
+hi DiagnosticHint   guifg=#15aabf guibg=NONE    gui=NONE      cterm=NONE
+hi DiagnosticInfo   guifg=#ebdbb2 guibg=NONE    gui=NONE      cterm=NONE
 
 " coc-git
 hi CocCodeLens             guifg=#928374 guibg=NONE gui=NONE cterm=NONE
