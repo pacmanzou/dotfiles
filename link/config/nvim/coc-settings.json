@@ -85,7 +85,6 @@
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "suggest.maxCompleteItemCount": 20,
   "suggest.detailField": "abbr",
-  "suggest.detailMaxLength": 10,
   "suggest.enablePreselect": false,
   "snippets.ultisnips.directories": ["$HOME/.config/nvim/UltiSnips/"],
   "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
