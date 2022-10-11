@@ -35,7 +35,7 @@
     "D": "deleteForever",
     "at": "addFile",
     "am": "addDirectory",
-    "q": "quit",
+    "q": "esc",
     "?": "help"
   },
   "git.splitWindowCommand": "below sp",
