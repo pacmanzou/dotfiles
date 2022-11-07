@@ -37,7 +37,7 @@ default_floating_border none
 exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id copyq
-exec --no-startup-id fcitx
+exec --no-startup-id fcitx5
 exec --no-startup-id utools
 exec --no-startup-id bluetoothctl power on
 exec --no-startup-id nitrogen --restore; sleep 1; picom --experimental-backends -b
@@ -88,7 +88,7 @@ set $mode_misc (w)ifi   (t)ouchpad   (f)citx   (g)ithub_token   (b)luetooth
 mode "$mode_misc"{
     bindsym w exec --no-startup-id bash "$HOME/.i3/wifi.sh", mode "default"
     bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
-    bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx_restart.sh", mode "default"
+    bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx5_restart.sh", mode "default"
     bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
     bindsym b exec --no-startup-id bash "$HOME/.i3/bluetoothctl.sh", mode "default"
 
@@ -167,7 +167,7 @@ for_window [class="Nitrogen"] floating enable, move position center
 for_window [class="apifox"] floating enable, move position center
 for_window [class="beekeeper"] floating enable, move position center
 for_window [class="VirtualBox"] floating enable, move position center
-for_window [class="Fcitx"] floating enable, move position center
+for_window [class="fcitx5"] floating enable, move position center
 for_window [title="^alacritty-float$"] floating enable, move position center
 for_window [class="mpv"] floating enable, resize set 960 600, move position center
 for_window [class="Viewnior"] floating enable, resize set 960 600, move position center

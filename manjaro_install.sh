@@ -49,9 +49,9 @@ sudo pacman -S alacritty \
     exa \
     etcher \
     fd \
-    fcitx \
-    fcitx-rime \
-    fcitx-configtool \
+    fcitx5 \
+    fcitx5-rime \
+    fcitx5-configtool \
     go \
     gcc \
     gparted \
@@ -60,6 +60,7 @@ sudo pacman -S alacritty \
     lazygit \
     lazydocker \
     mpv \
+    manjaro-asian-input-support-fcitx5 \
     manjaro-settings-manager \
     materiav2-gtk-theme \
     music-dl \
@@ -126,7 +127,6 @@ echo
 Info "### misc ###"
 CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
-CopyHandler "$HOME/dotfiles/misc/pacmanzou/" "/usr/share/fcitx/skin/"
 echo
 
 Info "### manual configuration ###"
