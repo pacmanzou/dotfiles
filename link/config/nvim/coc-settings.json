@@ -1,8 +1,5 @@
 {
   "coc.preferences.formatOnType": true,
-  "coc.preferences.rootPatterns": [".git", ".gitignore"],
-  "coc.preferences.formatOnSaveFiletypes": [""],
-  "colors.filetypes": ["html", "css", "vim", "vue"],
   "diagnostic-languageserver.filetypes": { "sh": "shellcheck" },
   "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
   "explorer.width": 35,
@@ -41,10 +38,10 @@
   "git.splitWindowCommand": "below sp",
   "git.addGBlameToVirtualText": true,
   "git.blameUseRealTime": true,
+  "json.validate.enable": false,
   "leetcode.language": "golang",
   "list.source.files.args": ["--hidden", "--files"],
   "list.source.files.excludePatterns": ["**/.git/**"],
-  "list.source.grep.defaultArgs": ["-smartcase", "-regex"],
   "list.previewHighlightGroup": "CocPreviewHi",
   "list.indicator": ":",
   "list.alignColumns": true,
@@ -89,6 +86,6 @@
   "snippets.ultisnips.directories": ["$HOME/.config/nvim/UltiSnips/"],
   "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
   "translator.engines": ["youdao"],
-  "translator.window.enableBorder": false,
-  "vetur.ignoreProjectWarning": true
+  "vetur.ignoreProjectWarning": true,
+  "workspace.rootPatterns": [".git", ".gitignore"]
 }
