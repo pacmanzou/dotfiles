@@ -2,8 +2,14 @@
 " Github: https://github.com/pacmanzou
 " Description: Nvim config
 
-" set encoding
+" encoding
 scriptencoding utf-8
+
+" language
+language en_US.UTF-8
+
+" colorscheme
+colorscheme pacmanzou
 
 " provider
 let g:loaded_node_provider = 0
@@ -33,6 +39,3 @@ source $HOME/.config/nvim/config/plugins.vim
 " basic setup
 source $HOME/.config/nvim/config/settings.vim
 source $HOME/.config/nvim/config/mappings.vim
-
-" colorscheme
-colorscheme pacmanzou

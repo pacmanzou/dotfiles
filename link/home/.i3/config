@@ -81,7 +81,6 @@ bindsym $mod+Shift+o floating toggle
 bindsym $mod+Shift+p move scratchpad
 bindsym $mod+Shift+d exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym $mod+Shift+n exec --no-startup-id dunstctl close
-bindsym $mod+Shift+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 bindsym $mod+Shift+space exec --no-startup-id dmenu_run -i -b -nb '#1d1d1d' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -fn '' -p 'dmenu'
 
 set $mode_misc (w)ifi   (t)ouchpad   (f)citx   (g)ithub_token   (b)luetooth
@@ -168,7 +167,6 @@ for_window [class="apifox"] floating enable, move position center
 for_window [class="beekeeper"] floating enable, move position center
 for_window [class="VirtualBox"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
-for_window [title="^alacritty-float$"] floating enable, move position center
 for_window [class="mpv"] floating enable, resize set 960 600, move position center
 for_window [class="Viewnior"] floating enable, resize set 960 600, move position center
 for_window [class="copyq"] floating enable, resize set 960 600, move position center
