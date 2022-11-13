@@ -41,7 +41,6 @@ sudo pacman -S alacritty \
     bluez \
     bluez-utils \
     blueman \
-    cht.sh \
     ctags \
     copyq \
     cmake \
@@ -67,7 +66,7 @@ sudo pacman -S alacritty \
     mycli \
     neofetch \
     nodejs-lts-fermium \
-    npm6 \
+    npm \
     neovim \
     neomutt \
     obs-studio \
@@ -78,6 +77,7 @@ sudo pacman -S alacritty \
     seahorse \
     shellcheck \
     shfmt \
+    tldr \
     typespeed \
     viewnior \
     tmux \
