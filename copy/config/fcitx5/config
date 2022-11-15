@@ -3,6 +3,8 @@
 EnumerateWithTriggerKeys=False
 # 轮换输入法时跳过第一个输入法
 EnumerateSkipFirst=False
+# 切换是否使用嵌入预编辑
+TogglePreedit=
 
 [Hotkey/TriggerKeys]
 0=Control+space
@@ -42,16 +44,13 @@ EnumerateSkipFirst=False
 [Hotkey/NextCandidate]
 0=Tab
 
-[Hotkey/TogglePreedit]
-0=Control+Alt+P
-
 [Behavior]
 # 默认状态为激活
 ActiveByDefault=False
 # 共享输入状态
 ShareInputState=No
 # 在程序中显示预编辑文本
-PreeditEnabledByDefault=True
+PreeditEnabledByDefault=False
 # 切换输入法时显示输入法信息
 ShowInputMethodInformation=False
 # 在焦点更改时显示输入法信息
