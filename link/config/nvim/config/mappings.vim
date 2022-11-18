@@ -307,6 +307,7 @@ imap <c-j>       <nop>
 imap <c-k>       <nop>
 imap <c-l>       <nop>
 imap <c-z>       <nop>
+imap <c-x><c-f>  <nop>
 imap <c-x><c-d>  <nop>
 imap <c-x><c-e>  <nop>
 imap <c-x><c-i>  <nop>
@@ -325,7 +326,6 @@ imap <c-b>       <left>
 imap <c-\><c-n>  <nop>
 imap <c-\><c-g>  <nop>
 imap <c-]>       <nop>
-imap <c-x>f      <c-x><c-f>
 
 
 " cmap
@@ -347,14 +347,3 @@ cmap <c-z> <nop>
 cmap <c-x> <nop>
 cmap <c-v> <nop>
 cmap <c-b> <left>
-
-
-" vmap
-vmap q     <nop>
-vmap t     <nop>
-vmap o     <nop>
-vmap s     <nop>
-vmap n     <nop>
-vmap N     <nop>
-vmap <c-f> <nop>
-vmap <c-b> <nop>

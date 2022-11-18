@@ -490,14 +490,6 @@ function! s:opfunc(type, ...) abort " {{{1
   else
     silent! call repeat#set("\<Plug>SurroundRepeat".char.s:input)
   endif
-endfunction
-
-function! s:opfunc2(...) abort
-  if !a:0 || a:1 ==# 'setup'
-    let &opfunc = matchstr(expand('<sfile>'), '<SNR>\w\+$')
-    return 'g@'
-  endif
-  call s:opfunc(a:1, 1)
 endfunction " }}}1
 
 nnoremap <silent> <Plug>SurroundRepeat .
@@ -507,27 +499,6 @@ nnoremap <expr>   <Plug>Yssurround '^'.v:count1.<SID>opfunc('setup').'g_'
 nnoremap <expr>   <Plug>Ysurround  <SID>opfunc('setup')
 
 vnoremap <silent> <Plug>VSurround  :<C-U>call <SID>opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>
-
-" nop
-map sb <nop>
-map sB <nop>
-map sk <nop>
-map sj <nop>
-map sh <nop>
-map sl <nop>
-map sg <nop>
-map sz <nop>
-map sv <nop>
-map sq <nop>
-map sn <nop>
-map sN <nop>
-map sL <nop>
-map sM <nop>
-map sN <nop>
-map sG <nop>
-
-nmap st <nop>
-nmap s' <nop>
 
 " map
 nmap s <Plug>Ysurround
