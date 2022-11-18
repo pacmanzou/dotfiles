@@ -1,11 +1,11 @@
 " Highlight the under cursor word
 
-let s:interestingWordsColors = ['#b8bb26', '#8ec07c', '#fb4934']
+let s:selectWordsColors = ['#b8bb26', '#8ec07c', '#fb4934']
 
 let s:hasBuiltColors = 0
 
-let s:interestingWords = []
-let s:interestingModes = []
+let s:selectWords = []
+let s:selectModes = []
 let s:mids = {}
 let s:recentlyUsed = []
 
@@ -15,20 +15,20 @@ function! ColorWord(word, mode)
   endif
 
   " gets the lowest unused index
-  let n = index(s:interestingWords, 0)
+  let n = index(s:selectWords, 0)
   if (n == -1)
-    if !(exists('g:interestingWordsCycleColors') && g:interestingWordsCycleColors)
-      echom "InterestingWords: max number of highlight groups reached " . len(s:interestingWords)
+    if !(exists('g:selectWordsCycleColors') && g:selectWordsCycleColors)
+      echom "SelectWords: max number of highlight groups reached " . len(s:selectWords)
       return
     else
       let n = s:recentlyUsed[0]
-      call UncolorWord(s:interestingWords[n])
+      call UncolorWord(s:selectWords[n])
     endif
   endif
 
   let mid = 595129 + n
-  let s:interestingWords[n] = a:word
-  let s:interestingModes[n] = a:mode
+  let s:selectWords[n] = a:word
+  let s:selectModes[n] = a:mode
   let s:mids[a:word] = mid
 
   call s:apply_color_to_word(n, a:word, a:mode, mid)
@@ -46,7 +46,7 @@ function! s:apply_color_to_word(n, word, mode, mid)
   endif
 
   try
-    call matchadd("InterestingWord" . (a:n + 1), pat, 1, a:mid)
+    call matchadd("SelectWord" . (a:n + 1), pat, 1, a:mid)
   catch /E801/      " match id already taken.
   endtry
 endfunction
@@ -70,13 +70,13 @@ function! s:nearest_group_at_cursor() abort
 endfunction
 
 function! UncolorWord(word)
-  let index = index(s:interestingWords, a:word)
+  let index = index(s:selectWords, a:word)
 
   if (index > -1)
     let mid = s:mids[a:word]
 
     silent! call matchdelete(mid)
-    let s:interestingWords[index] = 0
+    let s:selectWords[index] = 0
     unlet s:mids[a:word]
   endif
 endfunction
@@ -85,41 +85,7 @@ function! s:getmatch(mid) abort
   return filter(getmatches(), 'v:val.id==a:mid')[0]
 endfunction
 
-function! WordNavigation(direction)
-  let currentWord = s:nearest_group_at_cursor()
-
-  if (s:checkIgnoreCase(currentWord))
-    let currentWord = tolower(currentWord)
-  endif
-
-  if (index(s:interestingWords, currentWord) > -1)
-    let l:index = index(s:interestingWords, currentWord)
-    let l:mode = s:interestingModes[index]
-    let case = s:checkIgnoreCase(currentWord) ? '\c' : '\C'
-    if l:mode == 'v'
-      let pat = case . '\V\zs' . escape(currentWord, '\') . '\ze'
-    else
-      let pat = case . '\V\<' . escape(currentWord, '\') . '\>'
-    endif
-    let searchFlag = ''
-    if !(a:direction)
-      let searchFlag = 'b'
-    endif
-    call search(pat, searchFlag)
-  else
-    try
-      if (a:direction)
-        normal! n
-      else
-        normal! N
-      endif
-    catch /E486/
-      echohl WarningMsg | echomsg "E486: Pattern not found: " . @/
-    endtry
-  endif
-endfunction
-
-function! InterestingWords(mode) range
+function! SelectWords(mode) range
   if a:mode == 'v'
     let currentWord = s:get_visual_selection()
   else
@@ -131,7 +97,7 @@ function! InterestingWords(mode) range
   if (s:checkIgnoreCase(currentWord))
     let currentWord = tolower(currentWord)
   endif
-  if (index(s:interestingWords, currentWord) == -1)
+  if (index(s:selectWords, currentWord) == -1)
     call ColorWord(currentWord, a:mode)
   else
     call UncolorWord(currentWord)
@@ -149,7 +115,7 @@ function! s:get_visual_selection()
 endfunction
 
 function! UncolorAllWords()
-  for word in s:interestingWords
+  for word in s:selectWords
     " check that word is actually a String since '0' is falsy
     if (type(word) == 1)
       call UncolorWord(word)
@@ -157,23 +123,11 @@ function! UncolorAllWords()
   endfor
 endfunction
 
-function! RecolorAllWords()
-  let i = 0
-  for word in s:interestingWords
-    if (type(word) == 1)
-      let mode = s:interestingModes[i]
-      let mid = s:mids[word]
-      call s:apply_color_to_word(i, word, mode, mid)
-    endif
-    let i += 1
-  endfor
-endfunction
-
 " returns true if the ignorecase flag needs to be used
 function! s:checkIgnoreCase(word)
   " return false if case sensitive is used
-  if (exists('g:interestingWordsCaseSensitive'))
-    return !g:interestingWordsCaseSensitive
+  if (exists('g:selectWordsCaseSensitive'))
+    return !g:selectWordsCaseSensitive
   endif
   " checks ignorecase
   " and then if smartcase is on, check if the word contains an uppercase char
@@ -200,23 +154,21 @@ function! s:buildColors()
     return
   endif
   let ui = s:uiMode()
-  let wordColors = s:interestingWordsColors
+  let wordColors = s:selectWordsColors
   " select ui type
   " highlight group indexed from 1
   let currentIndex = 1
   for wordColor in wordColors
-    execute 'hi! def InterestingWord' . currentIndex . ' ' . ui . 'bg=' . wordColor . ' ' . ui . 'fg=Black'
-    call add(s:interestingWords, 0)
-    call add(s:interestingModes, 'n')
+    execute 'hi! def SelectWord' . currentIndex . ' ' . ui . 'bg=' . wordColor . ' ' . ui . 'fg=Black'
+    call add(s:selectWords, 0)
+    call add(s:selectModes, 'n')
     call add(s:recentlyUsed, currentIndex-1)
     let currentIndex += 1
   endfor
   let s:hasBuiltColors = 1
 endfunc
 
-nnoremap <silent> <space>h :call InterestingWords('n')<cr>
-vnoremap <silent> <space>h :call InterestingWords('v')<cr>
-nnoremap <silent> <space>H :call UncolorAllWords()<cr>
+nnoremap <silent> <c-s> :call SelectWords('n')<cr>
+vnoremap <silent> <c-s> :call SelectWords('v')<cr>
 
-nnoremap <silent> n :call WordNavigation(1)<cr>
-nnoremap <silent> N :call WordNavigation(0)<cr>
+nnoremap <silent> <esc> :call UncolorAllWords()<cr>

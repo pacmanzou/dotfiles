@@ -249,8 +249,8 @@ nnoremap <silent> <c-n> <c-i>
 nnoremap <silent> <c-p> <c-o>
 
 " substitute
-nnoremap <space>s :%s/<c-r><c-w>//g<left><left>
-vnoremap <space>s :s///g<left><left><left>
+nnoremap <space>s :%s///gI<left><left><left><left>
+vnoremap <space>s :s///gI<left><left><left><left>
 
 " x delete without copying
 nnoremap <silent> x "_x
@@ -277,6 +277,7 @@ nnoremap <silent> < <<
 nnoremap <silent> Y y$
 nnoremap <silent> Q @q
 nnoremap <silent> q: <nop>
+nnoremap <space><c-r> :w<cr>:source $MYVIMRC<cr>
 
 
 " imap

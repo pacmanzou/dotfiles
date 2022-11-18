@@ -111,6 +111,17 @@ endfunction
 
 nnoremap <silent> gh :call <sid>show_documentation()<cr>
 
+" multi cursors
+function! s:select_current_word()
+  if !get(b:, 'coc_cursors_activated', 0)
+    return "\<plug>(coc-cursors-word)"
+  endif
+  return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
+endfunction
+
+nnoremap <silent> <c-c> <plug>(coc-cursors-word)
+nnoremap <expr><silent> <enter> <sid>select_current_word()
+
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 
