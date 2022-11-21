@@ -81,6 +81,7 @@ sudo pacman -S alacritty \
     typespeed \
     viewnior \
     tmux \
+    trash-cli \
     ttf-hack \
     unzip \
     utools \
