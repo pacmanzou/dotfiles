@@ -137,10 +137,10 @@ mode "$mode_i3exit" {
 
 # Resize window (you can also use the mouse for that)
 mode "resize" {
-    bindsym l resize shrink width 50 px
-    bindsym k resize grow height 50 px
-    bindsym j resize shrink height 50 px
-    bindsym h resize grow width 50 px
+    bindsym h resize shrink width 50 px
+    bindsym j resize grow height 50 px
+    bindsym k resize shrink height 50 px
+    bindsym l resize grow width 50 px
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
