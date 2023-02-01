@@ -9,7 +9,7 @@ function Start() {
     battery_level=$(acpi -b | grep -Po '[0-9]+(?=%)')
 
     if [[ "${battery_status}" != "charged" ]]; then
-        if [[ "${battery_level}" -le 15 ]]; then
+        if [[ "${battery_level}" -le 20 ]]; then
             notify-send --urgency=critical "Battery low" "Battery level is less than ${battery_level}%!"
         fi
     fi
