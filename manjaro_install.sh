@@ -46,7 +46,6 @@ sudo pacman -S alacritty \
     cmake \
     docker \
     exa \
-    etcher \
     fd \
     fcitx5 \
     fcitx5-rime \
@@ -61,7 +60,7 @@ sudo pacman -S alacritty \
     mpv \
     manjaro-asian-input-support-fcitx5 \
     manjaro-settings-manager \
-    materiav2-gtk-theme \
+    materia-gtk-theme \
     music-dl \
     mycli \
     neofetch \
@@ -70,6 +69,7 @@ sudo pacman -S alacritty \
     neovim \
     neomutt \
     obs-studio \
+    pcmanfm-gtk3 \
     python-pip \
     ripgrep \
     rar \
@@ -97,9 +97,10 @@ sudo pacman -S alacritty \
     zathura-pdf-mupdf
 
 # yay -S abook \
-#     com.qq.im.deepin \
+#     apifox \
 #     debtap \
 #     google-chrome \
+#     linuxqq \
 #     mutt-wizard \
 #     mindmaster_cn \
 #     simple-mtpfs \
@@ -151,4 +152,3 @@ Info "mw -a you@email.com\n"
 
 Info "### appimage ###"
 Info "beekeeper"
-Info "apifox"

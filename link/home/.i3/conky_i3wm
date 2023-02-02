@@ -37,4 +37,5 @@ ${goto 40}$color2${top_mem name 4}$alignr$color${top_mem mem_res 4}
 # ${goto 40}$color2${top_mem name 5}$alignr$color${top_mem mem_res 5}
 #
 ${voffset 10}${goto 40}${color}Swap${font anti Vera Sans:bold:size=8}$alignr${swap}/ ${swapfree}
+${voffset 10}${color2}${alignr}Hello, World!
 ]]
