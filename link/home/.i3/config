@@ -182,6 +182,10 @@ bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
+# Limit the floating window size
+floating_minimum_size 800 x -1
+floating_maximum_size 1280 x 800
+
 # Open specific applications in floating mode
 for_window [class="^.*"] border none
 for_window [class="GParted"] floating enable, move position center
@@ -189,18 +193,19 @@ for_window [class="Lightdm-settings"] floating enable, move position center
 for_window [class="Lxappearance"] floating enable, move position center
 for_window [class="Pamac-manager"] floating enable, move position center
 for_window [class="Nitrogen"] floating enable, move position center
+for_window [class="mpv"] floating enable, move position center
+for_window [class="Viewnior"] floating enable, move position center
+for_window [class="Manjaro Settings Manager"] floating enable, move position center
+for_window [class="BleachBit"] floating enable, move position center
+for_window [class="obs"] floating enable, move position center
+for_window [class="Gimp-2.10"] floating enable, move position center
+for_window [class="QQ"] floating enable, move position center
 for_window [class="apifox"] floating enable, move position center
-for_window [class="beekeeper"] floating enable, move position center
+for_window [class="DBeaver"] floating enable, move position center
 for_window [class="VirtualBox"] floating enable, move position center
+for_window [class="copyq"] floating enable, move position center
+for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
-for_window [class="mpv"] floating enable, resize set 960 600, move position center
-for_window [class="Viewnior"] floating enable, resize set 960 600, move position center
-for_window [class="copyq"] floating enable, resize set 960 600, move position center
-for_window [class="Pcmanfm"] floating enable, resize set 960 600, move position center
-for_window [class="Manjaro Settings Manager"] floating enable, resize set 960 600, move position center
-for_window [class="BleachBit"] floating enable, resize set 960 600, move position center
-for_window [class="obs"] floating enable, resize set 960 600, move position center
-for_window [class="QQ"] floating enable, resize set 960 600, move position center
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
