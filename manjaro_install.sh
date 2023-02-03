@@ -44,6 +44,8 @@ sudo pacman -S alacritty \
     ctags \
     copyq \
     cmake \
+    dbeaver \
+    dunst \
     docker \
     exa \
     fd \
@@ -54,6 +56,9 @@ sudo pacman -S alacritty \
     gcc \
     gparted \
     htop \
+    java-openjfx \
+    jdk-openjdk \
+    jre-openjdk \
     lightdm-settings \
     lazygit \
     lazydocker \
@@ -102,7 +107,6 @@ sudo pacman -S alacritty \
 #     google-chrome \
 #     linuxqq \
 #     mutt-wizard \
-#     mindmaster_cn \
 #     simple-mtpfs \
 #     sqls \
 #     wps-office-cn \
@@ -151,4 +155,3 @@ Info "neomutt"
 Info "mw -a you@email.com\n"
 
 Info "### appimage ###"
-Info "beekeeper"
