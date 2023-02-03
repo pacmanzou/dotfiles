@@ -1,3 +1,3 @@
 # dotfiles
 
-Some useful dotfiles for manjaro i3.
+Some useful config for manjaro i3.
