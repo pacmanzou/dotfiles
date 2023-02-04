@@ -12,7 +12,7 @@ _dmenu() {
     dmenu -i -b -nb '#1d1d1d' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -fn '' "$@"
 }
 
-SSID=$(nmcli device wifi list | sed -n '2,$p' | _dmenu -l 14 -p "wifi" | awk '{print $1}')
+SSID=$(nmcli device wifi list | sed -n '2,$p' | _dmenu -l 14 -p "" | awk '{print $1}')
 
 if [[ -z "${SSID}" ]]; then
     exit 0

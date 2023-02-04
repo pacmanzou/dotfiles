@@ -54,9 +54,10 @@ bindsym $mod+w exec --no-startup-id bash "$HOME/.i3/wifi.sh"
 bindsym $mod+r workspace back_and_forth
 bindsym $mod+t exec --no-startup-id bash "$HOME/.i3/touchpad.sh"
 bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ unmute
+bindsym $mod+i exec --no-startup-id flameshot gui
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
-bindsym $mod+s exec --no-startup-id flameshot gui
+bindsym $mod+s split toggle
 bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym $mod+f fullscreen toggle
 bindsym $mod+h focus left
@@ -76,9 +77,7 @@ bindsym $mod+Shift+i mode "$mode_i3exit"
 bindsym $mod+Shift+o floating toggle
 bindsym $mod+Shift+p move scratchpad
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
-bindsym $mod+Shift+h split v; exec --no-startup-id notify-send 'Horizontal'
 bindsym $mod+Shift+l mode "$mode_layout"
-bindsym $mod+Shift+v split h; exec --no-startup-id notify-send 'Vertical'
 bindsym $mod+Shift+m mode "$mode_misc"
 
 bindsym $mod+Ctrl+r restart
@@ -88,27 +87,26 @@ bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
 
 # Mode
-set $mode_misc  (r)estart fcitx   (c)opy the github_token
+set $mode_misc (R)estart the fcitx5   (C)opy the github_token
 
 mode "$mode_misc" {
-    bindsym r exec --no-startup-id bash "$HOME/.i3/fcitx5_restart.sh", mode "default"
+    bindsym r exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
     bindsym c exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-set $mode_layout (t)ab   (s)tack   (n)ormal
+set $mode_layout (S)plit   (T)ab
 mode "$mode_layout" {
-    bindsym t layout tabbed, mode "default"
-    bindsym s layout stacking, mode "default"
-    bindsym n layout toggle split, mode "default"
+    bindsym s layout splith; exec --no-startup-id notify-send 'Split layout', mode "default"
+    bindsym t layout tabbed, exec --no-startup-id notify-send 'Tab layout', mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-set $mode_i3exit (e)xit   (r)eboot   switch_(u)ser   (s)uspend   (h)ibernate   (l)ock   (Shift+s)hutdown
+set $mode_i3exit (E)xit   (R)eboot   switch_(U)ser   (S)uspend   (H)ibernate   (L)ock   (Shift+S)hutdown
 mode "$mode_i3exit" {
     bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"

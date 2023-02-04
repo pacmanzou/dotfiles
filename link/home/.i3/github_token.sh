@@ -7,4 +7,4 @@
 
 xclip -i -sel clipboard "$HOME/personal/github_token.txt"
 
-notify-send "Github token copied"
+notify-send "Copy the github_token"
