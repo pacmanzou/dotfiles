@@ -1,0 +1,13 @@
+[user]
+	email = pacmanzou@qq.com
+	name = pacmanzou
+
+; ssh
+[url "git@github.com:"]
+    insteadOf = https://github.com/
+
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+	interactive = auto

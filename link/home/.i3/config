@@ -39,6 +39,7 @@ exec_always --no-startup-id fix_xcursor
 exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id utools
+exec --no-startup-id cfw
 exec --no-startup-id bluetoothctl power on
 exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id conky -c "$HOME/.i3/conky_i3wm"
@@ -51,9 +52,8 @@ bindsym $mod+Tab workspace next
 bindsym $mod+q exec --no-startup-id dunstctl close
 bindsym $mod+w exec --no-startup-id bash "$HOME/.i3/wifi.sh"
 bindsym $mod+r workspace back_and_forth
-bindsym $mod+t mode "$mode_layout-type"
+bindsym $mod+t exec --no-startup-id bash "$HOME/.i3/touchpad.sh"
 bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ unmute
-bindsym $mod+i mode "$mode_i3exit"
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
 bindsym $mod+s exec --no-startup-id flameshot gui
@@ -64,20 +64,22 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
-bindsym $mod+c mode "$mode_cpupower"
+bindsym $mod+c exec --no-startup-id bash "$HOME/.i3/cpupower.sh"
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
-bindsym $mod+m mode "$mode_misc"
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Shift+q kill
 bindsym $mod+Shift+r move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Shift+u exec --no-startup-id brightnessctl set 5%+
+bindsym $mod+Shift+i mode "$mode_i3exit"
 bindsym $mod+Shift+o floating toggle
 bindsym $mod+Shift+p move scratchpad
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+Shift+h split v; exec --no-startup-id notify-send 'Horizontal'
+bindsym $mod+Shift+l mode "$mode_layout"
 bindsym $mod+Shift+v split h; exec --no-startup-id notify-send 'Vertical'
+bindsym $mod+Shift+m mode "$mode_misc"
 
 bindsym $mod+Ctrl+r restart
 bindsym $mod+Ctrl+h move left 50
@@ -86,33 +88,18 @@ bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
 
 # Mode
-set $mode_cpupower (p)owersave   (Shift+p)erformance
-mode "$mode_cpupower" {
-    bindsym p exec --no-startup-id cat <"$HOME/personal/manjaro_password.txt" |\
-    sudo -S cpupower frequency-set --governor powersave;\
-    exec --no-startup-id notify-send 'Cpufreq powersave', mode "default"
-    bindsym shift+p exec --no-startup-id cat <"$HOME/personal/manjaro_password.txt" |\
-    sudo -S cpupower frequency-set --governor performance;\
-    exec --no-startup-id notify-send 'Cpufreq performance', mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-set $mode_misc (t)ouchpad   (f)citx   (g)ithub_token   (b)luetooth
+set $mode_misc  (r)estart fcitx   (c)opy the github_token
 
 mode "$mode_misc" {
-    bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
-    bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx5_restart.sh", mode "default"
-    bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
-    bindsym b exec --no-startup-id bash "$HOME/.i3/bluetoothctl.sh", mode "default"
+    bindsym r exec --no-startup-id bash "$HOME/.i3/fcitx5_restart.sh", mode "default"
+    bindsym c exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
 
-set $mode_layout-type (t)ab   (s)tack   (n)ormal
-mode "$mode_layout-type" {
+set $mode_layout (t)ab   (s)tack   (n)ormal
+mode "$mode_layout" {
     bindsym t layout tabbed, mode "default"
     bindsym s layout stacking, mode "default"
     bindsym n layout toggle split, mode "default"
@@ -206,6 +193,7 @@ for_window [class="VirtualBox"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
+for_window [class="Clash"] floating enable, move position center
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {

@@ -32,6 +32,7 @@ nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
 " coc-translate
 nmap <silent> t <plug>(coc-translator-e)
+vmap <silent> t <plug>(coc-translator-ev)
 
 " coc-git
 " create text object for git hunk

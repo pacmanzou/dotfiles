@@ -103,6 +103,7 @@ sudo pacman -S alacritty \
 
 # yay -S abook \
 #     apifox \
+#     clash-for-windows-chinese \
 #     debtap \
 #     google-chrome \
 #     linuxqq \

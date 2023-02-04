@@ -5,6 +5,11 @@ export LANG=en_US.UTF-8
 export EDITOR=/usr/bin/nvim
 export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
+# proxy
+export https_proxy=http://127.0.0.1:7890
+export http_proxy=http://127.0.0.1:7890
+export all_proxy=socks5://127.0.0.1:7890
+
 # golang
 export PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go
@@ -114,6 +119,21 @@ function ei {
     go mod init "$(basename "$(pwd)")" && touch main.go
 }
 
+function setproxy {
+    export http_proxy=http://127.0.0.1:7890
+    export https_proxy=http://127.0.0.1:7890
+    export all_proxy=socks5://127.0.0.1:7890
+
+    echo -e "[Set OK]"
+}
+
+function unsetproxy {
+    unset http_proxy
+    unset https_proxy
+    unset all_proxy
+
+    echo -e "[Unset OK]"
+}
 # # extract - archive extractor
 # # usage: extract <file>
 extract ()
