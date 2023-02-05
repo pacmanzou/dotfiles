@@ -49,6 +49,7 @@ sudo pacman -S alacritty \
     docker \
     exa \
     fd \
+    firefox \
     fcitx5 \
     fcitx5-rime \
     fcitx5-configtool \
@@ -105,7 +106,6 @@ sudo pacman -S alacritty \
 #     apifox \
 #     clash-for-windows-chinese \
 #     debtap \
-#     google-chrome \
 #     linuxqq \
 #     mutt-wizard \
 #     simple-mtpfs \

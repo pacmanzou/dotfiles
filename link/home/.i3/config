@@ -51,13 +51,13 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 bindsym $mod+Tab workspace next
 bindsym $mod+q exec --no-startup-id dunstctl close
 bindsym $mod+w exec --no-startup-id bash "$HOME/.i3/wifi.sh"
-bindsym $mod+r workspace back_and_forth
+bindsym $mod+r split toggle
 bindsym $mod+t exec --no-startup-id bash "$HOME/.i3/touchpad.sh"
 bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ unmute
 bindsym $mod+i exec --no-startup-id flameshot gui
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
-bindsym $mod+s split toggle
+bindsym $mod+s workspace back_and_forth
 bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- unmute
 bindsym $mod+f fullscreen toggle
 bindsym $mod+h focus left
@@ -70,17 +70,17 @@ bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 
 bindsym $mod+Shift+Tab workspace prev
-bindsym $mod+Shift+q kill
-bindsym $mod+Shift+r move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Shift+u exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+Shift+i mode "$mode_i3exit"
-bindsym $mod+Shift+o floating toggle
-bindsym $mod+Shift+p move scratchpad
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+Shift+l mode "$mode_layout"
 bindsym $mod+Shift+m mode "$mode_misc"
 
+bindsym $mod+Ctrl+q kill
 bindsym $mod+Ctrl+r restart
+bindsym $mod+Ctrl+o floating toggle
+bindsym $mod+Ctrl+p move scratchpad
+bindsym $mod+Ctrl+s move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
