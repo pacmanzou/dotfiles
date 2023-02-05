@@ -1,10 +1,10 @@
-let g:mkdp_browser = 'firefox'
 let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 0
 let g:mkdp_refresh_slow = 0
 let g:mkdp_command_for_global = 0
-let g:mkdp_open_to_the_worl = 0
+let g:mkdp_open_to_the_world = 0
 let g:mkdp_open_ip = ''
+let g:mkdp_browser = 'firefox'
 let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 let g:mkdp_preview_options = {
@@ -18,9 +18,12 @@ let g:mkdp_preview_options = {
       \ 'sequence_diagrams': {},
       \ 'flowchart_diagrams': {},
       \ 'content_editable': v:false,
-      \ 'disable_filename': 0
+      \ 'disable_filename': 0,
+      \ 'toc': {}
       \ }
 let g:mkdp_markdown_css = ''
 let g:mkdp_highlight_css = ''
 let g:mkdp_port = ''
 let g:mkdp_page_title = '${name}'
+let g:mkdp_filetypes = ['markdown']
+let g:mkdp_theme = 'light'
