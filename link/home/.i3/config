@@ -53,6 +53,7 @@ bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Shift+u exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+Shift+i mode "$mode_i3exit"
+bindsym $mod+Shift+s move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+Shift+l mode "$mode_layout"
 bindsym $mod+Shift+m mode "$mode_misc"
@@ -61,7 +62,6 @@ bindsym $mod+Ctrl+q kill
 bindsym $mod+Ctrl+r restart
 bindsym $mod+Ctrl+o floating toggle
 bindsym $mod+Ctrl+p move scratchpad
-bindsym $mod+Ctrl+s move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50

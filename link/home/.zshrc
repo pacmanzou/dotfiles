@@ -13,10 +13,7 @@ export all_proxy=socks5://127.0.0.1:7890
 # golang
 export PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go
-# go proxy url
 export GOPROXY=https://goproxy.cn,direct
-# export GOPROXY=https://goproxy.io
-# export GOPROXY=https://mirrors.aliyun.com/goproxy/
 
 # yarn
 export PATH=$PATH:$HOME/.yarn/bin
