@@ -7,33 +7,14 @@ set $mod Mod1
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# Font for window titles. Will also be used by the bar unless a different font
-# is used in the bar {} block below.
-font xft:URWGothic-Book 12
-
-# Theme colors
-# class                 border  backgr. text    indic.   child_border
-client.focused          #000000 #ebdbb2 #000000 #000000
-
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-
 default_border none
 default_floating_border none
 
-# default_border 1pixel
-# default_floating_border 1pixel
+# Font for window titles. Will also be used by the bar unless a different font
+font xft:URWGothic-Book 12
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace)
-# smart_borders on
-
-# Set inner/outer gaps
-# gaps inner 8
-# gaps outer 2
-
-# Smart gaps (gaps used if only more than one container on the workspace)
-# smart_gaps on
-
-# exec
+# Exec
 exec_always --no-startup-id fix_xcursor
 
 exec --no-startup-id copyq
@@ -210,7 +191,6 @@ bar {
         inactive_workspace #000000 #000000 #ebdbb2
         active_workspace   #000000 #000000 #ebdbb2
         focused_workspace  #1d1d1d #353535 #ebdbb2
-
         urgent_workspace   #000000 #000000 #ebdbb2
         binding_mode       #000000 #1d1d1d #ebdbb2
     }
