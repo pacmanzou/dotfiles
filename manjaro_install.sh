@@ -44,8 +44,6 @@ sudo pacman -S alacritty \
     ctags \
     copyq \
     cmake \
-    clash \
-    clash-verge \
     dbeaver \
     dunst \
     docker \
@@ -106,6 +104,7 @@ sudo pacman -S alacritty \
 
 # yay -S abook \
 #     apifox \
+#     clash-for-windows-chinese \
 #     debtap \
 #     linuxqq \
 #     mutt-wizard \
