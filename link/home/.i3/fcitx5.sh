@@ -6,9 +6,6 @@
 #
 
 killall fcitx5
-
-sleep 0.1
 fcitx5 &
-sleep 0.1
 
 notify-send 'Restart the fcitx5'
