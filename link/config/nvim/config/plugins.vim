@@ -57,7 +57,6 @@ Plug 'neoclide/coc.nvim',         {'on': [], 'branch': 'release'}
 
 " markdown
 Plug 'mzlogin/vim-markdown-toc',     {'on': []}
-Plug 'ferrine/md-img-paste.vim',     {'on': []}
 Plug 'iamcco/markdown-preview.nvim', {
       \ 'do': 'cd app && yarn install',
       \ 'on': []
@@ -92,7 +91,6 @@ function! LoadMarkdownPlugins(timer) abort
   " load markdown plugins
   call plug#load(
         \ 'vim-markdown-toc',
-        \ 'md-img-paste.vim',
         \ 'markdown-preview.nvim'
         \ )
 
