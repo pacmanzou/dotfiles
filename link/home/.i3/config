@@ -153,13 +153,13 @@ floating_maximum_size 1280 x 800
 
 # Open specific applications in floating mode
 for_window [class="^.*"] border none
+for_window [class="Viewnior"] floating enable, resize set 960 600, move position center
 for_window [class="GParted"] floating enable, move position center
 for_window [class="Lightdm-settings"] floating enable, move position center
 for_window [class="Lxappearance"] floating enable, move position center
 for_window [class="Pamac-manager"] floating enable, move position center
 for_window [class="Nitrogen"] floating enable, move position center
 for_window [class="mpv"] floating enable, move position center
-for_window [class="Viewnior"] floating enable, move position center
 for_window [class="Manjaro Settings Manager"] floating enable, move position center
 for_window [class="BleachBit"] floating enable, move position center
 for_window [class="obs"] floating enable, move position center
