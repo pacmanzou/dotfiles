@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 # environment variable
-export LANG=en_US.UTF-8
-export EDITOR=/usr/bin/nvim
+# export LANG=en_US.UTF-8
+export LANG=zh_CN.UTF-8
 export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
 # golang

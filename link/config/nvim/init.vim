@@ -5,9 +5,6 @@
 " encoding
 scriptencoding utf-8
 
-" language
-language en_US.UTF-8
-
 " colorscheme
 colorscheme pacmanzou
 
