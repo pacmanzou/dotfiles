@@ -49,7 +49,6 @@ Plug 'posva/vim-vue',           {'for': 'vue'}
 " primary
 Plug 'tpope/vim-repeat',          {'on': []}
 Plug 'tomtom/tcomment_vim',       {'on': []}
-Plug 'AndrewRadev/splitjoin.vim', {'on': []}
 Plug 'junegunn/vim-easy-align',   {'on': []}
 Plug 'voldikss/vim-floaterm',     {'on': []}
 Plug 'liuchengxu/vista.vim',      {'on': []}
@@ -76,7 +75,6 @@ function! LoadPrimaryPlugins(timer) abort
   call plug#load(
         \ 'vim-repeat',
         \ 'tcomment_vim',
-        \ 'splitjoin.vim',
         \ 'vim-easy-align',
         \ 'vim-floaterm',
         \ 'vista.vim',
