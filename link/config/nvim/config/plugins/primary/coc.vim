@@ -91,15 +91,16 @@ nmap <silent> [d <plug>(coc-diagnostic-prev)
 nmap <silent> <c-o> <plug>(coc-float-jump)
 
 " coclist and coccommand
-nnoremap <silent> <space>l :CocList<cr>
-nnoremap <silent> <space>d :CocList diagnostics<cr>
-nnoremap <silent> <space>f :CocList --regex files<cr>
-nnoremap <silent> <space>b :CocList buffers<cr>
-nnoremap <silent> <space>w :CocList words<cr>
-nnoremap <silent> <space>g :CocList grep<cr>
-nnoremap <silent> <space>m :CocList --regex mru -A<cr>
-
 nnoremap <silent> <space>c :CocCommand<cr>
+nnoremap <silent> <space>l :CocList<cr>
+
+nnoremap <silent> <space>d :CocList diagnostics<cr>
+nnoremap <silent> <space>f :CocList files<cr>
+nnoremap <silent> <space>w :CocList words<cr>
+nnoremap <silent> <space>m :CocList mru -A<cr>
+nnoremap <silent> <space>b :CocList buffers<cr>
+nnoremap <silent> <space>g :CocList bcommits<cr>
+nnoremap <silent> <space>h :CocList gchunks<cr>
 
 " show documentation
 function! s:show_documentation()
@@ -120,7 +121,7 @@ function! s:select_current_word()
   return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
 endfunction
 
-nnoremap <silent> <c-c> <plug>(coc-cursors-word)
+nnoremap <silent> <c-q> <plug>(coc-cursors-word)
 nnoremap <expr><silent> <enter> <sid>select_current_word()
 
 " Add `:Format` command to format current buffer.

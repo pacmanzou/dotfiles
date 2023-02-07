@@ -277,8 +277,6 @@ nnoremap <silent> < <<
 nnoremap <silent> Y y$
 nnoremap <silent> Q @q
 nnoremap <silent> q: <nop>
-nnoremap <space><c-r> :w<cr>:source $MYVIMRC<cr>
-
 
 " imap
 imap <c-@>       <nop>

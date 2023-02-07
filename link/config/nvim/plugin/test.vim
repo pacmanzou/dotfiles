@@ -6,7 +6,7 @@ endif
 
 function! s:Input() abort
   call inputsave()
-  let val = input('FileType: ')
+  let val = input('Test FileType: ')
   call inputrestore()
   return val
 endfunction

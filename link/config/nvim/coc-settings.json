@@ -45,6 +45,7 @@
   "list.source.files.excludePatterns": ["**/.git/**"],
   "list.previewHighlightGroup": "CocPreviewHi",
   "list.indicator": ":",
+  "list.menuAction": true,
   "list.alignColumns": true,
   "list.nextKeymap": "<c-n>",
   "list.previousKeymap": "<c-p>",
