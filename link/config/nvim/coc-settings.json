@@ -34,7 +34,7 @@
     "D": "delete",
     "at": "addFile",
     "am": "addDirectory",
-    "q": "esc",
+    "q": "quit",
     "?": "help"
   },
   "git.splitWindowCommand": "below sp",
@@ -47,21 +47,24 @@
   "list.indicator": ":",
   "list.menuAction": true,
   "list.alignColumns": true,
+  "list.floatPreview": true,
   "list.nextKeymap": "<c-n>",
   "list.previousKeymap": "<c-p>",
   "list.insertMappings": {
     "<c-f>": "prompt:right",
     "<c-b>": "prompt:left",
     "<c-d>": "prompt:deletebackward",
+    "<c-t>": "action:tabe",
+    "<c-s>": "action:split",
+    "<c-v>": "action:vsplit",
     "<c-r>": "do:refresh",
-    "<c-t>": "action:tabe",
-    "<c-s>": "action:split",
-    "<c-v>": "action:vsplit"
-  },
-  "list.normalMappings": {
-    "<c-t>": "action:tabe",
-    "<c-s>": "action:split",
-    "<c-v>": "action:vsplit"
+    "<c-l>": "do:previewtoggle",
+    "<c-o>": "feedkeys!",
+    "<c-j>": "feedkeys!",
+    "<c-k>": "feedkeys!",
+    "<c-q>": "feedkeys!",
+    "<c-g>": "feedkeys!",
+    "<c-x>": "feedkeys!"
   },
   "languageserver": {
     "go": {
