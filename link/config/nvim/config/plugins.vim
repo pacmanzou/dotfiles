@@ -104,7 +104,6 @@ autocmd VimEnter * call timer_start(100, 'LoadPrimaryPlugins')
 autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins')
 
 lua << EOF
-require("nvim-treesitter.install").prefer_git = true
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
     "go",
