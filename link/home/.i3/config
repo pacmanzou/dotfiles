@@ -172,6 +172,7 @@ for_window [class="copyq"] floating enable, move position center
 for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
 for_window [class="Clash"] floating enable, move position center
+for_window [class="neovide"] floating enable, move position center
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
