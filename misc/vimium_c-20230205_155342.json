@@ -22,8 +22,6 @@
 		"map <c-r> reload",
 		"map yy copyCurrentUrl",
 		"map gi focusInput",
-		"map < goBack",
-		"map > goForward",
 		"map v enterVisualMode",
 		"map V enterVisualLineMode",
 		"map m Marks.activateCreateMode",
