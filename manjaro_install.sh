@@ -84,6 +84,7 @@ sudo pacman -S alacritty \
     seahorse \
     shellcheck \
     shfmt \
+    telegram-desktop \
     tldr \
     typespeed \
     viewnior \
