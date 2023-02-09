@@ -7,3 +7,5 @@
 	diff = auto
 	branch = auto
 	interactive = auto
+[http]
+	proxy = socks5://127.0.0.1:7890
