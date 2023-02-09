@@ -90,7 +90,7 @@
   "suggest.enablePreselect": false,
   "snippets.ultisnips.directories": ["$HOME/.config/nvim/UltiSnips/"],
   "snippets.userSnippetsDirectory": "$HOME/.config/nvim/UltiSnips/",
-  "translator.engines": ["youdao"],
+  "translator.engines": ["google"],
   "vetur.ignoreProjectWarning": true,
   "workspace.rootPatterns": [".git", ".gitignore"]
 }
