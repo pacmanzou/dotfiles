@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 
 # environment variable
-# export LANG=en_US.UTF-8
 export LANG=zh_CN.UTF-8
 export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
@@ -103,6 +102,14 @@ else
 fi
 
 # function
+function setzh {
+  export LANG=zh_CN.UTF-8
+}
+
+function seten {
+  export LANG=en_US.UTF-8
+}
+
 function mkcd {
     command mkdir "$1" && cd "$1" || exit
 }
