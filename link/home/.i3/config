@@ -26,6 +26,7 @@ exec --no-startup-id nitrogen --restore; sleep 1; picom -b
 exec --no-startup-id conky -c "$HOME/.i3/conky_i3wm"
 exec --no-startup-id bash "$HOME/.i3/monitorbattery.sh"
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set -d 2.4Ghz
 
 # Key
 bindsym $mod+Tab workspace next
