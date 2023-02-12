@@ -65,6 +65,7 @@ bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
+bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
 # Mode
 set $mode_misc (R)estart the fcitx5   (C)opy the github_token
@@ -152,8 +153,12 @@ floating_minimum_size 800 x -1
 floating_maximum_size 1280 x 800
 
 # Open specific applications in floating mode
+for_window [title="^alacritty-float$"] floating enable, move position center
+
 for_window [class="^.*"] border none
+
 for_window [class="Viewnior"] floating enable, resize set 960 600, move position center
+
 for_window [class="GParted"] floating enable, move position center
 for_window [class="Lightdm-settings"] floating enable, move position center
 for_window [class="Lxappearance"] floating enable, move position center
