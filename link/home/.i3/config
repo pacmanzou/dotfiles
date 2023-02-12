@@ -4,6 +4,9 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
+# Real-time adjust the volume
+set $refresh_i3status killall -SIGUSR1 i3status
+
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
@@ -34,12 +37,12 @@ bindsym $mod+q exec --no-startup-id dunstctl close
 bindsym $mod+w exec --no-startup-id bash "$HOME/.i3/wifi.sh"
 bindsym $mod+r split toggle
 bindsym $mod+t exec --no-startup-id bash "$HOME/.i3/touchpad.sh"
-bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ unmute
+bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ unmute && $refresh_i3status
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
 bindsym $mod+a exec --no-startup-id flameshot gui
 bindsym $mod+s workspace back_and_forth
-bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- unmute
+bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- unmute && $refresh_i3status
 bindsym $mod+f fullscreen toggle
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -59,7 +62,7 @@ bindsym $mod+Shift+l mode "$mode_layout"
 bindsym $mod+Shift+m mode "$mode_misc"
 
 bindsym $mod+Ctrl+q kill
-bindsym $mod+Ctrl+r restart
+bindsym $mod+Ctrl+r reload
 bindsym $mod+Ctrl+o floating toggle
 bindsym $mod+Ctrl+p move scratchpad
 bindsym $mod+Ctrl+h move left 50
