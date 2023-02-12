@@ -10,10 +10,6 @@ set $refresh_i3status killall -SIGUSR1 i3status
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
-# Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border none
-default_floating_border none
-
 # Font for window titles. Will also be used by the bar unless a different font
 font xft:URWGothic-Book 12
 
@@ -178,6 +174,14 @@ for_window [class="fcitx5"] floating enable, move position center
 for_window [class="Clash"] floating enable, move position center
 for_window [class="neovide"] floating enable, move position center
 for_window [class="Telegram"] floating enable, move position center
+
+# Configure border style <normal|1pixel|pixel xx|none|pixel>
+default_border none
+default_floating_border none
+
+# Theme colors
+# class                 border  backgr. text indic. child_border
+client.focused          #000000 #ebdbb2 #000000 #000000
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
