@@ -32,7 +32,6 @@ bindsym $mod+Tab workspace next
 bindsym $mod+q exec --no-startup-id dunstctl close
 bindsym $mod+w exec --no-startup-id bash "$HOME/.i3/wifi.sh"
 bindsym $mod+r split toggle
-bindsym $mod+t exec --no-startup-id bash "$HOME/.i3/touchpad.sh"
 bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ unmute && $refresh_i3status
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
@@ -55,6 +54,7 @@ bindsym $mod+Shift+i mode "$mode_i3exit"
 bindsym $mod+Shift+s move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+Shift+l mode "$mode_layout"
+bindsym $mod+Shift+x mode "$mode_xinput"
 bindsym $mod+Shift+m mode "$mode_misc"
 
 bindsym $mod+Ctrl+q kill
@@ -68,25 +68,6 @@ bindsym $mod+Ctrl+l move right 50
 bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
 # Mode
-set $mode_misc (R)estart the fcitx5   (C)opy the github_token
-
-mode "$mode_misc" {
-    bindsym r exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
-    bindsym c exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-set $mode_layout (S)plit   (T)ab
-mode "$mode_layout" {
-    bindsym s layout splith; exec --no-startup-id notify-send 'Split layout', mode "default"
-    bindsym t layout tabbed, exec --no-startup-id notify-send 'Tab layout', mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
 set $mode_i3exit (E)xit   (R)eboot   switch_(U)ser   (S)uspend   (H)ibernate   (L)ock   (Shift+S)hutdown
 mode "$mode_i3exit" {
     bindsym e exec --no-startup-id i3exit logout, mode "default"
@@ -96,6 +77,35 @@ mode "$mode_i3exit" {
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $mode_layout (T)ab   (S)plit
+mode "$mode_layout" {
+    bindsym s layout splith; exec --no-startup-id notify-send 'Split layout', mode "default"
+    bindsym t layout tabbed, exec --no-startup-id notify-send 'Tab layout', mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $mode_xinput (T)ouchpad   (K)eyboard
+
+mode "$mode_xinput" {
+    bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
+    bindsym k exec --no-startup-id bash "$HOME/.i3/keyboard.sh", mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $mode_misc restart the (F)citx5   copy the (G)ithub_token
+
+mode "$mode_misc" {
+    bindsym r exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
+    bindsym c exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

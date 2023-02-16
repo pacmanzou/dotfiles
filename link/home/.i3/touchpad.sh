@@ -2,12 +2,12 @@
 #
 # Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
 #
-# Description: disable the touch pad
+# Description: toggle the touch pad
 #
 
 declare -i ID
 
-ID=$(xinput list | grep -Eio '(touchpad|glidepoint)\s*id\=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}')
+ID=$(xinput list | grep -Eio '(touchpad|glidepoint)\s*id=[0-9]{1,2}' | grep -Eo '[0-9]{1,2}')
 
 declare -i STATE
 
