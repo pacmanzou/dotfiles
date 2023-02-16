@@ -6,8 +6,8 @@ conky.config = {
     default_color = '#ebdbb2',
     double_buffer = true,
     font = 'Bitstream Vera Sans:size=8',
-    gap_x = 12,
-    gap_y = 11,
+    gap_x = 0,
+    gap_y = 0,
     minimum_width = 200,
     no_buffers = true,
     own_window = true,
@@ -17,10 +17,10 @@ conky.config = {
     use_xft = true,
 }
 conky.text = [[
-${voffset 8}$color2${font anti Vera Sans:size=16}${time %A}$font\
+$color2${font anti Vera Sans:size=16}${time %A}$font\
 ${voffset -8}$alignr$color${font anti Vera Sans:size=38}${time %e}$font
 ${voffset -30}$color$color${font anti Vera Sans:size=18}${time %b}$font\
-${voffset -3}$color${font anti Vera Sans:size=20}${time %Y}$font$color2$hr
+${voffset -3}$color${font anti Vera Sans:size=20}${time %Y}$font$color2
 #
 ${goto 40}${voffset 20}${color}CPU${font anti Vera Sans:bold:size=8}$alignr${cpubar 5,80 cpu}
 ${goto 40}${voffset 5}$font$color2${top name 1}$alignr$color${top cpu 1}%
@@ -29,7 +29,7 @@ ${goto 40}$color2${top name 3}$alignr$color${top cpu 3}%
 ${goto 40}$color2${top name 4}$alignr$color${top cpu 4}%
 ${goto 40}$color2${top name 5}$alignr$color${top cpu 5}%
 #
-${goto 40}${voffset 20}${color}MEM${font anti Vera Sans:bold:size=8}$alignr${membar 5,80}
+${goto 40}${voffset 20}${color}MEMORY${font anti Vera Sans:bold:size=8}$alignr${membar 5,80}
 ${goto 40}${voffset 5}$font$color2${top_mem name 1}$alignr$color${top_mem mem_res 1}
 ${goto 40}$color2${top_mem name 2}$alignr$color${top_mem mem_res 2}
 ${goto 40}$color2${top_mem name 3}$alignr$color${top_mem mem_res 3}
