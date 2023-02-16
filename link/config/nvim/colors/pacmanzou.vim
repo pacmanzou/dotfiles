@@ -7,7 +7,7 @@ endif
 
 let g:colors_name = 'pacmanzou'
 
-" basics
+" Basics
 hi Normal       guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
 hi Visual       guifg=#000000 guibg=#ebdbb2 gui=NONE           cterm=NONE
 hi TermCursor   guifg=#000000 guibg=#ebdbb2 gui=NONE           cterm=NONE
@@ -33,32 +33,32 @@ hi Question     guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
 hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
 hi SpellBad     guifg=#fe8019 guibg=#000000 gui=underline      cterm=underline
 
-" search
+" Search
 hi Search    guifg=#000000 guibg=#fabd2f gui=NONE cterm=NONE
 hi IncSearch guifg=#000000 guibg=#fabd2f gui=NONE cterm=NONE
 
-" tabline
+" Tabline
 hi TabLine     guifg=#353535 guibg=#000000 gui=NONE cterm=NONE
 hi TabLineSel  guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
 hi TabLineFill guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
 
-" diff
+" Diff
 hi DiffAdd    guifg=#b8bb26 guibg=#000000 gui=reverse cterm=reverse
 hi DiffChange guifg=#8ec07c guibg=#000000 gui=reverse cterm=reverse
 hi DiffDelete guifg=#fb4934 guibg=#000000 gui=reverse cterm=reverse
 hi DiffText   guifg=#fabd2f guibg=#000000 gui=reverse cterm=reverse
 
-" fold
+" Fold
 hi Folded     guifg=#ebdbb2 guibg=#353535 gui=italic cterm=italic
 hi FoldColumn guifg=#ebdbb2 guibg=#000000 gui=NONE   cterm=NONE
 
-" pmenu
+" Pmenu
 hi Pmenu      guifg=#ebdbb2 guibg=#1d1d1d gui=NONE    cterm=NONE
 hi PmenuSel   guifg=#353535 guibg=#ebdbb2 gui=reverse cterm=reverse
 hi PmenuSbar  guifg=NONE    guibg=#1d1d1d gui=NONE    cterm=NONE
 hi PmenuThumb guifg=NONE    guibg=#353535 gui=NONE    cterm=NONE
 
-" others
+" Others
 hi Boolean        guifg=#d3869b guibg=NONE gui=NONE        cterm=NONE
 hi Character      guifg=#d3869b guibg=NONE gui=NONE        cterm=NONE
 hi Conditional    guifg=#fb4934 guibg=NONE gui=NONE        cterm=NONE
@@ -93,7 +93,7 @@ hi Todo           guifg=fg      guibg=NONE gui=bold,italic cterm=bold,italic
 hi Underlined     guifg=#83a598 guibg=NONE gui=underline   cterm=underline
 hi CursorIM       guifg=NONE    guibg=NONE gui=reverse     cterm=reverse
 
-" coc
+" Coc
 hi CocSearch        guifg=#fb4934 guibg=NONE    gui=NONE      cterm=NONE
 hi CocMenuSel       guifg=NONE    guibg=#353535 gui=NONE      cterm=NONE
 hi CocPreviewHi     guifg=#000000 guibg=#fabd2f gui=NONE      cterm=NONE
@@ -107,7 +107,7 @@ hi DiagnosticWarn   guifg=#fe8019 guibg=NONE    gui=NONE      cterm=NONE
 hi DiagnosticHint   guifg=#15aabf guibg=NONE    gui=NONE      cterm=NONE
 hi DiagnosticInfo   guifg=#ebdbb2 guibg=NONE    gui=NONE      cterm=NONE
 
-" coc-git
+" Coc-git
 hi CocCodeLens             guifg=#928374 guibg=NONE gui=NONE cterm=NONE
 hi CocGitAddedSign         guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
 hi CocGitChangedSign       guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
@@ -117,6 +117,6 @@ hi CocGitChangeRemovedSign guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
 hi diffAdded               guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
 hi diffRemoved             guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 
-" vim-go
+" Vim-go
 hi GoDebugBreakpoint guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
 hi GoDebugCurrent    guifg=#000000 guibg=#ebdbb2 gui=NONE cterm=NONE

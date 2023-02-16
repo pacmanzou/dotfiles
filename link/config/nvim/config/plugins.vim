@@ -1,8 +1,8 @@
-" vim-plug
+" Set vim-plug tab
 let g:plug_window = '-tabnew'
 
 call plug#begin('$HOME/.config/nvim/plugged')
-" priority
+" Priority
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '|'
@@ -46,7 +46,7 @@ Plug 'othree/html5.vim',        {'for': 'html'}
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 Plug 'posva/vim-vue',           {'for': 'vue'}
 
-" primary
+" Primary
 Plug 'tpope/vim-repeat',          {'on': []}
 Plug 'tomtom/tcomment_vim',       {'on': []}
 Plug 'junegunn/vim-easy-align',   {'on': []}
@@ -54,7 +54,7 @@ Plug 'voldikss/vim-floaterm',     {'on': []}
 Plug 'liuchengxu/vista.vim',      {'on': []}
 Plug 'neoclide/coc.nvim',         {'on': [], 'branch': 'release'}
 
-" markdown
+" Markdown
 Plug 'mzlogin/vim-markdown-toc',     {'on': []}
 Plug 'iamcco/markdown-preview.nvim', {
       \ 'do': 'cd app && yarn install',
@@ -71,7 +71,7 @@ function! s:SourceList(path) abort
 endfunction
 
 function! LoadPrimaryPlugins(timer) abort
-  " load primary plugins
+  " Load primary plugins
   call plug#load(
         \ 'vim-repeat',
         \ 'tcomment_vim',
@@ -81,28 +81,30 @@ function! LoadPrimaryPlugins(timer) abort
         \ 'coc.nvim'
         \ )
 
-  " source primary plugins config
+  " Source primary plugins config
   call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
 endfunction
 
 function! LoadMarkdownPlugins(timer) abort
-  " load markdown plugins
+  " Load markdown plugins
   call plug#load(
         \ 'vim-markdown-toc',
         \ 'markdown-preview.nvim'
         \ )
 
-  " source markdown plugins config
+  " Source markdown plugins config
   call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim')))
 endfunction
 
-" load plugins
-" primary
-autocmd VimEnter * call timer_start(100, 'LoadPrimaryPlugins')
+" Load plugins config if plugins installation completed
+if g:nvim_plugins_installation_completed == 1
+  " Primary
+  autocmd VimEnter * call timer_start(50, 'LoadPrimaryPlugins')
 
-" markdown
-autocmd FileType markdown call timer_start(200, 'LoadMarkdownPlugins')
+  " Markdown
+  autocmd FileType markdown call timer_start(100, 'LoadMarkdownPlugins')
 
+" Load lua settings
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {
@@ -134,3 +136,4 @@ require'nvim-treesitter.configs'.setup {
   },
 }
 EOF
+endif

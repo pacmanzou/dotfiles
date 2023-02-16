@@ -1,4 +1,4 @@
-" map
+" Mappings
 map g# <nop>
 map g$ <nop>
 map g& <nop>
@@ -202,22 +202,22 @@ map <c-^>      <nop>
 map <c-_>      <nop>
 map <space>    <nop>
 
-" windows focus
+" Windows focus
 noremap <silent> <c-l> <c-w>l
 noremap <silent> <c-h> <c-w>h
 noremap <silent> <c-j> <c-w>j
 noremap <silent> <c-k> <c-w>k
 
-" cursor move
+" Cursor move
 noremap <silent> <c-e> $
 noremap <silent> <c-a> ^
 noremap <silent> J     <c-e>
 noremap <silent> K     <c-y>
 
-" visual select
+" Visual select
 noremap <silent> gV ggVG$
 
-" windows exchange
+" Windows exchange
 nnoremap <silent> <c-w>t     <c-w>T
 nnoremap <silent> <c-w><c-t> <c-w>T
 nnoremap <silent> <c-w>h     <c-w>H
@@ -229,56 +229,56 @@ nnoremap <silent> <c-w><c-k> <c-w>K
 nnoremap <silent> <C-w>l     <c-w>L
 nnoremap <silent> <C-w><c-l> <c-w>L
 
-" fold
+" Fold
 nnoremap zo zO
 nnoremap zO zR
 nnoremap zc zC
 nnoremap zC zM
 
-" tab switch
+" Tab switch
 nnoremap <silent> <tab>   :tabnext<cr>
 nnoremap <silent> <s-tab> :tabprevious<cr>
 
-" copy name, path, directory
+" Copy name, path, directory
 nnoremap <silent> yn :let @+=expand('%')<cr>
 nnoremap <silent> yp :let @+=expand('%:p')<cr>
 nnoremap <silent> yd :let @+=getcwd()<cr>
 
-" jumps
+" Jumps
 nnoremap <silent> <c-n> <c-i>
 nnoremap <silent> <c-p> <c-o>
 
-" substitute
+" Substitute
 nnoremap <space>s :%s///gI<left><left><left><left>
 vnoremap <space>s :s///gI<left><left><left><left>
 
-" x delete without copying
+" Set x delete without copying
 nnoremap <silent> x "_x
 nnoremap <silent> X "_D
 vnoremap <silent> x "_x
 vnoremap <silent> X "_X
 
-" quickily +, -
+" Quickily +, -
 nnoremap <silent> + <c-a>
 nnoremap <silent> - <c-x>
 vnoremap <silent> + g<c-a>
 vnoremap <silent> - g<c-x>
 
-" search by regex
+" Search by regex
 nnoremap / /\v
 
-" open the file under the cursor
+" Open the file under the cursor
 nnoremap <silent> gf <c-w>f
 nnoremap <silent> gF gf
 
-" misc
+" Misc
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 nnoremap <silent> Y y$
 nnoremap <silent> Q @q
 nnoremap <silent> q: <nop>
 
-" imap
+" Imap
 imap <c-@>       <nop>
 imap <c-q>       <nop>
 imap <c-e>       <end>
@@ -326,7 +326,7 @@ imap <c-\><c-g>  <nop>
 imap <c-]>       <nop>
 
 
-" cmap
+" Cmap
 cmap <c-q> <nop>
 cmap <c-e> <end>
 cmap <c-r> <nop>

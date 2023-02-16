@@ -1,3 +1,4 @@
+" Coc extensions
 let g:coc_global_extensions = [
       \ 'coc-pyright',
       \ 'coc-sql',
@@ -25,27 +26,27 @@ let g:coc_global_extensions = [
       \ 'coc-leetcode'
       \ ]
 
-" coc-snippets
+" Coc-snippets
 imap <silent><expr> <c-l> coc#pum#visible() ? "\<c-y>" : "\<plug>(coc-snippets-expand)"
-" coc-explorer
+" Coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
 
-" coc-translate
+" Coc-translate
 nmap <silent> t <plug>(coc-translator-e)
 vmap <silent> t <plug>(coc-translator-ev)
 
-" coc-git
-" create text object for git hunk
+" Coc-git
+" Create text object for git hunk
 omap <silent> ih <plug>(coc-git-chunk-inner)
 xmap <silent> ih <plug>(coc-git-chunk-inner)
 omap <silent> ah <plug>(coc-git-chunk-outer)
 xmap <silent> ah <plug>(coc-git-chunk-outer)
 
-" navigate hunks of current buffer
+" Navigate hunks of current buffer
 nmap <silent> ]h <plug>(coc-git-nextchunk)
 nmap <silent> [h <plug>(coc-git-prevchunk)
 
-" navigate conflicts of current buffer
+" Navigate conflicts of current buffer
 nmap <silent> ]c <plug>(coc-git-nextconflict)
 nmap <silent> [c <plug>(coc-git-prevconflict)
 
@@ -53,8 +54,8 @@ nnoremap <silent> <space>a :CocCommand git.chunkStage<cr>
 nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
 nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
 
-" coc basic config
-" " use tab for trigger completion with characters ahead and navigate.
+" Coc basic config
+" Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
       \ CheckBackspace() ? "\<Tab>" :
@@ -71,26 +72,26 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" rename
+" Rename
 nmap <silent> cr <plug>(coc-rename)
 
-" apply codeAction, need lsp to support
+" Apply codeAction, need lsp to support
 vmap <silent> <c-l> <plug>(coc-codeaction-selected)
 
-" go to code navigation
+" Go to code navigation
 nmap <silent> gd <plug>(coc-definition)
 nmap <silent> gr <plug>(coc-references)
 nmap <silent> gt <plug>(coc-type-definition)
 nmap <silent> gi <plug>(coc-implementation)
 
-" diagnostic jump
+" Diagnostic jump
 nmap <silent> ]d <plug>(coc-diagnostic-next)
 nmap <silent> [d <plug>(coc-diagnostic-prev)
 
-" jump previewd chunk
+" Jump previewd chunk
 nmap <silent> <c-o> <plug>(coc-float-jump)
 
-" coclist and coccommand
+" Coclist and coccommand
 nnoremap <silent> <space>c :CocCommand<cr>
 nnoremap <silent> <space>l :CocList<cr>
 
@@ -102,7 +103,7 @@ nnoremap <silent> <space>b :CocList buffers<cr>
 nnoremap <silent> <space>g :CocList bcommits<cr>
 nnoremap <silent> <space>h :CocList gchunks<cr>
 
-" show documentation
+" Show documentation
 function! s:show_documentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
@@ -113,7 +114,7 @@ endfunction
 
 nnoremap <silent> gh :call <sid>show_documentation()<cr>
 
-" multi cursors
+" Multi cursors
 function! s:select_current_word()
   if !get(b:, 'coc_cursors_activated', 0)
     return "\<plug>(coc-cursors-word)"
@@ -133,7 +134,7 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 " Add `:OR` command for organize imports of the current buffer.
 command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
 
-" autocmds
+" Autocmds
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
 autocmd CursorHold * silent call CocActionAsync('highlight')

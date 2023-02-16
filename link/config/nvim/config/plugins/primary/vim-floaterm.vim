@@ -10,7 +10,7 @@ nnoremap <silent> <c-g><c-p> :FloatermToggle<cr>
 tnoremap <silent> <c-g>p       <cmd>FloatermToggle<cr>
 tnoremap <silent> <c-g><c-p>   <cmd>FloatermToggle<cr>
 
-" external
+" External
 nnoremap <silent> <c-g>l     :FloatermNew lazygit<cr>
 nnoremap <silent> <c-g><c-l> :FloatermNew lazygit<cr>
 nnoremap <silent> <c-g>r     :FloatermNew ranger<cr>

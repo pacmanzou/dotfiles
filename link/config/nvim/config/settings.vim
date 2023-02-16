@@ -1,4 +1,4 @@
-" set
+" Settings
 set autochdir
 set clipboard=unnamedplus
 set completeopt-=preview
@@ -33,7 +33,7 @@ set termguicolors
 set tabstop=2
 set updatetime=100
 
-" undo and swap
+" Undo and swap
 set undofile
 set undodir=$HOME/.cache/nvim/undo/
 set dir=$HOME/.cache/nvim/swap/
@@ -46,7 +46,7 @@ if empty(glob('$HOME/.cache/nvim/swap'))
   silent !mkdir -p "$HOME/.cache/nvim/swap"
 endif
 
-" statusline
+" Statusline
 function! StatusLine() abort
   let s = ''
   let s .= '%f %h%w%m%r  %{StatusDiagnostic()}'
@@ -56,7 +56,7 @@ function! StatusLine() abort
   return s
 endfunction
 
-" coc diagnostic
+" Coc diagnostic
 function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   let msgs = []

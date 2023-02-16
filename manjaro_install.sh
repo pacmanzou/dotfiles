@@ -16,14 +16,14 @@ if [[ -f "${file}" ]]; then
     exit 1
 fi
 
-# link
+# Link
 Info "### link to ... ###"
 FileHandler "$HOME/dotfiles/link/home/.* $HOME/dotfiles/link/home/*" "$HOME/.* $HOME/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/config/*" "$HOME/.config/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/bin/*" "/usr/local/bin/*" LinkHandler
 echo
 
-# copy
+# Copy
 Info "### copy to ... ###"
 FileHandler "$HOME/dotfiles/copy/home/.* $HOME/dotfiles/copy/home/*" "$HOME/.* $HOME/*" CopyHandler
 FileHandler "$HOME/dotfiles/copy/config/*" "$HOME/.config/*" CopyHandler
@@ -132,7 +132,7 @@ go install mvdan.cc/gofumpt@latest
 go install github.com/cweill/gotests/...@latest
 echo
 
-# misc
+# Misc
 Info "### misc ###"
 CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
