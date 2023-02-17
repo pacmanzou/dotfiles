@@ -83,10 +83,10 @@ sudo pacman -S alacritty \
     scrcpy \
     seahorse \
     shellcheck \
+    speedtest-cli \
     shfmt \
     telegram-desktop \
     tldr \
-    typespeed \
     viewnior \
     tmux \
     trash-cli \
