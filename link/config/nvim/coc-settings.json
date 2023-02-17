@@ -44,7 +44,7 @@
   "list.source.files.args": ["--hidden", "--files"],
   "list.source.files.excludePatterns": ["**/.git/**"],
   "list.previewHighlightGroup": "CocPreviewHi",
-  "list.maxPreviewHeight": 100,
+  "list.previewToplineStyle": "middle",
   "list.indicator": ":",
   "list.menuAction": true,
   "list.alignColumns": true,

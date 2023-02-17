@@ -1,8 +1,175 @@
-" Set vim-plug tab
-let g:plug_window = '-tabnew'
+" Plugins
+let g:nvim_plugins_installation_completed = 1
 
+" Check whether installed automatically
+if empty(glob('$HOME/.config/nvim/plugged/coc.nvim'))
+  let g:nvim_plugins_installation_completed = 0
+
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Vim-plug
 call plug#begin('$HOME/.config/nvim/plugged')
-" Priority
+" Need the Lua configs
+" Syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'RRethy/nvim-treesitter-textsubjects'
+
+" Code completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Extensions
+let g:coc_global_extensions = [
+      \ 'coc-pyright',
+      \ 'coc-sql',
+      \ 'coc-sh',
+      \ 'coc-json',
+      \ 'coc-vimlsp',
+      \ 'coc-tsserver',
+      \ 'coc-html',
+      \ 'coc-css',
+      \ 'coc-emmet',
+      \ 'coc-vetur',
+      \ 'coc-docker',
+      \ 'coc-diagnostic',
+      \ 'coc-htmlhint',
+      \ 'coc-markdownlint',
+      \ 'coc-prettier',
+      \ 'coc-snippets',
+      \ 'coc-gitignore',
+      \ 'coc-lists',
+      \ 'coc-git',
+      \ 'coc-pairs',
+      \ 'coc-highlight',
+      \ 'coc-translator',
+      \ 'coc-explorer',
+      \ 'coc-leetcode'
+      \ ]
+
+" Coc-snippets
+imap <silent><expr> <c-l> coc#pum#visible() ? "\<c-y>" :
+      \ "\<plug>(coc-snippets-expand)"
+
+" Coc-explorer
+nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
+
+" Coc-translate
+nmap <silent> t <plug>(coc-translator-e)
+vmap <silent> t <plug>(coc-translator-ev)
+
+" Coc-git
+" Create text object for git hunk
+omap <silent> ih <plug>(coc-git-chunk-inner)
+xmap <silent> ih <plug>(coc-git-chunk-inner)
+omap <silent> ah <plug>(coc-git-chunk-outer)
+xmap <silent> ah <plug>(coc-git-chunk-outer)
+
+" Navigate hunks of current buffer
+nmap <silent> ]h <plug>(coc-git-nextchunk)
+nmap <silent> [h <plug>(coc-git-prevchunk)
+
+" Navigate conflicts of current buffer
+nmap <silent> ]c <plug>(coc-git-nextconflict)
+nmap <silent> [c <plug>(coc-git-prevconflict)
+
+nnoremap <silent> <space>a :CocCommand git.chunkStage<cr>
+nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
+nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
+
+" Coc basic config
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Rename
+nmap <silent> cr <plug>(coc-rename)
+
+" Apply codeAction, need lsp to support
+vmap <silent> <c-l> <plug>(coc-codeaction-selected)
+
+" Go to code navigation
+let g:coc_enable_locationlist = 0
+
+nmap <silent> gd <plug>(coc-definition)
+nmap <silent> gr <plug>(coc-references)
+nmap <silent> gt <plug>(coc-type-definition)
+nmap <silent> gi <plug>(coc-implementation)
+
+autocmd User CocLocationsChange CocList --auto-preview location
+
+" Diagnostic jump
+nmap <silent> ]d <plug>(coc-diagnostic-next)
+nmap <silent> [d <plug>(coc-diagnostic-prev)
+
+" Jump previewd chunk
+nmap <silent> <c-o> <plug>(coc-float-jump)
+
+" Coclist and coccommand
+nnoremap <silent> <space>c :CocCommand<cr>
+nnoremap <silent> <space>l :CocList<cr>
+
+nnoremap <silent> <space>d :CocList diagnostics<cr>
+nnoremap <silent> <space>f :CocList files<cr>
+nnoremap <silent> <space>w :CocList words<cr>
+nnoremap <silent> <space>m :CocList mru -A<cr>
+nnoremap <silent> <space>b :CocList buffers<cr>
+nnoremap <silent> <space>g :CocList bcommits<cr>
+nnoremap <silent> <space>h :CocList gchunks<cr>
+
+" Show documentation
+function! s:show_documentation()
+  if CocAction('hasProvider', 'hover')
+    call CocActionAsync('doHover')
+  else
+    call feedkeys('K', 'in')
+  endif
+endfunction
+
+nnoremap <silent> gh :call <sid>show_documentation()<cr>
+
+" Multi cursors
+function! s:select_current_word()
+  if !get(b:, 'coc_cursors_activated', 0)
+    return "\<plug>(coc-cursors-word)"
+  endif
+  return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
+endfunction
+
+nnoremap <silent> <c-q> <plug>(coc-cursors-word)
+nnoremap <expr><silent> <enter> <sid>select_current_word()
+
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+
+" Add `:Fold` command to fold current buffer.
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
+
+" Add `:OR` command for organize imports of the current buffer.
+command! -nargs=0 OR :call CocActionAsync('runCommand',
+      \ 'editor.action.organizeImport')
+
+" Misc auto commands
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+
+if g:nvim_plugins_installation_completed == 1
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+endif
+
+" Indent line
 Plug 'Yggdroot/indentLine'
 let g:indentLine_char = '|'
 let g:indentLine_first_char = '|'
@@ -19,12 +186,45 @@ let g:indentLine_fileTypeExclude = [
       \ 'vista'
       \ ]
 
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'RRethy/nvim-treesitter-textsubjects'
+" Strengthen the keyboard .
+Plug 'tpope/vim-repeat'
 
-Plug 'fatih/vim-go',      {'for': ['go', 'gomod']}
+" Comment
+Plug 'tomtom/tcomment_vim'
+
+" Make the text alignment quickily
+Plug 'junegunn/vim-easy-align'
+nmap ga <Plug>(EasyAlign)
+xmap ga <Plug>(EasyAlign)
+
+" Float terminal
+Plug 'voldikss/vim-floaterm'
+let g:floaterm_width = 1.2
+let g:floaterm_height = 1.2
+let g:floaterm_title = ''
+let g:floaterm_borderchars = ['','','','','','','','']
+
+nnoremap <silent> <c-g><cr> :FloatermNew zsh<cr>
+nnoremap <silent> <c-g>p :FloatermToggle<cr>
+tnoremap <silent> <c-g>p <cmd>FloatermToggle<cr>
+nnoremap <silent> <c-g>l :FloatermNew lazygit<cr>
+nnoremap <silent> <c-g>r :FloatermNew ranger<cr>
+nnoremap <silent> <c-g>n :FloatermNew neomutt<cr>
+nnoremap <silent> <c-g>h :FloatermNew htop<cr>
+
+" Tag
+Plug 'liuchengxu/vista.vim'
+let g:vista_sidebar_position = 'vertical botright'
+let g:vista_sidebar_width = 35
+let g:vista#renderer#enable_icon = 0
+let g:vista_default_executive = 'coc'
+let g:vista_executive_for = {'markdown': 'toc'}
+
+nnoremap <silent> <space>v :Vista!!<cr>
+
+" Go
 Plug 'buoto/gotests-vim', {'for': 'go'}
+Plug 'fatih/vim-go', {'for': ['go', 'gomod']}
 let g:go_term_mode = "split"
 let g:go_fold_enable = []
 let g:go_term_height = 10
@@ -42,69 +242,57 @@ let g:go_code_completion_enabled = 0
 let g:go_template_autocreate = 0
 let g:go_debug_breakpoint_sign_text = ''
 
-Plug 'othree/html5.vim',        {'for': 'html'}
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-Plug 'posva/vim-vue',           {'for': 'vue'}
+" Html
+Plug 'othree/html5.vim', {'for': 'html'}
 
-" Primary
-Plug 'tpope/vim-repeat',          {'on': []}
-Plug 'tomtom/tcomment_vim',       {'on': []}
-Plug 'junegunn/vim-easy-align',   {'on': []}
-Plug 'voldikss/vim-floaterm',     {'on': []}
-Plug 'liuchengxu/vista.vim',      {'on': []}
-Plug 'neoclide/coc.nvim',         {'on': [], 'branch': 'release'}
+" Javascript
+Plug 'pangloss/vim-javascript', {'for': 'javascript'}
+
+" Vue
+Plug 'posva/vim-vue', {'for': 'vue'}
 
 " Markdown
-Plug 'mzlogin/vim-markdown-toc',     {'on': []}
+Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+let g:vmt_list_item_char = '-'
+let g:vmt_fence_text = 'TOC'
+let g:vmt_fence_closing_text = '/TOC'
+
 Plug 'iamcco/markdown-preview.nvim', {
       \ 'do': 'cd app && yarn install',
-      \ 'on': []
+      \ 'for': 'markdown'
+      \ }
+let g:mkdp_auto_start = 0
+let g:mkdp_auto_close = 0
+let g:mkdp_refresh_slow = 0
+let g:mkdp_command_for_global = 0
+let g:mkdp_open_to_the_world = 0
+let g:mkdp_open_ip = ''
+let g:mkdp_browser = 'firefox'
+let g:mkdp_echo_preview_url = 0
+let g:mkdp_browserfunc = ''
+let g:mkdp_markdown_css = ''
+let g:mkdp_highlight_css = ''
+let g:mkdp_port = ''
+let g:mkdp_page_title = '${name}'
+let g:mkdp_filetypes = ['markdown']
+let g:mkdp_theme = 'light'
+let g:mkdp_preview_options = {
+      \ 'mkit': {},
+      \ 'katex': {},
+      \ 'uml': {},
+      \ 'maid': {},
+      \ 'disable_sync_scroll': 0,
+      \ 'sync_scroll_type': 'middle',
+      \ 'hide_yaml_meta': 1,
+      \ 'sequence_diagrams': {},
+      \ 'flowchart_diagrams': {},
+      \ 'content_editable': v:false,
+      \ 'disable_filename': 0,
+      \ 'toc': {}
       \ }
 call plug#end()
 
-function! s:SourceList(path) abort
-  let l:sourceList = a:path
-
-  for l:item in l:sourceList
-    exec 'source '. l:item
-  endfor
-endfunction
-
-function! LoadPrimaryPlugins(timer) abort
-  " Load primary plugins
-  call plug#load(
-        \ 'vim-repeat',
-        \ 'tcomment_vim',
-        \ 'vim-easy-align',
-        \ 'vim-floaterm',
-        \ 'vista.vim',
-        \ 'coc.nvim'
-        \ )
-
-  " Source primary plugins config
-  call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/primary/*.vim')))
-endfunction
-
-function! LoadMarkdownPlugins(timer) abort
-  " Load markdown plugins
-  call plug#load(
-        \ 'vim-markdown-toc',
-        \ 'markdown-preview.nvim'
-        \ )
-
-  " Source markdown plugins config
-  call s:SourceList(split(glob('$HOME/.config/nvim/config/plugins/markdown/*.vim')))
-endfunction
-
-" Load plugins config if plugins installation completed
 if g:nvim_plugins_installation_completed == 1
-  " Primary
-  autocmd VimEnter * call timer_start(50, 'LoadPrimaryPlugins')
-
-  " Markdown
-  autocmd FileType markdown call timer_start(100, 'LoadMarkdownPlugins')
-
-" Load lua settings
 lua << EOF
 require'nvim-treesitter.configs'.setup {
   ensure_installed = {

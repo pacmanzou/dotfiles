@@ -219,15 +219,10 @@ noremap <silent> gV ggVG$
 
 " Windows exchange
 nnoremap <silent> <c-w>t     <c-w>T
-nnoremap <silent> <c-w><c-t> <c-w>T
 nnoremap <silent> <c-w>h     <c-w>H
-nnoremap <silent> <c-w><c-h> <c-w>H
 nnoremap <silent> <c-w>j     <c-w>J
-nnoremap <silent> <c-w><c-j> <c-w>J
 nnoremap <silent> <c-w>k     <c-w>K
-nnoremap <silent> <c-w><c-k> <c-w>K
 nnoremap <silent> <C-w>l     <c-w>L
-nnoremap <silent> <C-w><c-l> <c-w>L
 
 " Fold
 nnoremap zo zO

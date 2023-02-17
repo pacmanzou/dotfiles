@@ -6,7 +6,7 @@
 scriptencoding utf-8
 
 " Theme
-colorscheme pacmanzou
+colorscheme gruvbox
 
 " Providers
 let g:loaded_node_provider = 0
@@ -32,31 +32,7 @@ let g:clipboard = {
 " Leader key
 let mapleader = ","
 
-" Check whether installed automatically
-let g:nvim_plugins_installation_completed = 1
-
-if empty(glob('$HOME/.config/nvim/plugged/coc.nvim'))
-  let g:nvim_plugins_installation_completed = 0
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-" Source all plugins and basic configs
-source $HOME/.config/nvim/config/plugins.vim
+" Source basic and plugins's configs
 source $HOME/.config/nvim/config/settings.vim
 source $HOME/.config/nvim/config/mappings.vim
-
-" Save the cursor position
-autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
-" Yank highlight
-autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="Visual", timeout=700}
-
-" Invalidate the key map in a special filetype
-function! s:SpecialMap() abort
-  if (index([''], &filetype) >= 0)
-    map <buffer> <c-n> <nop>
-    map <buffer> <c-p> <nop>
-  endif
-endfunction
-
-autocmd BufEnter * call s:SpecialMap()
+source $HOME/.config/nvim/config/plugins.vim
