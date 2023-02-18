@@ -1,28 +1,17 @@
 #!/usr/bin/env zsh
 
-# environment variable
+# Environment variable
 export LANG=zh_CN.UTF-8
 export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
+export EDITOR=/usr/bin/nvim
+export BROWSER=/usr/bin/firefox
 
-# golang
+# Golang
 export PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go
 export GOPROXY=https://goproxy.cn,direct
 
-# yarn
-export PATH=$PATH:$HOME/.yarn/bin
-
-# less
-export LESS='--tabs=4 --no-init --LONG-PROMPT --ignore-case --quit-if-one-screen --RAW-CONTROL-CHARS'
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-
-# history
+# History
 export HISTFILE="$HOME/.zsh_history"
 
 HISTSIZE=10000000
@@ -38,10 +27,10 @@ setopt hist_reduce_blanks
 setopt inc_append_history
 setopt share_history
 
-# key
+# Keys
 bindkey -e
 
-# unmap c-s
+# Unmap c-s
 stty -ixon
 
 autoload -U edit-command-line
@@ -59,7 +48,7 @@ bindkey -r '^V'
 
 bindkey '^U' backward-kill-line
 
-# highlight and autosuggestions for zsh
+# Highlight and autosuggestions for zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -81,10 +70,9 @@ git_dirty() {
     command git diff --quiet --ignore-submodules HEAD &>/dev/null; [ $? -eq 1 ] && echo "*"
 }
 
-# prompt
 PROMPT='%B%F{green}%n@%m%f%b %~ $vcs_info_msg_1_$(git_dirty)$prompt_newline:'
 
-# alias
+# Alias
 alias sudo='sudo -E'
 alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
 alias cp='cp -i'
@@ -93,7 +81,6 @@ alias rm='rm -i'
 alias grep='grep --colour=auto'
 alias df='df -h'
 alias free='free -m'
-alias more=less
 
 if (( $+commands[exa] )); then
     alias ls='exa -gH --time-style=iso --icons'
@@ -101,25 +88,13 @@ else
     alias ls='ls --color=tty --time-style=iso'
 fi
 
-# function
-function setzh {
-  export LANG=zh_CN.UTF-8
-}
-
-function seten {
-  export LANG=en_US.UTF-8
-}
-
-function mkcd {
+# Functions
+function mc {
     command mkdir "$1" && cd "$1" || exit
 }
 
-function ei {
-    go mod init "$(basename "$(pwd)")" && touch main.go
-}
-
-# # extract - archive extractor
-# # usage: extract <file>
+# Extract - archive extractor
+# Usage: extract <file>
 extract ()
 {
     if [ -f $1 ] ; then
@@ -142,13 +117,13 @@ extract ()
     fi
 }
 
-# tmux
+# Tmux
 if [ -z "$TMUX" ]; then
     SESSION_NAME="localhost"
     tmux new-session -s $SESSION_NAME
 fi
 
-# fzf
+# Fzf
 source /usr/share/fzf/completion.zsh
 
 if command -v fd > /dev/null; then

@@ -4,9 +4,6 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod1
 
-# Real-time adjust the volume
-set $refresh_i3status killall -SIGUSR1 i3status
-
 # Use Mouse+$mod to drag floating windows
 floating_modifier $mod
 
@@ -105,7 +102,7 @@ set $mode_misc restart the (F)citx5   copy the (G)ithub_token
 
 mode "$mode_misc" {
     bindsym r exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
-    bindsym c exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
+    bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -199,6 +196,9 @@ default_floating_border none
 client.focused          #000000 #ebdbb2 #000000 #000000
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
+# Real-time adjust the volume
+set $refresh_i3status killall -SIGUSR1 i3status
+
 bar {
     i3bar_command i3bar
     status_command i3status

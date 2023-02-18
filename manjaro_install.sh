@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 #
 # Copyright (C) 2020 pacmanzou <pacmanzou@qq.com>
-#
-# Description: An installation script for manjaro-i3 community edition, applies to i3 only.
-#
+# Description: An installation script for manjaro-i3 community edition, applies to i3 only
 
 # shellcheck disable=1091
 source "$HOME/dotfiles/handler.sh"
@@ -17,24 +15,45 @@ if [[ -f "${file}" ]]; then
 fi
 
 # Link
-Info "### link to ... ###"
+Info "### Link to ... ###"
 FileHandler "$HOME/dotfiles/link/home/.* $HOME/dotfiles/link/home/*" "$HOME/.* $HOME/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/config/*" "$HOME/.config/*" LinkHandler
 FileHandler "$HOME/dotfiles/link/bin/*" "/usr/local/bin/*" LinkHandler
 echo
 
 # Copy
-Info "### copy to ... ###"
+Info "### Copy to ... ###"
 FileHandler "$HOME/dotfiles/copy/home/.* $HOME/dotfiles/copy/home/*" "$HOME/.* $HOME/*" CopyHandler
 FileHandler "$HOME/dotfiles/copy/config/*" "$HOME/.config/*" CopyHandler
 FileHandler "$HOME/dotfiles/copy/etc/*" "/etc/*" CopyHandler
 echo
 
-Info "### update system ###"
+# Misc
+CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
+CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
+echo
+
+# Remove
+sudo pacman -Rns nano \
+    palemoon-bin \
+    xfce4-power-manager \
+    epdfview \
+    clipit \
+    kvantum-manjaro \
+    gcolor3 \
+    morc_menu \
+    mousepad \
+    volumeicon \
+    bmenu \
+    xterm
+
+Info "### Update system ###"
 sudo pacman-mirrors -i -c China -m rank
 sudo pacman -Syy
 sudo pacman -S archlinuxcn-keyring
 sudo pacman -Syu
+
+# Install
 sudo pacman -S alacritty \
     baidupcs-go \
     bleachbit \
@@ -49,6 +68,7 @@ sudo pacman -S alacritty \
     docker \
     exa \
     fd \
+    fzf \
     firefox \
     fcitx5 \
     fcitx5-rime \
@@ -95,7 +115,6 @@ sudo pacman -S alacritty \
     unzip \
     utools \
     vnote-git \
-    virtualbox \
     wqy-microhei \
     xclip \
     yarn \
@@ -103,59 +122,37 @@ sudo pacman -S alacritty \
     yay \
     zip \
     zathura \
-    zathura-pdf-mupdf
+    zathura-pdf-mupdf \
 
-# yay -S abook \
-#     apifox \
-#     clash-for-windows-chinese \
-#     debtap \
-#     linuxqq \
-#     mutt-wizard \
-#     simple-mtpfs \
-#     sqls \
-#     wps-office-cn \
-#     wps-office-mui-zh-cn \
-#     wps-office-fonts \
-#     wps-office-mime-cn
+# Kvm the virtual machine
+sudo pacman -S qemu \
+    libvirt \
+    ovmf \
+    virt-manager \
+    virt-viewer \
+    vde2
 
-Info "### npm install ###"
-sudo npm install -g json-server \
-    reveal-md
-echo
-
-Info "### pip install ###"
-pip install black \
-    pynvim
-echo
-
-Info "### go install ###"
+Info "### Go install ###"
 go install mvdan.cc/gofumpt@latest
 go install github.com/cweill/gotests/...@latest
 echo
 
-# Misc
-Info "### misc ###"
-CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
-CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
+Info "### Pip install ###"
+pip install black \
+    pynvim
 echo
 
-Info "### manual configuration ###"
-Info "video card and font setup"
-Info "sudo manjaro-settings-manager\n"
+Info "### Npm install ###"
+sudo npm install -g json-server \
+    reveal-md
+echo
 
-Info "ssh for git"
-Info "ssh-keygen -t rsa -C "pacmanzou@qq.com""
-Info "Copy the public key to the Web page"
-Info "test: ssh -T git@github.com\n"
-
-Info "https for git by using token"
-Info "git clone https://github.com/pacmanzou/personal $HOME/personal/"
-Info "copy the token on the Web page to fill in the password\n"
-
-Info "mariadb"
-Info "sudo pacman -S mariadb\n"
-
-Info "neomutt"
-Info "mw -a you@email.com\n"
-
-Info "### appimage ###"
+# Delete
+trash-put "$HOME/.config/hexchat" \
+    "$HOME/.config/falkon" \
+    "$HOME/.config/clipit" \
+    "$HOME/.config/epdfview" \
+    "$HOME/.config/morc_menu" \
+    "$HOME/.config/xfce4" \
+    "$HOME/.config/Kvantum" \
+    "$HOME/.config/volumeicon"
