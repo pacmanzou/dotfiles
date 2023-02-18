@@ -54,6 +54,7 @@ sudo pacman -S alacritty \
     fcitx5-rime \
     fcitx5-configtool \
     go \
+    gopls \
     gcc \
     gparted \
     htop \
