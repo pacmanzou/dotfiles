@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
-#
 # Copyright (C) 2023 pacmanzou <pacmanzou@qq.com>
-#
-# Description: toggle the keyboard
-#
+# Description: Toggle the keyboard
 
 declare -i ID
 

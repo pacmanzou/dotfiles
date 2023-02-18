@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
-#
 # Copyright (C) 2023 pacmanzou <pacmanzou@qq.com>
-#
-# Description: set cpu frequency
-#
+# Description: Toggle cpu frequency
 
 currentGovernor=$(cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor)
 

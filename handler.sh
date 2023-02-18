@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
-#
 # Copyright (C) 2022 pacmanzou <pacmanzou@qq.com>
-#
-# Description: operation handler
-#
+# Description: operation handler for copy or link
 
 Info() {
     printf '[\033[0;34minfo\033[0m] %b\n' "$1"

@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
-#
 # Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
-#
-# Description: toggle the touch pad
-#
+# Description: Toggle the touch pad
 
 declare -i ID
 

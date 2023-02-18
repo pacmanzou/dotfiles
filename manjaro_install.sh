@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-#
 # Copyright (C) 2020 pacmanzou <pacmanzou@qq.com>
 # Description: An installation script for manjaro-i3 community edition, applies to i3 only
 

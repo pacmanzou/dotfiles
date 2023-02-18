@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
-#
 # Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
-#
-# Description: when battery power less than 15, notify send
+# Description: When battery power less than 15, notify send
 
 function Start() {
     battery_status=$(acpi -b | grep -Eo '[^ ]+$')

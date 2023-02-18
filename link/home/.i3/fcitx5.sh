@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
-#
 # Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
-#
-# Description: restart fcitx
-#
+# Description: Restart the fcitx5
 
 killall fcitx5
 fcitx5 &

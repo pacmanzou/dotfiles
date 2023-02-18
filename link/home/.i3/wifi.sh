@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
-#
 # Copyright (C) 2020 pacmanzou <pacmanzou@qq.com>
-#
-# Description: wifi list
-#
+# Description: Open the wifi list
 
 # rescan
 nmcli device wifi rescan
