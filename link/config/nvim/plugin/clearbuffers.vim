@@ -1,14 +1,4 @@
 " Clear unfocus buffers
-" ---
-"
-" Commands:
-" - ClearBuffers
-
-if exists('g:loaded_clearbuffers')
-  finish
-endif
-let g:loaded_clearbuffers = 1
-
 function! s:ClearBuffers(bang) abort
   let l:tpbl=[]
   call map(range(1, tabpagenr('$')), 'extend(l:tpbl, tabpagebuflist(v:val))')

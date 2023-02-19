@@ -1,5 +1,4 @@
 " Smooth scorll
-
 function! s:SmoothUp(dist, duration, speed) abort
   call s:smoothscroll('u', a:dist, a:duration, a:speed)
 endfunction

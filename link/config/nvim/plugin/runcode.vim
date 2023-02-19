@@ -1,5 +1,4 @@
 " Run the code
-
 function! s:RunCode() abort
   silent! exec "w"
   if &filetype == 'go'

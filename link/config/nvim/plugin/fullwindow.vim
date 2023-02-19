@@ -1,5 +1,4 @@
 " Full current focus window
-
 function! s:FullToggle(bang) abort
   if exists('t:maximizer_sizes')
     call s:restore()

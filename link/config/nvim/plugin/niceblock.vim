@@ -1,5 +1,4 @@
 " Nicebolck
-
 function! s:Force_blockwise(next_key) abort
   return s:setup_keyseq_table[a:next_key][mode()]
 endfunction

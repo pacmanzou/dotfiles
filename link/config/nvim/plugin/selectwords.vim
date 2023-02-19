@@ -1,5 +1,4 @@
 " Highlight the under cursor word
-
 let s:selectWordsColors = ['#b8bb26', '#8ec07c', '#fb4934']
 
 let s:hasBuiltColors = 0
@@ -18,7 +17,9 @@ function! ColorWord(word, mode)
   let n = index(s:selectWords, 0)
   if (n == -1)
     if !(exists('g:selectWordsCycleColors') && g:selectWordsCycleColors)
-      echom "SelectWords: max number of highlight groups reached " . len(s:selectWords)
+      echohl WarningMsg
+      echom "Max number of highlight groups reached " . len(s:selectWords)
+      echohl None
       return
     else
       let n = s:recentlyUsed[0]

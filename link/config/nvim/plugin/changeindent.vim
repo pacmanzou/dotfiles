@@ -1,10 +1,4 @@
 " Change indent quickily
-" ---
-"
-" Commands:
-" - ChangeIndent2To4
-" - ChangeIndent4To2
-
 function s:Indent2To4() abort
   set noexpandtab
   :%retab!

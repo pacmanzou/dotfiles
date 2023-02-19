@@ -1,12 +1,4 @@
-" Surround
-
-if exists("g:loaded_surround") || &cp || v:version < 700
-  finish
-endif
-let g:loaded_surround = 1
-
-" Input functions {{{1
-
+" Vim-surround
 function! s:getchar()
   let c = getchar()
   if c =~ '^\d\+$'
@@ -47,31 +39,6 @@ function! s:beep()
   return ""
 endfunction
 
-function! s:redraw()
-  redraw
-  return ""
-endfunction
-
-" }}}1
-
-" Wrapping functions {{{1
-
-function! s:extractbefore(str)
-  if a:str =~ '\r'
-    return matchstr(a:str,'.*\ze\r')
-  else
-    return matchstr(a:str,'.*\ze\n')
-  endif
-endfunction
-
-function! s:extractafter(str)
-  if a:str =~ '\r'
-    return matchstr(a:str,'\r\zs.*')
-  else
-    return matchstr(a:str,'\n\zs.*')
-  endif
-endfunction
-
 function! s:fixindent(str,spc)
   let str = substitute(a:str,'\t',repeat(' ',&sw),'g')
   let spc = substitute(a:spc,'\t',repeat(' ',&sw),'g')
@@ -80,45 +47,6 @@ function! s:fixindent(str,spc)
     let str = substitute(str,'\s\{'.&ts.'\}',"\t",'g')
   endif
   return str
-endfunction
-
-function! s:process(string)
-  let i = 0
-  for i in range(7)
-    let repl_{i} = ''
-    let m = matchstr(a:string,nr2char(i).'.\{-\}\ze'.nr2char(i))
-    if m != ''
-      let m = substitute(strpart(m,1),'\r.*','','')
-      let repl_{i} = input(match(m,'\w\+$') >= 0 ? m.': ' : m)
-    endif
-  endfor
-  let s = ""
-  let i = 0
-  while i < strlen(a:string)
-    let char = strpart(a:string,i,1)
-    if char2nr(char) < 8
-      let next = stridx(a:string,char,i+1)
-      if next == -1
-        let s .= char
-      else
-        let insertion = repl_{char2nr(char)}
-        let subs = strpart(a:string,i+1,next-i-1)
-        let subs = matchstr(subs,'\r.*')
-        while subs =~ '^\r.*\r'
-          let sub = matchstr(subs,"^\r\\zs[^\r]*\r[^\r]*")
-          let subs = strpart(subs,strlen(sub)+1)
-          let r = stridx(sub,"\r")
-          let insertion = substitute(insertion,strpart(sub,0,r),strpart(sub,r+1),'')
-        endwhile
-        let s .= insertion
-        let i = next
-      endif
-    else
-      let s .= char
-    endif
-    let i += 1
-  endwhile
-  return s
 endfunction
 
 function! s:wrap(string,char,type,removed,special)
@@ -140,37 +68,18 @@ function! s:wrap(string,char,type,removed,special)
   if newchar == ' '
     let before = ''
     let after  = ''
-  elseif exists("b:surround_".char2nr(newchar))
-    let all    = s:process(b:surround_{char2nr(newchar)})
-    let before = s:extractbefore(all)
-    let after  =  s:extractafter(all)
-  elseif exists("g:surround_".char2nr(newchar))
-    let all    = s:process(g:surround_{char2nr(newchar)})
-    let before = s:extractbefore(all)
-    let after  =  s:extractafter(all)
-  elseif newchar ==# "p"
-    let before = "\n"
-    let after  = "\n\n"
-  elseif newchar =~# "[t\<C-T>]"
-    let dounmapp = 0
-    let dounmapb = 0
-    if !maparg(">","c")
-      let dounmapb = 1
-      " Hide from AsNeeded
-      exe "cn"."oremap > ><CR>"
-    endif
+  elseif idx >= 0
+    let spc = (idx % 3) == 1 ? " " : ""
+    let idx = idx / 3 * 3
+    let before = strpart(pairs,idx+1,1) . spc
+    let after  = spc . strpart(pairs,idx+2,1)
+  elseif newchar ==# "t"
     let default = ""
-    if newchar ==# "t"
-      if !exists("s:lastdel")
-        let s:lastdel = ""
-      endif
-      let default = matchstr(s:lastdel,'<\zs.\{-\}\ze>')
+    if !exists("s:lastdel")
+      let s:lastdel = ""
     endif
+    let default = matchstr(s:lastdel,'<\zs.\{-\}\ze>')
     let tag = input("<",default)
-    if dounmapb
-      silent! cunmap >
-    endif
-    let s:input = tag
     if tag != ""
       let keepAttributes = ( match(tag, ">$") == -1 )
       let tag = substitute(tag,'>*$','','')
@@ -178,7 +87,6 @@ function! s:wrap(string,char,type,removed,special)
       if keepAttributes
         let attributes = matchstr(a:removed, '<[^ \t\n]\+\zs\_.\{-\}\ze>')
       endif
-      let s:input = tag . '>'
       if tag =~ '/$'
         let tag = substitute(tag, '/$', '', '')
         let before = '<'.tag.attributes.' />'
@@ -187,46 +95,7 @@ function! s:wrap(string,char,type,removed,special)
         let before = '<'.tag.attributes.'>'
         let after  = '</'.substitute(tag,' .*','','').'>'
       endif
-      if newchar == "\<C-T>"
-        if type ==# "v" || type ==# "V"
-          let before .= "\n\t"
-        endif
-        if type ==# "v"
-          let after  = "\n". after
-        endif
-      endif
     endif
-  elseif newchar ==# 'f'
-    let fnc = input("function: ")
-    if fnc != ""
-      let s:input = fnc."\<CR>"
-      let before = substitute(fnc,'($','','').'('
-      let after  = ')'
-    endif
-  elseif newchar ==# "\<C-F>"
-    if &filetype == "python"
-      let fnc = input("def: ")
-      let s:input = fnc."\<CR>"
-      let before = "def ".fnc."():"."\n\t"
-      let after = ""
-    elseif &filetype == "go"
-      let fnc = input("func: ")
-      let s:input = fnc."\<CR>"
-      let before = "func ".fnc."() {"."\n\t"
-      let after = "\n"."}"
-    else
-      let fnc = input('function: ')
-      if fnc != ""
-        let s:input = fnc."\<CR>"
-        let before = fnc.' {'."\n\t"
-        let after = "\n".'}'
-      endif
-    endif
-  elseif idx >= 0
-    let spc = (idx % 3) == 1 ? " " : ""
-    let idx = idx / 3 * 3
-    let before = strpart(pairs,idx+1,1) . spc
-    let after  = spc . strpart(pairs,idx+2,1)
   elseif newchar !~ '\a'
     let before = newchar
     let after  = newchar
@@ -289,15 +158,14 @@ function! s:wrapreg(reg,char,removed,special)
   let new = s:wrap(orig,a:char,type,a:removed,a:special)
   call setreg(a:reg,new,type)
 endfunction
-" }}}1
 
-function! s:reindent() " {{{1
+function! s:reindent()
   if exists("b:surround_indent") ? b:surround_indent : (!exists("g:surround_indent") || g:surround_indent)
     silent norm! '[=']
   endif
-endfunction " }}}1
+endfunction
 
-function! s:dosurround(...) " {{{1
+function! s:dosurround(...)
   let scount = v:count1
   let char = (a:0 ? a:1 : s:inputtarget())
   let spc = ""
@@ -411,9 +279,9 @@ function! s:dosurround(...) " {{{1
   else
     silent! call repeat#set("\<Plug>C".(a:0 > 2 && a:3 ? "S" : "s")."urround".char.newchar.s:input,scount)
   endif
-endfunction " }}}1
+endfunction
 
-function! s:changesurround(...) " {{{1
+function! s:changesurround(...)
   let a = s:inputtarget()
   if a == ""
     return s:beep()
@@ -423,9 +291,9 @@ function! s:changesurround(...) " {{{1
     return s:beep()
   endif
   call s:dosurround(a,b,a:0 && a:1)
-endfunction " }}}1
+endfunction
 
-function! s:opfunc(type, ...) abort " {{{1
+function! s:opfunc(type, ...) abort
   if a:type ==# 'setup'
     let &opfunc = matchstr(expand('<sfile>'), '<SNR>\w\+$')
     return 'g@'
@@ -490,15 +358,15 @@ function! s:opfunc(type, ...) abort " {{{1
   else
     silent! call repeat#set("\<Plug>SurroundRepeat".char.s:input)
   endif
-endfunction " }}}1
+endfunction
 
 nnoremap <silent> <Plug>SurroundRepeat .
-nnoremap <silent> <Plug>Dsurround  :<C-U>call <SID>dosurround(<SID>inputtarget())<CR>
-nnoremap <silent> <Plug>Csurround  :<C-U>call <SID>changesurround()<CR>
-nnoremap <expr>   <Plug>Yssurround '^'.v:count1.<SID>opfunc('setup').'g_'
-nnoremap <expr>   <Plug>Ysurround  <SID>opfunc('setup')
+nnoremap <silent> <Plug>Dsurround :<C-U>call <SID>dosurround(<SID>inputtarget())<CR>
+nnoremap <silent> <Plug>Csurround :<C-U>call <SID>changesurround()<CR>
+nnoremap <silent><expr> <Plug>Yssurround '^'.v:count1.<SID>opfunc('setup').'g_'
+nnoremap <silent><expr> <Plug>Ysurround  <SID>opfunc('setup')
 
-vnoremap <silent> <Plug>VSurround  :<C-U>call <SID>opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>
+vnoremap <silent> <Plug>VSurround :<C-U>call <SID>opfunc(visualmode(),visualmode() ==# 'V' ? 1 : 0)<CR>
 
 " map
 nmap s <Plug>Ysurround

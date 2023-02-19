@@ -1,14 +1,4 @@
 " Clear end of line space
-" ---
-"
-" Commands:
-" - ClearSpaces
-
-if exists('g:loaded_clearspaces')
-  finish
-endif
-let g:loaded_clearspaces = 1
-
 let s:ws_chars = get(g:, '', '\s')
 let s:ws_pattern = get(g:, '', s:ws_chars . '\+$')
 

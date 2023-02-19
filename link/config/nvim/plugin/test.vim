@@ -1,5 +1,4 @@
 " Write some simple test code
-
 if empty(glob('$HOME/.cache/nvim/test'))
   silent !mkdir -p "$HOME/.cache/nvim/test"
 endif
