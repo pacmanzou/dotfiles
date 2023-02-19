@@ -10,15 +10,9 @@ endif
 
 " Vim-plug
 call plug#begin('$HOME/.config/nvim/plugged')
-" Need the Lua configs
-" Syntax highlighting
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'RRethy/nvim-treesitter-textsubjects'
 
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Extensions
 let g:coc_global_extensions = [
       \ 'coc-pyright',
       \ 'coc-sql',
@@ -192,6 +186,9 @@ Plug 'tpope/vim-repeat'
 " Comment
 Plug 'tomtom/tcomment_vim'
 
+" Sudo
+Plug 'lambdalisue/suda.vim'
+
 " Make the text alignment quickily
 Plug 'junegunn/vim-easy-align'
 nmap ga <Plug>(EasyAlign)
@@ -290,6 +287,13 @@ let g:mkdp_preview_options = {
       \ 'disable_filename': 0,
       \ 'toc': {}
       \ }
+
+" Need the Lua configs
+" Syntax highlighting
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
+Plug 'RRethy/nvim-treesitter-textsubjects'
+
 call plug#end()
 
 if g:nvim_plugins_installation_completed == 1
