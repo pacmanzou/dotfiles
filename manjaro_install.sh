@@ -98,6 +98,7 @@ sudo pacman -S alacritty \
     obs-studio \
     pcmanfm-gtk3 \
     python-pip \
+    qbittorrent \
     ripgrep \
     rar \
     scrcpy \
