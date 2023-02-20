@@ -58,6 +58,7 @@ bindsym $mod+Ctrl+q kill
 bindsym $mod+Ctrl+r reload
 bindsym $mod+Ctrl+o floating toggle
 bindsym $mod+Ctrl+p move scratchpad
+bindsym $mod+Ctrl+s move container to workspace back_and_forth
 bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
@@ -65,11 +66,11 @@ bindsym $mod+Ctrl+l move right 50
 bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
 # Mode
-set $mode_i3exit (E)xit   (R)eboot   switch_(U)ser   (S)uspend   (H)ibernate   (L)ock   (Shift+S)hutdown
+set $mode_i3exit (R)eboot   switch_(U)ser   log(O)ut   (S)uspend   (H)ibernate   (L)ock   (Shift+S)hutdown
 mode "$mode_i3exit" {
-    bindsym e exec --no-startup-id i3exit logout, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
+    bindsym o exec --no-startup-id i3exit logout, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym l exec --no-startup-id i3exit lock, mode "default"
@@ -98,10 +99,10 @@ mode "$mode_xinput" {
     bindsym Escape mode "default"
 }
 
-set $mode_misc restart the (F)citx5   copy the (G)ithub_token
+set $mode_misc (F)citx5   (G)ithub_token
 
 mode "$mode_misc" {
-    bindsym r exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
+    bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
     bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
 
     bindsym Return mode "default"
@@ -144,6 +145,17 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 
+# Move to workspace
+bindsym $mod+Ctrl+1 move container to workspace $ws1
+bindsym $mod+Ctrl+2 move container to workspace $ws2
+bindsym $mod+Ctrl+3 move container to workspace $ws3
+bindsym $mod+Ctrl+4 move container to workspace $ws4
+bindsym $mod+Ctrl+5 move container to workspace $ws5
+bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
+bindsym $mod+Ctrl+9 move container to workspace $ws9
+
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
@@ -156,16 +168,15 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Limit the floating window size
-floating_minimum_size 800 x -1
-floating_maximum_size 1280 x 800
+floating_minimum_size 805 x -1
+floating_maximum_size 1430 x 805
 
 # Open specific applications in floating mode
 for_window [title="^alacritty-float$"] floating enable, move position center
 
 for_window [class="^.*"] border none
 
-for_window [class="Viewnior"] floating enable, resize set 960 600, move position center
-
+for_window [class="Viewnior"] floating enable, move position center
 for_window [class="GParted"] floating enable, move position center
 for_window [class="Lightdm-settings"] floating enable, move position center
 for_window [class="Lxappearance"] floating enable, move position center

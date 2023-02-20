@@ -159,6 +159,7 @@ command! -nargs=0 OR :call CocActionAsync('runCommand',
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
 
+" To Avoid an error when not installed
 if g:nvim_plugins_installation_completed == 1
   autocmd CursorHold * silent call CocActionAsync('highlight')
 endif
@@ -180,7 +181,7 @@ let g:indentLine_fileTypeExclude = [
       \ 'vista'
       \ ]
 
-" Strengthen the keyboard .
+" For vim-surround
 Plug 'tpope/vim-repeat'
 
 " Comment
@@ -196,10 +197,8 @@ xmap ga <Plug>(EasyAlign)
 
 " Float terminal
 Plug 'voldikss/vim-floaterm'
-let g:floaterm_width = 1.2
-let g:floaterm_height = 1.2
-let g:floaterm_title = ''
-let g:floaterm_borderchars = ['','','','','','','','']
+let g:floaterm_width = 3.0
+let g:floaterm_height = 3.0
 
 nnoremap <silent> <c-g><cr> :FloatermNew zsh<cr>
 nnoremap <silent> <c-g>p :FloatermToggle<cr>
@@ -211,12 +210,6 @@ nnoremap <silent> <c-g>h :FloatermNew htop<cr>
 
 " Tag
 Plug 'liuchengxu/vista.vim'
-let g:vista_sidebar_position = 'vertical botright'
-let g:vista_sidebar_width = 35
-let g:vista#renderer#enable_icon = 0
-let g:vista_default_executive = 'coc'
-let g:vista_executive_for = {'markdown': 'toc'}
-
 nnoremap <silent> <space>v :Vista!!<cr>
 
 " Go
@@ -239,56 +232,22 @@ let g:go_code_completion_enabled = 0
 let g:go_template_autocreate = 0
 let g:go_debug_breakpoint_sign_text = ''
 
-" Html
-Plug 'othree/html5.vim', {'for': 'html'}
+" Markdown
+Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install',
+      \ 'for': 'markdown'
+      \ }
+let g:mkdp_theme = 'light'
 
 " Javascript
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}
 
+" Html
+Plug 'othree/html5.vim', {'for': 'html'}
+
 " Vue
 Plug 'posva/vim-vue', {'for': 'vue'}
 
-" Markdown
-Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
-let g:vmt_list_item_char = '-'
-let g:vmt_fence_text = 'TOC'
-let g:vmt_fence_closing_text = '/TOC'
-
-Plug 'iamcco/markdown-preview.nvim', {
-      \ 'do': 'cd app && yarn install',
-      \ 'for': 'markdown'
-      \ }
-let g:mkdp_auto_start = 0
-let g:mkdp_auto_close = 0
-let g:mkdp_refresh_slow = 0
-let g:mkdp_command_for_global = 0
-let g:mkdp_open_to_the_world = 0
-let g:mkdp_open_ip = ''
-let g:mkdp_browser = 'firefox'
-let g:mkdp_echo_preview_url = 0
-let g:mkdp_browserfunc = ''
-let g:mkdp_markdown_css = ''
-let g:mkdp_highlight_css = ''
-let g:mkdp_port = ''
-let g:mkdp_page_title = '${name}'
-let g:mkdp_filetypes = ['markdown']
-let g:mkdp_theme = 'light'
-let g:mkdp_preview_options = {
-      \ 'mkit': {},
-      \ 'katex': {},
-      \ 'uml': {},
-      \ 'maid': {},
-      \ 'disable_sync_scroll': 0,
-      \ 'sync_scroll_type': 'middle',
-      \ 'hide_yaml_meta': 1,
-      \ 'sequence_diagrams': {},
-      \ 'flowchart_diagrams': {},
-      \ 'content_editable': v:false,
-      \ 'disable_filename': 0,
-      \ 'toc': {}
-      \ }
-
-" Need the Lua configs
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'

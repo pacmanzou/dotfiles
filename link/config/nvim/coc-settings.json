@@ -2,7 +2,7 @@
   "coc.preferences.formatOnType": true,
   "diagnostic-languageserver.filetypes": { "sh": "shellcheck" },
   "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
-  "explorer.width": 35,
+  "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.keyMappingMode": "none",
   "explorer.trash.command": "trash-put %s",
