@@ -203,7 +203,7 @@ bar {
     i3bar_command i3bar
     status_command i3status
     height 21
-    tray_output all
+    tray_output none
     position bottom
     strip_workspace_numbers yes
     separator_symbol " "
