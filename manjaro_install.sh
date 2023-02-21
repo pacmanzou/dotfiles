@@ -70,7 +70,7 @@ sudo pacman -S alacritty \
     fzf \
     firefox \
     fcitx5 \
-    fcitx5-rime \
+    fcitx5-chinese-addons \
     fcitx5-configtool \
     go \
     gopls \

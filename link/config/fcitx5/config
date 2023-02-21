@@ -1,48 +1,35 @@
 [Hotkey]
 # 反复按切换键时进行轮换
 EnumerateWithTriggerKeys=False
+# 临时在当前和第一个输入法之间切换
+AltTriggerKeys=
+# 向前切换输入法
+EnumerateForwardKeys=
+# 向后切换输入法
+EnumerateBackwardKeys=
 # 轮换输入法时跳过第一个输入法
 EnumerateSkipFirst=False
+# 向前切换输入分组
+EnumerateGroupForwardKeys=
+# 向后切换输入法分组
+EnumerateGroupBackwardKeys=
+# 激活输入法
+ActivateKeys=
+# 取消激活输入法
+DeactivateKeys=
+# 默认上一页
+PrevPage=
+# 默认下一页
+NextPage=
+# 默认跳转前一个候选词
+PrevCandidate=
+# 默认跳转下一个候选词
+NextCandidate=
 # 切换是否使用嵌入预编辑
 TogglePreedit=
 
 [Hotkey/TriggerKeys]
 0=Control+space
-1=Zenkaku_Hankaku
-2=Hangul
-
-[Hotkey/AltTriggerKeys]
-0=Shift_L
-
-[Hotkey/EnumerateForwardKeys]
-0=Control+Shift_L
-
-[Hotkey/EnumerateBackwardKeys]
-0=Control+Shift_R
-
-[Hotkey/EnumerateGroupForwardKeys]
-0=Super+space
-
-[Hotkey/EnumerateGroupBackwardKeys]
-0=Shift+Super+space
-
-[Hotkey/ActivateKeys]
-0=Hangul_Hanja
-
-[Hotkey/DeactivateKeys]
-0=Hangul_Romaja
-
-[Hotkey/PrevPage]
-0=Up
-
-[Hotkey/NextPage]
-0=Down
-
-[Hotkey/PrevCandidate]
-0=Shift+Tab
-
-[Hotkey/NextCandidate]
-0=Tab
 
 [Behavior]
 # 默认状态为激活
@@ -52,13 +39,13 @@ ShareInputState=No
 # 在程序中显示预编辑文本
 PreeditEnabledByDefault=False
 # 切换输入法时显示输入法信息
-ShowInputMethodInformation=False
+ShowInputMethodInformation=True
 # 在焦点更改时显示输入法信息
 showInputMethodInformationWhenFocusIn=False
 # 显示紧凑的输入法信息
 CompactInputMethodInformation=True
 # 显示第一个输入法的信息
-ShowFirstInputMethodInformation=False
+ShowFirstInputMethodInformation=True
 # 默认页大小
 DefaultPageSize=5
 # 覆盖 Xkb 选项
@@ -67,8 +54,11 @@ OverrideXkbOption=False
 CustomXkbOption=
 # Force Enabled Addons
 EnabledAddons=
-# Force Disabled Addons
-DisabledAddons=
 # Preload input method to be used by default
 PreloadInputMethod=True
+
+[Behavior/DisabledAddons]
+0=clipboard
+1=quickphrase
+2=table
 
