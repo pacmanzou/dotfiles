@@ -83,6 +83,7 @@ sudo pacman -S alacritty \
     lightdm-settings \
     lazygit \
     lazydocker \
+    lux-dl \
     mpv \
     manjaro-asian-input-support-fcitx5 \
     manjaro-settings-manager \
@@ -115,10 +116,10 @@ sudo pacman -S alacritty \
     unzip \
     utools \
     vnote-git \
+    vdhcoapp \
     wqy-microhei \
     xclip \
     yarn \
-    you-get \
     yay \
     zip \
     zathura \
