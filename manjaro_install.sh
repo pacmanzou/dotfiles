@@ -116,7 +116,6 @@ sudo pacman -S alacritty \
     unzip \
     utools \
     vnote-git \
-    vdhcoapp \
     wqy-microhei \
     xclip \
     yarn \

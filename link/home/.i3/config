@@ -13,16 +13,25 @@ font xft:URWGothic-Book 12
 # Exec
 exec_always --no-startup-id fix_xcursor
 
+# Background
+exec --no-startup-id nitrogen --set-zoom-fill "$HOME/.i3/background.png"
+exec --no-startup-id picom -b
+exec --no-startup-id sleep 1; conky -c "$HOME/.i3/conky_i3wm"
+exec --no-startup-id bash "$HOME/.i3/background.sh"
+
+# Automatic execution of the shell
+exec --no-startup-id bluetoothctl power on
+exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set -d 2.4Ghz
+exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+# Custom scripts
+exec --no-startup-id bash "$HOME/.i3/monitorbattery.sh"
+
+# Automatic startup software
 exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id utools
 exec --no-startup-id cfw
-exec --no-startup-id bluetoothctl power on
-exec --no-startup-id nitrogen --restore; sleep 1; picom -b
-exec --no-startup-id conky -c "$HOME/.i3/conky_i3wm"
-exec --no-startup-id bash "$HOME/.i3/monitorbattery.sh"
-exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
-exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set -d 2.4Ghz
 
 # Key
 bindsym $mod+Tab workspace next
@@ -43,7 +52,7 @@ bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
 bindsym $mod+c exec --no-startup-id bash "$HOME/.i3/cpupower.sh"
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
-bindsym $mod+Return exec --no-startup-id alacritty -e zsh
+bindsym $mod+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Shift+u exec --no-startup-id brightnessctl set 5%+
@@ -63,7 +72,7 @@ bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
-bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
+bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -e zsh
 
 # Mode
 set $mode_i3exit (R)eboot   switch_(U)ser   log(O)ut   (S)uspend   (H)ibernate   (L)ock   (Shift+S)hutdown

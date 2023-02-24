@@ -15,5 +15,5 @@ function Start() {
 
 while :; do
     Start
-    sleep 60
+    sleep 1m
 done
