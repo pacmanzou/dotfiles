@@ -185,7 +185,8 @@ for_window [title="^alacritty-float$"] floating enable, move position center
 
 for_window [class="^.*"] border none
 
-for_window [class="Viewnior"] floating enable, move position center
+for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
+
 for_window [class="GParted"] floating enable, move position center
 for_window [class="Lightdm-settings"] floating enable, move position center
 for_window [class="Lxappearance"] floating enable, move position center
