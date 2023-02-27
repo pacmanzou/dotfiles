@@ -108,11 +108,12 @@ mode "$mode_xinput" {
     bindsym Escape mode "default"
 }
 
-set $mode_misc (F)citx5   (G)ithub_token
+set $mode_misc (F)citx5   (G)ithub_token   (C)lash
 
 mode "$mode_misc" {
     bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
     bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
+    bindsym c exec --no-startup-id bash "$HOME/.i3/clash.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

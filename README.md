@@ -37,7 +37,7 @@ Some useful configs for manjaro i3.
 
 ### Yay
 
-`yay -S clash-for-windows-chinese`
+`yay -S clash-for-windows-bin`
 
 ```bash
 yay -S abook \
