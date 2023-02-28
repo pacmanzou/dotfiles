@@ -50,6 +50,7 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
 bindsym $mod+c exec --no-startup-id bash "$HOME/.i3/cpupower.sh"
+bindsym $mod+v exec --no-startup-id bash "$HOME/personal/clash.sh"
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 

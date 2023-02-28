@@ -3,6 +3,6 @@
 # Description: Restart the fcitx5
 
 killall fcitx5
-fcitx5 &
+fcitx5
 
 notify-send 'Restart the fcitx5'
