@@ -233,11 +233,15 @@ let g:go_template_autocreate = 0
 let g:go_debug_breakpoint_sign_text = ''
 
 " Markdown
-Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+" Preivew
 Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install',
       \ 'for': 'markdown'
       \ }
 let g:mkdp_theme = 'light'
+
+" Toc
+Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
+let g:vmt_list_item_char = "-"
 
 " Javascript
 Plug 'pangloss/vim-javascript', {'for': 'javascript'}

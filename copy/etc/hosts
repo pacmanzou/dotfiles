@@ -4,14 +4,3 @@
 ::1        localhost ip6-localhost ip6-loopback
 ff02::1    ip6-allnodes
 ff02::2    ip6-allrouters
-
-142.250.4.90 translate.googleapis.com
-142.250.30.90 translate.googleapis.com
-142.250.99.90 translate.googleapis.com
-142.250.101.90 translate.googleapis.com
-142.250.105.90 translate.googleapis.com
-142.250.107.90 translate.googleapis.com
-172.253.112.90 translate.googleapis.com
-172.253.114.90 translate.googleapis.com
-172.253.116.90 translate.googleapis.com
-172.253.124.90 translate.googleapis.com

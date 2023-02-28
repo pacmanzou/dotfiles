@@ -2,18 +2,18 @@
 
 Some useful configs for manjaro i3.
 
-<!-- TOC GFM -->
+<!-- vim-markdown-toc GFM -->
 
 - [Auto configuration](#auto-configuration)
 - [Manual configuration](#manual-configuration)
-  - [SSH for git](#ssh-for-git)
   - [Yay](#yay)
+  - [SSH for git](#ssh-for-git)
   - [Video card and font](#video-card-and-font)
   - [Database](#database)
   - [Mail](#mail)
   - [Utools plugins](#utools-plugins)
 
-<!-- /TOC -->
+<!-- vim-markdown-toc -->
 
 ## Auto configuration
 
@@ -21,6 +21,7 @@ Some useful configs for manjaro i3.
 
 - `sudo -E bash manjaro_install.sh`
 - `sudo -E bash key.sh`
+- `sudo -E setcap cap_net_bind_service,cap_net_admin=+ep /usr/bin/clash-meta`
 - `i3exit logout`
 
 ## Manual configuration
@@ -29,17 +30,9 @@ Some useful configs for manjaro i3.
 
 **`git clone https://github.com/pacmanzou/personal`**
 
-### SSH for git
-
-- `ssh-keygen -t rsa -C "pacmanzou@qq.com"`
-- Copy the public key to the web page
-- `ssh -T git@github.com`
-
 ### Yay
 
-`yay -S clash-for-windows-bin`
-
-```bash
+``` bash
 yay -S abook \
     apifox \
     debtap \
@@ -52,6 +45,12 @@ yay -S abook \
     wps-office-fonts \
     wps-office-mime-cn
 ```
+
+### SSH for git
+
+- `ssh-keygen -t rsa -C "pacmanzou@qq.com"`
+- Copy the public key to the web page
+- `ssh -T git@github.com`
 
 ### Video card and font
 
@@ -67,7 +66,7 @@ yay -S abook \
 
 ### Utools plugins
 
-``` txt
+```txt
 - Ctool
 - hosts 切换
 - OCR-图片转文字

@@ -59,6 +59,8 @@ sudo pacman -S alacritty \
     bluez \
     bluez-utils \
     blueman \
+    clash-verge \
+    clash-meta \
     ctags \
     copyq \
     cmake \
@@ -156,3 +158,7 @@ trash-put "$HOME/.config/hexchat" \
     "$HOME/.config/xfce4" \
     "$HOME/.config/Kvantum" \
     "$HOME/.config/volumeicon"
+
+# Misc
+# Clash-verge TUN
+sudo setcap cap_net_bind_service,cap_net_admin=+ep /usr/bin/clash-meta
