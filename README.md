@@ -21,7 +21,6 @@ Some useful configs for manjaro i3.
 
 - `sudo -E bash manjaro_install.sh`
 - `sudo -E bash key.sh`
-- `sudo -E setcap cap_net_bind_service,cap_net_admin=+ep /usr/bin/clash-meta`
 - `i3exit logout`
 
 ## Manual configuration
@@ -31,6 +30,8 @@ Some useful configs for manjaro i3.
 **`git clone https://github.com/pacmanzou/personal`**
 
 ### Yay
+
+> Need to configure the clash
 
 ``` bash
 yay -S abook \

@@ -2,8 +2,55 @@
 # Copyright (C) 2020 pacmanzou <pacmanzou@qq.com>
 # Description: An installation script for manjaro-i3 community edition, applies to i3 only
 
-# shellcheck disable=1091
-source "$HOME/dotfiles/handler.sh"
+Info() {
+    printf '[\033[0;34minfo\033[0m] %b\n' "$1"
+}
+
+Warn() {
+    printf '[\033[0;33mwarning\033[0m] %b\n' "$1"
+}
+
+Success() {
+    printf '[\033[0;32msuccess\033[0m] %b\n' "$1"
+}
+
+Fail() {
+    printf '[\033[0;31mfailure\033[0m] %b\n' "$1"
+}
+
+LinkHandler() {
+    if sudo ln -bs "$1" "$2"; then
+        Success "ln -bs $1 $2"
+    else
+        Fail "ln -bs $1 $2"
+    fi
+}
+
+CopyHandler() {
+    if sudo cp -abr "$1" "$2"; then
+        Success "cp -abr $1 $2"
+    else
+        Fail "cp -abr $1 $2"
+    fi
+}
+
+FileHandler() {
+    for fileSrc in $1; do
+        basenameSrc=$(basename "${fileSrc}")
+        if [[ "." == "${basenameSrc}" || ".." == "${basenameSrc}" ||
+            "*" == "${basenameSrc}" ]]; then
+            continue
+        fi
+        for fileDst in $2; do
+            basenameDst=$(basename "${fileDst}")
+            dirnameDst=$(dirname "${fileDst}")
+            if [[ "${basenameDst}" == "${basenameSrc}" ]]; then
+                sudo mv "${fileDst}" "${fileDst}"~
+            fi
+        done
+        $3 "${fileSrc}" "${dirnameDst}"
+    done
+}
 
 file="$HOME/.gitconfig"
 
@@ -30,6 +77,7 @@ echo
 # Misc
 CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
 CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
+CopyHandler "$HOME/dotfiles/misc/clash.service" "/etc/systemd/system/clash.service"
 echo
 
 # Remove
@@ -59,8 +107,7 @@ sudo pacman -S alacritty \
     bluez \
     bluez-utils \
     blueman \
-    clash-verge \
-    clash-meta \
+    clash \
     ctags \
     copyq \
     cmake \
@@ -160,5 +207,5 @@ trash-put "$HOME/.config/hexchat" \
     "$HOME/.config/volumeicon"
 
 # Misc
-# Clash-verge TUN
-sudo setcap cap_net_bind_service,cap_net_admin=+ep /usr/bin/clash-meta
+sudo systemctl enable clash.service
+sudo systemctl start clash.service

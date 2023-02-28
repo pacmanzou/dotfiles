@@ -31,7 +31,6 @@ exec --no-startup-id bash "$HOME/.i3/monitorbattery.sh"
 exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id utools
-exec --no-startup-id clash-verge
 
 # Key
 bindsym $mod+Tab workspace next
@@ -204,7 +203,6 @@ for_window [class="VirtualBox"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
-for_window [class="Clash"] floating enable, move position center
 for_window [class="neovide"] floating enable, move position center
 for_window [class="Telegram"] floating enable, move position center
 
