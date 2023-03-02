@@ -3,5 +3,3 @@
 # Description: Copy the github token
 
 xclip -i -sel clipboard "$HOME/personal/github_token.txt"
-
-notify-send "Custom" "copy the github_token"

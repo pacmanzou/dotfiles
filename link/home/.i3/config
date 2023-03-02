@@ -21,7 +21,7 @@ exec --no-startup-id bash "$HOME/.i3/background.sh"
 
 # Automatic execution of the shell
 exec --no-startup-id bluetoothctl power on
-exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set -d 2.4Ghz
+exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set --governor performance
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 # Custom scripts
@@ -36,16 +36,14 @@ exec --no-startup-id utools
 # Key
 bindsym $mod+Tab workspace next
 bindsym $mod+q exec --no-startup-id dunstctl close
-bindsym $mod+w exec --no-startup-id bash "$HOME/.i3/wifi.sh"
+bindsym $mod+w workspace back_and_forth
 bindsym $mod+r split toggle
 bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ unmute && $refresh_i3status
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
-bindsym $mod+a exec --no-startup-id flameshot gui
-bindsym $mod+s workspace back_and_forth
+bindsym $mod+s exec --no-startup-id flameshot gui
 bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- unmute && $refresh_i3status
 bindsym $mod+f fullscreen toggle
-bindsym $mod+g exec --no-startup-id bash "$HOME/.i3/governor.sh"
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -56,19 +54,19 @@ bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Shift+u exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+Shift+i mode "$mode_i3exit"
-bindsym $mod+Shift+s move container to workspace back_and_forth; workspace back_and_forth
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+Shift+l mode "$mode_layout"
 bindsym $mod+Shift+x mode "$mode_xinput"
-bindsym $mod+Shift+c mode "$mode_custom"
+bindsym $mod+Shift+m mode "$mode_misc"
 
 bindsym $mod+Ctrl+q kill
+bindsym $mod+Ctrl+w move container to workspace back_and_forth
 bindsym $mod+Ctrl+r reload
 bindsym $mod+Ctrl+o floating toggle
 bindsym $mod+Ctrl+p move scratchpad
-bindsym $mod+Ctrl+s move container to workspace back_and_forth
 bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
@@ -109,10 +107,9 @@ mode "$mode_xinput" {
     bindsym Escape mode "default"
 }
 
-set $mode_custom (F)citx5   (G)ithub_token
+set $mode_misc (G)ithub_token
 
-mode "$mode_custom" {
-    bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
+mode "$mode_misc" {
     bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
 
     bindsym Return mode "default"
