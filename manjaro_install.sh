@@ -205,7 +205,3 @@ trash-put "$HOME/.config/hexchat" \
 	"$HOME/.config/xfce4" \
 	"$HOME/.config/Kvantum" \
 	"$HOME/.config/volumeicon"
-
-# Misc
-sudo systemctl enable clash.service
-sudo systemctl start clash.service

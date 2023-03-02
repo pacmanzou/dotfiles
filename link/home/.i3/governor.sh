@@ -8,10 +8,10 @@ if [ "$currentGovernor" = "powersave" ]; then
 	cat <"$HOME/personal/manjaro_password.txt" |
 		sudo -S cpupower frequency-set -d 3.9Ghz
 	sudo cpupower frequency-set --governor performance
-	notify-send 'Cpufreq performance'
+	notify-send "Governor" "performance"
 else
 	cat <"$HOME/personal/manjaro_password.txt" |
 		sudo -S cpupower frequency-set -d 2.4Ghz
 	sudo cpupower frequency-set --governor powersave
-	notify-send 'Cpufreq powersave'
+	notify-send "Governor" "powersave"
 fi

@@ -29,6 +29,7 @@ exec --no-startup-id bash "$HOME/.i3/monitorbattery.sh"
 
 # Automatic startup software
 exec --no-startup-id copyq
+exec --no-startup-id clash
 exec --no-startup-id fcitx5
 exec --no-startup-id utools
 
@@ -44,13 +45,13 @@ bindsym $mod+a exec --no-startup-id flameshot gui
 bindsym $mod+s workspace back_and_forth
 bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- unmute && $refresh_i3status
 bindsym $mod+f fullscreen toggle
+bindsym $mod+g exec --no-startup-id bash "$HOME/.i3/governor.sh"
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
-bindsym $mod+c exec --no-startup-id bash "$HOME/.i3/cpupower.sh"
-bindsym $mod+v exec --no-startup-id bash "$HOME/personal/clash.sh"
+bindsym $mod+c exec --no-startup-id bash "$HOME/personal/clash.sh"
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
@@ -61,7 +62,7 @@ bindsym $mod+Shift+s move container to workspace back_and_forth; workspace back_
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+Shift+l mode "$mode_layout"
 bindsym $mod+Shift+x mode "$mode_xinput"
-bindsym $mod+Shift+m mode "$mode_misc"
+bindsym $mod+Shift+c mode "$mode_custom"
 
 bindsym $mod+Ctrl+q kill
 bindsym $mod+Ctrl+r reload
@@ -91,8 +92,8 @@ mode "$mode_i3exit" {
 
 set $mode_layout (T)ab   (S)plit
 mode "$mode_layout" {
-    bindsym s layout splith; exec --no-startup-id notify-send 'Split layout', mode "default"
-    bindsym t layout tabbed, exec --no-startup-id notify-send 'Tab layout', mode "default"
+    bindsym s layout splith; exec --no-startup-id notify-send "Layout mode" "split", mode "default"
+    bindsym t layout tabbed, exec --no-startup-id notify-send "Layout mode" "tab", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -108,9 +109,9 @@ mode "$mode_xinput" {
     bindsym Escape mode "default"
 }
 
-set $mode_misc (F)citx5   (G)ithub_token
+set $mode_custom (F)citx5   (G)ithub_token
 
-mode "$mode_misc" {
+mode "$mode_custom" {
     bindsym f exec --no-startup-id bash "$HOME/.i3/fcitx5.sh", mode "default"
     bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
 
