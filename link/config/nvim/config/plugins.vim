@@ -16,7 +16,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-pyright',
       \ 'coc-sql',
-      \ 'coc-sh',
       \ 'coc-json',
       \ 'coc-vimlsp',
       \ 'coc-tsserver',

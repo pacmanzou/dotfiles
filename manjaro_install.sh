@@ -103,6 +103,7 @@ sudo pacman -Syu
 # Install
 sudo pacman -S alacritty \
 	baidupcs-go \
+	bash-language-server \
 	bleachbit \
 	bluez \
 	bluez-utils \
