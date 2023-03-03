@@ -2,7 +2,7 @@
 # Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
 # Description: When battery power less than 15, notify send
 
-function Start() {
+Start() {
 	battery_status=$(acpi -b | grep -Eo '[^ ]+$')
 	battery_level=$(acpi -b | grep -Po '[0-9]+(?=%)')
 
