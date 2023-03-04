@@ -8,7 +8,7 @@ Start() {
 
 	if [[ "${battery_status}" != "charged" ]]; then
 		if [[ "${battery_level}" -le 20 ]]; then
-			notify-send --urgency=critical "Battery low" "battery level is less than ${battery_level}%!"
+			notify-send --urgency=critical "Battery low" "battery level is less than ${battery_level}%"
 		fi
 	fi
 }
