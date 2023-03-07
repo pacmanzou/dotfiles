@@ -24,9 +24,6 @@ exec --no-startup-id bluetoothctl power on
 exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set --governor performance
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
-# Custom scripts
-exec --no-startup-id bash "$HOME/.i3/monitorbattery.sh"
-
 # Automatic startup software
 exec --no-startup-id copyq
 exec --no-startup-id clash
