@@ -9,7 +9,7 @@
   "filterLinkHints": false,
   "waitForEnterForFilteredHints": true,
   "hideHud": false,
-  "keyMappings": "# Insert your preferred key mappings here.\nunmapAll\nmap j scrollDown\nmap k scrollUp\nmap l scrollRight\nmap h scrollLeft\nmap gg scrollToTop\nmap G scrollToBottom\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp\nmap yy copyCurrentUrl\nmap gi focusInput\nmap u restoreTab\nmap ? showHelp\nmap f LinkHints.activateMode",
+  "keyMappings": "# Insert your preferred key mappings here.\nunmapAll\nmap j scrollDown\nmap k scrollUp\nmap l scrollRight\nmap h scrollLeft\nmap gg scrollToTop\nmap G scrollToBottom\nmap <c-d> scrollPageDown\nmap <c-u> scrollPageUp\nmap yy copyCurrentUrl\nmap u restoreTab\nmap ? showHelp\nmap f LinkHints.activateMode",
   "linkHintCharacters": "sadfjklewcmpgh",
   "linkHintNumbers": "0123456789",
   "newTabUrl": "about:newtab",
