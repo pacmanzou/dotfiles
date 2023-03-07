@@ -46,7 +46,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
-bindsym $mod+c exec --no-startup-id bash "$HOME/personal/clash.sh"
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
@@ -57,6 +56,7 @@ bindsym $mod+Shift+i mode "$mode_i3exit"
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+Shift+l mode "$mode_layout"
 bindsym $mod+Shift+x mode "$mode_xinput"
+bindsym $mod+Shift+c mode "$mode_clash"
 bindsym $mod+Shift+m mode "$mode_misc"
 
 bindsym $mod+Ctrl+q kill
@@ -71,7 +71,7 @@ bindsym $mod+Ctrl+l move right 50
 bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -e zsh
 
 # Mode
-set $mode_i3exit (R)eboot   switch_(U)ser   log(O)ut   (S)uspend   (H)ibernate   (L)ock   (Shift+S)hutdown
+set $mode_i3exit (R)eboot    switch_(U)ser    log(O)ut    (S)uspend    (H)ibernate    (L)ock    (Shift+S)hutdown
 mode "$mode_i3exit" {
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
@@ -85,7 +85,7 @@ mode "$mode_i3exit" {
     bindsym Escape mode "default"
 }
 
-set $mode_layout (T)ab   (S)plit
+set $mode_layout (T)ab    (S)plit
 mode "$mode_layout" {
     bindsym s layout splith; exec --no-startup-id notify-send "Layout mode" "split", mode "default"
     bindsym t layout tabbed, exec --no-startup-id notify-send "Layout mode" "tab", mode "default"
@@ -94,11 +94,23 @@ mode "$mode_layout" {
     bindsym Escape mode "default"
 }
 
-set $mode_xinput (T)ouchpad   (K)eyboard
+set $mode_xinput (T)ouchpad    (K)eyboard
 
 mode "$mode_xinput" {
     bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
     bindsym k exec --no-startup-id bash "$HOME/.i3/keyboard.sh", mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $mode_clash (S)ubscribe    (G)lobal    (R)ule    (D)irect
+
+mode "$mode_clash" {
+    bindsym s exec --no-startup-id bash "$HOME/personal/clash/subscribe.sh", mode "default"
+    bindsym g exec --no-startup-id bash "$HOME/personal/clash/global.sh", mode "default"
+    bindsym r exec --no-startup-id bash "$HOME/personal/clash/rule.sh", mode "default"
+    bindsym d exec --no-startup-id bash "$HOME/personal/clash/direct.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
