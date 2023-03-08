@@ -147,19 +147,13 @@ endfunction
 nnoremap <silent> <c-q> <plug>(coc-cursors-word)
 nnoremap <expr><silent> <enter> <sid>select_current_word()
 
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add `:Fold` command to fold current buffer.
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer.
-command! -nargs=0 OR :call CocActionAsync('runCommand',
-      \ 'editor.action.organizeImport')
-
-" Misc auto commands
+" Auto commands
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+
+" Go
+autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.formatDocument')
 
 " To Avoid an error when not installed
 if g:nvim_plugins_installation_completed == 1
