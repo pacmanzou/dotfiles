@@ -144,8 +144,8 @@ function! s:select_current_word()
   return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
 endfunction
 
+nnoremap <silent><expr> <c-s> <sid>select_current_word()
 nnoremap <silent> <c-q> <plug>(coc-cursors-word)
-nnoremap <expr><silent> <enter> <sid>select_current_word()
 
 " Auto commands
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
