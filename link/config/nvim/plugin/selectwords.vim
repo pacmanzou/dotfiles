@@ -172,4 +172,4 @@ endfunc
 nnoremap <silent> <c-s> :call SelectWords('n')<cr>
 vnoremap <silent> <c-s> :call SelectWords('v')<cr>
 
-nnoremap <silent> <esc> :call UncolorAllWords()<cr>
+command -bang ClearWords call UncolorAllWords()

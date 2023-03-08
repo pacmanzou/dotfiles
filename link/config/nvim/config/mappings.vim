@@ -182,25 +182,23 @@ map ]s <nop>
 map ]z <nop>
 map ]} <nop>
 
-map <c-q>      <nop>
-map <c-n>      <nop>
-map <c-o>      <nop>
-map <c-p>      <nop>
-map <c-g>      <nop>
-map <cr>       <nop>
-map <bs>       <nop>
-map <c-s>      <nop>
-map <c-t>      <nop>
-map <c-x>      <nop>
-map <c-y>      <nop>
-map <c-z>      <nop>
-map <c-\><c-n> <nop>
-map <c-\><c-g> <nop>
-map <c-\>      <nop>
-map <c-]>      <nop>
-map <c-^>      <nop>
-map <c-_>      <nop>
-map <space>    <nop>
+map <c-q>   <nop>
+map <c-n>   <nop>
+map <c-o>   <nop>
+map <c-p>   <nop>
+map <c-g>   <nop>
+map <cr>    <nop>
+map <bs>    <nop>
+map <c-s>   <nop>
+map <c-t>   <nop>
+map <c-x>   <nop>
+map <c-y>   <nop>
+map <c-z>   <nop>
+map <c-\>   <nop>
+map <c-]>   <nop>
+map <c-^>   <nop>
+map <c-_>   <nop>
+map <space> <nop>
 
 " Windows focus
 noremap <silent> <c-l> <c-w>l
@@ -211,18 +209,18 @@ noremap <silent> <c-k> <c-w>k
 " Cursor move
 noremap <silent> <c-e> $
 noremap <silent> <c-a> ^
-noremap <silent> J     <c-e>
-noremap <silent> K     <c-y>
+noremap <silent> J <c-e>
+noremap <silent> K <c-y>
 
 " Visual select
 noremap <silent> gV ggVG$
 
 " Windows exchange
-nnoremap <silent> <c-w>t     <c-w>T
-nnoremap <silent> <c-w>h     <c-w>H
-nnoremap <silent> <c-w>j     <c-w>J
-nnoremap <silent> <c-w>k     <c-w>K
-nnoremap <silent> <C-w>l     <c-w>L
+nnoremap <silent> <c-w>t <c-w>T
+nnoremap <silent> <c-w>h <c-w>H
+nnoremap <silent> <c-w>j <c-w>J
+nnoremap <silent> <c-w>k <c-w>K
+nnoremap <silent> <C-w>l <c-w>L
 
 " Fold
 nnoremap zo zO
@@ -260,7 +258,10 @@ vnoremap <silent> + g<c-a>
 vnoremap <silent> - g<c-x>
 
 " Search by regex
-nnoremap / /\v
+nnoremap / :/\v<cmd>set hlsearch<cr>
+
+" Nohl
+nnoremap <silent> <esc> :set nohlsearch<cr>
 
 " Open the file under the cursor
 nnoremap <silent> gf <c-w>f
@@ -274,64 +275,35 @@ nnoremap <silent> Q @q
 nnoremap <silent> q: <nop>
 
 " Imap
-imap <c-@>       <nop>
-imap <c-q>       <nop>
-imap <c-e>       <end>
-imap <c-r>       <nop>
-imap <c-r><c-r>  <nop>
-imap <c-r><c-o>  <nop>
-imap <c-r><c-p>  <nop>
-imap <c-o>       <esc>o
-imap <c-a>       <esc>I
-imap <c-s>       <nop>
-imap <c-d>       <delete>
-imap <c-f>       <right>
-imap <c-g>       <nop>
-imap <c-g><c-j>  <nop>
-imap <c-g>j      <nop>
-imap <c-g><down> <nop>
-imap <c-g><c-k>  <nop>
-imap <c-g>k      <nop>
-imap <c-g><up>   <nop>
-imap <c-g>u      <nop>
-imap <c-g>U      <nop>
-imap <c-h>       <backspace>
-imap <c-j>       <nop>
-imap <c-k>       <nop>
-imap <c-l>       <nop>
-imap <c-z>       <nop>
-imap <c-x><c-f>  <nop>
-imap <c-x><c-d>  <nop>
-imap <c-x><c-e>  <nop>
-imap <c-x><c-i>  <nop>
-imap <c-x><c-l>  <nop>
-imap <c-x><c-n>  <nop>
-imap <c-x><c-o>  <nop>
-imap <c-x><c-p>  <nop>
-imap <c-x><c-s>  <nop>
-imap <c-x><c-t>  <nop>
-imap <c-x><c-y>  <nop>
-imap <c-x><c-u>  <nop>
-imap <c-x><c-v>  <nop>
-imap <c-x><c-]>  <nop>
-imap <c-v>       <nop>
-imap <c-b>       <left>
-imap <c-\><c-n>  <nop>
-imap <c-\><c-g>  <nop>
-imap <c-]>       <nop>
+imap <c-@> <nop>
+imap <c-q> <nop>
+imap <c-r> <nop>
+imap <c-o> <nop>
+imap <c-s> <nop>
+imap <c-g> <nop>
+imap <c-j> <nop>
+imap <c-k> <nop>
+imap <c-l> <nop>
+imap <c-z> <nop>
+imap <c-x> <nop>
+imap <c-v> <nop>
+imap <c-\> <nop>
+imap <c-]> <nop>
 
+inoremap <c-a> <c-o>^
+inoremap <c-e> <c-o>$
+inoremap <c-f> <right>
+inoremap <c-b> <left>
+inoremap <c-h> <backspace>
+inoremap <c-d> <delete>
 
 " Cmap
 cmap <c-q> <nop>
-cmap <c-e> <end>
 cmap <c-r> <nop>
 cmap <c-t> <nop>
 cmap <c-y> <nop>
 cmap <c-o> <nop>
-cmap <c-a> <home>
 cmap <c-s> <nop>
-cmap <c-d> <delete>
-cmap <c-f> <right>
 cmap <c-g> <nop>
 cmap <c-j> <nop>
 cmap <c-k> <nop>
@@ -339,4 +311,9 @@ cmap <c-l> <nop>
 cmap <c-z> <nop>
 cmap <c-x> <nop>
 cmap <c-v> <nop>
-cmap <c-b> <left>
+
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
+cnoremap <c-f> <right>
+cnoremap <c-b> <left>
+cnoremap <c-d> <delete>
