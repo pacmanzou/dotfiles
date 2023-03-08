@@ -41,8 +41,7 @@ let g:coc_global_extensions = [
       \ ]
 
 " Coc-snippets
-imap <silent><expr> <c-l> coc#pum#visible() ? "\<c-y>" :
-      \ "\<plug>(coc-snippets-expand)"
+inoremap <silent><expr> <c-l> coc#pum#confirm()
 
 " Coc-explorer
 nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
@@ -92,7 +91,7 @@ endfunction
 nmap <silent> cr <plug>(coc-rename)
 
 " Apply codeAction, need lsp to support
-vmap <silent> <c-l> <plug>(coc-codeaction-selected)
+xmap <silent> <c-l> <plug>(coc-codeaction-selected)
 
 " Go to code navigation
 let g:coc_enable_locationlist = 0
@@ -110,6 +109,9 @@ nmap <silent> [d <plug>(coc-diagnostic-prev)
 
 " Jump previewd chunk
 nmap <silent> <c-o> <plug>(coc-float-jump)
+
+inoremap <silent><expr> <c-j> coc#float#scroll(1)
+inoremap <silent><expr> <c-k> coc#float#scroll(0)
 
 " Coclist and coccommand
 nnoremap <silent> <space>c :CocCommand<cr>

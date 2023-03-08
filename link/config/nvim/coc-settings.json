@@ -92,9 +92,7 @@
   "python.formatting.provider": "black",
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "suggest.maxCompleteItemCount": 16,
-  "suggest.detailField": "abbr",
   "suggest.enablePreselect": false,
-  "suggest.noselect": true,
   "translator.engines": ["google"],
   "vetur.ignoreProjectWarning": true,
   "workspace.rootPatterns": [".git", ".gitignore"]
