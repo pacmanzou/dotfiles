@@ -94,6 +94,7 @@
   "suggest.maxCompleteItemCount": 16,
   "suggest.enablePreselect": false,
   "translator.engines": ["google"],
+  "translator.proxy": "socks://127.0.0.1:7890",
   "vetur.ignoreProjectWarning": true,
   "workspace.rootPatterns": [".git", ".gitignore"]
 }
