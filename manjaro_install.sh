@@ -75,9 +75,14 @@ FileHandler "$HOME/dotfiles/copy/etc/*" "/etc/*" CopyHandler
 echo
 
 # Misc
-CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower/UPower.conf"
-CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd/logind.conf"
-CopyHandler "$HOME/dotfiles/misc/clash.service" "/etc/systemd/system/clash.service"
+Info "### Misc ###"
+if [[ ! -d "$HOME/.config/coc" ]]; then
+	mkdir "$HOME/.config/coc"
+fi
+
+LinkHandler "$HOME/dotfiles/misc/coc/ultisnips" "$HOME/.config/coc"
+CopyHandler "$HOME/dotfiles/misc/UPower.conf" "/etc/UPower"
+CopyHandler "$HOME/dotfiles/misc/logind.conf" "/etc/systemd"
 echo
 
 # Remove
