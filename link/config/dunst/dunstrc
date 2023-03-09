@@ -41,26 +41,6 @@
     # Maximum number of notification (0 means no limit)
     notification_limit = 0
 
-    ### Progress bar ###
-
-    # Turn on the progess bar. It appears when a progress hint is passed with
-    # for example dunstify -h int:value:12
-    progress_bar = true
-
-    # Set the progress bar height. This includes the frame, so make sure
-    # it's at least twice as big as the frame width.
-    progress_bar_height = 10
-
-    # Set the frame width of the progress bar
-    progress_bar_frame_width = 1
-
-    # Set the minimum width for the progress bar
-    progress_bar_min_width = 150
-
-    # Set the maximum width for the progress bar
-    progress_bar_max_width = 300
-
-
     # Show how many messages are currently hidden (because of
     # notification_limit).
     indicate_hidden = yes
@@ -76,7 +56,7 @@
     separator_height = 2
 
     # Padding between text and separator.
-    padding = 4
+    padding = 0
 
     # Horizontal padding.
     horizontal_padding = 8
@@ -84,20 +64,13 @@
     # Padding between text and icon.
     text_icon_padding = 0
 
-    # Defines width in pixels of frame around the notification window.
-    # Set to 0 to disable.
-    frame_width = 3
-
-    # Defines color of the frame around the notification window.
-    frame_color = "#353535"
-
     # Define a color for the separator.
     # possible values are:
     #  * auto: dunst tries to find a color fitting to the background;
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = auto
 
     # Sort messages by urgency.
     sort = yes
@@ -151,7 +124,7 @@
     #   %n  progress value if set without any extra characters
     #   %%  Literal %
     # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    format = "<b>%s</b>\n%b\n<br />"
 
     # Alignment of message text.
     # Possible values are "left", "center" and "right".
@@ -287,7 +260,6 @@
     # using the resolution and physical size. This might be useful in setups
     # where there are multiple screens with very different dpi values.
     per_monitor_dpi = false
-
 
 [urgency_normal]
     background = "#1d1d1d"
