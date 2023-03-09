@@ -9,6 +9,8 @@ if empty(glob('$HOME/.config/nvim/plugged/coc.nvim'))
 endif
 
 " Vim-plug
+let g:plug_window = 'vsplit new'
+
 call plug#begin('$HOME/.config/nvim/plugged')
 
 " Code completion
@@ -93,7 +95,7 @@ nmap <silent> cr <plug>(coc-rename)
 " Apply codeAction, need lsp to support
 xmap <silent> <c-l> <plug>(coc-codeaction-selected)
 
-" Go to code navigation
+" Code navigation
 let g:coc_enable_locationlist = 0
 
 nmap <silent> gd <plug>(coc-definition)
@@ -193,6 +195,8 @@ xmap ga <Plug>(EasyAlign)
 
 " Float terminal
 Plug 'voldikss/vim-floaterm'
+let g:floaterm_borderchars = ""
+let g:floaterm_opener = "tabe"
 let g:floaterm_width = 3.0
 let g:floaterm_height = 3.0
 
