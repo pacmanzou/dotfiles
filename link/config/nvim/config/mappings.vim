@@ -1,203 +1,30 @@
 " Mappings
-map g# <nop>
-map g$ <nop>
-map g& <nop>
-map g' <nop>
-map g` <nop>
-map g* <nop>
-map g+ <nop>
-map g, <nop>
-map g- <nop>
-map g0 <nop>
-map g8 <nop>
-map g; <nop>
-map g< <nop>
-map g? <nop>
-map gD <nop>
-map gE <nop>
-map gP <nop>
-map gH <nop>
-map gI <nop>
-map gJ <nop>
-map gN <nop>
-map gQ <nop>
-map gR <nop>
-map gT <nop>
-map gU <nop>
-map g] <nop>
-map g^ <nop>
-map g_ <nop>
-map ga <nop>
-map gd <nop>
-map ge <nop>
-map gF <nop>
-map gh <nop>
-map gi <nop>
-map gj <nop>
-map gk <nop>
-map gm <nop>
-map gM <nop>
-map gn <nop>
-map go <nop>
-map gq <nop>
-map gr <nop>
-map gs <nop>
-map gt <nop>
-map gu <nop>
-map gw <nop>
-map gx <nop>
-map g@ <nop>
-map g~ <nop>
-
+map g <nop>
+map z <nop>
+map s <nop>
+map Q <nop>
+map U <nop>
+map S <nop>
 map Z <nop>
-map z+ <nop>
-map z- <nop>
-map z. <nop>
-map z= <nop>
-map zA <nop>
-map zC <nop>
-map zD <nop>
-map zE <nop>
-map zF <nop>
-map zG <nop>
-map zH <nop>
-map zL <nop>
-map zM <nop>
-map zN <nop>
-map zO <nop>
-map zR <nop>
-map zW <nop>
-map zX <nop>
-map z^ <nop>
-map za <nop>
-map zb <nop>
-map zc <nop>
-map zd <nop>
-map ze <nop>
-map zf <nop>
-map zg <nop>
-map zh <nop>
-map zi <nop>
-map zl <nop>
-map zm <nop>
-map zn <nop>
-map zo <nop>
-map zp <nop>
-map zP <nop>
-map zr <nop>
-map zs <nop>
-map zt <nop>
-map zv <nop>
-map zw <nop>
-map zx <nop>
-map zy <nop>
-map zu <nop>
-
-map <c-w>+ <nop>
-map <c-w>- <nop>
-map <c-w>< <nop>
-map <c-w>> <nop>
-map <c-w>H <nop>
-map <c-w>J <nop>
-map <c-w>K <nop>
-map <c-w>L <nop>
-map <c-w>P <nop>
-map <c-w>R <nop>
-map <c-w>S <nop>
-map <c-w>T <nop>
-map <c-w>W <nop>
-map <c-w>] <nop>
-map <c-w>^ <nop>
-map <c-w>_ <nop>
-map <c-w>b <nop>
-map <c-w>c <nop>
-map <c-w>d <nop>
-map <c-w>F <nop>
-map <c-w>g <nop>
-map <c-w>h <nop>
-map <c-w>i <nop>
-map <c-w>j <nop>
-map <c-w>k <nop>
-map <c-w>l <nop>
-map <c-w>n <nop>
-map <c-w>p <nop>
-map <c-w>r <nop>
-map <c-w>s <nop>
-map <c-w>t <nop>
-map <c-w>v <nop>
-map <c-w>w <nop>
-map <c-w>x <nop>
-map <c-w>z <nop>
-map <c-w>\| <nop>
-map <c-w>} <nop>
-map <c-w>q <nop>
-map <c-w>f <nop>
-
-map '' <nop>
-map '( <nop>
-map ') <nop>
-map '< <nop>
-map '> <nop>
-map '[ <nop>
-map '] <nop>
-map '{ <nop>
-map '} <nop>
-
-map [# <nop>
-map [' <nop>
-map [( <nop>
-map [* <nop>
-map [` <nop>
-map [/ <nop>
-map [D <nop>
-map [I <nop>
-map [P <nop>
-map [[ <nop>
-map [] <nop>
-map [c <nop>
-map [d <nop>
-map [f <nop>
-map [i <nop>
-map [m <nop>
-map [p <nop>
-map [s <nop>
-map [z <nop>
-map [{ <nop>
-map ]# <nop>
-map ]' <nop>
-map ]) <nop>
-map ]* <nop>
-map ]` <nop>
-map ]/ <nop>
-map ]D <nop>
-map ]I <nop>
-map ]P <nop>
-map ][ <nop>
-map ]] <nop>
-map ]c <nop>
-map ]d <nop>
-map ]f <nop>
-map ]i <nop>
-map ]s <nop>
-map ]z <nop>
-map ]} <nop>
-
-map <c-q>   <nop>
-map <c-n>   <nop>
-map <c-o>   <nop>
-map <c-p>   <nop>
-map <c-g>   <nop>
-map <cr>    <nop>
-map <bs>    <nop>
-map <c-s>   <nop>
-map <c-t>   <nop>
-map <c-x>   <nop>
-map <c-y>   <nop>
-map <c-z>   <nop>
-map <c-\>   <nop>
-map <c-]>   <nop>
-map <c-^>   <nop>
-map <c-_>   <nop>
+map [ <nop>
+map ] <nop>
+map <c-q> <nop>
+map <c-w> <nop>
+map <c-n> <nop>
+map <c-o> <nop>
+map <c-p> <nop>
+map <c-g> <nop>
+map <c-s> <nop>
+map <c-t> <nop>
+map <c-x> <nop>
+map <c-y> <nop>
+map <c-z> <nop>
+map <c-\> <nop>
+map <c-]> <nop>
+map <c-^> <nop>
+map <c-_> <nop>
+map <cr>  <nop>
+map <bs>  <nop>
 map <space> <nop>
 
 " Windows focus
@@ -211,6 +38,8 @@ noremap <silent> <c-e> $
 noremap <silent> <c-a> ^
 noremap <silent> J <c-e>
 noremap <silent> K <c-y>
+noremap <silent> gg gg
+noremap <silent> zz zz
 
 " Visual select
 noremap <silent> gV ggVG$
@@ -220,7 +49,9 @@ nnoremap <silent> <c-w>t <c-w>T
 nnoremap <silent> <c-w>h <c-w>H
 nnoremap <silent> <c-w>j <c-w>J
 nnoremap <silent> <c-w>k <c-w>K
-nnoremap <silent> <C-w>l <c-w>L
+nnoremap <silent> <c-w>l <c-w>L
+nnoremap <silent> <c-w>o <c-w>o
+nnoremap <silent> <c-w>= <c-w>=
 
 " Fold
 nnoremap zo zO
@@ -257,22 +88,14 @@ nnoremap <silent> - <c-x>
 vnoremap <silent> + g<c-a>
 vnoremap <silent> - g<c-x>
 
-" Search by regex
-nnoremap / :/\v<cmd>set hlsearch<cr>
-
-" Nohl
-nnoremap <silent> <esc> :set nohlsearch<cr>
-
-" Open the file under the cursor
-nnoremap <silent> gf <c-w>f
-nnoremap <silent> gF gf
-
 " Misc
+nnoremap <silent> Q @q
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 nnoremap <silent> Y y$
-nnoremap <silent> Q @q
-nnoremap <silent> q: <nop>
+nnoremap <silent> gf <c-w>gf
+nnoremap <silent> <esc> :set nohlsearch<cr>
+nnoremap / :/\v<cmd>set hlsearch<cr>
 
 " Imap
 imap <c-@> <nop>

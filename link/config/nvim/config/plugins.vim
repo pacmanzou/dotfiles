@@ -12,7 +12,6 @@ endif
 let g:plug_window = 'vsplit new'
 
 call plug#begin('$HOME/.config/nvim/plugged')
-
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
@@ -256,7 +255,6 @@ Plug 'posva/vim-vue', {'for': 'vue'}
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'RRethy/nvim-treesitter-textsubjects'
-
 call plug#end()
 
 if g:nvim_plugins_installation_completed == 1
