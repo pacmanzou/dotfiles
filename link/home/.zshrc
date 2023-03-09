@@ -80,21 +80,16 @@ PROMPT='%B%F{green}%n@%m%f%b %~ $vcs_info_msg_1_$(git_dirty)$prompt_newline:'
 # Alias
 alias sudo='sudo -E'
 alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
+alias ls='ls --color=tty --time-style=iso'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
-alias grep='grep --colour=auto'
+alias grep='grep --color=auto'
 alias df='df -h'
 alias free='free -m'
 
-if (( $+commands[exa] )); then
-    alias ls='exa -gH --time-style=iso --icons'
-else
-    alias ls='ls --color=tty --time-style=iso'
-fi
-
 # Functions
-function mc {
+function mkcd {
     command mkdir "$1" && cd "$1" || exit
 }
 

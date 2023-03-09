@@ -120,7 +120,6 @@ sudo pacman -S alacritty \
 	dbeaver \
 	dunst \
 	docker \
-	exa \
 	fd \
 	fzf \
 	firefox \
