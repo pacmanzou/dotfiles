@@ -54,7 +54,6 @@ bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_
 bindsym $mod+Shift+u exec --no-startup-id brightnessctl set 5%+
 bindsym $mod+Shift+i mode "$mode_i3exit"
 bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
-bindsym $mod+Shift+l mode "$mode_layout"
 bindsym $mod+Shift+x mode "$mode_xinput"
 bindsym $mod+Shift+c mode "$mode_clash"
 bindsym $mod+Shift+m mode "$mode_misc"
@@ -80,15 +79,6 @@ mode "$mode_i3exit" {
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym l exec --no-startup-id i3exit lock, mode "default"
     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-set $mode_layout (T)ab    (S)plit
-mode "$mode_layout" {
-    bindsym s layout splith; exec --no-startup-id notify-send "Layout mode" "split", mode "default"
-    bindsym t layout tabbed, exec --no-startup-id notify-send "Layout mode" "tab", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
