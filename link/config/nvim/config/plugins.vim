@@ -45,7 +45,7 @@ let g:coc_global_extensions = [
 inoremap <silent><expr> <c-l> coc#pum#confirm()
 
 " Coc-explorer
-nmap <silent> <space>e :CocCommand explorer --sources=file+<cr>
+nmap <silent> <space>e :CocCommand explorer<cr>
 
 " Coc-translate
 nmap <silent> t <plug>(coc-translator-e)
@@ -209,6 +209,7 @@ nnoremap <silent> <c-g>h :FloatermNew htop<cr>
 
 " Tag
 Plug 'liuchengxu/vista.vim'
+let g:vista#renderer#enable_icon = 0
 nnoremap <silent> <space>v :Vista!!<cr>
 
 " Go
