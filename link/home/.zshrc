@@ -17,7 +17,7 @@ export GOPATH=$HOME/go
 export GOPROXY=https://goproxy.cn,direct
 
 # History
-export HISTFILE="$HOME/.zsh_history"
+export HISTFILE=$HOME/.zsh_history
 
 HISTSIZE=10000000
 SAVEHIST=10000000

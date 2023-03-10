@@ -110,9 +110,6 @@ sudo pacman -S alacritty \
 	baidupcs-go \
 	bash-language-server \
 	bleachbit \
-	bluez \
-	bluez-utils \
-	blueman \
 	clash \
 	ctags \
 	copyq \
@@ -123,9 +120,6 @@ sudo pacman -S alacritty \
 	fd \
 	fzf \
 	firefox \
-	fcitx5 \
-	fcitx5-chinese-addons \
-	fcitx5-configtool \
 	go \
 	gopls \
 	gcc \
@@ -139,7 +133,6 @@ sudo pacman -S alacritty \
 	lazydocker \
 	lux-dl \
 	mpv \
-	manjaro-asian-input-support-fcitx5 \
 	manjaro-settings-manager \
 	materia-gtk-theme \
 	music-dl \
@@ -178,7 +171,18 @@ sudo pacman -S alacritty \
 	zathura \
 	zathura-pdf-mupdf
 
-# Kvm the virtual machine
+# Bluetooth
+sudo pacman -S bluez \
+	bluez-utils \
+	blueman \
+
+# Input method
+sudo pacman -S fcitx5 \
+	fcitx5-chinese-addons \
+	fcitx5-configtool \
+	manjaro-asian-input-support-fcitx5 \
+
+# Virtual machine
 sudo pacman -S qemu \
 	libvirt \
 	ovmf \
