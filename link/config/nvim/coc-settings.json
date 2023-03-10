@@ -1,6 +1,6 @@
 {
   "coc.preferences.formatOnType": true,
-  "diagnostic-languageserver.filetypes": { "sh": "shellcheck" },
+  "diagnostic-languageserver.filetypes": { "sh": "shellcheck -x" },
   "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
   "explorer.width": 30,
   "explorer.keyMappingMode": "none",

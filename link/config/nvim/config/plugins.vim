@@ -148,6 +148,9 @@ endfunction
 nnoremap <silent><expr> <c-s> <sid>select_current_word()
 nnoremap <silent> <c-q> <plug>(coc-cursors-word)
 
+" Add `:Format` command to format current buffer.
+command! -nargs=0 Format :call CocActionAsync('format')
+
 " Auto commands
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
