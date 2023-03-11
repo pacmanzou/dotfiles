@@ -80,7 +80,7 @@ PROMPT='%B%F{green}%n@%m%f%b %~ $vcs_info_msg_1_$(git_dirty)$prompt_newline:'
 # Alias
 alias sudo='sudo -E'
 alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
-alias ls='ls --color=tty --time-style=iso'
+alias ls='ls --color=auto --time-style=long-iso'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
