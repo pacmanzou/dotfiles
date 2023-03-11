@@ -2,6 +2,8 @@
   "coc.preferences.formatOnType": true,
   "diagnostic-languageserver.filetypes": { "sh": "shellcheck -x" },
   "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
+  "explorer.icon.expanded": "▼",
+  "explorer.icon.collapsed": "▶",
   "explorer.width": 30,
   "explorer.keyMappingMode": "none",
   "explorer.trash.command": "trash-put %s",
