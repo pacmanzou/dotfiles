@@ -3,7 +3,6 @@ map g <nop>
 map z <nop>
 map s <nop>
 map Q <nop>
-map U <nop>
 map S <nop>
 map Z <nop>
 map [ <nop>

@@ -1,7 +1,13 @@
 {
   "coc.preferences.formatOnType": true,
-  "diagnostic-languageserver.filetypes": { "sh": "shellcheck -x" },
   "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
+  "diagnostic-languageserver.filetypes": {
+    "sh": {
+      "shellcheck": {
+        "args": ["--external-sources"]
+      }
+    }
+  },
   "explorer.icon.expanded": "▼",
   "explorer.icon.collapsed": "▶",
   "explorer.width": 30,
