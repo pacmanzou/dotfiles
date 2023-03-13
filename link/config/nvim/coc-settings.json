@@ -105,6 +105,7 @@
   "python.formatting.provider": "black",
   "pairs.enableCharacters": ["(", "[", "{", "'", "\"", "`"],
   "suggest.maxCompleteItemCount": 16,
+  "suggest.noselect": true,
   "suggest.enablePreselect": false,
   "translator.engines": ["google"],
   "translator.proxy": "socks://127.0.0.1:7890",

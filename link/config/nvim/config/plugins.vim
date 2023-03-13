@@ -41,9 +41,6 @@ let g:coc_global_extensions = [
       \ 'coc-leetcode'
       \ ]
 
-" Coc-snippets
-inoremap <silent><expr> <c-l> coc#pum#confirm()
-
 " Coc-explorer
 nmap <silent> <space>e :CocCommand explorer<cr>
 
@@ -92,7 +89,7 @@ endfunction
 nmap <silent> cr <plug>(coc-rename)
 
 " Apply codeAction, need lsp to support
-xmap <silent> <c-l> <plug>(coc-codeaction-selected)
+xmap <silent> <c-y> <plug>(coc-codeaction-selected)
 
 " Code navigation
 let g:coc_enable_locationlist = 0

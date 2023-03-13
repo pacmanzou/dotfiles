@@ -39,6 +39,8 @@ noremap <silent> J <c-e>
 noremap <silent> K <c-y>
 noremap <silent> gg gg
 noremap <silent> zz zz
+noremap <silent> zt zt
+noremap <silent> zb zb
 
 " Visual select
 noremap <silent> gV ggVG$
@@ -94,6 +96,7 @@ nnoremap <silent> < <<
 nnoremap <silent> Y y$
 nnoremap <silent> gf <c-w>gf
 nnoremap <silent> <esc> :set nohlsearch<cr>
+
 nnoremap / :/\v<cmd>set hlsearch<cr>
 
 " Imap
@@ -117,6 +120,7 @@ inoremap <c-e> <c-o>$
 inoremap <c-f> <right>
 inoremap <c-b> <left>
 inoremap <c-h> <backspace>
+inoremap <c-l> <c-o>zt
 inoremap <c-d> <delete>
 
 " Cmap
