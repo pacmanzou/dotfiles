@@ -94,13 +94,11 @@ mode "$mode_xinput" {
     bindsym Escape mode "default"
 }
 
-set $mode_clash (S)ubscribe    (G)lobal    (R)ule    (D)irect
+set $mode_clash (S)ubscribe    (M)ode
 
 mode "$mode_clash" {
     bindsym s exec --no-startup-id bash "$HOME/personal/clash/subscribe.sh", mode "default"
-    bindsym g exec --no-startup-id bash "$HOME/personal/clash/global.sh", mode "default"
-    bindsym r exec --no-startup-id bash "$HOME/personal/clash/rule.sh", mode "default"
-    bindsym d exec --no-startup-id bash "$HOME/personal/clash/direct.sh", mode "default"
+    bindsym m exec --no-startup-id bash "$HOME/personal/clash/mode.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
