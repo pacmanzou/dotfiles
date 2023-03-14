@@ -5,25 +5,25 @@
 # Drives mounted at /, /boot and /home will not be options to unmount.
 
 _dmenu() {
-    dmenu -b -l 0 -nb '#000000' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#1d1d1d' -fn '' "$@"
+	dmenu -i -b -nb '#1d1d1d' -nf '#ebdbb2' -sf '#ebdbb2' -sb '#353535' -fn '' "$@"
 }
 
 unmountusb() {
 	[ -z "$drives" ] && exit
-	chosen="$(echo "$drives" | _dmenu -i -p "Unmount which drive?")" || exit 1
+	chosen="$(echo "$drives" | _dmenu -w 500 -l 14 -p "Unmount which drive?")" || exit 1
 	chosen="$(echo "$chosen" | awk '{print $1}')"
 	[ -z "$chosen" ] && exit
 	sudo -A umount "$chosen" && notify-send "💻 USB unmounting" "$chosen unmounted."
 	}
 
 unmountandroid() { \
-	chosen="$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | _dmenu -i -p "Unmount which device?")" || exit 1
+	chosen="$(awk '/simple-mtpfs/ {print $2}' /etc/mtab | _dmenu -l 14 -w 500 -p "Unmount which device?")" || exit 1
 	[ -z "$chosen" ] && exit
 	sudo -A umount -l "$chosen" && notify-send "🤖 Android unmounting" "$chosen unmounted."
 	}
 
 asktype() { \
-	choice="$(printf "USB\\nAndroid" | _dmenu -i -p "Unmount a USB drive or Android device?")" || exit 1
+	choice="$(printf "USB\\nAndroid" | _dmenu -w 800 -p "Unmount a USB drive or Android device?")" || exit 0
 	case "$choice" in
 		USB) unmountusb ;;
 		Android) unmountandroid ;;
