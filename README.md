@@ -46,8 +46,10 @@ yay -S abook \
     debtap \
     linuxqq \
     mutt-wizard \
+    subconverter-bin \
     simple-mtpfs \
     sqls \
+    urlencode \
     wps-office-cn \
     wps-office-mui-zh-cn \
     wps-office-fonts \

@@ -70,10 +70,9 @@ bindsym $mod+Ctrl+l move right 50
 bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -e zsh
 
 # Mode
-set $mode_i3exit (R)eboot    switch_(U)ser    log(O)ut    (S)uspend    (H)ibernate    (L)ock    (Shift+S)hutdown
+set $mode_i3exit (L)ock    (S)uspend    (H)ibernate    log(O)ut    (R)eboot    (Shift+S)hutdown
 mode "$mode_i3exit" {
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym o exec --no-startup-id i3exit logout, mode "default"
     bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
@@ -94,11 +93,12 @@ mode "$mode_xinput" {
     bindsym Escape mode "default"
 }
 
-set $mode_clash (S)ubscribe    (M)ode
+set $mode_clash (R)egion    (M)ode    (S)ubscrebe
 
 mode "$mode_clash" {
-    bindsym s exec --no-startup-id bash "$HOME/personal/clash/subscribe.sh", mode "default"
+    bindsym r exec --no-startup-id bash "$HOME/personal/clash/region.sh", mode "default"
     bindsym m exec --no-startup-id bash "$HOME/personal/clash/mode.sh", mode "default"
+    bindsym s exec --no-startup-id bash "$HOME/personal/clash/subscribe.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
