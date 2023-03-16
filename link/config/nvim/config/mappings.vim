@@ -89,15 +89,16 @@ nnoremap <silent> - <c-x>
 vnoremap <silent> + g<c-a>
 vnoremap <silent> - g<c-x>
 
+" Hlsearch
+nnoremap <silent> <esc> :set nohlsearch<cr>
+nnoremap <silent> <enter> :set hlsearch<cr>
+
 " Misc
 nnoremap <silent> Q @q
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 nnoremap <silent> Y y$
 nnoremap <silent> gf <c-w>gf
-nnoremap <silent> <esc> :set nohlsearch<cr>
-
-nnoremap / :/\v<cmd>set hlsearch<cr>
 
 " Imap
 imap <c-@> <nop>
