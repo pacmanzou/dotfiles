@@ -21,7 +21,8 @@ exec --no-startup-id bash "$HOME/.i3/background.sh"
 
 # Automatic execution of the shell
 exec --no-startup-id bluetoothctl power on
-exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set --governor performance
+exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" |\
+sudo -S cpupower frequency-set --governor performance
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 # Automatic startup software
@@ -178,8 +179,6 @@ floating_maximum_size 1430 x 805
 # Open specific applications in floating mode
 for_window [title="^alacritty-float$"] floating enable, move position center
 
-for_window [class="^.*"] border none
-
 for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
 
 for_window [class="GParted"] floating enable, move position center
@@ -203,12 +202,21 @@ for_window [class="neovide"] floating enable, move position center
 for_window [class="Telegram"] floating enable, move position center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border none
+default_border pixel 1
 default_floating_border none
 
 # Theme colors
-# class                 border  backgr. text indic. child_border
-client.focused          #000000 #ebdbb2 #000000 #000000
+# class                 border  backgr. text    indic.   child_border
+client.focused          #000000 #151515 #000000 #000000
+client.focused_inactive #000000 #000000 #000000 #000000
+client.unfocused        #000000 #000000 #000000 #000000
+client.urgent           #CB4B16 #000000 #000000 #000000
+client.placeholder      #000000 #0c0c0c #ffffff #000000
+client.background       #000000
+
+# Set inner/outer gaps
+gaps inner 5
+gaps outer 5
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 # Real-time adjust the volume

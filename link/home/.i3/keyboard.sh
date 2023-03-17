@@ -4,7 +4,8 @@
 
 declare -i ID
 
-ID=$(xinput list | grep -Eio '(set 2 keyboard)\s*id=[0-9]{1,2}' | grep -Eio 'id=[0-9]{1,2}' | grep -Eo '[0-9]+')
+ID=$(xinput list | grep -Eio '(set 2 keyboard)\s*id=[0-9]{1,2}' |
+	grep -Eio 'id=[0-9]{1,2}' | grep -Eo '[0-9]+')
 
 declare -i STATE
 
