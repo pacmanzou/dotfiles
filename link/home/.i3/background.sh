@@ -5,6 +5,6 @@
 while :; do
 	sleep 1h
 
-	wget -O "$HOME/.i3/background.png" https://source.unsplash.com/1920x1080
+	curl -L -x http://127.0.0.1:7890 -o "$HOME/.i3/background.png" https://source.unsplash.com/1920x1080
 	nitrogen --set-zoom-fill "$HOME/.i3/background.png"
 done

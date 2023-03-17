@@ -207,9 +207,9 @@ default_floating_border none
 
 # Theme colors
 # class                 border  backgr. text    indic.   child_border
-client.focused          #000000 #151515 #000000 #000000
-client.focused_inactive #000000 #000000 #000000 #000000
-client.unfocused        #000000 #000000 #000000 #000000
+client.focused          #000000 #1d1d1d #000000 #000000
+client.focused_inactive #000000 #1d1d1d #000000 #000000
+client.unfocused        #000000 #1d1d1d #000000 #000000
 client.urgent           #CB4B16 #000000 #000000 #000000
 client.placeholder      #000000 #0c0c0c #ffffff #000000
 client.background       #000000
