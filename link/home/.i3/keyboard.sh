@@ -11,7 +11,7 @@ declare -i STATE
 
 STATE=$(xinput list-props "$ID" | grep 'Device Enabled' | awk '{print $4}')
 
-if [ "$STATE" -eq 1 ]; then
+if [[ $STATE -eq 1 ]]; then
 	xinput disable "$ID"
 	notify-send "Keyboard" "off"
 else

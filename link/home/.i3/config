@@ -94,12 +94,13 @@ mode "$mode_xinput" {
     bindsym Escape mode "default"
 }
 
-set $mode_clash (P)roxy    (M)ode    (S)ubscrebe
+set $mode_clash (P)roxy    (M)ode    (S)ubscrebe    (U)pdate
 
 mode "$mode_clash" {
     bindsym p exec --no-startup-id bash "$HOME/personal/clash/proxy.sh", mode "default"
     bindsym m exec --no-startup-id bash "$HOME/personal/clash/mode.sh", mode "default"
     bindsym s exec --no-startup-id bash "$HOME/personal/clash/subscribe.sh", mode "default"
+    bindsym u exec --no-startup-id bash "$HOME/personal/clash/update.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"

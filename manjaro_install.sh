@@ -36,25 +36,25 @@ CopyHandler() {
 
 FileHandler() {
 	for fileSrc in $1; do
-		basenameSrc=$(basename "${fileSrc}")
-		if [[ "." == "${basenameSrc}" || ".." == "${basenameSrc}" ||
-			"*" == "${basenameSrc}" ]]; then
+		basenameSrc=$(basename "$fileSrc")
+		if [[ "." == "$basenameSrc" || ".." == "$basenameSrc" ||
+			"*" == "$basenameSrc" ]]; then
 			continue
 		fi
 		for fileDst in $2; do
-			basenameDst=$(basename "${fileDst}")
-			dirnameDst=$(dirname "${fileDst}")
-			if [[ "${basenameDst}" == "${basenameSrc}" ]]; then
-				sudo mv "${fileDst}" "${fileDst}"~
+			basenameDst=$(basename "$fileDst")
+			dirnameDst=$(dirname "$fileDst")
+			if [[ "$basenameDst" == "$basenameSrc" ]]; then
+				sudo mv "$fileDst" "$fileDst"~
 			fi
 		done
-		$3 "${fileSrc}" "${dirnameDst}"
+		$3 "$fileSrc" "$dirnameDst"
 	done
 }
 
 file="$HOME/.gitconfig"
 
-if [[ -f "${file}" ]]; then
+if [[ -f "$file" ]]; then
 	Warn "If you want to run this script, please remove the .gitconfig!"
 	Fail "Failed to run this script"
 	exit 1
