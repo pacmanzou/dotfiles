@@ -181,6 +181,8 @@ floating_maximum_size 1430 x 805
 for_window [title="^alacritty-float$"] floating enable, move position center
 
 for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
+for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
+for_window [class="BleachBit"] floating enable, resize set 1430 805, move position center
 
 for_window [class="GParted"] floating enable, move position center
 for_window [class="Lightdm-settings"] floating enable, move position center
@@ -189,9 +191,7 @@ for_window [class="Pamac-manager"] floating enable, move position center
 for_window [class="Nitrogen"] floating enable, move position center
 for_window [class="mpv"] floating enable, move position center
 for_window [class="Manjaro Settings Manager"] floating enable, move position center
-for_window [class="BleachBit"] floating enable, move position center
 for_window [class="obs"] floating enable, move position center
-for_window [class="Gimp-2.10"] floating enable, move position center
 for_window [class="QQ"] floating enable, move position center
 for_window [class="apifox"] floating enable, move position center
 for_window [class="DBeaver"] floating enable, move position center
@@ -199,8 +199,6 @@ for_window [class="VirtualBox"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
-for_window [class="neovide"] floating enable, move position center
-for_window [class="Telegram"] floating enable, move position center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
