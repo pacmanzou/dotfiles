@@ -110,7 +110,7 @@ sudo pacman -S alacritty \
 	baidupcs-go \
 	bash-language-server \
 	bleachbit \
-	clash \
+	clash-premium-bin \
 	ctags \
 	copyq \
 	cmake \

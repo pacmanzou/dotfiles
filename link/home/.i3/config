@@ -28,6 +28,7 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 # Automatic startup software
 exec --no-startup-id copyq
 exec --no-startup-id clash
+exec --no-startup-id subconverter
 exec --no-startup-id fcitx5
 exec --no-startup-id utools
 
@@ -182,7 +183,6 @@ for_window [title="^alacritty-float$"] floating enable, move position center
 
 for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
 for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
-for_window [class="BleachBit"] floating enable, resize set 1430 805, move position center
 
 for_window [class="GParted"] floating enable, move position center
 for_window [class="Lightdm-settings"] floating enable, move position center

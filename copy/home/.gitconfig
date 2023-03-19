@@ -7,3 +7,6 @@
 	diff = auto
 	branch = auto
 	interactive = auto
+
+[http]
+	proxy = http://127.0.0.1:7890

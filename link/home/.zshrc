@@ -7,9 +7,9 @@ export EDITOR=/usr/bin/nvim
 export BROWSER=/usr/bin/firefox
 
 # System proxy
-export https_proxy=http://127.0.0.1:7890
-export http_proxy=http://127.0.0.1:7890
-export all_proxy=socks5://127.0.0.1:7890
+# export https_proxy=http://127.0.0.1:7890
+# export http_proxy=http://127.0.0.1:7890
+# export all_proxy=socks5://127.0.0.1:7890
 
 # Golang
 export PATH=$PATH:$HOME/go/bin
