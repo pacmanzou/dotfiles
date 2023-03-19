@@ -27,8 +27,6 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 # Automatic startup software
 exec --no-startup-id copyq
-exec --no-startup-id clash
-exec --no-startup-id subconverter
 exec --no-startup-id fcitx5
 exec --no-startup-id utools
 
