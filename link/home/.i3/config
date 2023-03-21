@@ -8,7 +8,7 @@ set $mod Mod1
 floating_modifier $mod
 
 # Font for window titles. Will also be used by the bar unless a different font
-font xft:URWGothic-Book 12
+font xft:URWGothic-Book 14
 
 # Exec
 exec_always --no-startup-id fix_xcursor

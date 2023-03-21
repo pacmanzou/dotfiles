@@ -5,7 +5,7 @@ conky.config = {
     cpu_avg_samples = 2,
     default_color = '#ebdbb2',
     double_buffer = true,
-    font = 'Bitstream Vera Sans:size=8',
+    font = 'xft:URWGothic-Book:size=10',
     gap_x = 0,
     gap_y = 0,
     minimum_width = 200,
