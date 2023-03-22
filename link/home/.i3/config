@@ -93,14 +93,15 @@ mode "$mode_xinput" {
     bindsym Escape mode "default"
 }
 
-set $mode_clash (S)elect    (I)mport    (D)elete    (U)pdate    (Shift+U)pdate_all
+set $mode_clash (I)nfo    (S)elect    (U)pdate    (D)elete    (Shift+I)mport    (Shift+U)pdate_all
 
 mode "$mode_clash" {
+    bindsym i exec --no-startup-id bash "$HOME/personal/clash/info.sh", mode "default"
     bindsym s exec --no-startup-id bash "$HOME/personal/clash/select.sh", mode "default"
-    bindsym i exec --no-startup-id bash "$HOME/personal/clash/import.sh", mode "default"
-    bindsym d exec --no-startup-id bash "$HOME/personal/clash/delete.sh", mode "default"
     bindsym u exec --no-startup-id bash "$HOME/personal/clash/update.sh", mode "default"
     bindsym Shift+u exec --no-startup-id bash "$HOME/personal/clash/update_all.sh", mode "default"
+    bindsym Shift+i exec --no-startup-id bash "$HOME/personal/clash/import.sh", mode "default"
+    bindsym d exec --no-startup-id bash "$HOME/personal/clash/delete.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
