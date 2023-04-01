@@ -35,11 +35,11 @@ bindsym $mod+Tab workspace next
 bindsym $mod+q exec --no-startup-id dunstctl close
 bindsym $mod+w workspace back_and_forth
 bindsym $mod+r split toggle
-bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ unmute && $refresh_i3status
+bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ && $refresh_i3status
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
 bindsym $mod+s exec --no-startup-id flameshot gui
-bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- unmute && $refresh_i3status
+bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- && $refresh_i3status
 bindsym $mod+f fullscreen toggle
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -47,6 +47,7 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+z mode "resize"
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
+bindsym $mod+m exec --no-startup-id amixer -q set Master toggle && $refresh_i3status
 bindsym $mod+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
 bindsym $mod+Shift+Tab workspace prev

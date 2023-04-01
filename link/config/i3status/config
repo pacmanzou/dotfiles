@@ -31,6 +31,7 @@ memory {
 
 volume master {
     format = " VOLUME %volume"
+    format_muted = " VOLUME(muted) %volume"
     device = "default"
     mixer = "Master"
     mixer_idx = 0
