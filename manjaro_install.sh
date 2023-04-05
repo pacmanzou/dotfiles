@@ -107,7 +107,6 @@ sudo pacman -Syu
 
 # Install
 sudo pacman -S alacritty \
-	baidupcs-go \
 	bash-language-server \
 	bleachbit \
 	ctags \
@@ -124,6 +123,7 @@ sudo pacman -S alacritty \
 	gcc \
 	gparted \
 	htop \
+	jellyfin-media-player \
 	java-openjfx \
 	jdk-openjdk \
 	jre-openjdk \
