@@ -117,7 +117,6 @@ sudo pacman -S alacritty \
 	docker \
 	fd \
 	fzf \
-	firefox \
 	go \
 	gopls \
 	gcc \

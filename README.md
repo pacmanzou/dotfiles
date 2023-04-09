@@ -6,7 +6,6 @@ Some useful configs for manjaro i3.
 
 - [Auto configuration](#auto-configuration)
 - [Manual configuration](#manual-configuration)
-  - [Firefox](#firefox)
   - [Yay](#yay)
   - [SSH for git](#ssh-for-git)
   - [Video card and font](#video-card-and-font)
@@ -30,12 +29,6 @@ Some useful configs for manjaro i3.
 
 **`git clone https://github.com/pacmanzou/personal`**
 
-### Firefox
-
-- Open the about:config, set browser.cache.disk.enable = false
-
-- Sync firefox account
-
 ### Yay
 
 > Need to configure the clash
@@ -44,6 +37,7 @@ Some useful configs for manjaro i3.
 yay -S abook \
     apifox \
     debtap \
+    google-chrome \
     linuxqq \
     mutt-wizard \
     simple-mtpfs \
