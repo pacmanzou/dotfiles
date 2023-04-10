@@ -202,7 +202,8 @@ for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
+# default_border pixel 1
+default_border none
 default_floating_border none
 
 # Theme colors
@@ -223,9 +224,9 @@ gaps outer 5
 set $refresh_i3status killall -SIGUSR1 i3status
 
 bar {
+    height 25
     i3bar_command i3bar
     status_command i3status
-    height 21
     tray_output none
     position bottom
     strip_workspace_numbers yes
@@ -237,8 +238,8 @@ bar {
         #workspace color    border background font
         inactive_workspace #000000 #000000 #ebdbb2
         active_workspace   #000000 #000000 #ebdbb2
-        focused_workspace  #1d1d1d #353535 #ebdbb2
+        focused_workspace  #353535 #353535 #ebdbb2
         urgent_workspace   #000000 #000000 #ebdbb2
-        binding_mode       #000000 #1d1d1d #ebdbb2
+        binding_mode       #000000 #000000 #ebdbb2
     }
 }
