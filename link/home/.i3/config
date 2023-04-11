@@ -14,10 +14,10 @@ font xft:URWGothic-Book 14
 exec_always --no-startup-id fix_xcursor
 
 # Background
-exec --no-startup-id nitrogen --set-zoom-fill "$HOME/.i3/background.png"
+exec --no-startup-id nitrogen --set-zoom-fill "$HOME/.i3/wallpaper.png"
 exec --no-startup-id picom -b
 exec --no-startup-id sleep 1; conky -c "$HOME/.i3/conky_i3wm"
-exec --no-startup-id bash "$HOME/.i3/background.sh"
+exec --no-startup-id bash "$HOME/.i3/wallpaper.sh"
 
 # Automatic execution of the shell
 exec --no-startup-id bluetoothctl power on
