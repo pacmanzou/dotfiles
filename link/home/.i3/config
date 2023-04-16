@@ -180,10 +180,8 @@ floating_minimum_size 805 x -1
 floating_maximum_size 1430 x 805
 
 # Open specific applications in floating mode
-for_window [title="^alacritty-float$"] floating enable, move position center
-
-for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
-for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
+for_window [title="alacritty-float"] floating enable, move position center
+for_window [title="Clash Dashboard"] floating enable, resize set 1430 805, move position center
 
 for_window [class="GParted"] floating enable, move position center
 for_window [class="Lightdm-settings"] floating enable, move position center
@@ -200,6 +198,8 @@ for_window [class="VirtualBox"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
+for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
+for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 # default_border pixel 1

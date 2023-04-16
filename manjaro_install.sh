@@ -139,7 +139,7 @@ sudo pacman -S alacritty \
 	nodejs-lts-fermium \
 	npm \
 	neovim \
-	neovide \
+	neovide-git \
 	neomutt \
 	obs-studio \
 	pcmanfm-gtk3 \
