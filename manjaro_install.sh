@@ -181,12 +181,12 @@ sudo pacman -S fcitx5 \
 	manjaro-asian-input-support-fcitx5 \
 
 # Virtual machine
-sudo pacman -S qemu \
-	libvirt \
-	ovmf \
-	virt-manager \
-	virt-viewer \
-	vde2
+# sudo pacman -S qemu \
+# 	libvirt \
+# 	ovmf \
+# 	virt-manager \
+# 	virt-viewer \
+# 	vde2
 
 Info "### Go install ###"
 go install mvdan.cc/gofumpt@latest
