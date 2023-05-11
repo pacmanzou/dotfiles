@@ -202,8 +202,8 @@ for_window [class="Viewnior"] floating enable, resize set 1430 805, move positio
 for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-# default_border pixel 1
-default_border none
+default_border pixel 1
+# default_border none
 default_floating_border none
 
 # Theme colors
