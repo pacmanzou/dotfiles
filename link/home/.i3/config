@@ -30,6 +30,9 @@ exec --no-startup-id copyq
 exec --no-startup-id fcitx5
 exec --no-startup-id utools
 
+# Misc
+exec --no-startup-id bash "$HOME/.i3/battery.sh"
+
 # Key
 bindsym $mod+Tab workspace next
 bindsym $mod+q exec --no-startup-id dunstctl close
