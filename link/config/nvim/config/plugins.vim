@@ -47,17 +47,17 @@ nmap <silent> t <plug>(coc-translator-e)
 vmap <silent> t <plug>(coc-translator-ev)
 
 " Coc-git
-" Create text object for git hunk
-omap <silent> ih <plug>(coc-git-chunk-inner)
-xmap <silent> ih <plug>(coc-git-chunk-inner)
-omap <silent> ah <plug>(coc-git-chunk-outer)
-xmap <silent> ah <plug>(coc-git-chunk-outer)
+" Create text object for git chunk
+omap <silent> ig <plug>(coc-git-chunk-inner)
+xmap <silent> ig <plug>(coc-git-chunk-inner)
+omap <silent> ag <plug>(coc-git-chunk-outer)
+xmap <silent> ag <plug>(coc-git-chunk-outer)
 
-" Navigate hunks of current buffer
-nmap <silent> ]h <plug>(coc-git-nextchunk)
-nmap <silent> [h <plug>(coc-git-prevchunk)
+" Navigate git chunks of current buffer
+nmap <silent> ]g <plug>(coc-git-nextchunk)
+nmap <silent> [g <plug>(coc-git-prevchunk)
 
-" Navigate conflicts of current buffer
+" Navigate git conflicts of current buffer
 nmap <silent> ]c <plug>(coc-git-nextconflict)
 nmap <silent> [c <plug>(coc-git-prevconflict)
 
