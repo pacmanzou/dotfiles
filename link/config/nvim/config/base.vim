@@ -52,6 +52,7 @@ set nohlsearch
 set notimeout
 set nowritebackup
 set number
+set scrolloff=5
 set shiftwidth=2
 set shortmess+=c
 set smartcase
