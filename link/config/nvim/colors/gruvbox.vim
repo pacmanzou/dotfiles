@@ -15,8 +15,8 @@ hi SignColumn   guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
 hi ColorColumn  guifg=NONE    guibg=#000000 gui=NONE           cterm=NONE
 hi VertSplit    guifg=#504945 guibg=#000000 gui=NONE           cterm=NONE
 hi Comment      guifg=#928374 guibg=NONE    gui=italic         cterm=italic
-hi CursorLine   guifg=NONE    guibg=#353535 gui=NONE           cterm=NONE
-hi CursorLineNr guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
+hi CursorLine   guifg=NONE    guibg=NONE    gui=NONE           cterm=NONE
+hi CursorLineNr guifg=#ebdbb2 guibg=NONE    gui=NONE           cterm=NONE
 hi Error        guifg=#fb4934 guibg=#000000 gui=bold           cterm=bold
 hi ErrorMsg     guifg=#fb4934 guibg=#000000 gui=bold           cterm=bold
 hi ModeMsg      guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
