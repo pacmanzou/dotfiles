@@ -38,9 +38,11 @@ noremap <silent> <c-a> ^
 noremap <silent> J <c-e>
 noremap <silent> K <c-y>
 noremap <silent> gg gg
-noremap <silent> zz zz
-noremap <silent> zt zt
-noremap <silent> zb zb
+
+" Focus move
+nnoremap zh zt
+nnoremap zm zz
+nnoremap zl zb
 
 " Visual select
 noremap <silent> gV ggVG$
