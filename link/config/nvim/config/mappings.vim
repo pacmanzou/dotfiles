@@ -118,13 +118,14 @@ imap <c-v> <nop>
 imap <c-\> <nop>
 imap <c-]> <nop>
 
+imap <c-f> <right>
+imap <c-b> <left>
+imap <c-d> <delete>
+imap <c-h> <backspace>
+
 inoremap <c-a> <c-o>^
 inoremap <c-e> <c-o>$
-inoremap <c-f> <right>
-inoremap <c-b> <left>
-inoremap <c-h> <backspace>
 inoremap <c-l> <c-o>zt
-inoremap <c-d> <delete>
 
 " Cmap
 cmap <c-q> <nop>

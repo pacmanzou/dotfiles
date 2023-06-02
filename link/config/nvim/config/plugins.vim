@@ -33,7 +33,6 @@ let g:coc_global_extensions = [
       \ 'coc-gitignore',
       \ 'coc-lists',
       \ 'coc-git',
-      \ 'coc-pairs',
       \ 'coc-highlight',
       \ 'coc-translator',
       \ 'coc-explorer',
@@ -179,6 +178,9 @@ let g:indentLine_fileTypeExclude = [
 
 " For vim-surround
 Plug 'tpope/vim-repeat'
+
+" Pairs
+Plug 'jiangmiao/auto-pairs'
 
 " Comment
 Plug 'tomtom/tcomment_vim'
