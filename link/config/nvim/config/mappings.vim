@@ -45,7 +45,7 @@ nnoremap zm zz
 nnoremap zl zb
 
 " Visual select
-noremap <silent> gV ggVG$
+nnoremap <silent> gV ggVG$
 
 " Windows exchange
 nnoremap <silent> <c-w>t <c-w>T
@@ -142,8 +142,8 @@ cmap <c-z> <nop>
 cmap <c-x> <nop>
 cmap <c-v> <nop>
 
-cnoremap <c-a> <home>
-cnoremap <c-e> <end>
-cnoremap <c-f> <right>
-cnoremap <c-b> <left>
-cnoremap <c-d> <delete>
+cmap <c-a> <home>
+cmap <c-e> <end>
+cmap <c-f> <right>
+cmap <c-b> <left>
+cmap <c-d> <delete>

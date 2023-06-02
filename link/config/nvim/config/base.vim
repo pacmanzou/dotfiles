@@ -31,8 +31,8 @@ let mapleader = ","
 " Settings
 set autochdir
 set clipboard=unnamedplus
-set completeopt-=preview
 set cursorline
+set cursorlineopt=number
 set expandtab
 set foldmethod=indent
 set fileencodings=utf-8,gbk,ucs-bom,cp936
