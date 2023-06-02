@@ -134,7 +134,6 @@ sudo pacman -S alacritty \
 	manjaro-settings-manager \
 	materia-gtk-theme \
 	music-dl \
-	mycli \
 	neofetch \
 	nodejs-lts-fermium \
 	npm \
@@ -195,6 +194,7 @@ echo
 
 Info "### Pip install ###"
 pip install black \
+	mycli
 	pynvim
 echo
 
