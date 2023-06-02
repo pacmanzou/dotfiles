@@ -4,7 +4,6 @@ let g:nvim_plugins_installation_completed = 1
 " Check whether installed automatically
 if empty(glob('$HOME/.config/nvim/plugged/coc.nvim'))
   let g:nvim_plugins_installation_completed = 0
-
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 

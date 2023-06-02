@@ -76,17 +76,17 @@ if empty(glob('$HOME/.cache/nvim/swap'))
   silent !mkdir -p "$HOME/.cache/nvim/swap"
 endif
 
-" Statusline
+" StatusLine with coc.nvim
+set statusline=%!StatusLine()
+
 function! StatusLine() abort
   let s = ''
   let s .= '%f %h%w%m%r  %{StatusDiagnostic()}'
-  let s .= '%='
+  let s .= '%=%{StatusGit()}          '
   let s .= '%l,%c%V          %P'
-
   return s
 endfunction
 
-" Coc diagnostic
 function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   let msgs = []
@@ -105,8 +105,10 @@ function! StatusDiagnostic() abort
   if get(info, 'warning', 0)
     call add(msgs, 'W' . info['warning'])
   endif
-
   return join(msgs,'')
 endfunction
 
-set statusline=%!StatusLine()
+function! StatusGit() abort
+  let status = get(b:, 'coc_git_status', '')
+  return status
+endfunction
