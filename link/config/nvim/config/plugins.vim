@@ -5,8 +5,6 @@ endif
 
 " Vim-plug
 let g:plug_window = 'vsplit new'
-
-" Load plugins
 call plug#begin('$HOME/.config/nvim/plugged')
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
