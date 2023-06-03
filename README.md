@@ -19,6 +19,7 @@ Some useful configs for manjaro i3.
 
 `git clone https://github.com/pacmanzou/dotfiles`
 
+- `sudo -E pacman-mirrors -i -c China -m rank`
 - `sudo -E bash manjaro_install.sh`
 - `sudo -E bash key.sh`
 - `i3exit logout`
