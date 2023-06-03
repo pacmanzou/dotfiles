@@ -92,6 +92,11 @@
       "args": ["start"],
       "filetypes": ["sh"]
     },
+    "lua": {
+      "command": "lua-language-server",
+      "args": ["start"],
+      "filetypes": ["lua"]
+    },
     "sql": {
       "command": "sqls",
       "args": ["-config", "$HOME/.config/sqls/config.yml"],

@@ -1,23 +1,18 @@
 " Plugins
-" Installed mark
-let g:nvim_plugins_installation_completed = 1
-
-" Check whether installed automatically
 if empty(glob('$HOME/.config/nvim/plugged/coc.nvim'))
-  " Non-installed mark
-  let g:nvim_plugins_installation_completed = 0
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Vim-plug
 let g:plug_window = 'vsplit new'
+
+" Load plugins
 call plug#begin('$HOME/.config/nvim/plugged')
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-clangd',
       \ 'coc-pyright',
-      \ 'coc-lua',
       \ 'coc-sql',
       \ 'coc-json',
       \ 'coc-yaml',
@@ -101,17 +96,6 @@ nmap <silent> gi <plug>(coc-implementation)
 
 autocmd User CocLocationsChange CocList --auto-preview location
 
-" Map function and class text objects
-" NOTE: Requires 'textDocument.documentSymbol' support from the language server
-xmap if <plug>(coc-funcobj-i)
-omap if <plug>(coc-funcobj-i)
-xmap af <plug>(coc-funcobj-a)
-omap af <plug>(coc-funcobj-a)
-xmap ic <plug>(coc-classobj-i)
-omap ic <plug>(coc-classobj-i)
-xmap ac <plug>(coc-classobj-a)
-omap ac <plug>(coc-classobj-a)
-
 " Diagnostic jump
 nmap <silent> ]d <plug>(coc-diagnostic-next)
 nmap <silent> [d <plug>(coc-diagnostic-prev)
@@ -159,16 +143,11 @@ nnoremap <silent> <c-q> <plug>(coc-cursors-word)
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 
-" Auto commands
-autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-
-" Go
-autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
-autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.formatDocument')
-
-" To Avoid an error when not installed
-if g:nvim_plugins_installation_completed == 1
+if exists(':CocInstall')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
+  autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.formatDocument')
   autocmd CursorHold * silent call CocActionAsync('highlight')
 endif
 
@@ -254,32 +233,6 @@ let g:vmt_auto_update_on_save = 0
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'RRethy/nvim-treesitter-textsubjects'
 call plug#end()
-
-" Load Lua config
-if g:nvim_plugins_installation_completed == 1
-lua << EOF
-require'nvim-treesitter.configs'.setup {
-  sync_install = false,
-  auto_install = true,
-  highlight = {
-    enable = true,
-    disable = function(lang, buf)
-          local max_filesize = 100 * 1024 -- 100 KB
-          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-          if ok and stats and stats.size > max_filesize then
-              return true
-          end
-      end,
-      additional_vim_regex_highlighting = false,
-  },
-  textsubjects = {
-    enable = true,
-    keymaps = {
-      ['.'] = 'textsubjects-smart'
-    },
-  },
-}
-EOF
-endif
