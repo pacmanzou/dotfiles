@@ -23,11 +23,8 @@ let g:clipboard = {
       \ 'cache_enabled': 0,
       \ }
 
-" LeaderKey
+" Leader key
 let mapleader = ","
-
-" Encoding
-scriptencoding utf-8
 
 " Theme
 colorscheme gruvbox

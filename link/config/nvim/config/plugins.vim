@@ -1,15 +1,16 @@
 " Plugins
+" Installed mark
 let g:nvim_plugins_installation_completed = 1
 
 " Check whether installed automatically
 if empty(glob('$HOME/.config/nvim/plugged/coc.nvim'))
+  " Non-installed mark
   let g:nvim_plugins_installation_completed = 0
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 " Vim-plug
 let g:plug_window = 'vsplit new'
-
 call plug#begin('$HOME/.config/nvim/plugged')
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -67,7 +68,6 @@ nnoremap <silent> <space>a :CocCommand git.chunkStage<cr>
 nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
 nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
 
-" Coc basic config
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
       \ coc#pum#visible() ? coc#pum#next(1):
@@ -75,21 +75,21 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 function! CheckBackspace() abort
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+" <C-g>u breaks current undo, please make your own choice.
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 " Rename
 nmap <silent> cr <plug>(coc-rename)
 
 " Apply codeAction, need lsp to support
-xmap <silent> <c-y> <plug>(coc-codeaction-selected)
+xmap <silent> <cr> <plug>(coc-codeaction-selected)
 
 " Code navigation
 let g:coc_enable_locationlist = 0
@@ -100,6 +100,17 @@ nmap <silent> gt <plug>(coc-type-definition)
 nmap <silent> gi <plug>(coc-implementation)
 
 autocmd User CocLocationsChange CocList --auto-preview location
+
+" Map function and class text objects
+" NOTE: Requires 'textDocument.documentSymbol' support from the language server
+xmap if <plug>(coc-funcobj-i)
+omap if <plug>(coc-funcobj-i)
+xmap af <plug>(coc-funcobj-a)
+omap af <plug>(coc-funcobj-a)
+xmap ic <plug>(coc-classobj-i)
+omap ic <plug>(coc-classobj-i)
+xmap ac <plug>(coc-classobj-a)
+omap ac <plug>(coc-classobj-a)
 
 " Diagnostic jump
 nmap <silent> ]d <plug>(coc-diagnostic-next)
@@ -132,7 +143,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <silent> gh :call <sid>show_documentation()<cr>
+nnoremap <silent> gh :call <SID>show_documentation()<cr>
 
 " Multi cursors
 function! s:select_current_word()
@@ -142,7 +153,7 @@ function! s:select_current_word()
   return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
 endfunction
 
-nnoremap <silent><expr> <c-s> <sid>select_current_word()
+nnoremap <silent><expr> <c-s> <SID>select_current_word()
 nnoremap <silent> <c-q> <plug>(coc-cursors-word)
 
 " Add `:Format` command to format current buffer.
@@ -236,59 +247,40 @@ let g:go_template_autocreate = 0
 let g:go_debug_breakpoint_sign_text = ''
 
 " Markdown
-" Preivew
+Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
 Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app && yarn install',
       \ 'for': 'markdown'
       \ }
 let g:mkdp_theme = 'light'
-
-" Toc
-Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
-let g:vmt_list_item_char = "-"
-
-" Javascript
-Plug 'pangloss/vim-javascript', {'for': 'javascript'}
-
-" Html
-Plug 'othree/html5.vim', {'for': 'html'}
-
-" Vue
-Plug 'posva/vim-vue', {'for': 'vue'}
+let g:vmt_list_item_char = '-'
+let g:vmt_auto_update_on_save = 0
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-treesitter/nvim-treesitter-textobjects'
 Plug 'RRethy/nvim-treesitter-textsubjects'
 call plug#end()
 
+" Load Lua config
 if g:nvim_plugins_installation_completed == 1
 lua << EOF
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = {
-    "go",
-    "gomod",
-    "python",
-    "bash"
-    },
+  sync_install = false,
+  auto_install = true,
   highlight = {
     enable = true,
+    disable = function(lang, buf)
+          local max_filesize = 100 * 1024 -- 100 KB
+          local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+          if ok and stats and stats.size > max_filesize then
+              return true
+          end
+      end,
+      additional_vim_regex_highlighting = false,
   },
   textsubjects = {
     enable = true,
     keymaps = {
       ['.'] = 'textsubjects-smart'
-    },
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true,
-      keymaps = {
-        ["af"] = "@function.outer",
-        ["if"] = "@function.inner",
-        ["ac"] = "@class.outer",
-        ["ic"] = "@class.inner"
-      },
     },
   },
 }
