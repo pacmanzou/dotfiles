@@ -14,7 +14,9 @@ call plug#begin('$HOME/.config/nvim/plugged')
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
+      \ 'coc-clangd',
       \ 'coc-pyright',
+      \ 'coc-lua',
       \ 'coc-sql',
       \ 'coc-json',
       \ 'coc-yaml',

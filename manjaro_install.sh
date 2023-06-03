@@ -129,6 +129,7 @@ sudo pacman -S alacritty \
 	lightdm-settings \
 	lazygit \
 	lazydocker \
+	lua-language-server \
 	lux-dl \
 	mpv \
 	manjaro-settings-manager \

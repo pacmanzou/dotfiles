@@ -5,6 +5,15 @@ function! s:RunCode() abort
     :sp
     :res 10
     :term go run %
+  elseif &filetype == 'c'
+		:sp
+		:res -10
+		:term gcc % -o %< && time ./%<
+	elseif &filetype == 'cpp'
+		silent! exec "!g++ -std=c++11 % -Wall -o %<"
+		:sp
+		:res -10
+		:term ./%<
   elseif &filetype == 'python'
     :sp
     :res 10
