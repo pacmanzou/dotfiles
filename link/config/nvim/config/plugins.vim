@@ -182,9 +182,6 @@ let g:indentLine_bufTypeExclude = ['help']
 let g:indentLine_bufNameExclude = ['_.*', 'term://.*', 'man://.*']
 let g:indentLine_fileTypeExclude = [
       \ 'go',
-      \ 'gomod',
-      \ 'css',
-      \ 'markdown',
       \ 'coc-explorer',
       \ 'vista'
       \ ]
@@ -227,8 +224,8 @@ let g:vista#renderer#enable_icon = 0
 nnoremap <silent> <space>v :Vista!!<cr>
 
 " Go
+Plug 'fatih/vim-go', {'for': 'go'}
 Plug 'buoto/gotests-vim', {'for': 'go'}
-Plug 'fatih/vim-go', {'for': ['go', 'gomod']}
 let g:go_term_mode = "split"
 let g:go_fold_enable = []
 let g:go_term_height = 10

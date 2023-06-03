@@ -46,7 +46,7 @@ battery all {
     status_chr = "CHARGING "
     status_unk = "UNKNOWN "
     status_full = "FULL "
-    low_threshold = 20
+    low_threshold = 15
     threshold_type = "percentage"
 }
 

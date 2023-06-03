@@ -1,19 +1,20 @@
 #!/usr/bin/env bash
 # Copyright (C) 2021 Zou Jiancheng <pacmanzou@qq.com>
-# Description: When battery power less than 20, notify send
+# Description: Low electricity notice
 
-Start() {
+last_notification_level=100
+
+while :; do
 	battery_status=$(acpi -b | grep -Eo '[^ ]+$')
 	battery_level=$(acpi -b | grep -Po '[0-9]+(?=%)')
 
 	if [[ "${battery_status}" != "charged" ]]; then
-		if [[ "${battery_level}" -le 20 ]]; then
-			notify-send --urgency=critical "Battery" "Battery level is less than ${battery_level}%"
+		if [[ "${battery_level}" -le 20 && "${last_notification_level}" -gt 20 ]]; then
+			notify-send "Battery" "Battery level is less than 20%"
+			last_notification_level=20
+		elif [[ "${battery_level}" -le 15 ]]; then
+			notify-send --urgency=critical "Battery" "Battery level is less than 15%"
 		fi
 	fi
-}
-
-while :; do
-	Start
 	sleep 1m
 done
