@@ -42,6 +42,11 @@ nmap <silent> <space>e :CocCommand explorer<cr>
 nmap <silent> t <plug>(coc-translator-e)
 vmap <silent> t <plug>(coc-translator-ev)
 
+" Coc-leetcode
+nmap <silent> <leader>l :CocList LeetcodeProblems<cr>
+nmap <silent> <leader>r :CocCommand leetcode.run<cr>
+nmap <silent> <leader>s :CocCommand leetcode.submit<cr>
+
 " Coc-git
 " Create text object for git chunk
 omap <silent> ig <plug>(coc-git-chunk-inner)
