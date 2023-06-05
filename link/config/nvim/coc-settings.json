@@ -87,16 +87,6 @@
       "trace.server": "verbose",
       "filetypes": ["go"]
     },
-    "bash": {
-      "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"]
-    },
-    "lua": {
-      "command": "lua-language-server",
-      "args": ["start"],
-      "filetypes": ["lua"]
-    },
     "sql": {
       "command": "sqls",
       "args": ["-config", "$HOME/.config/sqls/config.yml"],
@@ -109,6 +99,7 @@
   "prettier.singleQuote": false,
   "python.formatting.provider": "black",
   "suggest.maxCompleteItemCount": 16,
+  "suggest.enablePreselect": false,
   "translator.engines": ["google"],
   "vetur.ignoreProjectWarning": true,
   "workspace.rootPatterns": [".git", ".gitignore"]

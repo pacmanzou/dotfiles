@@ -59,6 +59,11 @@ function! StatusLine() abort
   return s
 endfunction
 
+function! StatusGit() abort
+  let status = get(b:, 'coc_git_status', '')
+  return status
+endfunction
+
 function! StatusDiagnostic() abort
   let info = get(b:, 'coc_diagnostic_info', {})
   let msgs = []
@@ -80,10 +85,11 @@ function! StatusDiagnostic() abort
   return join(msgs,'')
 endfunction
 
-function! StatusGit() abort
-  let status = get(b:, 'coc_git_status', '')
-  return status
-endfunction
+" Leader key
+let mapleader = ","
+
+" Vim-plug
+let g:plug_window = 'vsplit new'
 
 " Providers
 let g:python3_host_prog = '/usr/bin/python3'
@@ -105,9 +111,6 @@ let g:clipboard = {
       \ },
       \ 'cache_enabled': 0,
       \ }
-
-" Leader key
-let mapleader = ","
 
 " Invalidate the key map in a special filetype
 autocmd BufEnter * call s:SpecialMap()

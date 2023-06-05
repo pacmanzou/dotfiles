@@ -4,6 +4,10 @@ if (not status) then return end
 ts.setup {
   sync_install = false,
   auto_install = true,
+  ignore_install = {
+    "json",
+    "vim"
+  },
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,

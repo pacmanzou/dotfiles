@@ -107,7 +107,6 @@ sudo pacman -Syu
 
 # Install
 sudo pacman -S alacritty \
-	bash-language-server \
 	bleachbit \
 	ctags \
 	copyq \
@@ -129,7 +128,6 @@ sudo pacman -S alacritty \
 	lightdm-settings \
 	lazygit \
 	lazydocker \
-	lua-language-server \
 	lux-dl \
 	mpv \
 	manjaro-settings-manager \
@@ -187,11 +185,6 @@ sudo pacman -S fcitx5 \
 # 	virt-manager \
 # 	virt-viewer \
 # 	vde2
-
-Info "### Go install ###"
-go install mvdan.cc/gofumpt@latest
-go install github.com/cweill/gotests/...@latest
-echo
 
 Info "### Pip install ###"
 pip install black \

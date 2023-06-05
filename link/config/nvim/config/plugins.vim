@@ -4,29 +4,29 @@ if empty(glob('$HOME/.config/nvim/plugged/coc.nvim'))
 endif
 
 " Vim-plug
-let g:plug_window = 'vsplit new'
 call plug#begin('$HOME/.config/nvim/plugged')
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
       \ 'coc-clangd',
       \ 'coc-pyright',
-      \ 'coc-sql',
+      \ 'coc-lua',
+      \ 'coc-sh',
+      \ 'coc-diagnostic',
       \ 'coc-json',
       \ 'coc-yaml',
       \ 'coc-vimlsp',
+      \ 'coc-docker',
+      \ 'coc-sql',
       \ 'coc-tsserver',
       \ 'coc-html',
-      \ 'coc-css',
-      \ 'coc-emmet',
-      \ 'coc-vetur',
-      \ 'coc-docker',
-      \ 'coc-diagnostic',
       \ 'coc-htmlhint',
-      \ 'coc-markdownlint',
-      \ 'coc-prettier',
-      \ 'coc-snippets',
+      \ 'coc-css',
+      \ 'coc-vetur',
+      \ 'coc-emmet',
       \ 'coc-gitignore',
+      \ 'coc-snippets',
+      \ 'coc-prettier',
       \ 'coc-lists',
       \ 'coc-git',
       \ 'coc-highlight',
@@ -66,23 +66,6 @@ nnoremap <silent> <space>a :CocCommand git.chunkStage<cr>
 nnoremap <silent> <space>u :CocCommand git.chunkUndo<cr>
 nnoremap <silent> <space>p :CocCommand git.chunkInfo<cr>
 
-" Use tab for trigger completion with characters ahead and navigate.
-inoremap <silent><expr> <TAB>
-      \ coc#pum#visible() ? coc#pum#next(1):
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Make <CR> to accept selected completion item or notify coc.nvim to format
-" <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 " Rename
 nmap <silent> cr <plug>(coc-rename)
 
@@ -106,13 +89,15 @@ nmap <silent> [d <plug>(coc-diagnostic-prev)
 " Jump previewd chunk
 nmap <silent> <c-o> <plug>(coc-float-jump)
 
+"Preview windows move
 inoremap <silent><expr> <c-j> coc#float#scroll(1)
 inoremap <silent><expr> <c-k> coc#float#scroll(0)
 
-" Coclist and coccommand
+" Coclist
 nnoremap <silent> <space>c :CocCommand<cr>
 nnoremap <silent> <space>l :CocList<cr>
 
+" CocCommand
 nnoremap <silent> <space>d :CocList diagnostics<cr>
 nnoremap <silent> <space>f :CocList files<cr>
 nnoremap <silent> <space>w :CocList words<cr>
@@ -121,7 +106,20 @@ nnoremap <silent> <space>b :CocList buffers<cr>
 nnoremap <silent> <space>g :CocList bcommits<cr>
 nnoremap <silent> <space>h :CocList gchunks<cr>
 
+" Multi cursors
+nnoremap <silent><expr> <c-s> <SID>select_current_word()
+nnoremap <silent> <c-q> <plug>(coc-cursors-word)
+
+function! s:select_current_word()
+  if !get(b:, 'coc_cursors_activated', 0)
+    return "\<plug>(coc-cursors-word)"
+  endif
+  return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
+endfunction
+
 " Show documentation
+nnoremap <silent> gh :call <SID>show_documentation()<cr>
+
 function! s:show_documentation()
   if CocAction('hasProvider', 'hover')
     call CocActionAsync('doHover')
@@ -130,29 +128,36 @@ function! s:show_documentation()
   endif
 endfunction
 
-nnoremap <silent> gh :call <SID>show_documentation()<cr>
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <silent><expr> <S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
-" Multi cursors
-function! s:select_current_word()
-  if !get(b:, 'coc_cursors_activated', 0)
-    return "\<plug>(coc-cursors-word)"
-  endif
-  return "*\<plug>(coc-cursors-word):nohlsearch\<cr>"
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-nnoremap <silent><expr> <c-s> <SID>select_current_word()
-nnoremap <silent> <c-q> <plug>(coc-cursors-word)
+" Make <CR> to accept selected completion item or notify coc.nvim to format
+inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+      \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocActionAsync('format')
 
-if exists(':CocInstall')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
-  autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.formatDocument')
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-endif
+" Add `:OR` command for organize imports of the current buffer
+command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+
+" Autocmd
+autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+autocmd CursorHold *
+      \ if !empty(glob('$HOME/.config/nvim/plugged/coc.nvim')) |
+      \ silent call CocActionAsync('highlight') |
+      \ endif
 
 " Indent line
 Plug 'Yggdroot/indentLine'
@@ -164,6 +169,8 @@ let g:indentLine_bufTypeExclude = ['help']
 let g:indentLine_bufNameExclude = ['_.*', 'term://.*', 'man://.*']
 let g:indentLine_fileTypeExclude = [
       \ 'go',
+      \ 'txt',
+      \ 'help',
       \ 'coc-explorer',
       \ 'vista'
       \ ]
@@ -185,6 +192,11 @@ Plug 'junegunn/vim-easy-align'
 nmap ga <Plug>(EasyAlign)
 xmap ga <Plug>(EasyAlign)
 
+" Tag
+Plug 'liuchengxu/vista.vim'
+let g:vista#renderer#enable_icon = 0
+nnoremap <silent> <space>v :Vista!!<cr>
+
 " Float terminal
 Plug 'voldikss/vim-floaterm'
 let g:floaterm_borderchars = ""
@@ -200,14 +212,8 @@ nnoremap <silent> <c-g>r :FloatermNew ranger<cr>
 nnoremap <silent> <c-g>n :FloatermNew neomutt<cr>
 nnoremap <silent> <c-g>h :FloatermNew htop<cr>
 
-" Tag
-Plug 'liuchengxu/vista.vim'
-let g:vista#renderer#enable_icon = 0
-nnoremap <silent> <space>v :Vista!!<cr>
-
 " Go
 Plug 'fatih/vim-go', {'for': 'go'}
-Plug 'buoto/gotests-vim', {'for': 'go'}
 let g:go_term_mode = "split"
 let g:go_fold_enable = []
 let g:go_term_height = 10
@@ -217,7 +223,7 @@ let g:go_term_close_on_exit = 1
 let g:go_term_reuse = 1
 let g:go_gopls_gofumpt = 1
 let g:go_fmt_fail_silently = 1
-let g:go_fmt_autosave = 0
+let g:go_fmt_autosave = 1
 let g:go_imports_autosave = 0
 let g:go_def_mapping_enabled = 0
 let g:go_doc_keywordprg_enabled = 0

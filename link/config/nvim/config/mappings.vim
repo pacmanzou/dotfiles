@@ -96,6 +96,7 @@ nnoremap <silent> <esc> :set nohlsearch<cr>
 nnoremap <silent> <enter> :set hlsearch<cr>
 
 " Misc
+nnoremap <silent> q: <nop>
 nnoremap <silent> Q @q
 nnoremap <silent> > >>
 nnoremap <silent> < <<
