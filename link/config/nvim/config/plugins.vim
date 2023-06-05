@@ -237,5 +237,4 @@ let g:vmt_auto_update_on_save = 0
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'nvim-treesitter/nvim-treesitter-textobjects'
-Plug 'RRethy/nvim-treesitter-textsubjects'
 call plug#end()

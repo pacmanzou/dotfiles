@@ -20,10 +20,4 @@ ts.setup {
       },
     },
   },
-  textsubjects = {
-    enable = true,
-    keymaps = {
-      ['.'] = 'textsubjects-smart'
-    },
-  },
 }
