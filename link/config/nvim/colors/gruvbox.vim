@@ -116,7 +116,3 @@ hi CocGitTopRemovedSign    guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 hi CocGitChangeRemovedSign guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
 hi diffAdded               guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
 hi diffRemoved             guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
-
-" Vim-go
-hi GoDebugBreakpoint guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
-hi GoDebugCurrent    guifg=#000000 guibg=#ebdbb2 gui=NONE cterm=NONE

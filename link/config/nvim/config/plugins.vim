@@ -8,6 +8,7 @@ call plug#begin('$HOME/.config/nvim/plugged')
 " Code completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 let g:coc_global_extensions = [
+      \ 'coc-go',
       \ 'coc-clangd',
       \ 'coc-pyright',
       \ 'coc-lua',
@@ -152,6 +153,7 @@ command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeI
 
 " Autocmd
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
+autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.formatDocument')
 autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
 autocmd CursorHold *
@@ -212,24 +214,6 @@ nnoremap <silent> <c-g>r :FloatermNew ranger<cr>
 nnoremap <silent> <c-g>n :FloatermNew neomutt<cr>
 nnoremap <silent> <c-g>h :FloatermNew htop<cr>
 
-" Go
-Plug 'fatih/vim-go', {'for': 'go'}
-let g:go_term_mode = "split"
-let g:go_fold_enable = []
-let g:go_term_height = 10
-let g:go_list_height = 10
-let g:go_term_enabled = 1
-let g:go_term_close_on_exit = 1
-let g:go_term_reuse = 1
-let g:go_gopls_gofumpt = 1
-let g:go_fmt_fail_silently = 1
-let g:go_fmt_autosave = 1
-let g:go_imports_autosave = 0
-let g:go_def_mapping_enabled = 0
-let g:go_doc_keywordprg_enabled = 0
-let g:go_code_completion_enabled = 0
-let g:go_template_autocreate = 0
-let g:go_debug_breakpoint_sign_text = ''
 
 " Markdown
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
