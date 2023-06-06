@@ -37,4 +37,4 @@ function! s:RunCode() abort
   endif
 endfunction
 
-nnoremap <silent> <space>r :call <sid>RunCode()<cr>
+nnoremap <silent> <Space>r :call <SID>RunCode()<CR>

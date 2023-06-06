@@ -117,8 +117,8 @@ autocmd BufEnter * call s:SpecialMap()
 
 function! s:SpecialMap() abort
   if (index([''], &filetype) >= 0)
-    map <buffer> <c-n> <nop>
-    map <buffer> <c-p> <nop>
+    map <buffer> <C-n> <nop>
+    map <buffer> <C-p> <nop>
   endif
 endfunction
 

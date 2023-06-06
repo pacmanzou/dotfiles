@@ -21,9 +21,6 @@
   ],
   "explorer.keyMappings.global": {
     "<space>f": "search",
-    "<space>a": "gitStage",
-    "<space>u": "gitUnstage",
-    "<space>p": "preview:labeling",
     "<c-t>": "open:tab",
     "<c-s>": "open:split",
     "<c-v>": "open:vsplit",

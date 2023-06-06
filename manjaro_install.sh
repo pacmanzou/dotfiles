@@ -112,6 +112,7 @@ sudo pacman -S alacritty \
 	copyq \
 	cmake \
 	dbeaver \
+	delve \
 	dunst \
 	docker \
 	fd \

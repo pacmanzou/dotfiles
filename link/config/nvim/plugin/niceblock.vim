@@ -8,8 +8,8 @@ let s:setup_keyseq_table = {
 \ 'A': {'v': "\<C-v>A", 'V': "\<C-v>0o$A", "\<C-v>": 'A'},
 \ }
 
-vnoremap <expr> <plug>(niceblock-I)  <sid>Force_blockwise('I')
-vnoremap <expr> <plug>(niceblock-A)  <sid>Force_blockwise('A')
+vnoremap <expr> <Plug>(niceblock-I)  <SID>Force_blockwise('I')
+vnoremap <expr> <Plug>(niceblock-A)  <SID>Force_blockwise('A')
 
-silent! xmap <unique> I  <plug>(niceblock-I)
-silent! xmap <unique> A  <plug>(niceblock-A)
+silent! xmap <unique> I  <Plug>(niceblock-I)
+silent! xmap <unique> A  <Plug>(niceblock-A)

@@ -7,36 +7,36 @@ map S <nop>
 map Z <nop>
 map [ <nop>
 map ] <nop>
-map <c-q> <nop>
-map <c-w> <nop>
-map <c-n> <nop>
-map <c-o> <nop>
-map <c-p> <nop>
-map <c-g> <nop>
-map <c-s> <nop>
-map <c-t> <nop>
-map <c-x> <nop>
-map <c-y> <nop>
-map <c-z> <nop>
-map <c-\> <nop>
-map <c-]> <nop>
-map <c-^> <nop>
-map <c-_> <nop>
-map <cr>  <nop>
-map <bs>  <nop>
-map <space> <nop>
+map <C-q> <nop>
+map <C-w> <nop>
+map <C-n> <nop>
+map <C-o> <nop>
+map <C-p> <nop>
+map <C-g> <nop>
+map <C-s> <nop>
+map <C-t> <nop>
+map <C-x> <nop>
+map <C-y> <nop>
+map <C-z> <nop>
+map <C-\> <nop>
+map <C-]> <nop>
+map <C-^> <nop>
+map <C-_> <nop>
+map <CR>  <nop>
+map <BS>  <nop>
+map <Space> <nop>
 
 " Windows focus
-noremap <silent> <c-l> <c-w>l
-noremap <silent> <c-h> <c-w>h
-noremap <silent> <c-j> <c-w>j
-noremap <silent> <c-k> <c-w>k
+noremap <silent> <C-l> <C-w>l
+noremap <silent> <C-h> <C-w>h
+noremap <silent> <C-j> <C-w>j
+noremap <silent> <C-k> <C-w>k
 
 " Cursor move
-noremap <silent> <c-e> $
-noremap <silent> <c-a> ^
-noremap <silent> J <c-e>
-noremap <silent> K <c-y>
+noremap <silent> <C-e> $
+noremap <silent> <C-a> ^
+noremap <silent> J <C-e>
+noremap <silent> K <C-y>
 noremap <silent> gg gg
 
 " Focus move
@@ -48,13 +48,13 @@ nnoremap zl zb
 nnoremap <silent> gV ggVG$
 
 " Windows exchange
-nnoremap <silent> <c-w>t <c-w>T
-nnoremap <silent> <c-w>h <c-w>H
-nnoremap <silent> <c-w>j <c-w>J
-nnoremap <silent> <c-w>k <c-w>K
-nnoremap <silent> <c-w>l <c-w>L
-nnoremap <silent> <c-w>o <c-w>o
-nnoremap <silent> <c-w>= <c-w>=
+nnoremap <silent> <C-w>t <C-w>T
+nnoremap <silent> <C-w>h <C-w>H
+nnoremap <silent> <C-w>j <C-w>J
+nnoremap <silent> <C-w>k <C-w>K
+nnoremap <silent> <C-w>l <C-w>L
+nnoremap <silent> <C-w>o <C-w>o
+nnoremap <silent> <C-w>= <C-w>=
 
 " Fold
 nnoremap zo zO
@@ -63,21 +63,21 @@ nnoremap zc zC
 nnoremap zC zM
 
 " Tab switch
-nnoremap <silent> <tab>   :tabnext<cr>
-nnoremap <silent> <s-tab> :tabprevious<cr>
+nnoremap <silent> <tab>   :tabnext<CR>
+nnoremap <silent> <s-tab> :tabprevious<CR>
 
 " Copy name, path, directory
-nnoremap <silent> yn :let @+=expand('%')<cr>
-nnoremap <silent> yp :let @+=expand('%:p')<cr>
-nnoremap <silent> yd :let @+=getcwd()<cr>
+nnoremap <silent> yn :let @+=expand('%')<CR>
+nnoremap <silent> yp :let @+=expand('%:p')<CR>
+nnoremap <silent> yd :let @+=getcwd()<CR>
 
 " Jumps
-nnoremap <silent> <c-n> <c-i>
-nnoremap <silent> <c-p> <c-o>
+nnoremap <silent> <C-n> <C-i>
+nnoremap <silent> <C-p> <C-o>
 
 " Substitute
-nnoremap <space>s :%s///gI<left><left><left><left>
-vnoremap <space>s :s///gI<left><left><left><left>
+nnoremap <Space>s :%s///gI<left><left><left><left>
+vnoremap <Space>s :s///gI<left><left><left><left>
 
 " Set x delete without copying
 nnoremap <silent> x "_x
@@ -86,14 +86,14 @@ vnoremap <silent> x "_x
 vnoremap <silent> X "_X
 
 " Quickily +, -
-nnoremap <silent> + <c-a>
-nnoremap <silent> - <c-x>
-vnoremap <silent> + g<c-a>
-vnoremap <silent> - g<c-x>
+nnoremap <silent> + <C-a>
+nnoremap <silent> - <C-x>
+vnoremap <silent> + g<C-a>
+vnoremap <silent> - g<C-x>
 
 " Hlsearch
-nnoremap <silent> <esc> :set nohlsearch<cr>
-nnoremap <silent> <enter> :set hlsearch<cr>
+nnoremap <silent> <esc> :set nohlsearch<CR>
+nnoremap <silent> <enter> :set hlsearch<CR>
 
 " Misc
 nnoremap <silent> q: <nop>
@@ -101,50 +101,50 @@ nnoremap <silent> Q @q
 nnoremap <silent> > >>
 nnoremap <silent> < <<
 nnoremap <silent> Y y$
-nnoremap <silent> gf <c-w>gf
+nnoremap <silent> gf <C-w>gf
 
 " Imap
-imap <c-@> <nop>
-imap <c-q> <nop>
-imap <c-r> <nop>
-imap <c-o> <nop>
-imap <c-s> <nop>
-imap <c-g> <nop>
-imap <c-j> <nop>
-imap <c-k> <nop>
-imap <c-l> <nop>
-imap <c-z> <nop>
-imap <c-x> <nop>
-imap <c-v> <nop>
-imap <c-\> <nop>
-imap <c-]> <nop>
+imap <C-@> <nop>
+imap <C-q> <nop>
+imap <C-r> <nop>
+imap <C-o> <nop>
+imap <C-s> <nop>
+imap <C-g> <nop>
+imap <C-j> <nop>
+imap <C-k> <nop>
+imap <C-l> <nop>
+imap <C-z> <nop>
+imap <C-x> <nop>
+imap <C-v> <nop>
+imap <C-\> <nop>
+imap <C-]> <nop>
 
-imap <c-f> <right>
-imap <c-b> <left>
-imap <c-d> <delete>
-imap <c-h> <backspace>
+imap <C-f> <right>
+imap <C-b> <left>
+imap <C-d> <delete>
+imap <C-h> <backspace>
 
-inoremap <c-a> <c-o>^
-inoremap <c-e> <c-o>$
-inoremap <c-l> <c-o>zt
+inoremap <C-a> <C-o>^
+inoremap <C-e> <C-o>$
+inoremap <C-l> <C-o>zt
 
 " Cmap
-cmap <c-q> <nop>
-cmap <c-r> <nop>
-cmap <c-t> <nop>
-cmap <c-y> <nop>
-cmap <c-o> <nop>
-cmap <c-s> <nop>
-cmap <c-g> <nop>
-cmap <c-j> <nop>
-cmap <c-k> <nop>
-cmap <c-l> <nop>
-cmap <c-z> <nop>
-cmap <c-x> <nop>
-cmap <c-v> <nop>
+cmap <C-q> <nop>
+cmap <C-r> <nop>
+cmap <C-t> <nop>
+cmap <C-y> <nop>
+cmap <C-o> <nop>
+cmap <C-s> <nop>
+cmap <C-g> <nop>
+cmap <C-j> <nop>
+cmap <C-k> <nop>
+cmap <C-l> <nop>
+cmap <C-z> <nop>
+cmap <C-x> <nop>
+cmap <C-v> <nop>
 
-cmap <c-a> <home>
-cmap <c-e> <end>
-cmap <c-f> <right>
-cmap <c-b> <left>
-cmap <c-d> <delete>
+cmap <C-a> <home>
+cmap <C-e> <end>
+cmap <C-f> <right>
+cmap <C-b> <left>
+cmap <C-d> <delete>

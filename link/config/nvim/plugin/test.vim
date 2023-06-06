@@ -18,7 +18,7 @@ function! s:Test() abort
   execute "new " . "$HOME/.cache/nvim/test/test." . s:fileType
 endfunction
 
-nnoremap <silent> <space>t :call <sid>Test()<cr>
+nnoremap <silent> <Space>t :call <SID>Test()<CR>
 
 function! s:ClearTests() abort
   silent! execute "!d " . "$HOME/.cache/nvim/test/test.*"

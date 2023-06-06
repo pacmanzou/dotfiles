@@ -29,8 +29,8 @@ function! s:get_ms_since(time) abort
   return str2nr(cost[0])*1000 + str2nr(cost[1])/1000.0
 endfunction
 
-nnoremap <silent> <c-d> :call <sid>SmoothDown(&scroll, 6, 1)<cr>
-nnoremap <silent> <c-u> :call <sid>SmoothUp(&scroll, 6, 1)<cr>
+nnoremap <silent> <C-d> :call <SID>SmoothDown(&scroll, 6, 1)<CR>
+nnoremap <silent> <C-u> :call <SID>SmoothUp(&scroll, 6, 1)<CR>
 
-nnoremap <silent> <c-f> :call <sid>SmoothDown(&scroll*2, 6, 1)<cr>
-nnoremap <silent> <c-b> :call <sid>SmoothUp(&scroll*2, 6, 1)<cr>
+nnoremap <silent> <C-f> :call <SID>SmoothDown(&scroll*2, 6, 1)<CR>
+nnoremap <silent> <C-b> :call <SID>SmoothUp(&scroll*2, 6, 1)<CR>
