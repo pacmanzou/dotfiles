@@ -195,10 +195,10 @@ nnoremap <silent> <Space>v :Vista!!<CR>
 
 " Float terminal
 Plug 'voldikss/vim-floaterm'
-let g:floaterm_borderchars = ""
 let g:floaterm_opener = "tabe"
-let g:floaterm_width = 3.0
-let g:floaterm_height = 3.0
+let g:floaterm_title = ""
+let g:floaterm_width = 0.77
+let g:floaterm_height = 0.90
 
 nmap <silent> <C-g><CR> :FloatermNew zsh<CR>
 nmap <silent> <C-g>p :FloatermToggle<CR>
