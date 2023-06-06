@@ -36,17 +36,18 @@ let g:coc_global_extensions = [
       \ 'coc-leetcode'
       \ ]
 
+" Coc-go
+nmap <silent> <Leader>gi :CocCommand go.impl.cursor<CR>
+nmap <silent> <Leader>ga :CocCommand go.tags.add.prompt<CR>
+nmap <silent> <Leader>gr :CocCommand go.tags.remove.prompt<CR>
+nmap <silent> <Leader>gc :CocCommand go.tags.clear<CR>
+
 " Coc-explorer
 nmap <silent> <Space>e :CocCommand explorer<CR>
 
 " Coc-translate
 nmap <silent> t <Plug>(coc-translator-e)
 vmap <silent> t <Plug>(coc-translator-ev)
-
-" Coc-leetcode
-nmap <silent> <Leader>lp :CocList LeetcodeProblems<CR>
-nmap <silent> <Leader>lr :CocCommand leetcode.run<CR>
-nmap <silent> <Leader>ls :CocCommand leetcode.submit<CR>
 
 " Coc-git
 " Create text object for git chunk
@@ -63,9 +64,9 @@ nmap <silent> [g <Plug>(coc-git-prevchunk)
 nmap <silent> ]c <Plug>(coc-git-nextconflict)
 nmap <silent> [c <Plug>(coc-git-prevconflict)
 
-nnoremap <silent> <Leader>ga :CocCommand git.chunkStage<CR>
-nnoremap <silent> <Leader>gu :CocCommand git.chunkUndo<CR>
-nnoremap <silent> <Leader>gp :CocCommand git.chunkInfo<CR>
+nmap <silent> <Space>a :CocCommand git.chunkStage<CR>
+nmap <silent> <Space>u :CocCommand git.chunkUndo<CR>
+nmap <silent> <Space>p :CocCommand git.chunkInfo<CR>
 
 " Rename
 nmap <silent> cr <Plug>(coc-rename)
@@ -91,25 +92,24 @@ nmap <silent> [d <Plug>(coc-diagnostic-prev)
 nmap <silent> <C-o> <Plug>(coc-float-jump)
 
 "Preview windows move
-inoremap <silent><expr> <C-j> coc#float#scroll(1)
-inoremap <silent><expr> <C-k> coc#float#scroll(0)
+imap <silent><expr> <C-j> coc#float#scroll(1)
+imap <silent><expr> <C-k> coc#float#scroll(0)
 
 " Coclist
-nnoremap <silent> <Space>c :CocCommand<CR>
-nnoremap <silent> <Space>l :CocList<CR>
+nmap <silent> <Space>c :CocCommand<CR>
+nmap <silent> <Space>l :CocList<CR>
 
 " CocCommand
-nnoremap <silent> <Space>d :CocList diagnostics<CR>
-nnoremap <silent> <Space>f :CocList files<CR>
-nnoremap <silent> <Space>w :CocList words<CR>
-nnoremap <silent> <Space>m :CocList mru -A<CR>
-nnoremap <silent> <Space>b :CocList buffers<CR>
-nnoremap <silent> <Space>g :CocList bcommits<CR>
-nnoremap <silent> <Space>h :CocList gchunks<CR>
+nmap <silent> <Space>d :CocList diagnostics<CR>
+nmap <silent> <Space>f :CocList files<CR>
+nmap <silent> <Space>w :CocList words<CR>
+nmap <silent> <Space>g :CocList grep<CR>
+nmap <silent> <Space>m :CocList mru -A<CR>
+nmap <silent> <Space>b :CocList buffers<CR>
 
 " Multi cursors
-nnoremap <silent><expr> <C-s> <SID>select_current_word()
-nnoremap <silent> <C-q> <Plug>(coc-cursors-word)
+nmap <silent><expr> <C-s> <SID>select_current_word()
+nmap <silent> <C-q> <Plug>(coc-cursors-word)
 
 function! s:select_current_word()
   if !get(b:, 'coc_cursors_activated', 0)
@@ -145,11 +145,9 @@ endfunction
 inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
       \: "\<C-g>u\<CR>\<C-r>=coc#on_enter()\<CR>"
 
-" Add `:Format` command to format current buffer.
-command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add `:OR` command for organize imports of the current buffer
-command! -nargs=0 OR :call CocActionAsync('runCommand', 'editor.action.organizeImport')
+" Format and Import
+nmap <silent> <Leader>f :call CocActionAsync('format')<CR>
+nmap <silent> <Leader>i :call CocActionAsync('runCommand', 'editor.action.organizeImport')<CR>
 
 " Autocmd
 autocmd BufWritePre *.go silent call CocAction('runCommand', 'editor.action.organizeImport')
@@ -189,14 +187,10 @@ Plug 'tomtom/tcomment_vim'
 " Sudo
 Plug 'lambdalisue/suda.vim'
 
-" Make the text alignment quickily
-Plug 'junegunn/vim-easy-align'
-nmap ga <Plug>(EasyAlign)
-xmap ga <Plug>(EasyAlign)
-
 " Tag
 Plug 'liuchengxu/vista.vim'
 let g:vista#renderer#enable_icon = 0
+
 nnoremap <silent> <Space>v :Vista!!<CR>
 
 " Float terminal
@@ -206,13 +200,13 @@ let g:floaterm_opener = "tabe"
 let g:floaterm_width = 3.0
 let g:floaterm_height = 3.0
 
-nnoremap <silent> <C-g><CR> :FloatermNew zsh<CR>
-nnoremap <silent> <C-g>p :FloatermToggle<CR>
-tnoremap <silent> <C-g>p <CMD>FloatermToggle<CR>
-nnoremap <silent> <C-g>l :FloatermNew lazygit<CR>
-nnoremap <silent> <C-g>r :FloatermNew ranger<CR>
-nnoremap <silent> <C-g>n :FloatermNew neomutt<CR>
-nnoremap <silent> <C-g>h :FloatermNew htop<CR>
+nmap <silent> <C-g><CR> :FloatermNew zsh<CR>
+nmap <silent> <C-g>p :FloatermToggle<CR>
+tmap <silent> <C-g>p <CMD>FloatermToggle<CR>
+nmap <silent> <C-g>l :FloatermNew lazygit<CR>
+nmap <silent> <C-g>r :FloatermNew ranger<CR>
+nmap <silent> <C-g>n :FloatermNew neomutt<CR>
+nmap <silent> <C-g>h :FloatermNew htop<CR>
 
 " Markdown
 Plug 'mzlogin/vim-markdown-toc', {'for': 'markdown'}
@@ -227,9 +221,9 @@ let g:vmt_auto_update_on_save = 0
 Plug 'mfussenegger/nvim-dap'
 Plug 'rcarriga/nvim-dap-ui'
 Plug 'theHamsta/nvim-dap-virtual-text'
-Plug 'leoluz/nvim-dap-go'
-nnoremap <silent> <Leader>db :DapToggleBreakpoint<CR>
-nnoremap <silent> <Leader>dc :DapContinue<CR>
+Plug 'leoluz/nvim-dap-go', {'for': 'go'}
+nmap <silent> <Leader>db :DapToggleBreakpoint<CR>
+nmap <silent> <Leader>dc :DapContinue<CR>
 
 " Syntax highlighting
 Plug 'nvim-treesitter/nvim-treesitter'
