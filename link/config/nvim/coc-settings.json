@@ -52,6 +52,7 @@
   "git.blameUseRealTime": true,
   "go.goplsOptions": { "gofumpt": true },
   "go.checkForUpdates": "disabled",
+  "Lua.diagnostics.globals": ["vim"],
   "list.source.files.args": ["--hidden", "--files"],
   "list.source.files.excludePatterns": ["**/.git/**"],
   "list.previewHighlightGroup": "CocPreviewHi",
