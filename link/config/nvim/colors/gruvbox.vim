@@ -117,5 +117,8 @@ hi CocGitChangeRemovedSign guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
 hi diffAdded               guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
 hi diffRemoved             guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 
-" Float term
+" Floaterm
 hi FloatermBorder guifg=#1d1d1d guibg=#000000 gui=NONE cterm=NONE
+
+" Indentscope
+hi MiniIndentscopeSymbol guifg=#ebdbb2 guibg=NONE gui=NONE cterm=NONE
