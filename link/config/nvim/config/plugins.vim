@@ -185,16 +185,16 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'tomtom/tcomment_vim'
 
 " Sudo
-Plug 'lambdalisue/suda.vim'
+Plug 'lambdalisue/suda.vim', {'on': ['SudaWrite', 'SudaRead']}
 
 " Tag
-Plug 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim', {'on': 'Vista'}
 let g:vista#renderer#enable_icon = 0
 
 nnoremap <silent> <Space>v :Vista!!<CR>
 
 " Float terminal
-Plug 'voldikss/vim-floaterm'
+Plug 'voldikss/vim-floaterm', {'on': 'FloatermNew'}
 let g:floaterm_opener = "tabe"
 let g:floaterm_title = ""
 let g:floaterm_width = 0.77
