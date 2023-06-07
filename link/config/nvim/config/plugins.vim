@@ -108,15 +108,8 @@ nmap <silent> <Space>m :CocList mru -A<CR>
 nmap <silent> <Space>b :CocList buffers<CR>
 
 " Multi cursors
-nmap <silent><expr> <C-s> <SID>select_current_word()
+nmap <silent> <C-d> <Plug>(coc-cursors-word)*
 nmap <silent> <C-q> <Plug>(coc-cursors-word)
-
-function! s:select_current_word()
-  if !get(b:, 'coc_cursors_activated', 0)
-    return "\<Plug>(coc-cursors-word)"
-  endif
-  return "*\<Plug>(coc-cursors-word):nohlsearch\<CR>"
-endfunction
 
 " Show documentation
 nnoremap <silent> gh :call <SID>show_documentation()<CR>
