@@ -1,6 +1,6 @@
 " Write some simple test code
-if empty(glob('$HOME/.cache/nvim/test'))
-  silent !mkdir -p "$HOME/.cache/nvim/test"
+if empty(glob('$HOME/.local/share/nvimtest'))
+  silent !mkdir -p "$HOME/.local/share/nvimtest"
 endif
 
 function! s:Input() abort
@@ -15,13 +15,13 @@ function! s:Test() abort
   if empty(s:fileType)
     return
   endif
-  execute "new " . "$HOME/.cache/nvim/test/test." . s:fileType
+  execute "new " . "$HOME/.local/share/nvimtest/test." . s:fileType
 endfunction
 
 nnoremap <silent> <Space>t :call <SID>Test()<CR>
 
 function! s:ClearTests() abort
-  silent! execute "!d " . "$HOME/.cache/nvim/test/test.*"
+  silent! execute "!d " . "$HOME/.local/share/nvimtest/test.*"
 endfunction
 
 command -bang ClearTests call s:ClearTests()
