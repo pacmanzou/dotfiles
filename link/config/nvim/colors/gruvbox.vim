@@ -121,4 +121,4 @@ hi diffRemoved             guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 hi FloatermBorder guifg=#1d1d1d guibg=#000000 gui=NONE cterm=NONE
 
 " Indentscope
-hi MiniIndentscopeSymbol guifg=#ebdbb2 guibg=NONE gui=NONE cterm=NONE
+hi MiniIndentscopeSymbol guifg=#928374 guibg=NONE gui=NONE cterm=NONE
