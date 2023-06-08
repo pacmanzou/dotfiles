@@ -21,7 +21,6 @@ vim.o.timeout = false
 vim.o.number = true
 vim.o.scrolloff = 5
 vim.o.shiftwidth = 2
-vim.o.shortmess = vim.o.shortmess .. "c"
 vim.o.smartcase = true
 vim.o.smartindent = true
 vim.o.softtabstop = 2

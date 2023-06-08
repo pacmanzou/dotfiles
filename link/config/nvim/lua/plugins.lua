@@ -17,7 +17,7 @@ require("lazy").setup({
   {
     "neoclide/coc.nvim",
     branch = "release",
-    priority = 1000,
+    priority = 100,
     config = function()
       vim.g.coc_global_extensions = {
         'coc-go',
@@ -238,11 +238,16 @@ require("lazy").setup({
   },
   {
     "mfussenegger/nvim-dap",
-    dependencies = { "rcarriga/nvim-dap-ui", "theHamsta/nvim-dap-virtual-text" },
+    dependencies = {
+      "rcarriga/nvim-dap-ui",
+      "theHamsta/nvim-dap-virtual-text",
+      "leoluz/nvim-dap-go",
+    },
     keys = "<Leader>d",
     config = function()
-      require("dapui").setup {}
-      require("nvim-dap-virtual-text").setup {}
+      require("dapui").setup()
+      require("nvim-dap-virtual-text").setup()
+      require("dap-go").setup()
 
       -- Auto open dapui
       local dap, dapui = require("dap"), require("dapui")
@@ -264,15 +269,8 @@ require("lazy").setup({
     end
   },
   {
-    "leoluz/nvim-dap-go",
-    keys = "<Leader>d",
-    config = function()
-      require("dap-go").setup()
-    end
-  },
-  {
     "echasnovski/mini.surround",
-    keys = { "s", "d", "c", "v", "V", "C-v" },
+    event = "VeryLazy",
     config = function()
       require("mini.surround").setup {
         mappings = {
@@ -293,7 +291,7 @@ require("lazy").setup({
   },
   {
     "echasnovski/mini.align",
-    keys = { "g", "v", "V", "C-v" },
+    event = "VeryLazy",
     config = function()
       require("mini.align").setup {
         silent = true
@@ -302,22 +300,21 @@ require("lazy").setup({
   },
   {
     "numToStr/Comment.nvim",
-    keys = { "g", "v", "V", "C-v" },
+    event = "VeryLazy",
     config = function()
       require("Comment").setup()
     end
   },
-  { "lambdalisue/suda.vim", cmd = { "SudaWrite", "SudaRead" } },
   {
     "liuchengxu/vista.vim",
-    keys = "<Space>v",
+    event = "VeryLazy",
     config = function()
       vim.keymap.set('n', '<Space>v', ':Vista!!<CR>', { silent = true })
     end
   },
   {
     "voldikss/vim-floaterm",
-    keys = "<C-g>",
+    event = "VeryLazy",
     config = function()
       vim.g.floaterm_opener = "tabe"
       vim.g.floaterm_title = ""

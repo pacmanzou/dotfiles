@@ -11,9 +11,8 @@
   "nvim-dap-go": { "branch": "main", "commit": "cdf604a5703838f65fdee7c198f6cb59b563ef6f" },
   "nvim-dap-ui": { "branch": "master", "commit": "c020f660b02772f9f3d11f599fefad3268628a9e" },
   "nvim-dap-virtual-text": { "branch": "master", "commit": "57f1dbd0458dd84a286b27768c142e1567f3ce3b" },
-  "nvim-treesitter": { "branch": "master", "commit": "a954f789aaa0cedea7609b5493007867b1cd3e9e" },
-  "nvim-treesitter-textobjects": { "branch": "master", "commit": "23e883b99228f8d438254e5ef8c897e5e60e75d1" },
-  "suda.vim": { "branch": "master", "commit": "08abd39dfe1cee681b8ce3e7321da5fa03e045c1" },
+  "nvim-treesitter": { "branch": "master", "commit": "2883a9cf8611f94e18870b7647a0fc004ac39110" },
+  "nvim-treesitter-textobjects": { "branch": "master", "commit": "2d6d3c7e49a24f6ffbbf7898241fefe9784f61bd" },
   "vim-floaterm": { "branch": "master", "commit": "bd0aee3c861d613f56b85bd9eaffdcab459071fd" },
   "vim-markdown-toc": { "branch": "master", "commit": "7ec05df27b4922830ace2246de36ac7e53bea1db" },
   "vista.vim": { "branch": "master", "commit": "f925e481bba7cd5451fb8bca9a6ecfc2bf1f2858" }
