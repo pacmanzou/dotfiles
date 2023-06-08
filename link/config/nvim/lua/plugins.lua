@@ -15,74 +15,9 @@ vim.opt.rtp:prepend(lazypath)
 -- Lazy.nvim
 require("lazy").setup({
   {
-    "Yggdroot/indentLine",
-    config = function()
-      vim.g.indentLine_char = '|'
-      vim.g.indentLine_first_char = '|'
-      vim.g.indentLine_setColors = 0
-      vim.g.indentLine_showFirstIndentLevel = 1
-      vim.g.indentLine_bufTypeExclude = { 'help' }
-      vim.g.indentLine_bufNameExclude = { '_.*', 'term://.*', 'man://.*' }
-      vim.g.indentLine_fileTypeExclude = {
-        'go',
-        'txt',
-        'help',
-        'coc-explorer',
-        'vista'
-      }
-    end
-  },
-  {
-    "echasnovski/mini.indentscope",
-    config = function()
-      require("mini.indentscope").setup {
-        mappings = {
-          -- Textobjects
-          object_scope = 'il',
-          object_scope_with_border = 'al',
-
-          -- Motions (jump to respective border line; if not present - body line)
-          goto_top = '[l',
-          goto_bottom = ']l',
-        },
-        -- Which character to use for drawing scope indicator
-        symbol = '|',
-      }
-    end
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        sync_install = false,
-        auto_install = true,
-        ignore_install = {
-          "json",
-          "vim"
-        },
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner"
-            },
-          },
-        },
-      }
-    end
-  },
-  {
     "neoclide/coc.nvim",
     branch = "release",
+    priority = 1000,
     config = function()
       vim.g.coc_global_extensions = {
         'coc-go',
@@ -220,6 +155,72 @@ require("lazy").setup({
       vim.cmd([[autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')]])
       vim.cmd([[autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')]])
       vim.cmd([[autocmd CursorHold * silent call CocActionAsync('highlight')]])
+    end
+  },
+  {
+    "Yggdroot/indentLine",
+    config = function()
+      vim.g.indentLine_char = '|'
+      vim.g.indentLine_first_char = '|'
+      vim.g.indentLine_setColors = 0
+      vim.g.indentLine_showFirstIndentLevel = 1
+      vim.g.indentLine_bufTypeExclude = { 'help' }
+      vim.g.indentLine_bufNameExclude = { '_.*', 'term://.*', 'man://.*' }
+      vim.g.indentLine_fileTypeExclude = {
+        'go',
+        'txt',
+        'help',
+        'coc-explorer',
+        'vista'
+      }
+    end
+  },
+  {
+    "echasnovski/mini.indentscope",
+    config = function()
+      require("mini.indentscope").setup {
+        mappings = {
+          -- Textobjects
+          object_scope = 'il',
+          object_scope_with_border = 'al',
+
+          -- Motions (jump to respective border line; if not present - body line)
+          goto_top = '[l',
+          goto_bottom = ']l',
+        },
+        -- Which character to use for drawing scope indicator
+        symbol = '|',
+      }
+    end
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        sync_install = false,
+        auto_install = true,
+        ignore_install = {
+          "json",
+          "vim"
+        },
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner"
+            },
+          },
+        },
+      }
     end
   },
   {
