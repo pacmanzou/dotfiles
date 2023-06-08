@@ -88,8 +88,15 @@ vim.keymap.set({ 'n', 'v' }, '+', '<C-a>', { noremap = true, silent = true })
 vim.keymap.set({ 'n', 'v' }, '-', '<C-x>', { noremap = true, silent = true })
 
 -- Hlsearch
-vim.keymap.set('n', '<esc>', ':set nohlsearch<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<enter>', ':set hlsearch<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<Space>h', ':lua Toggle_hls()<CR>', { noremap = true, silent = true })
+
+function Toggle_hls()
+  if vim.o.hlsearch then
+    vim.cmd('set nohlsearch')
+  else
+    vim.cmd('set hlsearch')
+  end
+end
 
 -- Misc
 vim.keymap.set('n', 'q:', '<nop>', { noremap = true, silent = true })
@@ -98,6 +105,7 @@ vim.keymap.set('n', '>', '>>', { noremap = true, silent = true })
 vim.keymap.set('n', '<', '<<', { noremap = true, silent = true })
 vim.keymap.set('n', 'Y', 'y$', { noremap = true, silent = true })
 vim.keymap.set('n', 'gf', '<C-w>gf', { noremap = true, silent = true })
+vim.keymap.set('t', '<C-s>', '<nop>', { noremap = true, silent = true })
 
 -- Insert mode mappings
 vim.api.nvim_set_keymap('i', '<C-@>', '<nop>', {})

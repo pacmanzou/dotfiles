@@ -11,8 +11,7 @@
       }
     }
   },
-  "explorer.icon.expanded": "▼",
-  "explorer.icon.collapsed": "▶",
+  "explorer.icon.enableNerdfont": true,
   "explorer.width": 30,
   "explorer.keyMappingMode": "none",
   "explorer.trash.command": "trash-put %s",

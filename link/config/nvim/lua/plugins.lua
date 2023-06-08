@@ -127,7 +127,7 @@ require("lazy").setup({
         [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
       -- Multi cursors
-      vim.keymap.set('n', '<C-s>', '<Plug>(coc-cursors-word)*', { silent = true })
+      vim.keymap.set('n', '<Enter>', '<Plug>(coc-cursors-word)*', { silent = true })
       vim.keymap.set('n', '<C-q>', "<Plug>(coc-cursors-word)", { silent = true })
 
       -- Use gh to show documentation in preview window
@@ -309,6 +309,7 @@ require("lazy").setup({
     "liuchengxu/vista.vim",
     event = "VeryLazy",
     config = function()
+      vim.g.vista_echo_cursor = 0
       vim.keymap.set('n', '<Space>v', ':Vista!!<CR>', { silent = true })
     end
   },
