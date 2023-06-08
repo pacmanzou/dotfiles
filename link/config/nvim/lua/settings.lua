@@ -36,10 +36,12 @@ vim.o.undodir = vim.fn.stdpath("data") .. "undo"
 vim.o.writebackup = false
 
 -- StatusLine with coc.nvim
-vim.api.nvim_command("augroup statusline")
-vim.api.nvim_command("autocmd!")
-vim.api.nvim_command("autocmd WinEnter,BufEnter * setlocal statusline=%!luaeval('StatusLine()')")
-vim.api.nvim_command("augroup END")
+vim.cmd([[
+    augroup Statusline
+        autocmd!
+        autocmd WinEnter,BufEnter * setlocal statusline=%!luaeval('StatusLine()')
+    augroup END
+]])
 
 function StatusLine()
   local s = ''
