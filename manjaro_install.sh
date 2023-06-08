@@ -134,7 +134,7 @@ sudo pacman -S alacritty \
 	materia-gtk-theme \
 	music-dl \
 	neofetch \
-	nodejs-lts-fermium \
+	nodejs-lts-hydrogen \
 	npm \
 	neovim \
 	neovide-git \

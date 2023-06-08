@@ -1,5 +1,8 @@
 {
   "coc.preferences.formatOnType": true,
+  "diagnostic.enableMessage": "never",
+  "diagnostic.virtualText": true,
+  "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
   "diagnostic-languageserver.filetypes": {
     "sh": {
