@@ -27,12 +27,10 @@ vim.o.smartindent = true
 vim.o.softtabstop = 2
 vim.o.splitbelow = true
 vim.o.splitright = true
-vim.o.swapfile = false
 vim.o.termguicolors = true
 vim.o.tabstop = 2
 vim.o.updatetime = 100
 vim.o.undofile = true
-vim.o.undodir = vim.fn.stdpath("data") .. "undo"
 vim.o.writebackup = false
 
 -- StatusLine with coc.nvim
