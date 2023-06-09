@@ -20,6 +20,7 @@ require("lazy").setup({
     priority = 100,
     config = function()
       vim.g.coc_global_extensions = {
+        'coc-marketplace',
         'coc-go',
         'coc-clangd',
         'coc-pyright',
