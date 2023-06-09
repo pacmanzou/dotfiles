@@ -51,8 +51,6 @@
   },
   "git.splitWindowCommand": "below sp",
   "git.enableGutters": true,
-  "go.goplsOptions": { "gofumpt": true },
-  "go.checkForUpdates": "disabled",
   "lua.checkForUpdates": "disabled",
   "Lua.diagnostics.globals": ["vim"],
   "Lua.window.statusBar": false,
@@ -84,6 +82,14 @@
     "<c-x>": "feedkeys!"
   },
   "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    },
     "sql": {
       "command": "sqls",
       "args": ["-config", "$HOME/.config/sqls/config.yml"],

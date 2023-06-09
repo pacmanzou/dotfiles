@@ -14,7 +14,6 @@ vim.o.ignorecase = true
 vim.o.listchars = "tab:| ,trail:▫"
 vim.o.list = true
 vim.o.magic = true
-vim.o.matchpairs = "<:>,《:》,（:）,【:】,“:”,‘:’"
 vim.o.mouse = "a"
 vim.o.hls = false
 vim.o.timeout = false

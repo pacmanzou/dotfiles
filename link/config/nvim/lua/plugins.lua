@@ -14,6 +14,32 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Lazy.nvim
 require("lazy").setup({
+  performance = {
+    rtp = {
+      disabled_plugins = {
+        "netrw",
+        "netrwPlugin",
+        "netrwSettings",
+        "netrwFileHandlers",
+        "gzip",
+        "zip",
+        "tohtml",
+        "man",
+        "zipPlugin",
+        "tar",
+        "tarPlugin",
+        "getscript",
+        "getscriptPlugin",
+        "vimball",
+        "vimballPlugin",
+        "2html_plugin",
+        "logipat",
+        "rrhelper",
+        "spellfile_plugin",
+        "matchit",
+      },
+    },
+  },
   {
     "neoclide/coc.nvim",
     branch = "release",
@@ -21,7 +47,6 @@ require("lazy").setup({
     config = function()
       vim.g.coc_global_extensions = {
         'coc-marketplace',
-        'coc-go',
         'coc-clangd',
         'coc-pyright',
         'coc-lua',
@@ -49,12 +74,6 @@ require("lazy").setup({
         'coc-explorer',
         'coc-leetcode'
       }
-
-      -- Coc-go mappings
-      vim.keymap.set('n', '<leader>gi', ':CocCommand go.impl.cursor<CR>', { silent = true })
-      vim.keymap.set('n', '<leader>ga', ':CocCommand go.tags.add.prompt<CR>', { silent = true })
-      vim.keymap.set('n', '<leader>gr', ':CocCommand go.tags.remove.prompt<CR>', { silent = true })
-      vim.keymap.set('n', '<leader>gc', ':CocCommand go.tags.clear<CR>', { silent = true })
 
       -- Coc-explorer mappings
       vim.keymap.set('n', '<space>e', ':CocCommand explorer<CR>', { silent = true })
@@ -220,6 +239,22 @@ require("lazy").setup({
               ["ic"] = "@class.inner"
             },
           },
+        },
+      }
+    end
+  },
+  {
+    "olexsmir/gopher.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    ft = "go",
+    config = function()
+      require("gopher").setup {
+        commands = {
+          go = "go",
+          gomodifytags = "gomodifytags",
+          gotests = "~/go/bin/gotests", -- also you can set custom command path
+          impl = "impl",
+          iferr = "iferr",
         },
       }
     end

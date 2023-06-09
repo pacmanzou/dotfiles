@@ -118,6 +118,7 @@ sudo pacman -S alacritty \
 	fd \
 	fzf \
 	go \
+	gopls \
 	gcc \
 	gparted \
 	htop \
