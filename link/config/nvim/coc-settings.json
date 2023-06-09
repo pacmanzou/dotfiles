@@ -50,8 +50,7 @@
     "?": "help"
   },
   "git.splitWindowCommand": "below sp",
-  "git.addGBlameToVirtualText": true,
-  "git.blameUseRealTime": true,
+  "git.enableGutters": true,
   "go.goplsOptions": { "gofumpt": true },
   "go.checkForUpdates": "disabled",
   "lua.checkForUpdates": "disabled",
