@@ -19,6 +19,7 @@ vim.o.mouse = "a"
 vim.o.hls = false
 vim.o.timeout = false
 vim.o.number = true
+vim.o.signcolumn = "number"
 vim.o.scrolloff = 5
 vim.o.shiftwidth = 2
 vim.o.smartcase = true
