@@ -1,16 +1,16 @@
 " Smooth scorll
 function! s:SmoothUp(dist, duration, speed) abort
-  call s:smoothscroll('u', a:dist, a:duration, a:speed)
+  call s:smoothscroll("u", a:dist, a:duration, a:speed)
 endfunction
 
 function! s:SmoothDown(dist, duration, speed) abort
-  call s:smoothscroll('d', a:dist, a:duration, a:speed)
+  call s:smoothscroll("d", a:dist, a:duration, a:speed)
 endfunction
 
 function! s:smoothscroll(dir, dist, duration, speed) abort
   for i in range(a:dist/a:speed)
     let start = reltime()
-    if a:dir ==# 'd'
+    if a:dir ==# "d"
       exec "normal! ".a:speed."\<C-e>".a:speed."j"
     else
       exec "normal! ".a:speed."\<C-y>".a:speed."k"

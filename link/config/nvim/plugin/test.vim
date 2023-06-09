@@ -1,11 +1,11 @@
 " Write some simple test code
-if empty(glob('$HOME/Test/nvim'))
+if empty(glob("$HOME/Test/nvim"))
   silent !mkdir -p "$HOME/Test/nvim"
 endif
 
 function! s:Input() abort
   call inputsave()
-  let val = input('Test FileType: ')
+  let val = input("Test FileType: ")
   call inputrestore()
   return val
 endfunction

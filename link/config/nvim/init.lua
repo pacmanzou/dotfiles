@@ -2,7 +2,7 @@
 -- Github: https://github.com/pacmanzou
 -- Description: Nvim config
 
-require('global')
-require('settings')
-require('mappings')
-require('plugins')
+require("global")
+require("settings")
+require("mappings")
+require("plugins")

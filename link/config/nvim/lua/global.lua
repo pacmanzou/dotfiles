@@ -1,8 +1,8 @@
 -- Theme
-vim.cmd('colorscheme gruvbox')
+vim.api.nvim_command("colorscheme gruvbox")
 
 -- Encoding
-vim.scriptencoding = 'utf-8'
+vim.scriptencoding = "utf-8"
 
 -- Leader key
 vim.g.mapleader = ","
@@ -12,7 +12,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- Providers
-vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.python3_host_prog = "/usr/bin/python3"
 vim.g.loaded_python_provider = 0
 vim.g.loaded_node_provider = 0
 vim.g.loaded_ruby_provider = 0
@@ -20,35 +20,54 @@ vim.g.loaded_perl_provider = 0
 
 -- Clipboard
 vim.g.clipboard = {
-  name = 'xsel_override',
+  name = "xsel_override",
   copy = {
-    ['+'] = 'xsel --input --clipboard',
-    ['*'] = 'xsel --input --primary',
+    ["+"] = "xsel --input --clipboard",
+    ["*"] = "xsel --input --primary",
   },
   paste = {
-    ['+'] = 'xsel --output --clipboard',
-    ['*'] = 'xsel --output --primary',
+    ["+"] = "xsel --output --clipboard",
+    ["*"] = "xsel --output --primary",
   },
   cache_enabled = 0,
 }
 
 -- Yank highlight
-vim.cmd([[
-    augroup HighlightOnYank
-        autocmd!
-        autocmd TextYankPost * silent! lua vim.highlight.on_yank{higroup="Visual", timeout=700}
-    augroup END
-]])
-
--- Keep last cursor
-vim.cmd([[
-    augroup RestoreCursorOnBufRead
-        autocmd!
-        autocmd BufReadPost * if line("\'\"") > 1 && line("\'\"") <= line("$") | exe "normal! g\'\"" | endif
-    augroup END
-]])
+vim.api.nvim_create_autocmd("TextYankPost", {
+  pattern = "*",
+  callback = function()
+    vim.highlight.on_yank { higroup = "Visual", timeout = 500 }
+  end,
+})
 
 -- The ft is empty, map <C-n>, <C-p> <nop>
-vim.cmd([[
-        autocmd BufEnter * lua if vim.fn.index({'', ' '}, vim.bo.filetype) ~= -1 then vim.api.nvim_buf_set_keymap(0, 'n', '<C-n>', '<nop>', {}) vim.api.nvim_buf_set_keymap(0, 'n', '<C-p>', '<nop>', {}) end
-]])
+vim.api.nvim_create_autocmd("BufEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.index({ "", " " }, vim.bo.filetype) ~= -1 then
+      vim.api.nvim_buf_set_keymap(0, "n", "<C-n>", "<nop>", {})
+      vim.api.nvim_buf_set_keymap(0, "n", "<C-p>", "<nop>", {})
+    end
+  end,
+})
+
+-- Keep last cursor
+vim.api.nvim_create_autocmd("BufRead", {
+  callback = function(opts)
+    vim.api.nvim_create_autocmd("BufWinEnter", {
+      once = true,
+      buffer = opts.buf,
+      callback = function()
+        local ft = vim.bo[opts.buf].filetype
+        local last_known_line = vim.api.nvim_buf_get_mark(opts.buf, '"')[1]
+        if
+            not (ft:match("commit") and ft:match("rebase"))
+            and last_known_line > 1
+            and last_known_line <= vim.api.nvim_buf_line_count(opts.buf)
+        then
+          vim.api.nvim_feedkeys([[g`"]], "nx", false)
+        end
+      end,
+    })
+  end,
+})

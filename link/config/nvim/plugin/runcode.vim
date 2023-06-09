@@ -1,34 +1,34 @@
 " Run the code
 function! s:RunCode() abort
   silent! exec "w"
-  if &filetype == 'go'
+  if &filetype == "go"
     :sp
     :res 10
     :term go run %
-  elseif &filetype == 'c'
+  elseif &filetype == "c"
 		:sp
 		:res -10
 		:term gcc % -o %< && time ./%<
-	elseif &filetype == 'cpp'
+	elseif &filetype == "cpp"
 		silent! exec "!g++ -std=c++11 % -Wall -o %<"
 		:sp
 		:res -10
 		:term ./%<
-  elseif &filetype == 'python'
+  elseif &filetype == "python"
     :sp
     :res 10
     :term python3 %
-  elseif &filetype == 'sh'
+  elseif &filetype == "sh"
     :sp
     :res 10
     :term bash %
-  elseif &filetype == 'javascript'
+  elseif &filetype == "javascript"
     :sp
     :res 10
     :term node %
-  elseif &filetype == 'html'
+  elseif &filetype == "html"
     silent! exec "!xdg-open %"
-  elseif &filetype == 'markdown'
+  elseif &filetype == "markdown"
     silent! exec "MarkdownPreview"
   else
     echohl WarningMsg
