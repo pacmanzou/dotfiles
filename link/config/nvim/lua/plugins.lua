@@ -14,32 +14,6 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Lazy.nvim
 require("lazy").setup({
-  performance = {
-    rtp = {
-      disabled_plugins = {
-        "netrw",
-        "netrwPlugin",
-        "netrwSettings",
-        "netrwFileHandlers",
-        "gzip",
-        "zip",
-        "tohtml",
-        "man",
-        "zipPlugin",
-        "tar",
-        "tarPlugin",
-        "getscript",
-        "getscriptPlugin",
-        "vimball",
-        "vimballPlugin",
-        "2html_plugin",
-        "logipat",
-        "rrhelper",
-        "spellfile_plugin",
-        "matchit",
-      },
-    },
-  },
   {
     "neoclide/coc.nvim",
     branch = "release",
