@@ -33,11 +33,11 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 
 -- Cursor move
-vim.keymap.set({ "n", "v" }, "<C-e>", "$", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "<C-a>", "^", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "o" }, "<C-e>", "$", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "o" }, "<C-a>", "^", { noremap = true, silent = true })
+vim.keymap.set({ "n", "v", "o" }, "gg", "gg", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "J", "<C-e>", { noremap = true, silent = true })
 vim.keymap.set({ "n", "v" }, "K", "<C-y>", { noremap = true, silent = true })
-vim.keymap.set({ "n", "v" }, "gg", "gg", { noremap = true, silent = true })
 
 -- Focus move
 vim.keymap.set("n", "zh", "zt", { noremap = true })
@@ -100,12 +100,12 @@ end
 
 -- Misc
 vim.keymap.set("n", "q:", "<nop>", { noremap = true, silent = true })
+vim.keymap.set("t", "<C-s>", "<nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "Q", "@q", { noremap = true, silent = true })
 vim.keymap.set("n", ">", ">>", { noremap = true, silent = true })
 vim.keymap.set("n", "<", "<<", { noremap = true, silent = true })
 vim.keymap.set("n", "Y", "y$", { noremap = true, silent = true })
 vim.keymap.set("n", "gf", "<C-w>gf", { noremap = true, silent = true })
-vim.keymap.set("t", "<C-s>", "<nop>", { noremap = true, silent = true })
 
 -- Insert mode mappings
 vim.api.nvim_set_keymap("i", "<C-@>", "<nop>", {})

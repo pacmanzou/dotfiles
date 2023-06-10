@@ -15,9 +15,81 @@ vim.opt.rtp:prepend(lazypath)
 -- Lazy.nvim
 require("lazy").setup({
   {
+    "Yggdroot/indentLine",
+    config = function()
+      vim.g.indentLine_char = "|"
+      vim.g.indentLine_first_char = "|"
+      vim.g.indentLine_setColors = 0
+      vim.g.indentLine_showFirstIndentLevel = 1
+      vim.g.indentLine_bufTypeExclude = { "help" }
+      vim.g.indentLine_bufNameExclude = { "_.*", "term://.*", "man://.*" }
+      vim.g.indentLine_fileTypeExclude = {
+        "go",
+        "help",
+        "coc-explorer",
+        "vista"
+      }
+    end
+  },
+  {
+    "echasnovski/mini.indentscope",
+    config = function()
+      require("mini.indentscope").setup {
+        mappings = {
+          -- Textobjects
+          object_scope = "il",
+          object_scope_with_border = "al",
+
+          -- Motions (jump to respective border line; if not present - body line)
+          goto_top = "[l",
+          goto_bottom = "]l",
+        },
+        -- Which character to use for drawing scope indicator
+        symbol = "|",
+      }
+      -- Disabled
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "coc-explorer", "vista", "help" },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
+    end
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        sync_install = false,
+        auto_install = true,
+        ignore_install = {
+          "json",
+          "vim"
+        },
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        textobjects = {
+          select = {
+            enable = true,
+            lookahead = true,
+            keymaps = {
+              ["af"] = "@function.outer",
+              ["if"] = "@function.inner",
+              ["ac"] = "@class.outer",
+              ["ic"] = "@class.inner"
+            },
+          },
+        },
+      }
+    end
+  },
+  {
     "neoclide/coc.nvim",
     branch = "release",
-    priority = 100,
+    event = "VeryLazy",
     config = function()
       vim.g.coc_global_extensions = {
         "coc-marketplace",
@@ -179,78 +251,6 @@ require("lazy").setup({
     end
   },
   {
-    "Yggdroot/indentLine",
-    config = function()
-      vim.g.indentLine_char = "|"
-      vim.g.indentLine_first_char = "|"
-      vim.g.indentLine_setColors = 0
-      vim.g.indentLine_showFirstIndentLevel = 1
-      vim.g.indentLine_bufTypeExclude = { "help" }
-      vim.g.indentLine_bufNameExclude = { "_.*", "term://.*", "man://.*" }
-      vim.g.indentLine_fileTypeExclude = {
-        "go",
-        "help",
-        "coc-explorer",
-        "vista"
-      }
-    end
-  },
-  {
-    "echasnovski/mini.indentscope",
-    config = function()
-      require("mini.indentscope").setup {
-        mappings = {
-          -- Textobjects
-          object_scope = "il",
-          object_scope_with_border = "al",
-
-          -- Motions (jump to respective border line; if not present - body line)
-          goto_top = "[l",
-          goto_bottom = "]l",
-        },
-        -- Which character to use for drawing scope indicator
-        symbol = "|",
-      }
-      -- Disabled
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "coc-explorer", "vista", "help" },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-    end
-  },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
-    config = function()
-      require("nvim-treesitter.configs").setup {
-        sync_install = false,
-        auto_install = true,
-        ignore_install = {
-          "json",
-          "vim"
-        },
-        highlight = {
-          enable = true,
-          additional_vim_regex_highlighting = false,
-        },
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              ["af"] = "@function.outer",
-              ["if"] = "@function.inner",
-              ["ac"] = "@class.outer",
-              ["ic"] = "@class.inner"
-            },
-          },
-        },
-      }
-    end
-  },
-  {
     "olexsmir/gopher.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
     ft = "go",
@@ -313,7 +313,7 @@ require("lazy").setup({
   },
   {
     "echasnovski/mini.surround",
-    event = "VeryLazy",
+    keys = { "s", "ds", "cs", "v", "V", "<C-v>" },
     config = function()
       require("mini.surround").setup {
         mappings = {
@@ -334,7 +334,7 @@ require("lazy").setup({
   },
   {
     "echasnovski/mini.align",
-    event = "VeryLazy",
+    keys = { "ga", "v", "V", "<C-v>" },
     config = function()
       require("mini.align").setup {
         silent = true
@@ -343,22 +343,23 @@ require("lazy").setup({
   },
   {
     "numToStr/Comment.nvim",
-    event = "VeryLazy",
+    keys = { "gc", "gb", "v", "V", "<C-v>" },
     config = function()
       require("Comment").setup()
     end
   },
   {
     "liuchengxu/vista.vim",
-    event = "VeryLazy",
+    keys = "<Space>v",
     config = function()
       vim.g.vista_echo_cursor = 0
+      vim.g.vista_default_executive = "coc"
       vim.keymap.set("n", "<Space>v", ":Vista!!<CR>", { silent = true })
     end
   },
   {
     "voldikss/vim-floaterm",
-    event = "VeryLazy",
+    keys = "<C-g>",
     config = function()
       vim.g.floaterm_opener = "tabe"
       vim.g.floaterm_title = ""
