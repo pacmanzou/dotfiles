@@ -59,7 +59,7 @@ promptinit
 precmd() { vcs_info }
 colors
 
-zstyle ':vcs_info:*:*' formats "%r" " %b"
+zstyle ':vcs_info:*:*' formats "%r" " %b"
 
 setopt PROMPT_SUBST
 
