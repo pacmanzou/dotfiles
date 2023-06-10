@@ -328,7 +328,7 @@ require("lazy").setup({
           suffix_last = "",    -- Suffix to search with "prev" method
           suffix_next = "",    -- Suffix to search with "next" method
         },
-        silent = false,
+        silent = true,
       }
     end
   },
