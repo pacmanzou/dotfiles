@@ -189,7 +189,6 @@ require("lazy").setup({
       vim.g.indentLine_bufNameExclude = { "_.*", "term://.*", "man://.*" }
       vim.g.indentLine_fileTypeExclude = {
         "go",
-        "txt",
         "help",
         "coc-explorer",
         "vista"
@@ -212,6 +211,13 @@ require("lazy").setup({
         -- Which character to use for drawing scope indicator
         symbol = "|",
       }
+      -- Disabled
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "coc-explorer", "vista", "help" },
+        callback = function()
+          vim.b.miniindentscope_disable = true
+        end,
+      })
     end
   },
   {
