@@ -61,12 +61,21 @@ require("lazy").setup({
     dependencies = { "nvim-treesitter/nvim-treesitter-textobjects" },
     config = function()
       require("nvim-treesitter.configs").setup {
-        sync_install = false,
-        auto_install = true,
-        ignore_install = {
-          "json",
-          "vim"
+        ensure_installed = {
+          "go",
+          "gomod",
+          "gosum",
+          "python",
+          "lua",
+          "bash",
+          "markdown",
+          "javascript",
+          "html",
+          "css",
+          "vue"
         },
+        sync_install = false,
+        auto_install = false,
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,
