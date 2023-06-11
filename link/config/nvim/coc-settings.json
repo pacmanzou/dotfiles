@@ -11,44 +11,6 @@
       }
     }
   },
-  "explorer.icon.enableNerdfont": true,
-  "explorer.width": 30,
-  "explorer.keyMappingMode": "none",
-  "explorer.trash.command": "trash-put %s",
-  "explorer.sources": [
-    {
-      "name": "file",
-      "expand": true
-    }
-  ],
-  "explorer.keyMappings.global": {
-    "<space>f": "search",
-    "<c-t>": "open:tab",
-    "<c-s>": "open:split",
-    "<c-v>": "open:vsplit",
-    "<c-h>": "toggleHidden",
-    "<c-r>": "refresh",
-    "<c-m>": "open",
-    "h": "collapse",
-    "j": "nodeNext",
-    "k": "nodePrev",
-    "l": ["expandable?", "expand", "open"],
-    "..": "gotoParent",
-    "O": "expand:recursive",
-    "C": "collapse:recursive",
-    "cr": "rename",
-    "yp": "copyFilepath",
-    "yn": "copyFilename",
-    "yy": "copyFile:toggle",
-    "dd": "cutFile:toggle",
-    "uu": "clearCopyOrCut",
-    "pp": "pasteFile",
-    "D": "delete",
-    "at": "addFile",
-    "am": "addDirectory",
-    "q": "quit",
-    "?": "help"
-  },
   "git.splitWindowCommand": "below sp",
   "git.enableGutters": true,
   "lua.checkForUpdates": "disabled",

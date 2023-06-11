@@ -26,7 +26,6 @@ require("lazy").setup({
       vim.g.indentLine_fileTypeExclude = {
         "go",
         "help",
-        "coc-explorer",
         "vista"
       }
     end
@@ -49,7 +48,7 @@ require("lazy").setup({
       }
       -- Disabled
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "coc-explorer", "vista", "help" },
+        pattern = { "vista", "help" },
         callback = function()
           vim.b.miniindentscope_disable = true
         end,
@@ -126,12 +125,8 @@ require("lazy").setup({
         "coc-pairs",
         "coc-highlight",
         "coc-translator",
-        "coc-explorer",
         "coc-leetcode"
       }
-
-      -- Coc-explorer mappings
-      vim.keymap.set("n", "<space>e", ":CocCommand explorer<CR>", { silent = true })
 
       -- Coc-translate mappings
       vim.keymap.set("n", "t", "<Plug>(coc-translator-e)", {})
@@ -363,7 +358,9 @@ require("lazy").setup({
     config = function()
       vim.g.vista_echo_cursor = 0
       vim.g.vista_default_executive = "coc"
-      vim.keymap.set("n", "<Space>v", ":Vista!!<CR>", { silent = true })
+      vim.g.vista_update_on_text_changed = 1
+      vim.g.vista_update_on_text_changed_delay = 100
+      vim.keymap.set("n", "<Space>t", ":Vista!!<CR>", { silent = true })
     end
   },
   {
