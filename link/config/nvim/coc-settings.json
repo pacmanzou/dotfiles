@@ -11,8 +11,9 @@
       }
     }
   },
-  "git.splitWindowCommand": "below sp",
+  "git.blameUseRealTime": true,
   "git.enableGutters": true,
+  "git.splitWindowCommand": "below sp",
   "lua.checkForUpdates": "disabled",
   "Lua.diagnostics.globals": ["vim"],
   "Lua.window.statusBar": false,
