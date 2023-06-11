@@ -1,4 +1,4 @@
-" Write some simple test code
+" Test the code
 if empty(glob("$HOME/Test/nvim"))
   silent !mkdir -p "$HOME/Test/nvim"
 endif
