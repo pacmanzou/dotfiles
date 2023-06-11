@@ -40,8 +40,8 @@ require("lazy").setup({
           object_scope_with_border = "al",
 
           -- Motions (jump to respective border line; if not present - body line)
-          goto_top = "[l",
-          goto_bottom = "]l",
+          goto_top = "]l",
+          goto_bottom = "[l",
         },
         -- Which character to use for drawing scope indicator
         symbol = "|",
@@ -135,10 +135,10 @@ require("lazy").setup({
       -- Coc-git mappings
       vim.keymap.set({ "o", "x" }, "ig", "<Plug>(coc-git-chunk-inner)", { silent = true })
       vim.keymap.set({ "o", "x" }, "ag", "<Plug>(coc-git-chunk-outer)", { silent = true })
-      vim.keymap.set("n", "]g", "<Plug>(coc-git-nextchunk)", { silent = true })
-      vim.keymap.set("n", "[g", "<Plug>(coc-git-prevchunk)", { silent = true })
-      vim.keymap.set("n", "]c", "<Plug>(coc-git-nextconflict)", { silent = true })
-      vim.keymap.set("n", "[c", "<Plug>(coc-git-prevconflict)", { silent = true })
+      vim.keymap.set("n", "[g", "<Plug>(coc-git-nextchunk)", { silent = true })
+      vim.keymap.set("n", "]g", "<Plug>(coc-git-prevchunk)", { silent = true })
+      vim.keymap.set("n", "[c", "<Plug>(coc-git-nextconflict)", { silent = true })
+      vim.keymap.set("n", "]c", "<Plug>(coc-git-prevconflict)", { silent = true })
       vim.keymap.set("n", "<space>a", ":CocCommand git.chunkStage<CR>", { silent = true })
       vim.keymap.set("n", "<space>u", ":CocCommand git.chunkUndo<CR>", { silent = true })
       vim.keymap.set("n", "<space>p", ":CocCommand git.chunkInfo<CR>", { silent = true })
@@ -157,8 +157,8 @@ require("lazy").setup({
       vim.keymap.set("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 
       -- Diagnostic jump mappings
-      vim.keymap.set("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true })
-      vim.keymap.set("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true })
+      vim.keymap.set("n", "[d", "<Plug>(coc-diagnostic-next)", { silent = true })
+      vim.keymap.set("n", "]d", "<Plug>(coc-diagnostic-prev)", { silent = true })
 
       -- Jump preview chunk
       vim.keymap.set("n", "<C-o>", "<Plug>(coc-float-jump)", { silent = true })
@@ -291,10 +291,11 @@ require("lazy").setup({
     keys = "<Space>v",
     config = function()
       vim.g["vista#renderer#enable_icon"] = 0
+      vim.g.vista_stay_on_open = 0
       vim.g.vista_echo_cursor = 0
       vim.g.vista_default_executive = "coc"
       vim.g.vista_update_on_text_changed = 1
-      vim.g.vista_update_on_text_changed_delay = 100
+      vim.g.vista_update_on_text_changed_delay = 500
       vim.keymap.set("n", "<Space>v", ":Vista!!<CR>", { silent = true })
     end
   },
