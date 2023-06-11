@@ -255,35 +255,6 @@ require("lazy").setup({
     end
   },
   {
-    "olexsmir/gopher.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    ft = "go",
-    config = function()
-      require("gopher").setup {
-        commands = {
-          go = "go",
-          gomodifytags = "gomodifytags",
-          gotests = "~/go/bin/gotests", -- also you can set custom command path
-          impl = "impl",
-          iferr = "iferr",
-        },
-      }
-    end
-  },
-  {
-    "iamcco/markdown-preview.nvim",
-    dependencies = { "mzlogin/vim-markdown-toc" },
-    ft = "markdown",
-    build = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-    config = function()
-      vim.g.mkdp_theme = "light"
-      vim.g.vmt_list_item_char = "-"
-      vim.g.vmt_auto_update_on_save = 0
-    end
-  },
-  {
     "mfussenegger/nvim-dap",
     dependencies = {
       "rcarriga/nvim-dap-ui",
@@ -313,6 +284,47 @@ require("lazy").setup({
         { noremap = true, silent = true })
       vim.keymap.set("n", "<Leader>dc", ":DapContinue<CR>",
         { noremap = true, silent = true })
+    end
+  },
+  {
+    "liuchengxu/vista.vim",
+    keys = "<Space>v",
+    config = function()
+      vim.g["vista#renderer#enable_icon"] = 0
+      vim.g.vista_echo_cursor = 0
+      vim.g.vista_default_executive = "coc"
+      vim.g.vista_update_on_text_changed = 1
+      vim.g.vista_update_on_text_changed_delay = 100
+      vim.keymap.set("n", "<Space>v", ":Vista!!<CR>", { silent = true })
+    end
+  },
+  {
+    "olexsmir/gopher.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    ft = "go",
+    config = function()
+      require("gopher").setup {
+        commands = {
+          go = "go",
+          gomodifytags = "gomodifytags",
+          gotests = "~/go/bin/gotests", -- also you can set custom command path
+          impl = "impl",
+          iferr = "iferr",
+        },
+      }
+    end
+  },
+  {
+    "iamcco/markdown-preview.nvim",
+    dependencies = { "mzlogin/vim-markdown-toc" },
+    ft = "markdown",
+    build = function()
+      vim.fn["mkdp#util#install"]()
+    end,
+    config = function()
+      vim.g.mkdp_theme = "light"
+      vim.g.vmt_list_item_char = "-"
+      vim.g.vmt_auto_update_on_save = 0
     end
   },
   {
@@ -353,29 +365,18 @@ require("lazy").setup({
     end
   },
   {
-    "liuchengxu/vista.vim",
-    keys = "<Space>v",
-    config = function()
-      vim.g.vista_echo_cursor = 0
-      vim.g.vista_default_executive = "coc"
-      vim.g.vista_update_on_text_changed = 1
-      vim.g.vista_update_on_text_changed_delay = 100
-      vim.keymap.set("n", "<Space>t", ":Vista!!<CR>", { silent = true })
-    end
-  },
-  {
     "voldikss/vim-floaterm",
     keys = "<C-g>",
     config = function()
-      vim.g.floaterm_opener = "tabe"
+      vim.g.floaterm_opener = "vsplit"
       vim.g.floaterm_title = ""
       vim.g.floaterm_width = 0.77
       vim.g.floaterm_height = 0.90
 
       -- Open apps
-      vim.keymap.set("n", "<C-g><CR>", ":FloatermNew zsh<CR>", { silent = true })
-      vim.keymap.set("n", "<C-g>p", ":FloatermToggle<CR>", { silent = true })
       vim.keymap.set("t", "<C-g>p", "<CMD>FloatermToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<C-g>p", ":FloatermToggle<CR>", { silent = true })
+      vim.keymap.set("n", "<C-g><CR>", ":FloatermNew zsh<CR>", { silent = true })
       vim.keymap.set("n", "<C-g>l", ":FloatermNew lazygit<CR>", { silent = true })
       vim.keymap.set("n", "<C-g>r", ":FloatermNew ranger<CR>", { silent = true })
       vim.keymap.set("n", "<C-g>n", ":FloatermNew neomutt<CR>", { silent = true })
