@@ -2,7 +2,7 @@
 # Copyright (C) 2023 pacmanzou <pacmanzou@qq.com>
 # Description: Automatically change wallpaper
 
-url="https://source.unsplash.com/1920x1080/?wallpaper"
+url="https://source.unsplash.com/1920x1080/?random"
 wallpaper="$HOME/.i3/wallpaper.png"
 
 while :; do
