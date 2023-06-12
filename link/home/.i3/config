@@ -26,38 +26,41 @@ sudo -S cpupower frequency-set --governor performance
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 # Automatic startup software
-exec --no-startup-id copyq
 exec --no-startup-id fcitx5
+# Use <Alt-y> for copyq
+exec --no-startup-id copyq
+# Use <Alt-d> for utools
 exec --no-startup-id utools
 
 # Misc
 exec --no-startup-id bash "$HOME/.i3/battery.sh"
 
 # Key
-bindsym $mod+Tab workspace next
-bindsym $mod+q exec --no-startup-id dunstctl close
-bindsym $mod+w workspace back_and_forth
-bindsym $mod+r split toggle
-bindsym $mod+u exec --no-startup-id amixer -q set Master 5%+ && $refresh_i3status
+bindsym $mod+r mode "resize"
+bindsym $mod+a exec --no-startup-id flameshot gui
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
-bindsym $mod+s exec --no-startup-id flameshot gui
-bindsym $mod+d exec --no-startup-id amixer -q set Master 5%- && $refresh_i3status
+bindsym $mod+s split toggle
 bindsym $mod+f fullscreen toggle
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+z mode "resize"
+bindsym $mod+c exec --no-startup-id dunstctl close
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+m exec --no-startup-id amixer -q set Master toggle && $refresh_i3status
-bindsym $mod+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
+bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 
+bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+w workspace back_and_forth
 bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
-bindsym $mod+Shift+u exec --no-startup-id brightnessctl set 5%+
+bindsym $mod+period exec --no-startup-id amixer -q set Master 5%+ && $refresh_i3status
+bindsym $mod+Shift+period exec --no-startup-id brightnessctl set 5%+
+bindsym $mod+comma exec --no-startup-id amixer -q set Master 5%- && $refresh_i3status
+bindsym $mod+Shift+comma exec --no-startup-id brightnessctl set 5%- --min-value=500
+
 bindsym $mod+Shift+i mode "$mode_i3exit"
-bindsym $mod+Shift+d exec --no-startup-id brightnessctl set 5%- --min-value=500
 bindsym $mod+Shift+x mode "$mode_xinput"
 bindsym $mod+Shift+c mode "$mode_clash"
 bindsym $mod+Shift+m mode "$mode_misc"
@@ -71,7 +74,7 @@ bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
-bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -e zsh
+bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -t "alacritty-float" -e zsh
 
 # Mode
 set $mode_i3exit (L)ock    (S)uspend    (H)ibernate    log(O)ut    (R)eboot    (Shift+S)hutdown

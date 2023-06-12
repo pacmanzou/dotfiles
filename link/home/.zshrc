@@ -27,15 +27,12 @@ setopt hist_reduce_blanks
 setopt inc_append_history
 setopt share_history
 
+# # Unmap c-s, c-z
+stty stop undef
+stty susp undef
+
 # Keys
 bindkey -e
-
-# Unmap c-s
-stty -ixon
-
-autoload -U edit-command-line
-
-zle -N edit-command-line
 
 bindkey -r '^Q'
 bindkey -r '^O'
@@ -45,8 +42,6 @@ bindkey -r '^J'
 bindkey -r '^K'
 bindkey -r '^Z'
 bindkey -r '^V'
-
-bindkey '^U' backward-kill-line
 
 # Highlight and autosuggestions for zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -74,7 +69,6 @@ PROMPT='%B%F{green}%n@%m%f%b %~ $vcs_info_msg_1_$(git_dirty)$prompt_newline:'
 
 # Alias
 alias sudo='sudo -E'
-alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
 alias ls='ls --color=auto --time-style=long-iso'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -83,9 +77,12 @@ alias grep='grep --color=auto'
 alias df='df -h'
 alias free='free -m'
 
+# Clear unused packages
+alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
+
 # Functions
-function mkcd {
-    command mkdir "$1" && cd "$1" || exit
+function M {
+    command mkdir "$1" && cd "$1"
 }
 
 # Extract - archive extractor

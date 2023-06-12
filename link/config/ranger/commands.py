@@ -6,9 +6,9 @@ from ranger.api.commands import Command
 from ranger.core.loader import CommandLoader
 
 
-class mkcd(Command):
+class M(Command):
     """
-    :mkcd <dirname>
+    :M <dirname>
 
     Creates a directory with the name <dirname> and enters it.
     """

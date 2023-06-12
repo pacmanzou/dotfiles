@@ -185,8 +185,8 @@ require("lazy").setup({
         [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
       -- Multi cursors
-      vim.keymap.set("n", "<Enter>", "<Plug>(coc-cursors-word)*", { silent = true })
-      vim.keymap.set("n", "<C-q>", "<Plug>(coc-cursors-word)", { silent = true })
+      vim.keymap.set("n", "<C-s>", "<Plug>(coc-cursors-word)*", { silent = true })
+      vim.keymap.set("n", "<Enter>", "<Plug>(coc-cursors-word)", { silent = true })
 
       -- Use gh to show documentation in preview window
       function _G.show_docs()
