@@ -192,15 +192,6 @@ require("lazy").setup({
       vim.keymap.set("n", "<Space>m", ":CocList mru -A<CR>", { silent = true })
       vim.keymap.set("n", "<Space>b", ":CocList buffers<CR>", { silent = true })
 
-      -- Make <CR> to accept selected completion item or notify coc.nvim to format
-      local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
-      vim.api.nvim_set_keymap("i", "<CR>",
-        [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
-
-      -- Multi cursors
-      vim.keymap.set("n", "<C-s>", "<Plug>(coc-cursors-word)*", { silent = true })
-      vim.keymap.set("n", "<Enter>", "<Plug>(coc-cursors-word)", { silent = true })
-
       -- Use gh to show documentation in preview window
       function _G.show_docs()
         local cw = vim.fn.expand("<cword>")
@@ -215,10 +206,20 @@ require("lazy").setup({
 
       vim.keymap.set("n", "gh", ":lua _G.show_docs()<CR>", { silent = true }) -- Show documentation
 
-      -- Import and Format
-      vim.keymap.set("n", "<Leader>f", ":call CocActionAsync('format')<CR>", { silent = true })
-      vim.keymap.set("n", "<Leader>i", ":call CocActionAsync('runCommand', 'editor.action.organizeImport')<CR>",
-        { silent = true })
+      -- Make <CR> to accept selected completion item or notify coc.nvim to format
+      local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
+      vim.api.nvim_set_keymap("i", "<CR>",
+        [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+
+      -- Multi cursors
+      vim.keymap.set("n", "<C-s>", "<Plug>(coc-cursors-word)*", { silent = true })
+      vim.keymap.set("n", "<Enter>", "<Plug>(coc-cursors-word)", { silent = true })
+
+      -- Add `:Format` command to format current buffer
+      vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
+
+      -- Add `:Import` command for organize imports of the current buffer
+      vim.api.nvim_create_user_command("Import", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
 
       -- Autocmds
       vim.api.nvim_create_augroup("CocGroup", {})
@@ -237,6 +238,7 @@ require("lazy").setup({
         command = "silent call CocActionAsync('highlight')",
         desc = "Highlight symbol under cursor on CursorHold"
       })
+
       -- Setup formatexpr specified filetype(s)
       vim.api.nvim_create_autocmd("FileType", {
         group = "CocGroup",
@@ -244,6 +246,7 @@ require("lazy").setup({
         command = "setl formatexpr=CocAction('formatSelected')",
         desc = "Setup formatexpr specified filetype(s)."
       })
+
       -- Update signature help on jump placeholder
       vim.api.nvim_create_autocmd("User", {
         group = "CocGroup",
@@ -251,6 +254,7 @@ require("lazy").setup({
         command = "call CocActionAsync('showSignatureHelp')",
         desc = "Update signature help on jump placeholder"
       })
+
       -- Auto import for go
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = "CocGroup",
@@ -258,6 +262,7 @@ require("lazy").setup({
         command = "silent call CocAction('runCommand', 'editor.action.organizeImport')",
         desc = "Auto import for go"
       })
+
       -- Auto format for go
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = "CocGroup",
