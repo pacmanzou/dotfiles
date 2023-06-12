@@ -36,12 +36,12 @@ require("lazy").setup({
       require("mini.indentscope").setup {
         mappings = {
           -- Textobjects
-          object_scope = "il",
-          object_scope_with_border = "al",
+          object_scope = "is",
+          object_scope_with_border = "as",
 
           -- Motions (jump to respective border line; if not present - body line)
-          goto_top = "]l",
-          goto_bottom = "[l",
+          goto_top = "[s",
+          goto_bottom = "]s",
         },
         -- Which character to use for drawing scope indicator
         symbol = "|",
@@ -82,13 +82,26 @@ require("lazy").setup({
         textobjects = {
           select = {
             enable = true,
-            lookahead = true,
+            -- Automatically jump forward to textobj, similar to targets.vim
+            lookahead = false,
             keymaps = {
               ["af"] = "@function.outer",
               ["if"] = "@function.inner",
               ["ac"] = "@class.outer",
               ["ic"] = "@class.inner"
             },
+          },
+          move = {
+            enable = true,
+            set_jumps = false, -- whether to set jumps in the jumplist
+            goto_next = {
+              ["]f"] = "@function.outer",
+              ["]c"] = "@class.outer",
+            },
+            goto_previous = {
+              ["[f"] = "@function.outer",
+              ["[c"] = "@class.outer",
+            }
           },
         },
       }
@@ -135,10 +148,10 @@ require("lazy").setup({
       -- Coc-git mappings
       vim.keymap.set({ "o", "x" }, "ig", "<Plug>(coc-git-chunk-inner)", { silent = true })
       vim.keymap.set({ "o", "x" }, "ag", "<Plug>(coc-git-chunk-outer)", { silent = true })
-      vim.keymap.set("n", "[g", "<Plug>(coc-git-nextchunk)", { silent = true })
-      vim.keymap.set("n", "]g", "<Plug>(coc-git-prevchunk)", { silent = true })
-      vim.keymap.set("n", "[c", "<Plug>(coc-git-nextconflict)", { silent = true })
-      vim.keymap.set("n", "]c", "<Plug>(coc-git-prevconflict)", { silent = true })
+      vim.keymap.set("n", "]g", "<Plug>(coc-git-nextchunk)", { silent = true })
+      vim.keymap.set("n", "[g", "<Plug>(coc-git-prevchunk)", { silent = true })
+      vim.keymap.set("n", "]c", "<Plug>(coc-git-nextconflict)", { silent = true })
+      vim.keymap.set("n", "[c", "<Plug>(coc-git-prevconflict)", { silent = true })
       vim.keymap.set("n", "<space>a", ":CocCommand git.chunkStage<CR>", { silent = true })
       vim.keymap.set("n", "<space>u", ":CocCommand git.chunkUndo<CR>", { silent = true })
       vim.keymap.set("n", "<space>p", ":CocCommand git.chunkInfo<CR>", { silent = true })
@@ -157,8 +170,8 @@ require("lazy").setup({
       vim.keymap.set("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 
       -- Diagnostic jump mappings
-      vim.keymap.set("n", "[d", "<Plug>(coc-diagnostic-next)", { silent = true })
-      vim.keymap.set("n", "]d", "<Plug>(coc-diagnostic-prev)", { silent = true })
+      vim.keymap.set("n", "]d", "<Plug>(coc-diagnostic-next)", { silent = true })
+      vim.keymap.set("n", "[d", "<Plug>(coc-diagnostic-prev)", { silent = true })
 
       -- Jump preview chunk
       vim.keymap.set("n", "<C-o>", "<Plug>(coc-float-jump)", { silent = true })
