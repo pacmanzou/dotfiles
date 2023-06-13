@@ -27,15 +27,14 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
 # Automatic startup software
 exec --no-startup-id fcitx5
-# Use <Alt-y> for copyq
-exec --no-startup-id copyq
-# Use <Alt-d> for utools
+# Use <Alt-Space> for utools
 exec --no-startup-id utools
 
 # Misc
 exec --no-startup-id bash "$HOME/.i3/battery.sh"
 
 # Key
+bindsym $mod+q exec --no-startup-id dunstctl close
 bindsym $mod+r mode "resize"
 bindsym $mod+a exec --no-startup-id flameshot gui
 bindsym $mod+o focus mode_toggle
@@ -46,7 +45,6 @@ bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+c exec --no-startup-id dunstctl close
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
 bindsym $mod+m exec --no-startup-id amixer -q set Master toggle && $refresh_i3status
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
