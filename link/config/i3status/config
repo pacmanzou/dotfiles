@@ -1,6 +1,7 @@
 order += "wireless wlp2s0"
 order += "cpu_usage"
 order += "memory"
+order += "cpu_temperature 0"
 order += "volume master"
 order += "battery all"
 order += "tztime local"
@@ -14,7 +15,7 @@ general {
 }
 
 wireless wlp2s0 {
-    format_up = "WIRELESS %bitrate"
+    format_up = "WIR %bitrate"
     format_down = "NO WIRELESS"
 }
 
@@ -23,15 +24,20 @@ cpu_usage {
     max_threshold = 80
 }
 
+cpu_temperature 0 {
+    format = " TEM %degrees °C"
+    path = "/sys/class/thermal/thermal_zone0/temp"
+}
+
 memory {
-    format = " MEMORY %percentage_used"
+    format = " MEM %percentage_used"
     threshold_degraded = "20%"
     memory_used_method = "memavailable"
  }
 
 volume master {
-    format = " VOLUME %volume"
-    format_muted = " VOLUME(muted) %volume"
+    format = " VOL %volume"
+    format_muted = " MUTE %volume"
     device = "default"
     mixer = "Master"
     mixer_idx = 0
@@ -42,7 +48,7 @@ battery all {
     format_down = " NO BATTERY"
     last_full_capacity = true
     integer_battery_capacity = true
-    status_bat = "BATTERY "
+    status_bat = "BAT "
     status_chr = "CHARGING "
     status_unk = "UNKNOWN "
     status_full = "FULL "
