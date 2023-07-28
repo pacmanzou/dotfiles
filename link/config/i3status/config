@@ -15,7 +15,7 @@ general {
 }
 
 wireless wlp2s0 {
-    format_up = "WIR %bitrate"
+    format_up = "%essid %bitrate%quality"
     format_down = "NO WIRELESS"
 }
 
