@@ -138,7 +138,7 @@ sudo pacman -S alacritty \
 	nodejs-lts-hydrogen \
 	npm \
 	neovim \
-	neovide-git \
+	neovide \
 	neomutt \
 	obs-studio \
 	pcmanfm-gtk3 \
