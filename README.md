@@ -12,6 +12,7 @@ Some useful configs for manjaro i3.
   - [Database](#database)
   - [Mail](#mail)
   - [Utools plugins](#utools-plugins)
+  - [Appimage](#appimage)
 
 <!-- vim-markdown-toc -->
 
@@ -36,7 +37,6 @@ Some useful configs for manjaro i3.
 
 ```bash
 yay -S abook \
-    apifox \
     debtap \
     google-chrome \
     linuxqq \
@@ -82,3 +82,7 @@ yay -S abook \
 - Ctool (隐藏后台时完全退出)
 - ChatGPT.好友 (开启自动分离窗口)
 ```
+
+### Appimage
+
+- apifox
