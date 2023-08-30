@@ -80,11 +80,6 @@ alias free='free -m'
 # Clear unused packages
 alias qtdq='sudo pacman -Rns $(pacman -Qtdq)'
 
-# Functions
-function M {
-    command mkdir "$1" && cd "$1"
-}
-
 # Extract - archive extractor
 # Usage: extract <file>
 extract ()
