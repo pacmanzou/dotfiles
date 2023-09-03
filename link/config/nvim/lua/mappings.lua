@@ -129,7 +129,6 @@ vim.api.nvim_set_keymap("i", "<C-d>", "<delete>", {})
 vim.api.nvim_set_keymap("i", "<C-h>", "<backspace>", {})
 vim.api.nvim_set_keymap("i", "<C-a>", "<C-o>^", { noremap = true })
 vim.api.nvim_set_keymap("i", "<C-e>", "<C-o>$", { noremap = true })
-vim.api.nvim_set_keymap("i", "<C-l>", "<C-o>zt", { noremap = true })
 
 -- Command-line mode mappings
 vim.api.nvim_set_keymap("c", "<C-q>", "<nop>", {})

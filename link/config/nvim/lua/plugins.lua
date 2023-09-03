@@ -206,10 +206,10 @@ require("lazy").setup({
 
       vim.keymap.set("n", "gh", ":lua _G.show_docs()<CR>", { silent = true }) -- Show documentation
 
-      -- Make <CR> to accept selected completion item or notify coc.nvim to format
+      -- Make <C-l> to accept selected completion item or notify coc.nvim to format
       local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
-      vim.api.nvim_set_keymap("i", "<CR>",
-        [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+      vim.api.nvim_set_keymap("i", "<C-l>",
+        [[coc#pum#visible() ? coc#pum#confirm() : ""]], opts)
 
       -- Multi cursors
       vim.keymap.set("n", "<C-s>", "<Plug>(coc-cursors-word)*", { silent = true })
