@@ -122,7 +122,6 @@ sudo pacman -S alacritty \
 	gcc \
 	gparted \
 	htop \
-	jellyfin-media-player \
 	java-openjfx \
 	jdk-openjdk \
 	jre-openjdk \
