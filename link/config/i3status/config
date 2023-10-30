@@ -15,8 +15,8 @@ general {
 }
 
 wireless wlp2s0 {
-    format_up = "%essid %bitrate%quality"
-    format_down = "NO WIRELESS"
+    format_up = "NET %bitrate%quality"
+    format_down = "NO NET"
 }
 
 cpu_usage {
@@ -57,6 +57,6 @@ battery all {
 }
 
 tztime local {
-    format = " %Y-%m-%d  %I:%M:%S  %p"
+    format = " %Y-%m-%d  %I:%M:%S  %p  "
     locale = "en_IN.UTF-8"
 }

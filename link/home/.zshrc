@@ -43,6 +43,8 @@ bindkey -r '^K'
 bindkey -r '^Z'
 bindkey -r '^V'
 
+bindkey '^U' backward-kill-line
+
 # Highlight and autosuggestions for zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh

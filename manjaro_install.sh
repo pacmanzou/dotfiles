@@ -158,7 +158,7 @@ sudo pacman -S alacritty \
 	ttf-hack \
 	unzip \
 	utools \
-	vnote-git \
+	vnote \
 	wqy-microhei \
 	xclip \
 	yarn \

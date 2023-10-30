@@ -19,19 +19,21 @@ exec --no-startup-id picom -b
 exec --no-startup-id sleep 1; conky -c "$HOME/.i3/conky_i3wm"
 exec --no-startup-id bash "$HOME/.i3/wallpaper.sh"
 
-# Automatic execution of the shell
-exec --no-startup-id bluetoothctl power on
-exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" |\
-sudo -S cpupower frequency-set --governor performance
+# Low power notice
+exec --no-startup-id bash "$HOME/.i3/battery.sh"
+# Cpu power
+exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set --governor performance
+# Verify password pop-up box
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
-# Automatic startup software
+# NetworkManager
+exec --no-startup-id nm-applet
+# Bluetooth
+exec --no-startup-id blueman-applet
+# Insert method
 exec --no-startup-id fcitx5
-# Use <Alt-Space> for utools
+# Multifunction tools
 exec --no-startup-id utools
-
-# Misc
-exec --no-startup-id bash "$HOME/.i3/battery.sh"
 
 # Key
 bindsym $mod+q exec --no-startup-id dunstctl close
@@ -205,6 +207,8 @@ for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
 for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
 for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
+for_window [class="Blueman"] floating enable, resize set 1430 805, move position center
+for_window [class="BleachBit"] floating enable, resize set 1430 805, move position center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
@@ -232,7 +236,7 @@ bar {
     height 25
     i3bar_command i3bar
     status_command i3status
-    tray_output none
+    # tray_output none
     position bottom
     strip_workspace_numbers yes
     separator_symbol " "

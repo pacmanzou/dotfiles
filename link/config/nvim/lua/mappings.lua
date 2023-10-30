@@ -66,10 +66,9 @@ vim.keymap.set("n", "zC", "zM", { noremap = true })
 vim.keymap.set("n", "<tab>", ":tabnext<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<s-tab>", ":tabprevious<CR>", { noremap = true, silent = true })
 
--- Copy name, path, directory
+-- Copy name, path
 vim.keymap.set("n", "yn", ":let @+=expand('%')<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "yp", ":let @+=expand('%:p')<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "yd", ":let @+=getcwd()<CR>", { noremap = true, silent = true })
 
 -- Jumps
 vim.keymap.set("n", "<C-n>", "<C-i>", { noremap = true, silent = true })
