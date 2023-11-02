@@ -140,7 +140,7 @@ sudo pacman -S alacritty \
 	neovide \
 	neomutt \
 	obs-studio \
-	pcmanfm-gtk3 \
+	pcmanfm \
 	python-pip \
 	qbittorrent \
 	ripgrep \
@@ -153,6 +153,7 @@ sudo pacman -S alacritty \
 	telegram-desktop \
 	tldr \
 	viewnior \
+	ventoy \
 	tmux \
 	trash-cli \
 	ttf-hack \
