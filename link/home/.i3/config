@@ -48,16 +48,15 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
-bindsym $mod+m exec --no-startup-id amixer -q set Master toggle && $refresh_i3status
 bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+w workspace back_and_forth
 bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
-bindsym $mod+period exec --no-startup-id amixer -q set Master 5%+ && $refresh_i3status
+bindsym $mod+period exec --no-startup-id amixer -q set Master 5%+
 bindsym $mod+Shift+period exec --no-startup-id brightnessctl set 5%+
-bindsym $mod+comma exec --no-startup-id amixer -q set Master 5%- && $refresh_i3status
+bindsym $mod+comma exec --no-startup-id amixer -q set Master 5%-
 bindsym $mod+Shift+comma exec --no-startup-id brightnessctl set 5%- --min-value=500
 
 bindsym $mod+Shift+i mode "$mode_i3exit"
@@ -188,6 +187,9 @@ floating_maximum_size 1430 x 805
 # Open specific applications in floating mode
 for_window [title="alacritty-float"] floating enable, move position center
 for_window [title="Clash Dashboard"] floating enable, resize set 1430 805, move position center
+for_window [title="Monkeytype"] floating enable, resize set 1430 805, move position center
+for_window [title="draw.io"] floating enable, resize set 1430 805, move position center
+for_window [title="Excalidraw"] floating enable, resize set 1430 805, move position center
 
 for_window [class="uTools"] floating enable
 for_window [class="GParted"] floating enable, move position center

@@ -7,7 +7,6 @@ wallpaper="$HOME/.i3/wallpaper.png"
 
 while :; do
 	sleep 1h
-
 	curl -L -s -o "$wallpaper" "$url"
 	nitrogen --set-zoom-fill "$wallpaper"
 done
