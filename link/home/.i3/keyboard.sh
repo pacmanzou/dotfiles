@@ -13,8 +13,8 @@ STATE=$(xinput list-props "$ID" | grep 'Device Enabled' | awk '{print $4}')
 
 if [[ $STATE -eq 1 ]]; then
 	xinput disable "$ID"
-	notify-send "Keyboard" "off"
+	notify-send "键盘已禁用" "您现在只能使用外接键盘"
 else
 	xinput enable "$ID"
-	notify-send "Keyboard" "on"
+	notify-send "键盘已开启" "您现在可以正常使用本机键盘和外接键盘"
 fi

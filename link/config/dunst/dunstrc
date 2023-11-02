@@ -73,7 +73,7 @@
     separator_color = auto
 
     # Sort messages by urgency.
-    sort = yes
+    sort = no
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -272,7 +272,7 @@
     background = "#1d1d1d"
     foreground = "#fe8019"
     frame_color = "#1d1d1d"
-    timeout = 0
+    timeout = 60
     new_icon = /home/zou/.config/dunst/critical.png
 
 # vim: ft=cfg

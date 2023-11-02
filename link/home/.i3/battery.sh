@@ -8,7 +8,7 @@ while :; do
 
 	if [[ "${battery_status}" != "charged" ]]; then
 		if [[ "${battery_level}" -le 15 ]]; then
-			notify-send --urgency=critical "Battery" "Battery level is less than 15%"
+			notify-send --urgency=critical "电池电量不足" "当前电量少于15%,建议您立即充电"
 		fi
 	fi
 	sleep 1m
