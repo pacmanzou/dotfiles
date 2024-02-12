@@ -1,0 +1,68 @@
+[colors.bright]
+black = "0x928374"
+blue = "0x83a598"
+cyan = "0x8ec07c"
+green = "0xb8bb26"
+magenta = "0xd3869b"
+red = "0xfb4934"
+white = "0xffffff"
+yellow = "0xfabd2f"
+
+[colors.cursor]
+cursor = "0xebdbb2"
+text = "0x000000"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x83a598"
+cyan = "0x689d6a"
+green = "0xb8bb26"
+magenta = "0xb16286"
+red = "0xfb4934"
+white = "0xebdbb2"
+yellow = "0xfabd2f"
+
+[colors.primary]
+background = "0x000000"
+foreground = "0xebdbb2"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 14
+
+[font.bold]
+family = "Hack"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "Hack"
+
+[font.normal]
+family = "Hack"
+
+[font.offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[window]
+decorations = "full"
+dynamic_padding = true
+opacity = 1
+startup_mode = "Windowed"
+
+[window.dimensions]
+columns = 1440
+lines = 81
+
+[window.padding]
+x = 0
+y = 0
