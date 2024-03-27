@@ -47,7 +47,8 @@ yay -S abook \
     wps-office-cn \
     wps-office-mui-zh-cn \
     wps-office-fonts \
-    wps-office-mime-cn
+    wps-office-mime-cn \
+    yesplaymusic
 ```
 
 ### SSH for git

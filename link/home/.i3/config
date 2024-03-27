@@ -211,6 +211,7 @@ for_window [class="Viewnior"] floating enable, resize set 1430 805, move positio
 for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
 for_window [class="Blueman"] floating enable, resize set 1430 805, move position center
 for_window [class="BleachBit"] floating enable, resize set 1430 805, move position center
+for_window [class="yesplaymusic"] floating enable, resize set 1430 805, move position center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
