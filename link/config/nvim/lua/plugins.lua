@@ -115,9 +115,9 @@ require("lazy").setup({
       vim.g.coc_global_extensions = {
         "coc-marketplace",
         "coc-clangd",
-        -- "coc-pyright",
-        -- "coc-lua",
-        -- "coc-sh",
+        "coc-pyright",
+        "coc-lua",
+        "coc-sh",
         "coc-diagnostic",
         "coc-json",
         "coc-yaml",

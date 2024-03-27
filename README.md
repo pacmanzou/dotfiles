@@ -37,6 +37,7 @@ Some useful configs for manjaro i3.
 
 ```bash
 yay -S abook \
+    apifox \
     debtap \
     google-chrome \
     linuxqq \
@@ -73,16 +74,15 @@ yay -S abook \
 - 网页快开 (跟随主程序同时启动)
 - 超级剪贴板 (跟随主程序同时启动)
 - 翻译 (跟随主程序同时启动)
-- 图床 (隐藏后台时完全退出)
+- 图kk床 (隐藏后台时完全退出)
 - OCR-图片转文字 (隐藏后台时完全退出)
 - 易翻翻译 (隐藏后台时完全退出)
 - 计算稿纸 (隐藏后台时完全退出)
 - hosts 切换 (隐藏后台时完全退出)
 - 程序员手册 (隐藏后台时完全退出)
 - Ctool (隐藏后台时完全退出)
-- ChatGPT.好友 (开启自动分离窗口)
 ```
 
 ### Appimage
 
-- apifox
+<!-- - apifox -->

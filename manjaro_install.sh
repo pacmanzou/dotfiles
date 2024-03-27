@@ -189,7 +189,7 @@ sudo pacman -S fcitx5 \
 
 Info "### Pip install ###"
 pip install black \
-	mycli
+	mycli \
 	pynvim
 echo
 
