@@ -113,7 +113,6 @@ require("lazy").setup({
     event = "VeryLazy",
     config = function()
       vim.g.coc_global_extensions = {
-        "coc-marketplace",
         "coc-clangd",
         "coc-pyright",
         "coc-lua",
@@ -128,7 +127,6 @@ require("lazy").setup({
         "coc-html",
         "coc-htmlhint",
         "coc-css",
-        "coc-vetur",
         "coc-emmet",
         "coc-gitignore",
         "coc-snippets",

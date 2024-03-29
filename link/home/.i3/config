@@ -113,9 +113,10 @@ mode "$mode_clash" {
     bindsym Escape mode "default"
 }
 
-set $mode_misc (G)ithub_token
+set $mode_misc (P)hone_number    (G)ithub_token
 
 mode "$mode_misc" {
+    bindsym p exec --no-startup-id bash "$HOME/.i3/phone_number.sh", mode "default"
     bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
 
     bindsym Return mode "default"
