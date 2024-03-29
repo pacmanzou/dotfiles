@@ -68,6 +68,5 @@
   "suggest.maxCompleteItemCount": 16,
   "suggest.enablePreselect": false,
   "translator.engines": ["google"],
-  "vetur.ignoreProjectWarning": true,
   "workspace.rootPatterns": [".git", ".gitignore"]
 }

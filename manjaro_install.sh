@@ -125,6 +125,7 @@ sudo pacman -S alacritty \
 	java-openjfx \
 	jdk-openjdk \
 	jre-openjdk \
+    kitty \
 	lightdm-settings \
 	lazygit \
 	lazydocker \
