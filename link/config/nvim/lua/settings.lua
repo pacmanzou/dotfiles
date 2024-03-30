@@ -9,6 +9,12 @@ vim.o.encoding = "utf-8"
 vim.o.fileencodings = "utf-8"
 vim.o.foldmethod = "indent"
 vim.o.foldlevel = 99
+vim.o.guicursor = "n-v-c:block25," ..
+    "i-ci-ve:ver25," ..
+    "r-cr:hor20," ..
+    "o:hor50," ..
+    "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor," ..
+    "sm:block-blinkwait175-blinkoff150-blinkon175"
 vim.o.hidden = true
 vim.o.ignorecase = true
 vim.o.listchars = "tab:| ,trail:▫"
