@@ -71,7 +71,6 @@ require("lazy").setup({
           "javascript",
           "html",
           "css",
-          "vue"
         },
         sync_install = false,
         auto_install = false,
@@ -208,6 +207,10 @@ require("lazy").setup({
       local opts = { silent = true, noremap = true, expr = true, replace_keycodes = false }
       vim.api.nvim_set_keymap("i", "<C-l>",
         [[coc#pum#visible() ? coc#pum#confirm() : ""]], opts)
+
+      -- Confirm the completion when popupmenu is visible, insert <CR>
+      vim.api.nvim_set_keymap("i", "<CR>",
+        [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
       -- Multi cursors
       vim.keymap.set("n", "<C-s>", "<Plug>(coc-cursors-word)*", { silent = true })
