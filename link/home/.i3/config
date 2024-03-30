@@ -30,6 +30,8 @@ exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 exec --no-startup-id nm-applet
 # Bluetooth
 exec --no-startup-id blueman-applet
+# Clipboard
+exec --no-startup-id copyq
 # Insert method
 exec --no-startup-id fcitx5
 # Multifunction tools
@@ -209,6 +211,7 @@ for_window [class="VirtualBox"] floating enable, move position center
 for_window [class="copyq"] floating enable, move position center
 for_window [class="Pcmanfm"] floating enable, move position center
 for_window [class="fcitx5"] floating enable, move position center
+for_window [class="copyq"] floating enable, resize set 1430 805, move position center
 for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
 for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
 for_window [class="Blueman"] floating enable, resize set 1430 805, move position center
