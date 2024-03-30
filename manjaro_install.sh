@@ -156,6 +156,7 @@ sudo pacman -S alacritty \
 	viewnior \
 	ventoy \
 	tmux \
+	tree-sitter-cli \
 	trash-cli \
 	ttf-hack \
 	unzip \
