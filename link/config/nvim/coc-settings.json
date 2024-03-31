@@ -18,6 +18,7 @@
   "git.blameUseRealTime": true,
   "git.enableGutters": true,
   "git.splitWindowCommand": "below sp",
+  "git.branchCharacter": "",
   "lua.checkForUpdates": "disabled",
   "Lua.diagnostics.globals": ["vim"],
   "Lua.window.statusBar": false,

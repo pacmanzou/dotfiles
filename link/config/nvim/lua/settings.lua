@@ -38,23 +38,28 @@ vim.o.updatetime = 100
 vim.o.undofile = true
 vim.o.writebackup = false
 
--- StatusLine with coc.nvim
+-- StatusLine depends on coc.nvim
 vim.o.statusline = "%!luaeval('StatusLine()')"
 
 function StatusLine()
-  local s = ""
-  s = s .. "%f %h%w%m%r  " .. StatusDiagnostic()
-  s = s .. "%=" .. StatusGit() .. "          "
-  s = s .. "%l,%c%V          %P"
-  return s
+  local res = ""
+  res = res .. "%f %h%w%m%r  " .. Diagnostic()
+  res = res .. "%=" .. GitBranch() .. GitStaus() .. "          "
+  res = res .. "%l,%c%V          %P"
+  return res
 end
 
-function StatusGit()
-  local status = vim.b.coc_git_status or ""
-  return status
+function GitBranch()
+  local res = vim.g.coc_git_status or ""
+  return res
 end
 
-function StatusDiagnostic()
+function GitStaus()
+  local res = vim.b.coc_git_status or ""
+  return res
+end
+
+function Diagnostic()
   local info = vim.b.coc_diagnostic_info or {}
   local msgs = {}
 
@@ -64,13 +69,13 @@ function StatusDiagnostic()
     table.insert(msgs, " " .. info["error"] .. " ")
   end
   if info["warning"] and info["warning"] > 0 then
-    table.insert(msgs, " " .. info["warning"])
+    table.insert(msgs, " " .. info["warning"] .. " ")
   end
   if info["hint"] and info["hint"] > 0 then
     table.insert(msgs, "󱟇 " .. info["hint"] .. " ")
   end
   if info["info"] and info["info"] > 0 then
-    table.insert(msgs, " " .. info["info"] .. " ")
+    table.insert(msgs, " " .. info["info"])
   end
   return table.concat(msgs)
 end
