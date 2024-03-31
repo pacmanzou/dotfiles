@@ -61,16 +61,16 @@ function StatusDiagnostic()
   if vim.tbl_isempty(info) then return "" end
 
   if info["error"] and info["error"] > 0 then
-    table.insert(msgs, "E" .. info["error"] .. " ")
-  end
-  if info["hint"] and info["hint"] > 0 then
-    table.insert(msgs, "H" .. info["hint"] .. " ")
-  end
-  if info["info"] and info["info"] > 0 then
-    table.insert(msgs, "I" .. info["info"] .. " ")
+    table.insert(msgs, " " .. info["error"] .. " ")
   end
   if info["warning"] and info["warning"] > 0 then
-    table.insert(msgs, "W" .. info["warning"])
+    table.insert(msgs, " " .. info["warning"])
+  end
+  if info["hint"] and info["hint"] > 0 then
+    table.insert(msgs, "󱟇 " .. info["hint"] .. " ")
+  end
+  if info["info"] and info["info"] > 0 then
+    table.insert(msgs, " " .. info["info"] .. " ")
   end
   return table.concat(msgs)
 end

@@ -1,6 +1,10 @@
 {
   "coc.preferences.formatOnType": true,
   "diagnostic.enableMessage": "never",
+  "diagnostic.errorSign": " ",
+  "diagnostic.warningSign": " ",
+  "diagnostic.hintSign": "󱟇 ",
+  "diagnostic.infoSign": " ",
   "diagnostic.virtualText": true,
   "diagnostic.virtualTextCurrentLineOnly": false,
   "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },

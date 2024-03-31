@@ -67,15 +67,6 @@ class compress(Command):
         obj.signal_bind("after", refresh)
         self.fm.loader.add(obj)
 
-    def tab(self, _):
-        """Complete with current folder name"""
-
-        extension = [".zip", ".tar.gz", ".rar", ".7z"]
-        return [
-            "compress " + os.path.basename(self.fm.thisdir.path) + ext
-            for ext in extension
-        ]
-
 
 class extracthere(Command):
     def execute(self):
