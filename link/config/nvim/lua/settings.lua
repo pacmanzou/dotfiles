@@ -9,12 +9,6 @@ vim.o.encoding = "utf-8"
 vim.o.fileencodings = "utf-8"
 vim.o.foldmethod = "indent"
 vim.o.foldlevel = 99
-vim.o.guicursor = "n-v-c:block25," ..
-    "i-ci-ve:ver25," ..
-    "r-cr:hor20," ..
-    "o:hor50," ..
-    "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor," ..
-    "sm:block-blinkwait175-blinkoff150-blinkon175"
 vim.o.hidden = true
 vim.o.ignorecase = true
 vim.o.listchars = "tab:| ,trail:▫"
@@ -37,6 +31,14 @@ vim.o.tabstop = 2
 vim.o.updatetime = 100
 vim.o.undofile = true
 vim.o.writebackup = false
+
+-- Cursor shape and blink
+vim.o.guicursor = "n-v-c:block25," ..
+    "i-ci-ve:ver25," ..
+    "r-cr:hor20," ..
+    "o:hor50," ..
+    "a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor," ..
+    "sm:block-blinkwait175-blinkoff150-blinkon175"
 
 -- StatusLine depends on coc.nvim
 vim.o.statusline = "%!luaeval('StatusLine()')"
@@ -74,8 +76,8 @@ function Diagnostic()
   if info["hint"] and info["hint"] > 0 then
     table.insert(msgs, "󱟇 " .. info["hint"] .. " ")
   end
-  if info["info"] and info["info"] > 0 then
-    table.insert(msgs, " " .. info["info"])
+  if info["information"] and info["information"] > 0 then
+    table.insert(msgs, " " .. info["information"])
   end
   return table.concat(msgs)
 end
