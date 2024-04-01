@@ -3,8 +3,6 @@
 # Environment variable
 export LANG=zh_CN.UTF-8
 export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
-export EDITOR=/usr/bin/nvim
-export BROWSER=/usr/bin/google-chrome-stable
 
 # Golang
 export PATH=$PATH:$HOME/go/bin

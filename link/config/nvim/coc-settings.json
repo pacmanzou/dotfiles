@@ -1,6 +1,7 @@
 {
   "coc.preferences.formatOnType": true,
   "diagnostic.enableMessage": "never",
+  "diagnostic.messageDelay": 100,
   "diagnostic.errorSign": " ",
   "diagnostic.warningSign": " ",
   "diagnostic.hintSign": "󱟇 ",
