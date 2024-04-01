@@ -99,13 +99,14 @@ end
 
 -- Misc
 vim.keymap.set("n", "q:", "<nop>", { noremap = true, silent = true })
-vim.keymap.set("t", "<C-s>", "<nop>", { noremap = true, silent = true })
 vim.keymap.set("n", "gf", "<C-w>gf", { noremap = true, silent = true })
 vim.keymap.set("n", "gp", "%", { noremap = true, silent = true })
 vim.keymap.set("n", "Q", "@q", { noremap = true, silent = true })
 vim.keymap.set("n", ">", ">>", { noremap = true, silent = true })
 vim.keymap.set("n", "<", "<<", { noremap = true, silent = true })
 vim.keymap.set("n", "Y", "y$", { noremap = true, silent = true })
+vim.keymap.set("t", "<C-s>", "<nop>", { noremap = true, silent = true })
+vim.keymap.set("t", "<C-o>", "<C-\\><C-n>", { noremap = true, silent = true })
 
 -- Insert mode mappings
 vim.api.nvim_set_keymap("i", "<C-@>", "<nop>", {})

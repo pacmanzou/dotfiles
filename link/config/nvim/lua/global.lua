@@ -35,9 +35,13 @@ vim.g.clipboard = {
 -- Yank highlight
 vim.api.nvim_create_autocmd("TextYankPost", {
   pattern = "*",
-  callback = function()
-    vim.highlight.on_yank { higroup = "Visual", timeout = 500 }
-  end,
+  command = "lua vim.highlight.on_yank{higroup='Visual', timeout=700}"
+})
+
+-- Enter write mode when opening terminal
+vim.api.nvim_create_autocmd("TermOpen", {
+  pattern = "term://*",
+  command = "startinsert"
 })
 
 -- The ft is empty, map <C-n>, <C-p> <nop>
