@@ -8,7 +8,7 @@ endif
 let g:colors_name = "gruvbox"
 
 " Basics
-hi Normal       guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
+hi Normal       guifg=#ebdbb2 guibg=#00000000 gui=NONE           cterm=NONE
 hi Visual       guifg=#000000 guibg=#ebdbb2 gui=NONE           cterm=NONE
 hi TermCursor   guifg=#000000 guibg=#ebdbb2 gui=NONE           cterm=NONE
 hi SignColumn   guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
