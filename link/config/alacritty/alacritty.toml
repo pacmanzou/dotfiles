@@ -56,7 +56,7 @@ multiplier = 3
 [window]
 decorations = "full"
 dynamic_padding = true
-opacity = 0.4
+opacity = 1.0
 startup_mode = "Windowed"
 
 [window.dimensions]

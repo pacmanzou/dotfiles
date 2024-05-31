@@ -9,29 +9,33 @@ let g:colors_name = "gruvbox"
 
 " Basics
 hi Normal       guifg=#ebdbb2 guibg=#00000000 gui=NONE           cterm=NONE
-hi Visual       guifg=#000000 guibg=#ebdbb2 gui=NONE           cterm=NONE
-hi TermCursor   guifg=#000000 guibg=#ebdbb2 gui=NONE           cterm=NONE
-hi SignColumn   guifg=#ebdbb2 guibg=#000000 gui=NONE           cterm=NONE
-hi ColorColumn  guifg=NONE    guibg=#000000 gui=NONE           cterm=NONE
-hi VertSplit    guifg=#504945 guibg=#000000 gui=NONE           cterm=NONE
-hi Comment      guifg=#928374 guibg=NONE    gui=italic         cterm=italic
-hi CursorLine   guifg=NONE    guibg=#353535 gui=NONE           cterm=NONE
-hi CursorLineNr guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
-hi Error        guifg=#fb4934 guibg=#000000 gui=bold           cterm=bold
-hi ErrorMsg     guifg=#fb4934 guibg=#000000 gui=bold           cterm=bold
-hi ModeMsg      guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
-hi MoreMsg      guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
-hi WarningMsg   guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
-hi LineNr       guifg=#7c6f64 guibg=NONE    gui=NONE           cterm=NONE
-hi NonText      guifg=#504945 guibg=NONE    gui=NONE           cterm=NONE
-hi MatchParen   guifg=NONE    guibg=#665c54 gui=bold,underline cterm=bold,underline
-hi SpecialKey   guifg=#928374 guibg=NONE    gui=NONE           cterm=NONE
-hi WildMenu     guifg=#ebdbb2 guibg=#1d1d1d gui=bold           cterm=bold
-hi Conceal      guifg=#504945 guibg=NONE    gui=NONE           cterm=NONE
-hi Directory    guifg=#b8bb26 guibg=NONE    gui=bold           cterm=bold
-hi Question     guifg=#fe8019 guibg=NONE    gui=bold           cterm=bold
-hi Title        guifg=#ebdbb2 guibg=NONE    gui=bold           cterm=bold
-hi SpellBad     guifg=#fe8019 guibg=#000000 gui=underline      cterm=underline
+hi Visual       guifg=#000000 guibg=#ebdbb2   gui=NONE           cterm=NONE
+hi TermCursor   guifg=#000000 guibg=#ebdbb2   gui=NONE           cterm=NONE
+hi SignColumn   guifg=#ebdbb2 guibg=#000000   gui=NONE           cterm=NONE
+hi ColorColumn  guifg=NONE    guibg=#000000   gui=NONE           cterm=NONE
+hi VertSplit    guifg=#504945 guibg=#000000   gui=NONE           cterm=NONE
+hi Comment      guifg=#928374 guibg=NONE      gui=italic         cterm=italic
+hi CursorLine   guifg=NONE    guibg=#353535   gui=NONE           cterm=NONE
+hi CursorLineNr guifg=#ebdbb2 guibg=NONE      gui=bold           cterm=bold
+hi Error        guifg=#fb4934 guibg=#000000   gui=bold           cterm=bold
+hi ErrorMsg     guifg=#fb4934 guibg=#000000   gui=bold           cterm=bold
+hi ModeMsg      guifg=#ebdbb2 guibg=NONE      gui=bold           cterm=bold
+hi MoreMsg      guifg=#ebdbb2 guibg=NONE      gui=bold           cterm=bold
+hi WarningMsg   guifg=#fe8019 guibg=NONE      gui=bold           cterm=bold
+hi LineNr       guifg=#7c6f64 guibg=NONE      gui=NONE           cterm=NONE
+hi NonText      guifg=#504945 guibg=NONE      gui=NONE           cterm=NONE
+hi MatchParen   guifg=NONE    guibg=#665c54   gui=bold,underline cterm=bold,underline
+hi SpecialKey   guifg=#928374 guibg=NONE      gui=NONE           cterm=NONE
+hi WildMenu     guifg=#ebdbb2 guibg=#1d1d1d   gui=bold           cterm=bold
+hi Conceal      guifg=#504945 guibg=NONE      gui=NONE           cterm=NONE
+hi Directory    guifg=#b8bb26 guibg=NONE      gui=bold           cterm=bold
+hi Question     guifg=#fe8019 guibg=NONE      gui=bold           cterm=bold
+hi Title        guifg=#ebdbb2 guibg=NONE      gui=bold           cterm=bold
+hi SpellBad     guifg=#fe8019 guibg=#000000   gui=underline      cterm=underline
+hi NormalFloat  guifg=#ebdbb2 guibg=#1d1d1d   gui=NONE           cterm=NONE
+hi StatusLine   guifg=#000000 guibg=#ebdbb2   gui=bold           cterm=bold
+hi StatusLineNC guifg=#000000 guibg=#ebdbb2   gui=bold           cterm=bold
+hi @variable    guifg=#ebdbb2 guibg=NONE      gui=NONE           cterm=NONE
 
 " Search
 hi Search    guifg=#000000 guibg=#fabd2f gui=NONE cterm=NONE
