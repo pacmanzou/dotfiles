@@ -17,7 +17,6 @@ conky.config = {
     use_xft = true,
 }
 conky.text = [[
-$color2${font anti Vera Sans:size=16}${time %A}$font\
 ${voffset -8}$alignr$color${font anti Vera Sans:size=38}${time %e}$font
 ${voffset -30}$color$color${font anti Vera Sans:size=18}${time %b}$font\
 ${voffset -3}$color${font anti Vera Sans:size=20}${time %Y}$font$color2
