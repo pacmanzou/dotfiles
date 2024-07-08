@@ -38,6 +38,7 @@ Some useful configs for manjaro i3.
 ```bash
 yay -S abook \
     apifox \
+    baidunetdisk-bin \
     debtap \
     google-chrome \
     linuxqq \
