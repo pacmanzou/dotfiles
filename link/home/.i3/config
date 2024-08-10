@@ -194,6 +194,7 @@ for_window [title="Clash Dashboard"] floating enable, resize set 1430 805, move 
 for_window [title="Monkeytype"] floating enable, resize set 1430 805, move position center
 for_window [title="draw.io"] floating enable, resize set 1430 805, move position center
 for_window [title="Excalidraw"] floating enable, resize set 1430 805, move position center
+for_window [title="Discord"] floating enable, resize set 1430 805, move position center
 
 for_window [class="uTools"] floating enable
 for_window [class="GParted"] floating enable, move position center
