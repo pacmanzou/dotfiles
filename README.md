@@ -41,7 +41,7 @@ yay -S abook \
     baidunetdisk-bin \
     debtap \
     google-chrome \
-    linuxqq \
+    linuxqq-appimage \
     mutt-wizard \
     simple-mtpfs \
     sqls \
