@@ -127,6 +127,7 @@ sudo pacman -S alacritty \
 	jre-openjdk \
     kitty \
 	lightdm-settings \
+	linux-wifi-hotspot \
 	lazygit \
 	lazydocker \
 	lux-dl \
