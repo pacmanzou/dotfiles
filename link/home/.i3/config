@@ -11,10 +11,8 @@ floating_modifier $mod
 font xft:URWGothic-Book Bold 14
 
 # Exec
-exec_always --no-startup-id fix_xcursor
-
 # Background
-exec --no-startup-id nitrogen --set-zoom-fill "$HOME/.i3/wallpaper.png"
+exec --no-startup-id feh --bg-fill "$HOME/.i3/wallpaper.png"
 exec --no-startup-id picom -b
 exec --no-startup-id sleep 1; conky -c "$HOME/.i3/conky_i3wm"
 exec --no-startup-id bash "$HOME/.i3/wallpaper.sh"
@@ -201,7 +199,6 @@ for_window [class="GParted"] floating enable, move position center
 for_window [class="Lightdm-settings"] floating enable, move position center
 for_window [class="Lxappearance"] floating enable, move position center
 for_window [class="Pamac-manager"] floating enable, move position center
-for_window [class="Nitrogen"] floating enable, move position center
 for_window [class="mpv"] floating enable, move position center
 for_window [class="Manjaro Settings Manager"] floating enable, move position center
 for_window [class="obs"] floating enable, move position center
