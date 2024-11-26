@@ -117,6 +117,7 @@ sudo pacman -S alacritty \
     delve \
     dunst \
     docker \
+    dmenu-manjaro \
     fd \
     fzf \
     feh \
