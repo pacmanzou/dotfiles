@@ -4,6 +4,8 @@
 export LANG=zh_CN.UTF-8
 export SUDO_ASKPASS=/usr/lib/seahorse/ssh-askpass
 
+export EDITOR=/usr/bin/nvim
+
 # Golang
 export PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go

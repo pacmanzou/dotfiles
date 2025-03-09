@@ -1,4 +1,4 @@
-order += "wireless wlp2s0"
+order += "wireless wlan0"
 order += "cpu_usage"
 order += "memory"
 order += "cpu_temperature 0"
@@ -14,7 +14,7 @@ general {
     color_bad = "#fb4934"
 }
 
-wireless wlp2s0 {
+wireless wlan0 {
     format_up = "WIRELESS %bitrate%quality"
     format_down = "NO WIRELESS"
 }
@@ -49,8 +49,8 @@ battery all {
     last_full_capacity = true
     integer_battery_capacity = true
     status_bat = "BAT "
-    status_chr = "CHARGING "
-    status_unk = "UNKNOWN "
+    status_chr = "CHR "
+    status_unk = "UNK "
     status_full = "FULL "
     low_threshold = 15
     threshold_type = "percentage"
@@ -58,5 +58,5 @@ battery all {
 
 tztime local {
     format = " %Y-%m-%d  %I:%M:%S  %p  "
-    locale = "en_IN.UTF-8"
+    locale = "en_US.UTF-8"
 }

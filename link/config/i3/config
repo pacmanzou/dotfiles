@@ -8,37 +8,40 @@ set $mod Mod1
 floating_modifier $mod
 
 # Font for window titles. Will also be used by the bar unless a different font
-font xft:URWGothic-Book Bold 14
+font pango:monospace 14
 
 # Exec
 # Background
-exec --no-startup-id feh --bg-fill "$HOME/.i3/wallpaper.png"
+exec --no-startup-id feh --bg-fill "$HOME/.config/i3/wallpaper.png"
 exec --no-startup-id picom -b
-exec --no-startup-id sleep 1; conky -c "$HOME/.i3/conky_i3wm"
-exec --no-startup-id bash "$HOME/.i3/wallpaper.sh"
+exec --no-startup-id sleep 1; conky -c "$HOME/.config/i3/conky_i3wm"
+exec --no-startup-id bash "$HOME/.config/i3/wallpaper.sh"
 
 # Low power notice
-exec --no-startup-id bash "$HOME/.i3/battery.sh"
-# Cpu power
-exec --no-startup-id cat < "$HOME/personal/manjaro_password.txt" | sudo -S cpupower frequency-set --governor performance
+exec --no-startup-id bash "$HOME/.config/i3/battery.sh"
+
 # Verify password pop-up box
 exec --no-startup-id "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 
+# Set screen rate
+exec --no-startup-id xrandr --output eDP-1 --mode 2880x1800 --rate 120
+
+# Multifunction tools
+exec --no-startup-id utools
 # NetworkManager
 exec --no-startup-id nm-applet
 # Bluetooth
 exec --no-startup-id blueman-applet
-# Clipboard
-exec --no-startup-id copyq
 # Insert method
 exec --no-startup-id fcitx5
-# Multifunction tools
-exec --no-startup-id utools
+# Net agent
+exec --no-startup-id clash-verge
 
 # Key
 bindsym $mod+q exec --no-startup-id dunstctl close
 bindsym $mod+r mode "resize"
 bindsym $mod+a exec --no-startup-id flameshot gui
+bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
 bindsym $mod+s split toggle
@@ -48,33 +51,39 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
-bindsym $mod+Return exec --no-startup-id kitty -e zsh
+bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+w workspace back_and_forth
 bindsym $mod+Shift+w move container to workspace back_and_forth; workspace back_and_forth
-bindsym $mod+m exec --no-startup-id amixer -q set Master toggle && $refresh_i3status
-bindsym $mod+period exec --no-startup-id amixer -q set Master 5%+ && $refresh_i3status
+bindsym $mod+m exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym $mod+period exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym $mod+Shift+period exec --no-startup-id brightnessctl set 5%+
-bindsym $mod+comma exec --no-startup-id amixer -q set Master 5%- && $refresh_i3status
-bindsym $mod+Shift+comma exec --no-startup-id brightnessctl set 5%- --min-value=500
+bindsym $mod+comma exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
+bindsym $mod+Shift+comma exec --no-startup-id brightnessctl set 5%- --min-value=80
 
 bindsym $mod+Shift+i mode "$mode_i3exit"
 bindsym $mod+Shift+x mode "$mode_xinput"
-bindsym $mod+Shift+c mode "$mode_clash"
 bindsym $mod+Shift+m mode "$mode_misc"
 
 bindsym $mod+Ctrl+q kill
 bindsym $mod+Ctrl+w move container to workspace back_and_forth
 bindsym $mod+Ctrl+r reload
-bindsym $mod+Ctrl+o floating toggle
+bindsym $mod+Ctrl+o floating toggle, resize set 1600 1000, move position center
 bindsym $mod+Ctrl+p move scratchpad
 bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
-bindsym $mod+Ctrl+Return exec --no-startup-id kitty -T "kitty-float" -e zsh
+bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -T "alacritty-float" -e zsh
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set 5%+
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%- --min-value=80
 
 # Mode
 set $mode_i3exit (L)ock    (S)uspend    (H)ibernate    log(O)ut    (R)eboot    (Shift+S)hutdown
@@ -93,22 +102,8 @@ mode "$mode_i3exit" {
 set $mode_xinput (T)ouchpad    (K)eyboard
 
 mode "$mode_xinput" {
-    bindsym t exec --no-startup-id bash "$HOME/.i3/touchpad.sh", mode "default"
-    bindsym k exec --no-startup-id bash "$HOME/.i3/keyboard.sh", mode "default"
-
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
-
-set $mode_clash (I)nfo    (U)pdate    (S)elect    (A)dd    (D)elete    (Shift+U)pdate_all
-
-mode "$mode_clash" {
-    bindsym i exec --no-startup-id bash "$HOME/personal/clash/info.sh", mode "default"
-    bindsym u exec --no-startup-id bash "$HOME/personal/clash/update.sh", mode "default"
-    bindsym s exec --no-startup-id bash "$HOME/personal/clash/select.sh", mode "default"
-    bindsym a exec --no-startup-id bash "$HOME/personal/clash/add.sh", mode "default"
-    bindsym d exec --no-startup-id bash "$HOME/personal/clash/delete.sh", mode "default"
-    bindsym Shift+u exec --no-startup-id bash "$HOME/personal/clash/update_all.sh", mode "default"
+    bindsym t exec --no-startup-id bash "$HOME/.config/i3/touchpad.sh", mode "default"
+    bindsym k exec --no-startup-id bash "$HOME/.config/i3/keyboard.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -117,8 +112,8 @@ mode "$mode_clash" {
 set $mode_misc (P)hone_number    (G)ithub_token
 
 mode "$mode_misc" {
-    bindsym p exec --no-startup-id bash "$HOME/.i3/phone_number.sh", mode "default"
-    bindsym g exec --no-startup-id bash "$HOME/.i3/github_token.sh", mode "default"
+    bindsym p exec --no-startup-id bash "$HOME/.config/i3/phone_number.sh", mode "default"
+    bindsym g exec --no-startup-id bash "$HOME/.config/i3/github_token.sh", mode "default"
 
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -183,52 +178,42 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 
 # Limit the floating window size
-floating_minimum_size 805 x -1
-floating_maximum_size 1430 x 805
+floating_minimum_size 1000 x -1
+floating_maximum_size 1600 x 1000
 
 # Open specific applications in floating mode
-for_window [title="kitty-float"] floating enable, resize set 1430 805, move position center
-for_window [title="Clash Dashboard"] floating enable, resize set 1430 805, move position center
-for_window [title="Monkeytype"] floating enable, resize set 1430 805, move position center
-for_window [title="draw.io"] floating enable, resize set 1430 805, move position center
-for_window [title="Excalidraw"] floating enable, resize set 1430 805, move position center
-for_window [title="Discord"] floating enable, resize set 1430 805, move position center
+for_window [title="alacritty-float"] floating enable, resize set 1600 1000, move position center
+for_window [title="Monkeytype"] floating enable, resize set 1600 1000, move position center
+for_window [title="draw.io"] floating enable, resize set 1600 1000, move position center
+for_window [title="Excalidraw"] floating enable, resize set 1600 1000, move position center
+for_window [title="Discord"] floating enable, resize set 1600 1000, move position center
 
 for_window [class="uTools"] floating enable
-for_window [class="GParted"] floating enable, move position center
-for_window [class="Lightdm-settings"] floating enable, move position center
-for_window [class="Lxappearance"] floating enable, move position center
-for_window [class="Pamac-manager"] floating enable, move position center
-for_window [class="mpv"] floating enable, move position center
-for_window [class="Manjaro Settings Manager"] floating enable, move position center
-for_window [class="obs"] floating enable, move position center
-for_window [class="QQ"] floating enable, move position center
-for_window [class="apifox"] floating enable, move position center
-for_window [class="DBeaver"] floating enable, move position center
-for_window [class="VirtualBox"] floating enable, move position center
-for_window [class="copyq"] floating enable, move position center
-for_window [class="Pcmanfm"] floating enable, move position center
-for_window [class="fcitx5"] floating enable, move position center
-for_window [class="copyq"] floating enable, resize set 1430 805, move position center
-for_window [class="Viewnior"] floating enable, resize set 1430 805, move position center
-for_window [class="Telegram"] floating enable, resize set 1430 805, move position center
-for_window [class="Blueman"] floating enable, resize set 1430 805, move position center
-for_window [class="BleachBit"] floating enable, resize set 1430 805, move position center
-for_window [class="yesplaymusic"] floating enable, resize set 1430 805, move position center
+for_window [class="GParted"] floating enable, resize set 1600 1000, move position center
+for_window [class="Lightdm-settings"] floating enable, resize set 1600 1000, move position center
+for_window [class="Lxappearance"] floating enable, resize set 1600 1000, move position center
+for_window [class="Pamac-manager"] floating enable, resize set 1600 1000, move position center
+for_window [class="mpv"] floating enable, resize set 1600 1000, move position center
+for_window [class="Manjaro Settings Manager"] floating enable, resize set 1600 1000, move position center
+for_window [class="obs"] floating enable, resize set 1600 1000, move position center
+for_window [class="QQ"] floating enable, resize set 1600 1000, move position center
+for_window [class="apifox"] floating enable, resize set 1600 1000, move position center
+for_window [class="DBeaver"] floating enable, resize set 1600 1000, move position center
+for_window [class="VirtualBox"] floating enable, resize set 1600 1000, move position center
+for_window [class="copyq"] floating enable, resize set 1600 1000, move position center
+for_window [class="Pcmanfm"] floating enable, resize set 1600 1000, move position center
+for_window [class="fcitx5"] floating enable, resize set 1600 1000, move position center
+for_window [class="copyq"] floating enable, resize set 1600 1000, move position center
+for_window [class="Viewnior"] floating enable, resize set 1600 1000, move position center
+for_window [class="Telegram"] floating enable, resize set 1600 1000, move position center
+for_window [class="Blueman"] floating enable, resize set 1600 1000, move position center
+for_window [class="BleachBit"] floating enable, resize set 1600 1000, move position center
+for_window [class="yesplaymusic"] floating enable, resize set 1600 1000, move position center
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 1
 # default_border none
 default_floating_border none
-
-# Theme colors
-# class                 border  backgr. text    indic.   child_border
-client.focused          #000000 #1d1d1d #000000 #000000
-client.focused_inactive #000000 #1d1d1d #000000 #000000
-client.unfocused        #000000 #1d1d1d #000000 #000000
-client.urgent           #CB4B16 #000000 #000000 #000000
-client.placeholder      #000000 #0c0c0c #ffffff #000000
-client.background       #000000
 
 # Set inner/outer gaps
 gaps inner 5
@@ -239,17 +224,15 @@ gaps outer 5
 set $refresh_i3status killall -SIGUSR1 i3status
 
 bar {
-    height 25
+    height 40
     i3bar_command i3bar
     status_command i3status
-    # tray_output none
     position bottom
     strip_workspace_numbers yes
     separator_symbol " "
     colors {
-        background #000000
+        background #0f0f0f
         statusline #ebdbb2
-        separator  #000000
         #workspace color    border background font
         inactive_workspace #000000 #000000 #ebdbb2
         active_workspace   #000000 #000000 #ebdbb2

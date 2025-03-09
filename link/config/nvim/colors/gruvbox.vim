@@ -8,17 +8,16 @@ endif
 let g:colors_name = "gruvbox"
 
 " Basics
-hi Normal       guifg=#ebdbb2 guibg=#00000000 gui=NONE           cterm=NONE
-hi Visual       guifg=#000000 guibg=#ebdbb2   gui=NONE           cterm=NONE
-hi TermCursor   guifg=#000000 guibg=#ebdbb2   gui=NONE           cterm=NONE
-hi SignColumn   guifg=#ebdbb2 guibg=#000000   gui=NONE           cterm=NONE
-hi ColorColumn  guifg=NONE    guibg=#000000   gui=NONE           cterm=NONE
-hi VertSplit    guifg=#504945 guibg=#000000   gui=NONE           cterm=NONE
+hi Normal       guifg=#ebdbb2 guibg=NONE gui=NONE           cterm=NONE
+hi Visual       guifg=NONE guibg=#4f5258   gui=NONE           cterm=NONE
+hi SignColumn   guifg=#ebdbb2 guibg=NONE   gui=NONE           cterm=NONE
+hi ColorColumn  guifg=NONE    guibg=NONE   gui=NONE           cterm=NONE
+hi VertSplit    guifg=#504945 guibg=NONE   gui=NONE           cterm=NONE
 hi Comment      guifg=#928374 guibg=NONE      gui=italic         cterm=italic
 hi CursorLine   guifg=NONE    guibg=#353535   gui=NONE           cterm=NONE
 hi CursorLineNr guifg=#ebdbb2 guibg=NONE      gui=bold           cterm=bold
-hi Error        guifg=#fb4934 guibg=#000000   gui=bold           cterm=bold
-hi ErrorMsg     guifg=#fb4934 guibg=#000000   gui=bold           cterm=bold
+hi Error        guifg=#fb4934 guibg=NONE   gui=bold           cterm=bold
+hi ErrorMsg     guifg=#fb4934 guibg=NONE   gui=bold           cterm=bold
 hi ModeMsg      guifg=#ebdbb2 guibg=NONE      gui=bold           cterm=bold
 hi MoreMsg      guifg=#ebdbb2 guibg=NONE      gui=bold           cterm=bold
 hi WarningMsg   guifg=#fe8019 guibg=NONE      gui=bold           cterm=bold
@@ -31,7 +30,7 @@ hi Conceal      guifg=#504945 guibg=NONE      gui=NONE           cterm=NONE
 hi Directory    guifg=#b8bb26 guibg=NONE      gui=bold           cterm=bold
 hi Question     guifg=#fe8019 guibg=NONE      gui=bold           cterm=bold
 hi Title        guifg=#ebdbb2 guibg=NONE      gui=bold           cterm=bold
-hi SpellBad     guifg=#fe8019 guibg=#000000   gui=underline      cterm=underline
+hi SpellBad     guifg=#fe8019 guibg=NONE   gui=underline      cterm=underline
 hi NormalFloat  guifg=#ebdbb2 guibg=#1d1d1d   gui=NONE           cterm=NONE
 hi StatusLine   guifg=#000000 guibg=#ebdbb2   gui=bold           cterm=bold
 hi StatusLineNC guifg=#000000 guibg=#ebdbb2   gui=bold           cterm=bold
@@ -42,9 +41,9 @@ hi Search    guifg=#000000 guibg=#fabd2f gui=NONE cterm=NONE
 hi IncSearch guifg=#000000 guibg=#fabd2f gui=NONE cterm=NONE
 
 " Tabline
-hi TabLine     guifg=#353535 guibg=#000000 gui=NONE cterm=NONE
-hi TabLineSel  guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
-hi TabLineFill guifg=#ebdbb2 guibg=#000000 gui=NONE cterm=NONE
+hi TabLine     guifg=#353535 guibg=NONE gui=NONE cterm=NONE
+hi TabLineSel  guifg=#ebdbb2 guibg=NONE gui=NONE cterm=NONE
+hi TabLineFill guifg=#ebdbb2 guibg=NONE gui=NONE cterm=NONE
 
 " Diff
 hi DiffAdd    guifg=#b8bb26 guibg=#000000 gui=reverse cterm=reverse
@@ -54,7 +53,7 @@ hi DiffText   guifg=#fabd2f guibg=#000000 gui=reverse cterm=reverse
 
 " Fold
 hi Folded     guifg=#ebdbb2 guibg=#353535 gui=italic cterm=italic
-hi FoldColumn guifg=#ebdbb2 guibg=#000000 gui=NONE   cterm=NONE
+hi FoldColumn guifg=#ebdbb2 guibg=NONE gui=NONE   cterm=NONE
 
 " Pmenu
 hi Pmenu      guifg=#ebdbb2 guibg=#1d1d1d gui=NONE    cterm=NONE
@@ -122,7 +121,7 @@ hi diffAdded               guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
 hi diffRemoved             guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 
 " Floaterm
-hi FloatermBorder guifg=#1d1d1d guibg=#000000 gui=NONE cterm=NONE
+hi FloatermBorder guifg=#1d1d1d guibg=NONE gui=NONE cterm=NONE
 
 " Indentscope
 hi MiniIndentscopeSymbol guifg=#928374 guibg=NONE gui=NONE cterm=NONE

@@ -3,7 +3,7 @@
 # Description: Automatically change wallpaper
 
 url="https://api.nguaduot.cn/wallhaven/random"
-wallpaper="$HOME/.i3/wallpaper.png"
+wallpaper="$HOME/.config/i3/wallpaper.png"
 
 while :; do
     sleep 1h

@@ -1,7 +1,5 @@
-export BROWSER=/usr/bin/google-chrome-stable
-export EDITOR=/usr/bin/nvim
-
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+export SDL_IM_MODULE=fcitx
 export GLFW_IM_MODULE=ibus
-export GTK_IM_MODULE=fcitx5
-export QT_IM_MODULE=fcitx5
-export XMODIFIERS=@im=fcitx5
