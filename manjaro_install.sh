@@ -175,28 +175,6 @@ sudo pacman -S alacritty \
     zathura \
     zathura-pdf-mupdf
 
-# Bluetooth
-sudo pacman -S bluez \
-    bluez-utils \
-    blueman
-
-# Input method
-sudo pacman -S fcitx5 \
-    fcitx5-chinese-addons \
-    fcitx5-configtool \
-    manjaro-asian-input-support-fcitx5
-
-# Virtual machine
-# sudo pacman -S qemu \
-# 	libvirt \
-# 	ovmf \
-# 	virt-manager \
-# 	virt-viewer \
-# 	vde2
-
-# Remove again
-sudo pacman -Rns nitrogen
-
 Info "### Pip install ###"
 pip install black \
     mycli \
@@ -207,14 +185,3 @@ Info "### Npm install ###"
 sudo npm install -g json-server \
     reveal-md
 echo
-
-# Delete
-trash-put "$HOME/.config/hexchat" \
-    "$HOME/.config/falkon" \
-    "$HOME/.config/clipit" \
-    "$HOME/.config/epdfview" \
-    "$HOME/.config/morc_menu" \
-    "$HOME/.config/xfce4" \
-    "$HOME/.config/Kvantum" \
-    "$HOME/.config/volumeicon" \
-    "$HOME/.config/nitrogen"

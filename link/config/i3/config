@@ -39,6 +39,7 @@ exec --no-startup-id utools
 bindsym $mod+q exec --no-startup-id dunstctl close
 bindsym $mod+r mode "resize"
 bindsym $mod+a exec --no-startup-id flameshot gui
+bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+o focus mode_toggle
 bindsym $mod+p scratchpad show
 bindsym $mod+s split toggle
@@ -48,7 +49,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+n exec --no-startup-id dunstctl history-pop
-bindsym $mod+Return exec --no-startup-id kitty -e zsh
+bindsym $mod+Return exec --no-startup-id alacritty -e zsh
 
 bindsym $mod+Tab workspace next
 bindsym $mod+Shift+Tab workspace prev
@@ -74,7 +75,7 @@ bindsym $mod+Ctrl+h move left 50
 bindsym $mod+Ctrl+j move down 50
 bindsym $mod+Ctrl+k move up 50
 bindsym $mod+Ctrl+l move right 50
-bindsym $mod+Ctrl+Return exec --no-startup-id kitty -T "kitty-float" -e zsh
+bindsym $mod+Ctrl+Return exec --no-startup-id alacritty -T "alacritty-float" -e zsh
 
 # Mode
 set $mode_i3exit (L)ock    (S)uspend    (H)ibernate    log(O)ut    (R)eboot    (Shift+S)hutdown
@@ -187,7 +188,7 @@ floating_minimum_size 805 x -1
 floating_maximum_size 1430 x 805
 
 # Open specific applications in floating mode
-for_window [title="kitty-float"] floating enable, resize set 1430 805, move position center
+for_window [title="alacritty-float"] floating enable, resize set 1430 805, move position center
 for_window [title="Clash Dashboard"] floating enable, resize set 1430 805, move position center
 for_window [title="Monkeytype"] floating enable, resize set 1430 805, move position center
 for_window [title="draw.io"] floating enable, resize set 1430 805, move position center
